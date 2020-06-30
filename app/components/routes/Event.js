@@ -5,7 +5,6 @@ const Event = ({ event }) => {
     <>
       <h2>{event.name}</h2>
       {event.body && event.body.map((item, i) => {
-        console.log('item', item);
         if (item.hasOwnProperty('text')) {
           return (
             <p key={i}>{item.text}</p>

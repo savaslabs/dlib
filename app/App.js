@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header eventPages={eventPages} />
       <h1>Civil Rights Heritage Project</h1>
       <Switch>
         {timeline && (

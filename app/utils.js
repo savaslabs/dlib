@@ -1,4 +1,4 @@
-export const cleanId = (name) => {
+export const cleanId = name => {
   return name
     .toLowerCase()
     .replace(/ /g, '_')
@@ -8,8 +8,8 @@ export const cleanId = (name) => {
 
 export const routes = [
   { component: 'Timeline', route: 'timeline', },
-  { component: 'Major Events', route: 'events', },
+  { component: 'Major Events' },
   { component: 'Photo Gallery', route: 'gallery' },
   { component: 'Oral Histories', route: 'oral_histories' },
-  { component: 'About', route: 'aboute' },
+  { component: 'About', route: 'about' },
 ];

@@ -5,17 +5,23 @@ import Card from '../Card';
 
 const Timeline = ({ timeline }) => {
   return (
-    timeline && timeline.map((event, i) => {
-      const id = cleanId(event.Name);
-      return event.Type === 'Feature' ? (
-        <Link to={`/${id}`} key={i}>
-          <Card event={event} />
-        </Link>
-      ) : (
-        <Card key={i} event={event} />
-      );
-    })
-  )
+    <ol>
+      {timeline &&
+        timeline.map((event, i) => {
+          return (
+            <li value={event.Year} key={i}>
+              {event.Type === 'Feature' ? (
+                <Link to={`/${cleanId(event.Name)}`}>
+                  <Card event={event} />
+                </Link>
+              ) : (
+                <Card key={i} event={event} />
+              )}
+            </li>
+          )
+        })}
+    </ol>
+  );
 }
 
 export default Timeline;
