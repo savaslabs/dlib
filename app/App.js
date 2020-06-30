@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import '@babel/polyfill';
 import { csv } from 'd3';
+import { cleanId } from './utils'
+import { Switch, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Timeline from './components/routes/Timeline';
+import Event from './components/routes/Event';
+import Pages from './assets/event-pages.json';
+
 const App = () => {
   const [timeline, setTimeline] = useState([]);
+  const [eventPages, setEventPages] = useState(Pages);
 
   // Fetch Timeline Events.
   useEffect(() => {
@@ -13,19 +21,23 @@ const App = () => {
 
   return (
     <>
+      <Header />
       <h1>Civil Rights Heritage Project</h1>
-      {timeline && timeline.map((event, i) => {
-        return (
-          <article key={i}>
-            <p>{event.Year}</p>
-            <p>{event.Scope}</p>
-            <p>{event.Name}</p>
-            <p>{event.Type}</p>
-            <p>{event.Images}</p>
-            <p>{event.Headline}</p>
-          </article>
-        );
-      })}
+      <Switch>
+        {timeline && (
+          <Route exact path={["/", "/timeline"]}>
+            <Timeline timeline={timeline} />
+          </Route>
+        )}
+        {eventPages &&
+          eventPages.map((event, index) => {
+            return (
+              <Route path={`/${cleanId(event.name)}`} key={index}>
+                <Event event={event} />
+              </Route>
+            );
+          })}
+      </Switch>
     </>
   );
 };
