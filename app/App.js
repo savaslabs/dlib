@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '@babel/polyfill';
 import { csv } from 'd3';
-import { cleanId } from './utils'
+import { cleanId } from './utils/utils';
+import { ImageProvider } from './utils/ImageContext';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
@@ -10,6 +11,7 @@ import Pages from './assets/event-pages.json';
 
 const App = () => {
   const [timeline, setTimeline] = useState([]);
+  const [images, setImages] = useState([]);
   const [eventPages, setEventPages] = useState(Pages);
 
   // Fetch Timeline Events.
@@ -19,13 +21,19 @@ const App = () => {
     });
   }, []);
 
+  useEffect(() => {
+    csv('/app/assets/images.csv').then(data => {
+      setImages(data);
+    });
+  }, []);
+
   return (
-    <>
+    <ImageProvider images={images}>
       <Header eventPages={eventPages} />
       <h1>Civil Rights Heritage Project</h1>
       <Switch>
         {timeline && (
-          <Route exact path={["/", "/timeline"]}>
+          <Route exact path={['/', '/timeline']}>
             <Timeline timeline={timeline} />
           </Route>
         )}
@@ -38,7 +46,7 @@ const App = () => {
             );
           })}
       </Switch>
-    </>
+    </ImageProvider>
   );
 };
 export default App;

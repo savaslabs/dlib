@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanId } from '../../utils';
+import { cleanId } from '../../utils/utils';
 import { Link } from 'react-router-dom';
 import Card from '../Card';
 

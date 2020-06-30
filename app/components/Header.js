@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
-import { routes, cleanId } from '../utils';
+import { routes, cleanId } from '../utils/utils';
 
 const Header = ({ eventPages }) => {
   const [selectedValue, setSelectedValue] = useState('');
