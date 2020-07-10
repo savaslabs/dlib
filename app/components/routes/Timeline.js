@@ -9,16 +9,26 @@ const Timeline = ({ timeline }) => {
       {timeline &&
         timeline.map((event, i) => {
           return (
-            <li value={event.Year} key={i}>
-              {event.Type === 'Feature' ? (
-                <Link to={`/${cleanId(event.Name)}`}>
-                  <Card event={event} />
-                </Link>
-              ) : (
-                <Card key={i} event={event} />
-              )}
+            <li value={event.year} key={i}>
+              <ul>
+                {event.events.map((eventsPerYear, index) => {
+                  const placement =
+                    eventsPerYear.Scope === 'National Event' ? 'left' : 'right';
+                  return (
+                    <li key={index} className={placement}>
+                      {eventsPerYear.Type === 'Feature' ? (
+                        <Link to={`/${cleanId(eventsPerYear.Name)}`}>
+                          <Card event={eventsPerYear} />
+                        </Link>
+                      ) : (
+                        <Card key={i} event={eventsPerYear} />
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             </li>
-          )
+          );
         })}
     </ol>
   );

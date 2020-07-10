@@ -8,16 +8,30 @@ import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
 import Event from './components/routes/Event';
 import Pages from './assets/event-pages.json';
+import './index.css';
 
 const App = () => {
   const [timeline, setTimeline] = useState([]);
   const [images, setImages] = useState([]);
   const [eventPages, setEventPages] = useState(Pages);
 
-  // Fetch Timeline Events.
+  // Fetch timeline events.
   useEffect(() => {
-    csv('/app/assets/timeline-events.csv').then(data => {
-      setTimeline(data);
+    csv('/app/assets/timeline-events-robust.csv').then(data => {
+      // Sort chronologically and restructure timeline based on event year.
+      const newData = data
+        .sort((a, b) => (a.Year > b.Year ? 1 : -1))
+        .reduce((acc, currentValue) => {
+          const found = acc.find((a) => a.year === currentValue.Year);
+          if (!found) {
+            // Nest events of the same year.
+            acc.push({ year: currentValue.Year, events: [currentValue] });
+          } else {
+            found.events.push(currentValue);
+          }
+          return acc;
+        }, []);
+      setTimeline(newData);
     });
   }, []);
 

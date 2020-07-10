@@ -1,0 +1,15 @@
+article {
+  max-width: 500px;
+}
+
+.left {
+  margin-left: -600px;
+}
+
+.right {
+  margin-left: 40px;
+}
+
+ol {
+  margin-left: 40vw;
+}
