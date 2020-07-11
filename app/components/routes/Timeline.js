@@ -4,29 +4,33 @@ import { Link } from 'react-router-dom';
 import Card from '../Card';
 
 const Timeline = ({ timeline }) => {
+  console.log('timeline', timeline);
   return (
     <ol>
       {timeline &&
-        timeline.map((event, i) => {
+        timeline.map((eventsPerYear, i) => {
           return (
-            <li value={event.year} key={i}>
-              <ul>
-                {event.events.map((eventsPerYear, index) => {
-                  const placement =
-                    eventsPerYear.Scope === 'National Event' ? 'left' : 'right';
-                  return (
-                    <li key={index} className={placement}>
-                      {eventsPerYear.Type === 'Feature' ? (
-                        <Link to={`/${cleanId(eventsPerYear.Name)}`}>
-                          <Card event={eventsPerYear} />
-                        </Link>
-                      ) : (
-                        <Card key={i} event={eventsPerYear} />
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
+            <li value={eventsPerYear.year} key={i} className="year">
+              {eventsPerYear.events.map((eventsPerScope, index) => {
+                console.log('eventsPerScope', eventsPerScope);
+                return (
+                  <ul key={index} className={eventsPerScope.scope === 'National Event' ? 'national' : 'durham'}>
+                    {eventsPerScope.events.map((event, ind) => {
+                      return (
+                        <li key={ind}>
+                          {event.Type === 'Feature' ? (
+                            <Link to={`/${cleanId(event.Name)}`}>
+                              <Card event={event} />
+                            </Link>
+                          ) : (
+                            <Card key={i} event={event} />
+                          )}
+                      </li>
+                      )
+                    })}
+                  </ul>
+                )
+              })}
             </li>
           );
         })}
