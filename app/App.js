@@ -8,6 +8,8 @@ import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
 import Event from './components/routes/Event';
 import Pages from './assets/event-pages.json';
+import { Normalize } from 'styled-normalize';
+import GlobalStyles from './globalStyles';
 import './index.css';
 
 const App = () => {
@@ -59,23 +61,26 @@ const App = () => {
 
   return (
     <ImageProvider images={images}>
+      <Normalize />
+      <GlobalStyles />
       <Header eventPages={eventPages} />
-      <h1>Civil Rights Heritage Project</h1>
-      <Switch>
-        {timeline && (
-          <Route exact path={['/', '/timeline']}>
-            <Timeline timeline={timeline} />
-          </Route>
-        )}
-        {eventPages &&
-          eventPages.map((event, index) => {
-            return (
-              <Route path={`/${cleanId(event.name)}`} key={index}>
-                <Event event={event} />
-              </Route>
-            );
-          })}
-      </Switch>
+      <div className='container' style={{ backgroundColor: '#fbfbfb' }}>
+        <Switch>
+          {timeline && (
+            <Route exact path={['/', '/timeline']}>
+              <Timeline timeline={timeline} />
+            </Route>
+          )}
+          {eventPages &&
+            eventPages.map((event, index) => {
+              return (
+                <Route path={`/${cleanId(event.name)}`} key={index}>
+                  <Event event={event} />
+                </Route>
+              );
+            })}
+        </Switch>
+      </div>
     </ImageProvider>
   );
 };

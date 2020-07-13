@@ -1,16 +1,73 @@
 article {
-  max-width: 500px;
+  width: 473px;
 }
 
 ol {
   margin-left: 40vw;
 }
 
-.national {
-  margin-left: -600px;
+.sole-left span {
+  left: -50px;
+  width: 40px;
+
 }
 
-.durham {
+.sole-right span {
+  left: 60px;
+  width: 40px;
+}
+
+.sole-right span::after {
+  content: '';
+  left: 40px;
+}
+.sole-left span::before {
+  content: '';
+}
+
+.sole-right span::before {
+  content: none;
+}
+
+.sole-left span::after {
+  content: none;
+}
+
+.sole-left .national {
+  margin-left: -650px;
+}
+
+.sole-right .durham {
   margin-left: 40px;
 }
 
+.both {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.both .durham {
+  margin-left: 400px;
+}
+
+.both .national {
+  margin-left: -1000px;
+}
+
+.sole-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sole-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container {
+  padding: 0 60px;
+}
+
+ol {
+  list-style: none;
+}

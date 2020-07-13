@@ -1,7 +1,22 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { ImageContext } from '../utils/ImageContext';
+import styled from 'styled-components';
 
-const Card = ({ event: { Year, Scope, Name, Type, Images, Headline }  }) => {
+const Card = styled.article`
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 24px;
+  border-top: 6px;
+  border-top-style: solid;
+  margin-bottom: 30px;
+`;
+
+//   border-color: ${props =>
+//   (props.scope === 'National Event' ? '#41796f' : '#D5CC7F' )};
+
+const card = (props) => {
+  console.log('props.scope', props.scope);
+  const { event: { Scope, Name, Type, Images, Headline } } = props;
   const imageId = Images ? Images : null;
   const { images } = useContext(ImageContext);
   const [photo, setPhoto] = useState([]);
@@ -15,7 +30,7 @@ const Card = ({ event: { Year, Scope, Name, Type, Images, Headline }  }) => {
   }, [images])
 
   return (
-    <article>
+    <Card>
       <p>{Scope}</p>
       <p>{Name}</p>
       <p>{Type}</p>
@@ -29,8 +44,8 @@ const Card = ({ event: { Year, Scope, Name, Type, Images, Headline }  }) => {
         )
       })}
       <p>{Headline}</p>
-    </article>
+    </Card>
   );
 }
 
-export default Card
+export default card

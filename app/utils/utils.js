@@ -8,8 +8,8 @@ export const cleanId = name => {
 
 export const routes = [
   { component: 'Timeline', route: 'timeline', },
-  { component: 'Major Events' },
+  { component: 'Featured Events' },
   { component: 'Photo Gallery', route: 'gallery' },
   { component: 'Oral Histories', route: 'oral_histories' },
-  { component: 'About', route: 'about' },
+  { component: 'About This Project', route: 'about' },
 ];
