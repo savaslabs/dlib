@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { cleanId } from '../../utils/utils';
 import { Link } from 'react-router-dom';
 import Card from '../Card';
 import styled from 'styled-components';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.core.globals('ScrollTrigger', ScrollTrigger);
+
+const Timeline = styled.ol`
+  padding-top: 80px;
+`;
 
 const Li = styled.li`
   position: relative;
@@ -18,10 +27,7 @@ const Li = styled.li`
     line-height: 1.125;
     background: #e0e0e0;
     border-radius: 50%;
-    padding-top: 22px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 22px;
+    padding: 22px 15px;
     border: 4px;
     border-color: white;
     border-style: solid;
@@ -71,14 +77,63 @@ const Span = styled.span`
   }
 `;
 
-const Timeline = ({ timeline }) => {
+const Sticky = styled.div`
+  position: sticky;
+  top: 0;
+`;
+
+const TimelineHeaders = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 60px 0 40px 0;
+  z-index: 500;
+  li {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px 40px;
+  }
+`;
+
+const timeline = ({ timeline }) => {
+  const yearRefs = useRef([]);
+  yearRefs.current = [];
+
+  useEffect(() => {
+    yearRefs.current.forEach((el, index) => {
+      gsap.from(el, {
+        scrollTrigger: {
+          id: `section-${index + 1}`,
+          trigger: el,
+          scrub: true,
+          start: 'top center',
+          end: 'top top',
+          toggleClass: 'active',
+          markers: { startColor: 'green', endColor: 'red', fontSize: '12px' }, //For Dev only
+        },
+      });
+    })
+  }, []);
+
+  const addToYearRefs = el => {
+    if (el && !yearRefs.current.includes(el)) {
+      yearRefs.current.push(el);
+    }
+  };
+
   return (
     <>
-      <h1>Civil Rights Heritage Project</h1>
-      <ol>
+      <h1 className='sr-only'>Civil Rights Heritage Project</h1>
+      <Sticky>
+        <TimelineHeaders>
+          <li>National Civil Rights Timeline</li>
+          <li>Durham Civil Rights Timeline</li>
+        </TimelineHeaders>
+      </Sticky>
+      <Timeline>
         {timeline &&
           timeline.map((eventsPerYear, i) => {
-            console.log('eventsPerYear', eventsPerYear);
             let position;
             if (eventsPerYear.events.length < 2) {
               position = eventsPerYear.events[0].scope === 'National Event' ? 'sole-left' : 'sole-right';
@@ -86,7 +141,12 @@ const Timeline = ({ timeline }) => {
               position = 'both';
             }
             return (
-              <Li value={eventsPerYear.year} key={i} className={position}>
+              <Li
+                value={eventsPerYear.year}
+                key={i}
+                className={`${position} year_${i}`}
+                ref={addToYearRefs}
+              >
                 <Span />
                 {eventsPerYear.events.map((eventsPerScope, index) => {
                   return (
@@ -117,9 +177,9 @@ const Timeline = ({ timeline }) => {
               </Li>
             );
           })}
-      </ol>
+      </Timeline>
     </>
   );
 }
 
-export default Timeline;
+export default timeline;

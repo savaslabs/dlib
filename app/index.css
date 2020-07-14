@@ -34,7 +34,7 @@ ol {
 }
 
 .sole-left .national {
-  margin-left: -650px;
+  margin-left: -325px;
 }
 
 .sole-right .durham {
@@ -47,11 +47,11 @@ ol {
 }
 
 .both .durham {
-  margin-left: 400px;
+  margin-left: none;
 }
 
 .both .national {
-  margin-left: -1000px;
+  margin-left: -883px;
 }
 
 .sole-left {
@@ -70,4 +70,47 @@ ol {
 
 ol {
   list-style: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* On ScrollTrigger */
+li.active::before {
+  color: white;
+  background: #202D25;
+  border-color: #202D25;
+}
+
+li.active article.national {
+  border-color: #D5CC7F;
+}
+
+li.active.sole-left span::before {
+  background: #D5CC7F;
+}
+
+li.active article.durham {
+  border-color: #41796f;
+}
+
+li.active.sole-right span::after {
+  background: #41796f;
+}
+
+li.active.both span::before {
+   background: #D5CC7F;
+}
+
+li.active.both span::after {
+  background: #41796f;
 }
