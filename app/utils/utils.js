@@ -39,6 +39,18 @@ export const theme = {
   },
   fontSource: 'https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap',
   fontFamily: 'Almarai, sans-serif',
+  fontSize: {
+    xs: '16px', // Mobile Body.
+    sm: '18px', // Desktop Body, Mobile headers.
+    md: '21px', // Desktop.
+    lg: '24px', // Desktop Menu.
+    xl: '31px', // Desktop Header Text.
+  },
+  lineHeight: {
+    tight: '1.125',
+    snug: '1.14',
+    loose: '1.31',
+  },
   smContainer:
   `padding: 0 18px;
     margin-left: auto;
@@ -49,6 +61,10 @@ export const theme = {
     max-width: 1163px;
     margin-left: auto;
     margin-right: auto;
+  `,
+  containerFullWidth:
+  `margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   `,
   srOnly:
   `position: absolute;

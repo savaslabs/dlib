@@ -1,36 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { routes, cleanId } from '../utils/utils';
 import menu from 'react-svg-loader!../assets/menu.svg';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 
 const header = ({ eventPages }) => {
-  const [menuState, setMenuState] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
-  const history = useHistory();
-  const location = useLocation();
-
-  const selectEvent = e => {
-    const selectedEvent = e.target.value;
-    const newPath = selectedEvent ? `/${cleanId(selectedEvent)}` : location.pathname;
-
-    setSelectedValue(selectedEvent);
-
-    // Route to major event pages on select.
-    Object.assign(location, {
-      pathname: newPath,
-    });
-
-    history.push(newPath);
-  }
-
-  useEffect(() => {
-    // Revert selected major event if user re-routes.
-    if (location.pathname !== `/${cleanId(selectedValue)}`) {
-      setSelectedValue('');
-    }
-  }, [location.pathname, selectedValue]);
+  // Whether or not mobile menu is open.
+  const [mobileMenuState, setMobileMenuState] = useState(false);
+  // Whether or not user is hovering over expandable menu item.
+  const [mouseOverMenuExpandToggle, setMouseOverMenuExpandToggle] = useState(false);
+  // Whether or not user is hovering over expanded menu.
+  const [mouseOverExpandableMenu, setMouseOverExpandableMenu] = useState(false);
 
   return (
     <Header>
@@ -54,32 +35,44 @@ const header = ({ eventPages }) => {
           </Right>
         </Top>
         <Bottom>
-          <MobileMenuToggle onClick={() => setMenuState(!menuState)}>
-            <ScreenReaderText>{`${menuState ? 'Close' : 'Open'} Menu`}</ScreenReaderText>
+          <MobileMenuToggle onClick={() => setMobileMenuState(!mobileMenuState)}>
+            <ScreenReaderText>{`${mobileMenuState ? 'Close' : 'Open'} Menu`}</ScreenReaderText>
           </MobileMenuToggle>
-          <Menu state={menuState}>
+          <Menu state={mobileMenuState}>
             {routes.map((route, index) => {
-              return route.component === 'Major Events' ? (
-                <li key={index}>
-                  <label htmlFor='events'>{route.component}</label>
-                  <select
-                    id='events'
-                    onChange={selectEvent}
-                    value={selectedValue}
+              return route.component === 'Featured Events' ? (
+                <ExpandToggle
+                  key={index}
+                  onKeyDown={() => setMouseOverMenuExpandToggle(true)}
+                  onMouseEnter={() => setMouseOverMenuExpandToggle(true)}
+                  onMouseLeave={() => setMouseOverMenuExpandToggle(false)}
+                  tabIndex='0'
+                >
+                  {route.component}
+                  <Expandable
+                    onMouseEnter={() => setMouseOverExpandableMenu(true)}
+                    onMouseLeave={() => setMouseOverExpandableMenu(false)}
+                    hidden={
+                      mouseOverExpandableMenu || mouseOverMenuExpandToggle
+                        ? false
+                        : true
+                    }
                   >
-                    <option value=''>{route.component}</option>
                     {eventPages &&
                       eventPages.map((page, i) => {
                         return (
-                          <option value={page.name} key={i}>
-                            {page.name}
-                          </option>
+                          <NavLink to={`/${cleanId(page.name)}`} key={i}>
+                            <li>{page.name}</li>
+                          </NavLink>
                         );
                       })}
-                  </select>
-                </li>
+                  </Expandable>
+                </ExpandToggle>
               ) : (
-                <NavLink to={`/${route.route}`} key={index}>
+                <NavLink
+                  to={`/${route.route}`}
+                  key={index}
+                >
                   <li>{route.component}</li>
                 </NavLink>
               );
@@ -140,11 +133,11 @@ const Left = styled.div`
 `;
 
 const SiteName = styled.div`
-  color: white;
+  color: ${(props) => props.theme.colors.white};
   font-weight: 700;
-  line-height: 1.14;
+  line-height: ${(props) => props.theme.lineHeight.snug};
   letter-spacing: 0.02em;
-  font-size: 21px;
+  font-size: ${(props) => props.theme.fontSize.md};
   padding-top: 20px;
   max-width: 248px;
   ${breakpoint('lg')`
@@ -156,12 +149,6 @@ const SiteName = styled.div`
 const CollectionInfo = styled.div`
   padding-top: 22px;
   color: ${(props) => props.theme.colors.greenBean};
-  p {
-    padding: none;
-  }
-  a {
-    text-decoration: underline;
-  }
 `;
 
 const Right = styled.p`
@@ -171,9 +158,9 @@ const Right = styled.p`
 
 const Bottom = styled.nav`
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  background-color: #fbfbfb;
+  z-index: 100;
+  ${(props) => props.theme.containerFullWidth};
+  background-color: ${(props) => props.theme.colors.bgGray};
 `;
 
 const MobileMenuToggle = styled.button`
@@ -188,7 +175,7 @@ const MobileMenuToggle = styled.button`
   `}
 `;
 
-const ScreenReaderText = styled.div`
+const ScreenReaderText = styled.span`
   ${(props) => props.theme.srOnly};
 `;
 
@@ -199,8 +186,8 @@ const Menu = styled.ul`
     flex-direction: row;
     justify-content: space-between;
     padding-top: 25px;
-    ${props => props.theme.lgContainer};
-    a {
+    ${(props) => props.theme.lgContainer};
+    li, a {
       text-decoration: none;
       color: #41796f;
       font-size: 24px;
@@ -208,6 +195,28 @@ const Menu = styled.ul`
       line-height: 1.125;
     }
   `}
+`;
+
+const ExpandToggle = styled.li`
+  position: relative;
+`;
+
+const Expandable = styled.ul`
+  position: absolute;
+  top: 41px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: -1;
+  width: 150%;
+  background: ${(props) => props.theme.colors.bgGray};
+
+  a li {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px;
+    border-bottom: 1px solid;
+  }
 `;
 
 export default header;
