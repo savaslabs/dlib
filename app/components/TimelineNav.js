@@ -1,5 +1,5 @@
 import React from 'react';
-import { timelineScopes } from '../utils/utils';
+import { timelineScopes } from '../utils/constants';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 

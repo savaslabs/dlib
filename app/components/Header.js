@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { routes, cleanId, timelineDescription } from '../utils/utils';
+import { routes, cleanId, timelineDescription } from '../utils/constants';
 import menu from 'react-svg-loader!../assets/menu.svg';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
@@ -64,7 +64,7 @@ const header = ({ eventPages }) => {
                     {eventPages &&
                       eventPages.map((page, i) => {
                         return (
-                          <NavLink to={`/${cleanId(page.name)}`} key={i}>
+                          <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
                             <li>{page.name}</li>
                           </NavLink>
                         );

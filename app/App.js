@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '@babel/polyfill';
-import { routes, cleanId, theme } from './utils/utils';
+import { routes, cleanId } from './utils/constants';
 import { Switch, Route } from 'react-router-dom';
 
 // Components.
@@ -16,6 +16,7 @@ import Events from './assets/events.json';
 // Styling.
 import { Normalize } from 'styled-normalize';
 import { ThemeProvider } from 'styled-components';
+import { theme } from './utils/theme';
 import GlobalStyles from './globalStyles';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
@@ -78,7 +79,7 @@ const App = () => {
             ) : r.component === 'Featured Events' && eventPages ?
             (eventPages.map((event, index) => {
               return (
-                <Route path={`/${cleanId(event.name)}`} key={index}>
+                <Route path={`/events/${cleanId(event.name)}`} key={index}>
                   <Basic page={event.name} event={event} />
                 </Route>
               );

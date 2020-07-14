@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { cleanId } from '../../utils/utils';
+import { cleanId } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import TimelineNav from '../TimelineNav';
 import Card from '../Card';
@@ -75,9 +75,9 @@ const timeline = ({ timeline }) => {
                         return (
                           <li key={ind}>
                             {event.Type === 'Feature' ? (
-                              <Link to={`/${cleanId(event.Name)}`}>
+                              <LinkedEvent to={`/${cleanId(event.Name)}`}>
                                 <Card event={event} scope={event.Scope} link />
-                              </Link>
+                              </LinkedEvent>
                             ) : (
                               <Card key={i} event={event} scope={event.Scope} />
                             )}
@@ -201,6 +201,14 @@ const Span = styled.span`
 
 const H1 = styled.h1`
   ${(props) => props.theme.srOnly};
+`;
+
+const LinkedEvent = styled(Link)`
+  color: ${(props) => props.theme.colors.greenBean};
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: ${(props) => props.theme.fontWeight.bold};
+  line-height: ${(props) => props.theme.lineHeight.snug};
 `;
 
 export default timeline;

@@ -1,18 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import { cleanJSON } from '../utils/constants'
 
 const card = ({ event, link }) => {
-  // Helper function to replace parentheses and spaces in JSON keys.
-  const cleanJSON = obj => {
-    Object.keys(obj).forEach((key) => {
-      const replaced = key.replace(/\s/g, '_').replace(/["'()]/g, '');
-      if (key !== replaced) {
-        obj[replaced] = obj[key];
-        delete obj[key];
-      }
-    });
-    return obj;
-  }
   cleanJSON(event);
   const { Scope, Name, Images, External_Resource_Links } = event;
   return (
@@ -30,10 +20,10 @@ const card = ({ event, link }) => {
         return link ? (
           <p key={i}>Read More</p>
         ) : (
-          <React.Fragment key={i}>
+          <ExternalLink key={i}>
             <a href={ext.URL}>{ext.Source_Shortform}</a>
-            {External_Resource_Links.length > 1 ? '; ' : null}
-          </React.Fragment>
+            {External_Resource_Links.length === i + 1 ? null : '; '}
+          </ExternalLink>
         )
       })}
     </Card>
@@ -53,6 +43,12 @@ const Card = styled.article`
 const Image = styled.img`
   max-width: 117px;
   max-height: 117px;
+`;
+
+const ExternalLink = styled.p`
+  text-decoration: underline;
+  color: ${(props) => props.theme.colors.greenBean};
+  font-weight: ${(props) => props.theme.fontWeight.normal};
 `;
 
 export default card
