@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { cleanId } from '../../utils/utils';
 import { Link } from 'react-router-dom';
+import TimelineNav from '../TimelineNav';
 import Card from '../Card';
 import styled from 'styled-components';
 import gsap from 'gsap';
@@ -8,93 +9,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
-
-const Timeline = styled.ol`
-  padding-top: 80px;
-`;
-
-const Li = styled.li`
-  position: relative;
-
-  ::before {
-    content: attr(value);
-    position: absolute;
-    left: -10px;
-    top: -33px;
-    color: #41796f;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    line-height: 1.125;
-    background: #e0e0e0;
-    border-radius: 50%;
-    padding: 22px 15px;
-    border: 4px;
-    border-color: white;
-    border-style: solid;
-    z-index: 20;
-  }
-
-  ::after {
-    content: '';
-    height: 185px;
-    width: 6px;
-    background: #e0e0e0;
-    position: absolute;
-    left: 24px;
-    top: -80px;
-  }
-`;
-
-const Span = styled.span`
-  position: absolute;
-  border: 3px solid #e0e0e0;
-  width: 165px;
-  left: -55px;
-
-  /* Left Side */
-  ::before {
-    content: '';
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    z-index: 100;
-    border-radius: 50%;
-    background: #e0e0e0;
-    top: -8px;
-    left: -15px;
-  }
-  /* Right Side */
-  ::after {
-    content: '';
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    z-index: 100;
-    border-radius: 50%;
-    background: #e0e0e0;
-    top: -8px;
-    left: 160px;
-  }
-`;
-
-const Sticky = styled.div`
-  position: sticky;
-  top: 0;
-`;
-
-const TimelineHeaders = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 60px 0 40px 0;
-  z-index: 500;
-  li {
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 20px 40px;
-  }
-`;
 
 const timeline = ({ timeline }) => {
   const yearRefs = useRef([]);
@@ -113,10 +27,10 @@ const timeline = ({ timeline }) => {
           markers: { startColor: 'green', endColor: 'red', fontSize: '12px' }, //For Dev only
         },
       });
-    })
+    });
   }, []);
 
-  const addToYearRefs = el => {
+  const addToYearRefs = (el) => {
     if (el && !yearRefs.current.includes(el)) {
       yearRefs.current.push(el);
     }
@@ -124,28 +38,27 @@ const timeline = ({ timeline }) => {
 
   return (
     <>
-      <h1 className='sr-only'>Civil Rights Heritage Project</h1>
-      <Sticky>
-        <TimelineHeaders>
-          <li>National Civil Rights Timeline</li>
-          <li>Durham Civil Rights Timeline</li>
-        </TimelineHeaders>
-      </Sticky>
+      <H1>Civil Rights Heritage Project</H1>
+      <TimelineNav />
       <Timeline>
         {timeline &&
           timeline.map((eventsPerYear, i) => {
             let position;
             if (eventsPerYear.events.length < 2) {
-              position = eventsPerYear.events[0].scope === 'National Event' ? 'sole-left' : 'sole-right';
+              position =
+                eventsPerYear.events[0].scope === 'National Event'
+                  ? 'sole-left'
+                  : 'sole-right';
             } else {
               position = 'both';
             }
             return (
-              <Li
+              <YearListItem
                 value={eventsPerYear.year}
                 key={i}
                 className={`${position} year_${i}`}
                 ref={addToYearRefs}
+                position={position}
               >
                 <Span />
                 {eventsPerYear.events.map((eventsPerScope, index) => {
@@ -174,12 +87,121 @@ const timeline = ({ timeline }) => {
                     </ul>
                   );
                 })}
-              </Li>
+              </YearListItem>
             );
           })}
       </Timeline>
     </>
   );
-}
+};
+
+
+const Timeline = styled.ol`
+  padding-top: 80px;
+  margin-left: 50%;
+`;
+
+const YearListItem = styled.li`
+  position: relative;
+  display: flex;
+
+  &:before {
+    content: attr(value);
+    position: absolute;
+    left: -30px;
+    top: -33px;
+    color: ${(props) => props.theme.colors.greenBean};
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.125;
+    background: ${(props) => props.theme.colors.lightGray};
+    border-radius: 50%;
+    padding: 22px 15px;
+    border: 4px;
+    border-color: ${(props) => props.theme.colors.white};
+    border-style: solid;
+    z-index: 20;
+  }
+
+  ::after {
+    content: '';
+    height: 185px;
+    width: 6px;
+    background: ${(props) => props.theme.colors.lightGray};
+    position: absolute;
+    left: 3px;
+    top: -80px;
+  }
+
+  ${(props) =>
+    props.position === 'sole-left' &&
+    `justify-content: flex-start;
+    ${Span} {
+      left: -70px;
+      width: 40px;
+
+      &::before {
+        content: '';
+      }
+      &::after {
+        content: none;
+      }
+    }
+    `}
+  ${(props) =>
+    props.position === 'sole-right' &&
+    `justify-content: flex-end;
+  ${Span} {
+      left: 40px;
+      width: 40px;
+
+      &::before {
+        content: none;
+      }
+      &::after {
+        content: '';
+        left: 40px;
+      }
+    }
+
+  `}
+  ${(props) => props.position === 'both' && `flex-direction: row-reverse;`}
+`;
+
+const Span = styled.span`
+  position: absolute;
+  border: 3px solid ${(props) => props.theme.colors.lightGray};
+  width: 165px;
+  left: -75px;
+
+  /* Left Side */
+  ::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    z-index: 20;
+    border-radius: 50%;
+    background: ${(props) => props.theme.colors.lightGray};
+    top: -8px;
+    left: -15px;
+  }
+  /* Right Side */
+  ::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    z-index: 20;
+    border-radius: 50%;
+    background: ${(props) => props.theme.colors.lightGray};
+    top: -8px;
+    left: 160px;
+  }
+`;
+
+const H1 = styled.h1`
+  ${(props) => props.theme.srOnly};
+`;
 
 export default timeline;

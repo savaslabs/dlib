@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '@babel/polyfill';
 import { csv } from 'd3';
-import { cleanId } from './utils/utils';
+import { cleanId, theme } from './utils/utils';
 import { ImageProvider } from './utils/ImageContext';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -9,7 +9,10 @@ import Timeline from './components/routes/Timeline';
 import Event from './components/routes/Event';
 import Pages from './assets/event-pages.json';
 import { Normalize } from 'styled-normalize';
+import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './globalStyles';
+import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 import './index.css';
 
 const App = () => {
@@ -60,28 +63,37 @@ const App = () => {
   }, []);
 
   return (
-    <ImageProvider images={images}>
-      <Normalize />
-      <GlobalStyles />
-      <Header eventPages={eventPages} />
-      <div className='container' style={{ backgroundColor: '#fbfbfb' }}>
-        <Switch>
-          {timeline && (
-            <Route exact path={['/', '/timeline']}>
-              <Timeline timeline={timeline} />
-            </Route>
-          )}
-          {eventPages &&
-            eventPages.map((event, index) => {
-              return (
-                <Route path={`/${cleanId(event.name)}`} key={index}>
-                  <Event event={event} />
-                </Route>
-              );
-            })}
-        </Switch>
-      </div>
-    </ImageProvider>
+    <ThemeProvider theme={theme}>
+      <ImageProvider images={images}>
+        <Normalize />
+        <GlobalStyles />
+        <Header eventPages={eventPages} />
+        <ContentContainer>
+          <Switch>
+            {timeline && (
+              <Route exact path={['/', '/timeline']}>
+                <Timeline timeline={timeline} />
+              </Route>
+            )}
+            {eventPages &&
+              eventPages.map((event, index) => {
+                return (
+                  <Route path={`/${cleanId(event.name)}`} key={index}>
+                    <Event event={event} />
+                  </Route>
+                );
+              })}
+          </Switch>
+        </ContentContainer>
+      </ImageProvider>
+    </ThemeProvider>
   );
 };
+
+const ContentContainer = styled.div`
+  ${(props) => props.theme.smContainer};
+  ${breakpoint('lg')`
+    ${(props) => props.theme.lgContainer};
+  `}
+`;
 export default App;

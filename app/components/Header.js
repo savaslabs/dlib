@@ -1,87 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import { routes, cleanId } from '../utils/utils';
+import menu from 'react-svg-loader!../assets/menu.svg';
 import styled from 'styled-components';
-
-const Header = styled.header`
-  position: relative;
-  margin-top: 74px;
-  ::before {
-    content: '';
-    background-color: #41796f;
-    height: 164px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 25%;
-    z-index: -1;
-  }
-`;
-
-const Top = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 115px;
-`;
-
-const Left = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const SiteName = styled.div`
-  max-width: 248px;
-  color: white;
-  font-weight: 700;
-  line-height: 1.31;
-  letter-spacing: 0.02em;
-  font-size: 31px;
-  padding-top: 20px;
-`;
-
-const CollectionInfo = styled.div`
-  padding-top: 22px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  color: #41796f;
-  p {
-    padding: none;
-  }
-  a {
-    text-decoration: underline;
-  }
-`;
-
-const Right = styled.p`
-  display: flex;
-  max-width: 735px;
-`;
-
-const Bottom = styled.nav`
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  background-color: #fbfbfb;
-`;
-
-const Menu = styled.ul`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  a {
-    text-decoration: none;
-    color: #41796f;
-    font-size: 24px;
-    letter-spacing: 0.02em;
-    line-height: 1.125;
-  }
-`;
+import breakpoint from 'styled-components-breakpoint';
 
 const header = ({ eventPages }) => {
+  const [menuState, setMenuState] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
   const history = useHistory();
   const location = useLocation();
@@ -109,16 +34,13 @@ const header = ({ eventPages }) => {
 
   return (
     <Header>
-      <div className='container'>
+      <HeaderContainer>
         <Top>
           <Left>
             <SiteName>The Durham Civil Rights Heritage Project</SiteName>
             <CollectionInfo>
               <p>
-                Part of the <a>North Carolina Collection</a>
-              </p>
-              <p>
-                Part of the <a>Durham County Library</a>
+                Part of the <a>North Carolina Collection</a> of the <a>Durham County Library</a>
               </p>
             </CollectionInfo>
           </Left>
@@ -132,7 +54,10 @@ const header = ({ eventPages }) => {
           </Right>
         </Top>
         <Bottom>
-          <Menu className='container'>
+          <MobileMenuToggle onClick={() => setMenuState(!menuState)}>
+            <ScreenReaderText>{`${menuState ? 'Close' : 'Open'} Menu`}</ScreenReaderText>
+          </MobileMenuToggle>
+          <Menu state={menuState}>
             {routes.map((route, index) => {
               return route.component === 'Major Events' ? (
                 <li key={index}>
@@ -161,9 +86,128 @@ const header = ({ eventPages }) => {
             })}
           </Menu>
         </Bottom>
-      </div>
+      </HeaderContainer>
     </Header>
   );
 }
+
+const Header = styled.header`
+  position: relative;
+  margin-top: 74px;
+  ::before {
+    content: '';
+    background-color: ${(props) => props.theme.colors.greenBean};
+    height: 130px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    ${breakpoint('lg')`
+      width: 25%;
+      height: 164px;
+    `}
+    ${breakpoint('max')`
+      width: 35%;
+    `}
+  }
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  ${(props) => props.theme.smContainer};
+  ${breakpoint('lg')`
+    flex-direction: column;
+    ${(props) => props.theme.lgContainer};
+  `}
+`;
+
+const Top = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${breakpoint('lg')`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 115px;
+  `}
+`;
+
+const Left = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SiteName = styled.div`
+  color: white;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  font-size: 21px;
+  padding-top: 20px;
+  max-width: 248px;
+  ${breakpoint('lg')`
+    font-size: 31px;
+    line-height: 1.31;
+  `}
+`;
+
+const CollectionInfo = styled.div`
+  padding-top: 22px;
+  color: ${(props) => props.theme.colors.greenBean};
+  p {
+    padding: none;
+  }
+  a {
+    text-decoration: underline;
+  }
+`;
+
+const Right = styled.p`
+  display: flex;
+  max-width: 735px;
+`;
+
+const Bottom = styled.nav`
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background-color: #fbfbfb;
+`;
+
+const MobileMenuToggle = styled.button`
+  position: relative;
+  &:before {
+    content: url(${menu});
+    position: absolute;
+    top: 15px;
+  }
+  ${breakpoint('lg')`
+    display: none;
+  `}
+`;
+
+const ScreenReaderText = styled.div`
+  ${(props) => props.theme.srOnly};
+`;
+
+const Menu = styled.ul`
+  display: ${(props) => (props.state ? 'flex' : 'none')};
+  ${breakpoint('lg')`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 25px;
+    ${props => props.theme.lgContainer};
+    a {
+      text-decoration: none;
+      color: #41796f;
+      font-size: 24px;
+      letter-spacing: 0.02em;
+      line-height: 1.125;
+    }
+  `}
+`;
 
 export default header;
