@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import '@babel/polyfill';
-import { cleanId, theme } from './utils/utils';
+import { routes, cleanId, theme } from './utils/utils';
 import { Switch, Route } from 'react-router-dom';
+
+// Components.
 import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
-import Event from './components/routes/Event';
+import Basic from './components/routes/Basic';
+import Gallery from './components/routes/Gallery';
+
+// Data.
 import Pages from './assets/event-pages.json';
 import Events from './assets/events.json';
+
+// Styling.
 import { Normalize } from 'styled-normalize';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './globalStyles';
@@ -62,19 +69,28 @@ const App = () => {
       <Header eventPages={eventPages} />
       <ContentContainer>
         <Switch>
-          {timeline && (
-            <Route exact path={['/', '/timeline']}>
-              <Timeline timeline={timeline} />
-            </Route>
-          )}
-          {eventPages &&
-            eventPages.map((event, index) => {
+          {routes && routes.map((r, i) => {
+            return r.route === 'timeline' && timeline ?
+            (
+              <Route exact path={['/', '/timeline']} key={i}>
+                <Timeline timeline={timeline} />
+              </Route>
+            ) : r.component === 'Featured Events' && eventPages ?
+            (eventPages.map((event, index) => {
               return (
                 <Route path={`/${cleanId(event.name)}`} key={index}>
-                  <Event event={event} />
+                  <Basic page={event.name} event={event} />
                 </Route>
               );
-            })}
+            })) : r.route === 'gallery' ?
+            ( <Route path='/gallery' key={i}>
+                <Gallery />
+            </Route> ) : (
+              <Route path={`/${r.route}`} key={i}>
+                <Basic page={r.component} type={r.route} />
+              </Route>
+            )
+          })}
         </Switch>
       </ContentContainer>
     </ThemeProvider>

@@ -37,7 +37,7 @@ const timeline = ({ timeline }) => {
   };
 
   return (
-    <>
+    <main>
       <H1>Civil Rights Heritage Project</H1>
       <TimelineNav />
       <Timeline>
@@ -91,7 +91,7 @@ const timeline = ({ timeline }) => {
             );
           })}
       </Timeline>
-    </>
+    </main>
   );
 };
 

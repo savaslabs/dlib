@@ -11,7 +11,7 @@ export const routes = [
   { component: 'Featured Events' },
   { component: 'Photo Gallery', route: 'gallery' },
   { component: 'Oral Histories', route: 'oral_histories' },
-  { component: 'About This Project', route: 'about' },
+  { component: 'About this Project', route: 'about' },
 ];
 
 export const timelineScopes = [
@@ -47,6 +47,7 @@ export const theme = {
     md: '21px', // Desktop.
     lg: '24px', // Desktop Menu.
     xl: '31px', // Desktop Header Text.
+    xxl: '36px', // Desktop h1.
   },
   fontWeight: {
     normal: '400',

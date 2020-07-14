@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { routes, cleanId } from '../utils/utils';
+import React, { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { routes, cleanId, timelineDescription } from '../utils/utils';
 import menu from 'react-svg-loader!../assets/menu.svg';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 
 const header = ({ eventPages }) => {
+  const location = useLocation();
   // Whether or not mobile menu is open.
   const [mobileMenuState, setMobileMenuState] = useState(false);
   // Whether or not user is hovering over expandable menu item.
   const [mouseOverMenuExpandToggle, setMouseOverMenuExpandToggle] = useState(false);
   // Whether or not user is hovering over expanded menu.
   const [mouseOverExpandableMenu, setMouseOverExpandableMenu] = useState(false);
-
   return (
     <Header>
       <HeaderContainer>
@@ -21,22 +21,25 @@ const header = ({ eventPages }) => {
             <SiteName>The Durham Civil Rights Heritage Project</SiteName>
             <CollectionInfo>
               <p>
-                Part of the <a>North Carolina Collection</a> of the <a>Durham County Library</a>
+                Part of the <a>North Carolina Collection</a> of the{' '}
+                <a>Durham County Library</a>
               </p>
             </CollectionInfo>
           </Left>
-          <Right>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet
-            consectetur adipiscing elit ut. Viverra aliquet eget sit amet tellus
-            cras adipiscing enim. Faucibus in ornare quam viverra orci sagittis
-            eu. Mollis nunc sed id semper. A cras semper auctor neque vitae
-            tempus quam pellentesque.
-          </Right>
+          {(location.pathname === '/timeline' ||
+            location.pathname === '/') && (
+              <Right>
+                {timelineDescription}
+              </Right>
+            )}
         </Top>
         <Bottom>
-          <MobileMenuToggle onClick={() => setMobileMenuState(!mobileMenuState)}>
-            <ScreenReaderText>{`${mobileMenuState ? 'Close' : 'Open'} Menu`}</ScreenReaderText>
+          <MobileMenuToggle
+            onClick={() => setMobileMenuState(!mobileMenuState)}
+          >
+            <ScreenReaderText>{`${
+              mobileMenuState ? 'Close' : 'Open'
+            } Menu`}</ScreenReaderText>
           </MobileMenuToggle>
           <Menu state={mobileMenuState}>
             {routes.map((route, index) => {
@@ -69,10 +72,7 @@ const header = ({ eventPages }) => {
                   </Expandable>
                 </ExpandToggle>
               ) : (
-                <NavLink
-                  to={`/${route.route}`}
-                  key={index}
-                >
+                <NavLink to={`/${route.route}`} key={index}>
                   <li>{route.component}</li>
                 </NavLink>
               );
@@ -149,11 +149,20 @@ const SiteName = styled.div`
 const CollectionInfo = styled.div`
   padding-top: 22px;
   color: ${(props) => props.theme.colors.greenBean};
+  p a {
+    text-decoration: underline;
+  }
 `;
 
 const Right = styled.p`
   display: flex;
   max-width: 735px;
+  font-size: ${(props) => props.theme.fontSize.sm};
+  line-height: ${(props) => props.theme.lineHeight.extraLoose};
+  ${breakpoint('lg')`
+    font-size: ${(props) => props.theme.fontSize.md};
+    line-height: ${(props) => props.theme.lineHeight.loose};
+  `}
 `;
 
 const Bottom = styled.nav`
