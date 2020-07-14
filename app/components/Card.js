@@ -1,7 +1,20 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const card = ({ event: { Scope, Name, Type, Images, Headline } }) => {
+const card = ({ event, link }) => {
+  // Helper function to replace parentheses and spaces in JSON keys.
+  const cleanJSON = obj => {
+    Object.keys(obj).forEach((key) => {
+      const replaced = key.replace(/\s/g, '_').replace(/["'()]/g, '');
+      if (key !== replaced) {
+        obj[replaced] = obj[key];
+        delete obj[key];
+      }
+    });
+    return obj;
+  }
+  cleanJSON(event);
+  const { Scope, Name, Images, External_Resource_Links } = event;
   return (
     <Card className={Scope === 'National Event' ? 'national' : 'durham'}>
       <p>{Name}</p>
@@ -11,7 +24,18 @@ const card = ({ event: { Scope, Name, Type, Images, Headline } }) => {
             <Image key={i} src={`app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} />
           );
         })}
-      <p>{Headline}</p>
+      {External_Resource_Links && External_Resource_Links.map((ext, i) => {
+        cleanJSON(ext);
+        // Don't nest link if card is already a link to event page.
+        return link ? (
+          <p key={i}>Read More</p>
+        ) : (
+          <React.Fragment key={i}>
+            <a href={ext.URL}>{ext.Source_Shortform}</a>
+            {External_Resource_Links.length > 1 ? '; ' : null}
+          </React.Fragment>
+        )
+      })}
     </Card>
   );
 }

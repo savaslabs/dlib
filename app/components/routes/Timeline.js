@@ -76,7 +76,7 @@ const timeline = ({ timeline }) => {
                           <li key={ind}>
                             {event.Type === 'Feature' ? (
                               <Link to={`/${cleanId(event.Name)}`}>
-                                <Card event={event} scope={event.Scope} />
+                                <Card event={event} scope={event.Scope} link />
                               </Link>
                             ) : (
                               <Card key={i} event={event} scope={event.Scope} />
@@ -94,7 +94,6 @@ const timeline = ({ timeline }) => {
     </main>
   );
 };
-
 
 const Timeline = styled.ol`
   padding-top: 80px;
