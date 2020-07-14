@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '@babel/polyfill';
-import { csv } from 'd3';
 import { cleanId, theme } from './utils/utils';
 import { ImageProvider } from './utils/ImageContext';
 import { Switch, Route } from 'react-router-dom';
@@ -8,6 +7,7 @@ import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
 import Event from './components/routes/Event';
 import Pages from './assets/event-pages.json';
+import Events from './assets/events.json';
 import { Normalize } from 'styled-normalize';
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './globalStyles';
@@ -22,20 +22,19 @@ const App = () => {
 
   // Fetch timeline events.
   useEffect(() => {
-    csv('/app/assets/timeline-events-robust.csv').then(data => {
-      // Sort chronologically and restructure timeline based on event year.
-      const sortedByYear = data
-        .sort((a, b) => (a.Year > b.Year ? 1 : -1))
-        .reduce((acc, currentValue) => {
-          const found = acc.find((a) => a.year === currentValue.Year);
-          if (!found) {
-            // Nest events of the same year.
-            acc.push({ year: currentValue.Year, events: [currentValue] });
-          } else {
-            found.events.push(currentValue);
-          }
-          return acc;
-        }, []);
+    // Sort chronologically and restructure timeline based on event year.
+    const sortedByYear = Events && Events
+      .sort((a, b) => (a.Year > b.Year ? 1 : -1))
+      .reduce((acc, currentValue) => {
+        const found = acc.find((a) => a.year === currentValue.Year);
+        if (!found) {
+          // Nest events of the same year.
+          acc.push({ year: currentValue.Year, events: [currentValue] });
+        } else {
+          found.events.push(currentValue);
+        }
+        return acc;
+      }, []);
 
       // Restructure timeline based on event scope.
       const sortedByScope = sortedByYear.map((d, i) => {
@@ -53,14 +52,7 @@ const App = () => {
       });
 
       setTimeline(sortedByScope);
-    });
-  }, []);
-
-  useEffect(() => {
-    csv('/app/assets/images.csv').then(data => {
-      setImages(data);
-    });
-  }, []);
+  }, [Events]);
 
   return (
     <ThemeProvider theme={theme}>
