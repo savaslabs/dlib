@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
 import Basic from './components/routes/Basic';
 import Gallery from './components/routes/Gallery';
+import Footer from './components/Footer';
 
 // Data.
 import Pages from './assets/event-pages.json';
@@ -94,6 +95,7 @@ const App = () => {
           })}
         </Switch>
       </ContentContainer>
+      <Footer />
     </ThemeProvider>
   );
 };
