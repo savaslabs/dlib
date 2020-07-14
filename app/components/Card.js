@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { ImageContext } from '../utils/ImageContext';
+import React from 'react'
 import styled from 'styled-components';
 
 const Card = styled.article`
@@ -13,31 +12,15 @@ const Card = styled.article`
 `;
 
 const card = ({ event: { Scope, Name, Type, Images, Headline } }) => {
-  const imageId = Images ? Images : null;
-  const { images } = useContext(ImageContext);
-  const [photo, setPhoto] = useState([]);
-  let img;
-
-  useEffect(() => {
-    if (images.length > 0 && imageId !== null) {
-      img = images.filter(i => i.ID === imageId);
-      setPhoto(img);
-    }
-  }, [images])
-
   return (
     <Card className={Scope === 'National Event' ? 'national' : 'durham'}>
       <p>{Scope}</p>
       <p>{Name}</p>
       <p>{Type}</p>
-      {photo.length > 0 &&
-        photo.map((p, i) => {
-          const url = p.image.split(' ')[1].replace(/\(|\)/g, '');
+      {Images &&
+        Images.map((p, i) => {
           return (
-            <React.Fragment key={i}>
-              <img src={url} alt={p.alt_text}></img>
-              {p.caption && <p>{p.caption}</p>}
-            </React.Fragment>
+            <img key={i} src={`app/assets/images/${p.ID}/small.jpg`} alt={p.alt_text}></img>
           );
         })}
       <p>{Headline}</p>

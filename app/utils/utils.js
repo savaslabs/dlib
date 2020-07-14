@@ -19,6 +19,8 @@ export const timelineScopes = [
   { title: 'Durham Civil Rights', scope: 'durham' },
 ];
 
+export const timelineDescription = `The Durham Civil Rights Heritage Project (DCRHP) was founded to document the history of the Civil Rights Movement in Durham, North Carolina. The project began in 2003 and participants from numerous local heritage and professional organizations contributed. Photographs and oral histories were collected from local citizens. In 2020, the online exhibit was updated to reflect the continuing history of civil rights in Durham.`;
+
 export const theme = {
   breakpoints: {
     sm: 0,
@@ -46,10 +48,15 @@ export const theme = {
     lg: '24px', // Desktop Menu.
     xl: '31px', // Desktop Header Text.
   },
+  fontWeight: {
+    normal: '400',
+    bold: '700',
+  },
   lineHeight: {
     tight: '1.125',
     snug: '1.14',
     loose: '1.31',
+    extraLoose: '1.53',
   },
   smContainer:
   `padding: 0 18px;
