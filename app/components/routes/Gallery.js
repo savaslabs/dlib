@@ -1,5 +1,4 @@
 import React, { Component } from 'React';
-import { images, captions } from '../../utils/constants';
 import Lightbox from 'react-accessible-lightbox';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
@@ -16,6 +15,7 @@ export default class gallery extends Component {
 
   render() {
     const { photoIndex, isOpen } = this.state;
+    const { imageIds, imageCaptions, imageAltText } = this.props;
     // Open lightbox anytime a photo is clicked.
     const openLightbox = (e) => {
       const photoIndex = e.target.getAttribute('data-photoindex');
@@ -27,12 +27,12 @@ export default class gallery extends Component {
       <main>
         <h1>Photo Gallery</h1>
         <GalleryGrid>
-          {images &&
-            images.map((image, i) => {
+          {imageIds &&
+            imageIds.map((id, i) => {
               return (
                 <Image
-                  src={`app/assets/images/${image}/full.jpg`}
-                  alt={captions[i]}
+                  src={`app/assets/images/${id}/full.jpg`}
+                  alt={imageAltText[i]}
                   key={i}
                   data-photoindex={i}
                   onClick={openLightbox}
@@ -42,25 +42,25 @@ export default class gallery extends Component {
 
           {isOpen && (
             <Lightbox
-              mainSrc={`app/assets/images/${images[photoIndex]}/full.jpg`}
+              mainSrc={`app/assets/images/${imageIds[photoIndex]}/full.jpg`}
               nextSrc={`app/assets/images/${
-                images[(photoIndex + 1) % images.length]
+                imageIds[(photoIndex + 1) % imageIds.length]
               }/full.jpg`}
               previousSrc={`app/assets/images/${
-                images[(photoIndex + images.length - 1) % images.length]
+                imageIds[(photoIndex + imageIds.length - 1) % imageIds.length]
               }/full.jpg`}
               onCloseRequest={() => this.setState({ isOpen: false })}
               onMovePrevRequest={() =>
                 this.setState({
-                  photoIndex: (photoIndex + images.length - 1) % images.length,
+                  photoIndex: (photoIndex + imageIds.length - 1) % imageIds.length,
                 })
               }
               onMoveNextRequest={() =>
                 this.setState({
-                  photoIndex: (photoIndex + 1) % images.length,
+                  photoIndex: (photoIndex + 1) % imageIds.length,
                 })
               }
-              imageCaption={captions[photoIndex]}
+              imageCaption={imageCaptions[photoIndex]}
             />
           )}
         </GalleryGrid>

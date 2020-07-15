@@ -11,8 +11,9 @@ import Gallery from './components/routes/Gallery';
 import Footer from './components/Footer';
 
 // Data.
-import Pages from './assets/event-pages.json';
+import EventPages from './assets/event-pages.json';
 import Events from './assets/events.json';
+import Images from './assets/images-data.json';
 
 // Styling.
 import { ThemeProvider } from 'styled-components';
@@ -24,7 +25,9 @@ import './index.css';
 
 const App = () => {
   const [timeline, setTimeline] = useState([]);
-  const [eventPages, setEventPages] = useState(Pages);
+  const [imageIds, setImageIds] = useState([]);
+  const [imageCaptions, setImageCaptions] = useState([]);
+  const [imageAltText, setImageAltText] = useState([]);
 
   // Fetch timeline events.
   useEffect(() => {
@@ -63,6 +66,24 @@ const App = () => {
     setTimeline(sortedByScope);
   }, [Events]);
 
+  useEffect(() => {
+    setImageIds(
+      Images.map((image) => {
+        return image.ID;
+      })
+    );
+    setImageCaptions(
+      Images.map((image) => {
+        return image.caption;
+      })
+    );
+    setImageAltText(
+      Images.map((image) => {
+        return image.alt_text;
+      })
+    );
+  }, [Images]);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -71,7 +92,7 @@ const App = () => {
           <SkipToMainContent href='#main-contet'>
             <ScreenReaderText>Skip to main content</ScreenReaderText>
           </SkipToMainContent>
-          <Header eventPages={eventPages} />
+          <Header eventPages={EventPages} />
           <ContentContainer id='main-content'>
             <Switch>
               {routes &&
@@ -80,8 +101,8 @@ const App = () => {
                     <Route exact path={['/', '/timeline']} key={i}>
                       <Timeline timeline={timeline} />
                     </Route>
-                  ) : r.component === 'Featured Events' && eventPages ? (
-                    eventPages.map((event, index) => {
+                  ) : r.component === 'Featured Events' && EventPages ? (
+                    EventPages.map((event, index) => {
                       return (
                         <Route
                           path={`/events/${cleanId(event.name)}`}
@@ -91,9 +112,16 @@ const App = () => {
                         </Route>
                       );
                     })
-                  ) : r.route === 'gallery' ? (
+                  ) : r.route === 'gallery' &&
+                    imageAltText &&
+                    imageCaptions &&
+                    imageIds ? (
                     <Route path='/gallery' key={i}>
-                      <Gallery />
+                      <Gallery
+                        imageIds={imageIds}
+                        imageCaptions={imageCaptions}
+                        imageAltText={imageAltText}
+                      />
                     </Route>
                   ) : (
                     <Route path={`/${r.route}`} key={i}>

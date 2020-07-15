@@ -32,6 +32,3 @@ export const timelineScopes = [
 ];
 
 export const timelineDescription = `The Durham Civil Rights Heritage Project (DCRHP) was founded to document the history of the Civil Rights Movement in Durham, North Carolina. The project began in 2003 and participants from numerous local heritage and professional organizations contributed. Photographs and oral histories were collected from local citizens. In 2020, the online exhibit was updated to reflect the continuing history of civil rights in Durham.`;
-// @TODO: Remove and save image IDs and captions from Airtable to /assets.
-export const images = ['g050', 'g077', 'h032', 'h045', 'h046', 'h047', 'i016'];
-export const captions = ['hey', 'hi', 'howdy', 'aloha', 'heyy', 'heyyy', 'hiya'];
