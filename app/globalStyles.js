@@ -11,6 +11,21 @@ const GlobalStyles = createGlobalStyle`
     color: ${(props) => props.theme.colors.darkGreen};
   }
 
+  h1 {
+    margin-bottom: 40px;
+    font-size: ${(props) => props.theme.fontSize.xxl};
+  }
+
+  h2 {
+    margin-bottom: 30px;
+    font-size: ${(props) => props.theme.fontSize.lg};
+  }
+
+  h1, h2 {
+    color: ${(props) => props.theme.colors.greenBean};
+    line-height: ${(props) => props.theme.lineHeight.xLoose};
+  }
+
   a {
     text-decoration: none;
   }

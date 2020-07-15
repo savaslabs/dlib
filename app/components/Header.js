@@ -23,7 +23,9 @@ const header = ({ eventPages }) => {
             </SiteName>
             <CollectionInfo>
               <p>
-                Part of the <a href='#'>North Carolina Collection</a> of the{' '}
+                Part of the <a href='#'>North Carolina Collection</a>
+                <br />
+                of the{' '}
                 <a href='#'>Durham County Library</a>
               </p>
             </CollectionInfo>
@@ -98,11 +100,11 @@ const Header = styled.header`
     width: 100%;
     z-index: -1;
     ${breakpoint('lg')`
-      width: 25%;
+      width: 20%;
       height: 164px;
     `}
     ${breakpoint('max')`
-      width: 35%;
+      width: 30%;
     `}
   }
 `;
@@ -140,16 +142,20 @@ const SiteName = styled(NavLink)`
   letter-spacing: 0.02em;
   font-size: ${(props) => props.theme.fontSize.md};
   padding-top: 20px;
-  max-width: 248px;
+  max-width: 250px;
   ${breakpoint('lg')`
-    font-size: ${(props) => props.theme.fontSize.xl};
-    line-height: ${(props) => props.theme.lineHeight.loose};
+    font-size: 31px;
+    line-height: 1.31;
+    background-color: ${(props) => props.theme.colors.greenBean};
+    padding-bottom: 24px;
+    padding-right: 60px;
   `}
 `;
 
 const CollectionInfo = styled.div`
   padding-top: 22px;
   color: ${(props) => props.theme.colors.greenBean};
+  font-size: ${(props) => props.theme.fontSize.md};
   p a {
     text-decoration: underline;
     color: inherit;

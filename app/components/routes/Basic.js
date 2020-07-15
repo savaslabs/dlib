@@ -4,6 +4,7 @@ import OralHistoriesPage from '../../assets/oral-histories.json';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
+import Markdown from 'react-markdown';
 
 const basic = ({ event, type }) => {
   let data;
@@ -17,7 +18,7 @@ const basic = ({ event, type }) => {
 
   return (
     <Main>
-      <H1>{data.name}</H1>
+      <h1>{data.name}</h1>
       {data.body &&
         data.body.map((item, i) => {
           if (item.hasOwnProperty('h2')) {
@@ -48,7 +49,9 @@ const basic = ({ event, type }) => {
                   key={i}
                   src={`../app/assets/images/${item.inline_image.image}/large.jpg`}
                 />
-                <P>{item.inline_image.text}</P>
+                <P source={item.inline_image.text}>
+                  {item.inline_image.text}
+                </P>
               </InlineWrapper>
             );
           }
@@ -67,16 +70,14 @@ const Main = styled.main`
     max-width: 872px;
   `}
 `;
-const H1 = styled.h1`
-  margin-bottom: 40px;
-  color: ${(props) => props.theme.colors.greenBean};
-  font-size: ${(props) => props.theme.fontSize.xxl};
-  line-height: ${(props) => props.theme.lineHeight.xLoose};
-`;
 
-const P = styled.p`
+const P = styled(Markdown)`
   margin-bottom: 30px;
   font-size: ${(props) => props.theme.fontSize.sm};
+
+  a {
+    color: ${(props) => props.theme.colors.greenBean};
+  }
 `;
 
 const Figure = styled.figure`
@@ -121,8 +122,7 @@ const Figcaption = styled.figcaption`
 `;
 
 const Ul = styled.ul`
-  list-style: disc;
-  margin-inline-start: 2em;
+  margin-inline-start: 3em;
   padding-inline-start: 2em;
   margin-bottom: 30px;
 `;
@@ -130,9 +130,17 @@ const Ul = styled.ul`
 const Li = styled.li`
   line-height: ${(props) => props.theme.lineHeight.xxLoose};
   font-size: ${(props) => props.theme.fontSize.sm};
+  position: relative;
 
-  &::marker {
-    color: ${(props) => props.theme.colors.greenBean};
+  &::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    background: ${(props) => props.theme.colors.greenBean};
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 12px;
   }
 `;
 

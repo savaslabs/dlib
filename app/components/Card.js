@@ -55,6 +55,10 @@ const ExternalLink = styled.p`
   text-decoration: underline;
   color: ${(props) => props.theme.colors.greenBean};
   font-weight: ${(props) => props.theme.fontWeight.normal};
+
+  a {
+    color: ${(props) => props.theme.colors.greenBean};
+  }
 `;
 
 export default card
