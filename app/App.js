@@ -87,7 +87,7 @@ const App = () => {
                           path={`/events/${cleanId(event.name)}`}
                           key={index}
                         >
-                          <Basic page={event.name} event={event} />
+                          <Basic event={event} />
                         </Route>
                       );
                     })
@@ -97,7 +97,7 @@ const App = () => {
                     </Route>
                   ) : (
                     <Route path={`/${r.route}`} key={i}>
-                      <Basic page={r.component} type={r.route} />
+                      <Basic type={r.route} />
                     </Route>
                   );
                 })}

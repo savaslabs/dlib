@@ -1,23 +1,25 @@
 import React from 'React';
-// @TODO: import other non-event page JSON.
-import About from '../../assets/about.json';
+import AboutPage from '../../assets/about.json';
+import OralHistoriesPage from '../../assets/oral-histories.json';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 
-const basic = ({ page, event, type }) => {
+const basic = ({ event, type }) => {
   let data;
   if (event) {
-    data = event.body;
+    data = event;
   } else if (type === 'about') {
-    data = About.body;
+    data = AboutPage;
+  } else if (type === 'oral_histories') {
+    data = OralHistoriesPage;
   }
 
   return (
     <Main>
-      <H1>{page}</H1>
-      {data &&
-        data.map((item, i) => {
+      <H1>{data.name}</H1>
+      {data.body &&
+        data.body.map((item, i) => {
           if (item.hasOwnProperty('h2')) {
             return <h2 key={i}>{item.h2}</h2>;
           } else if (item.hasOwnProperty('text')) {
@@ -56,7 +58,6 @@ const basic = ({ page, event, type }) => {
 };
 
 basic.propTypes = {
-  page: PropTypes.string.isRequired,
   event: PropTypes.object,
   type: PropTypes.string
 };
@@ -102,6 +103,8 @@ const Figure = styled.figure`
 
 const Blockquote = styled.blockquote`
   margin-inline-end: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 `;
 
 const Figcaption = styled.figcaption`
