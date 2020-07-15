@@ -40,17 +40,13 @@ export const theme = {
     xxLoose: '2.19',
   },
   smContainer: `padding: 0 18px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
   `,
   lgContainer: `padding: 0 18px;
     max-width: 1163px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
   `,
-  containerFullWidth: `margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-  `,
+  containerFullWidth: `margin: 0 calc(50% - 50vw);`,
   srOnly: `position: absolute;
     width: 1px;
     height: 1px;
