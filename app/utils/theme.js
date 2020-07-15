@@ -36,7 +36,8 @@ export const theme = {
     tight: '1.125',
     snug: '1.14',
     loose: '1.31',
-    extraLoose: '1.53',
+    xLoose: '1.53',
+    xxLoose: '2.19',
   },
   smContainer: `padding: 0 18px;
     margin-left: auto;

@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
     margin-block-start: 0;
     margin-block-end: 0;
     font-weight: ${(props) => props.theme.fontWeight.normal};
-    line-height: ${(props) => props.theme.lineHeight.extraLoose};
+    line-height: ${(props) => props.theme.lineHeight.xLoose};
   }
 
   ul, ol {

@@ -142,7 +142,7 @@ const SiteName = styled(NavLink)`
   padding-top: 20px;
   max-width: 248px;
   ${breakpoint('lg')`
-    font-size: ${(props) => props.theme.fontSize.lg};
+    font-size: ${(props) => props.theme.fontSize.xl};
     line-height: ${(props) => props.theme.lineHeight.loose};
   `}
 `;
@@ -160,7 +160,7 @@ const Right = styled.p`
   display: flex;
   max-width: 735px;
   font-size: ${(props) => props.theme.fontSize.sm};
-  line-height: ${(props) => props.theme.lineHeight.extraLoose};
+  line-height: ${(props) => props.theme.lineHeight.xLoose};
   ${breakpoint('lg')`
     font-size: ${(props) => props.theme.fontSize.md};
     line-height: ${(props) => props.theme.lineHeight.loose};
