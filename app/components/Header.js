@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import menu from '../assets/menu.svg';
 import { routes, cleanId, timelineDescription } from '../utils/constants';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
@@ -190,7 +191,7 @@ const MobileMenuToggle = styled.button`
   border: none;
   &:before {
     content: '';
-    mask: url('app/assets/menu.svg') no-repeat 50% 50%;
+    mask: url(${menu}) no-repeat 50% 50%;
     mask-size: cover;
     align-items: center;
     display: inline-block;
