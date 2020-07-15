@@ -68,34 +68,45 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Normalize />
       <GlobalStyles />
-      <Header eventPages={eventPages} />
-      <ContentContainer>
-        <Switch>
-          {routes && routes.map((r, i) => {
-            return r.route === 'timeline' && timeline ?
-            (
-              <Route exact path={['/', '/timeline']} key={i}>
-                <Timeline timeline={timeline} />
-              </Route>
-            ) : r.component === 'Featured Events' && eventPages ?
-            (eventPages.map((event, index) => {
-              return (
-                <Route path={`/events/${cleanId(event.name)}`} key={index}>
-                  <Basic page={event.name} event={event} />
-                </Route>
-              );
-            })) : r.route === 'gallery' ?
-            ( <Route path='/gallery' key={i}>
-                <Gallery />
-            </Route> ) : (
-              <Route path={`/${r.route}`} key={i}>
-                <Basic page={r.component} type={r.route} />
-              </Route>
-            )
-          })}
-        </Switch>
-      </ContentContainer>
-      <Footer />
+      {timeline ? (
+        <>
+          <Header eventPages={eventPages} />
+          <ContentContainer>
+            <Switch>
+              {routes &&
+                routes.map((r, i) => {
+                  return r.route === 'timeline' && timeline ? (
+                    <Route exact path={['/', '/timeline']} key={i}>
+                      <Timeline timeline={timeline} />
+                    </Route>
+                  ) : r.component === 'Featured Events' && eventPages ? (
+                    eventPages.map((event, index) => {
+                      return (
+                        <Route
+                          path={`/events/${cleanId(event.name)}`}
+                          key={index}
+                        >
+                          <Basic page={event.name} event={event} />
+                        </Route>
+                      );
+                    })
+                  ) : r.route === 'gallery' ? (
+                    <Route path='/gallery' key={i}>
+                      <Gallery />
+                    </Route>
+                  ) : (
+                    <Route path={`/${r.route}`} key={i}>
+                      <Basic page={r.component} type={r.route} />
+                    </Route>
+                  );
+                })}
+            </Switch>
+          </ContentContainer>
+          <Footer />
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </ThemeProvider>
   );
 };

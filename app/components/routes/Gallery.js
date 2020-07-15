@@ -70,23 +70,28 @@ export default class gallery extends Component {
 }
 
 const GalleryGrid = styled.div`
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
+  row-gap: 24px;
+
   ${breakpoint('md')`
-    display: grid;
-    align-items: center;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 61px;
     row-gap: 61px;
   `}
 
   ${breakpoint('lg')`
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: repeat(3, 1fr);
   `}
 `;
 
 const Image = styled.img`
-  max-width: 339px;
-  max-height: 339px;
-
+  max-width: calc(100vw - 36px);
+  ${breakpoint('md')`
+    max-width: 339px;
+    max-height: 339px;
+  `}
   ${breakpoint('lg')`
     max-width: 347px;
     max-height: 347px;

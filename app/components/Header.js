@@ -45,7 +45,7 @@ const header = ({ eventPages }) => {
           <Menu state={mobileMenuState}>
             {routes.map((route, index) => {
               return route.component === 'Featured Events' ? (
-                <ExpandToggle
+                <SubMenuToggle
                   key={index}
                   onKeyDown={() => setMouseOverMenuExpandToggle(true)}
                   onMouseEnter={() => setMouseOverMenuExpandToggle(true)}
@@ -53,7 +53,7 @@ const header = ({ eventPages }) => {
                   tabIndex='0'
                 >
                   {route.component}
-                  <Expandable
+                  <SubMenu
                     onMouseEnter={() => setMouseOverExpandableMenu(true)}
                     onMouseLeave={() => setMouseOverExpandableMenu(false)}
                     hidden={
@@ -70,8 +70,8 @@ const header = ({ eventPages }) => {
                           </NavLink>
                         );
                       })}
-                  </Expandable>
-                </ExpandToggle>
+                  </SubMenu>
+                </SubMenuToggle>
               ) : (
                 <NavLink to={`/${route.route}`} key={index}>
                   <li>{route.component}</li>
@@ -201,35 +201,46 @@ const Menu = styled.ul`
     justify-content: space-between;
     padding-top: 25px;
     ${(props) => props.theme.lgContainer};
-    li, a {
-      text-decoration: none;
+    li {
       color: #41796f;
       font-size: 24px;
       letter-spacing: 0.02em;
       line-height: 1.125;
+      padding: 20px 0;
+    }
+
+    a {
+      text-decoration: none;
     }
   `}
 `;
 
-const ExpandToggle = styled.li`
+const SubMenuToggle = styled.li`
   position: relative;
 `;
 
-const Expandable = styled.ul`
+const SubMenu = styled.ul`
   position: absolute;
-  top: 41px;
+  top: 65px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   z-index: -1;
-  width: 150%;
+  width: 400%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   background: ${(props) => props.theme.colors.bgGray};
 
   a li {
     font-size: 16px;
     font-weight: 500;
-    padding: 20px;
-    border-bottom: 1px solid;
+    padding: 20px 0;
+    margin: 0 18px;
+    border-bottom: 0.5px solid;
+  }
+
+  a:last-child li, a:nth-last-child(2) li {
+    border-bottom: none;
   }
 `;
 
