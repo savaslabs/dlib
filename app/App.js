@@ -15,7 +15,6 @@ import Pages from './assets/event-pages.json';
 import Events from './assets/events.json';
 
 // Styling.
-import { Normalize } from 'styled-normalize';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './utils/theme';
 import GlobalStyles from './globalStyles';
@@ -66,12 +65,14 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Normalize />
       <GlobalStyles />
       {timeline ? (
         <>
+          <SkipToMainContent href='#main-contet'>
+            <ScreenReaderText>Skip to main content</ScreenReaderText>
+          </SkipToMainContent>
           <Header eventPages={eventPages} />
-          <ContentContainer>
+          <ContentContainer id='main-content'>
             <Switch>
               {routes &&
                 routes.map((r, i) => {
@@ -117,4 +118,17 @@ const ContentContainer = styled.div`
     ${(props) => props.theme.lgContainer};
   `}
 `;
+
+const ScreenReaderText = styled.span`
+  ${(props) => props.theme.srOnly};
+`;
+
+const SkipToMainContent = styled.a`
+  &:focus {
+    ${ScreenReaderText} {
+      ${(props) => props.theme.notSrOnly};
+    }
+  }
+`;
+
 export default App;

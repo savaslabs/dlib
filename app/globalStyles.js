@@ -1,12 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 const GlobalStyles = createGlobalStyle`
+  ${normalize}
   @import url('${(props) => props.theme.fontSource}');
 
   body {
     background-color: ${(props) => props.theme.bgGray};
     font-family: ${(props) => props.theme.fontFamily};
     color: ${(props) => props.theme.colors.darkGreen};
+  }
+
+  a {
+    text-decoration: none;
   }
 
   p {
