@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { routes, cleanId, timelineDescription } from '../utils/constants';
-import menu from 'react-svg-loader!../assets/menu.svg';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import PropTypes from 'prop-types';
@@ -169,18 +168,30 @@ const Right = styled.p`
 `;
 
 const Bottom = styled.nav`
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  ${(props) => props.theme.containerFullWidth};
-  background-color: ${(props) => props.theme.colors.bgGray};
+  margin-left: auto;
+  position: relative;
+  ${breakpoint('lg')`
+    z-index: 100;
+    position: default;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    ${(props) => props.theme.containerFullWidth};
+    background-color: ${(props) => props.theme.colors.bgGray};
+  `}
 `;
 
 const MobileMenuToggle = styled.button`
-  position: relative;
+  background: white;
+  border: none;
   &:before {
-    content: url(${menu});
-    position: absolute;
-    top: 15px;
+    content: '';
+    mask: url('app/assets/menu.svg') no-repeat 50% 50%;
+    mask-size: cover;
+    align-items: center;
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: ${(props) => props.theme.colors.charcoal};
   }
   ${breakpoint('lg')`
     display: none;
@@ -193,11 +204,23 @@ const ScreenReaderText = styled.span`
 
 const Menu = styled.ul`
   display: ${(props) => (props.state ? 'flex' : 'none')};
+  justify-content: flex-end;
+  flex-direction: column;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: ${(props) => props.theme.colors.white};
+  ${(props) => props.theme.smContainer};
+
   ${breakpoint('lg')`
+    position: relative;
+    top: auto;
+    right: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 25px;
+    background: ${(props) => props.theme.colors.bgGray};
     ${(props) => props.theme.lgContainer};
   `}
   li {

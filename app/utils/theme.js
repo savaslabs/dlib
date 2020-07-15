@@ -14,6 +14,7 @@ export const theme = {
     bgGray: '#FBFBFB',
     lightGray: '#E0E0E0',
     darkGray: '#C4C4C4',
+    charcoal: '#404040',
     white: '#FFFFFF',
   },
   fontSource:
