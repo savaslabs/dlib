@@ -1,13 +1,10 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 
 const footer = () => {
-  const location = useLocation();
-  const match = (location.pathname === '/' || location.pathname === '/timeline') ? false : true;
   return (
-    <Footer match={match}>
+    <Footer>
       <FooterContainer>
         <SiteName>The Durham Civil Rights Heritage Project</SiteName>
         <CollectionInfo>
@@ -22,7 +19,6 @@ const footer = () => {
 }
 
 const Footer = styled.footer`
-  display: ${(props) => !props.match && ''};
   color: ${(props) => props.theme.colors.white};
   background-color: ${(props) => props.theme.colors.greenBean};
   height: 200px;
