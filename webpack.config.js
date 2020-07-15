@@ -13,6 +13,10 @@ module.exports = {
       { test: /\.(js)$/, use: 'babel-loader' },
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       {
+        test: /\.(woff|woff2|eot|ttf|svg|ico|jpe?g|png)$/,
+        use: 'file-loader',
+      },
+      {
         test: /\.csv$/,
         loader: 'csv-loader',
         options: {
