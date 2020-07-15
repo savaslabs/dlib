@@ -4,6 +4,7 @@
 1. Install theme dependencies: `yarn`
 2. Build webpack: `yarn build`
 3. Development: `yarn start`
+The project will be available at http://localhost:8080/.
 
 ## Get Most Recent Content from Airtable
 1. `yarn add airtable-json --dev --ignore-engines`
@@ -14,7 +15,7 @@ in `/app/assets/images`
 
 ## Content Entry for Google Doc Pages
 Pages are located in `/app/assets`. All event pages are in `event-pages.json`, other pages have their own JSON file.
-
+```
   {
     <!-- Page Title -->
     "name": "",
@@ -48,5 +49,4 @@ Pages are located in `/app/assets`. All event pages are in `event-pages.json`, o
       },
     ]
   }
-
-The project will be available at http://localhost:8080/.
+```
