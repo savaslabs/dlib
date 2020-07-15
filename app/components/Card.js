@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
-import { cleanJSON } from '../utils/constants'
+import { cleanJSON } from '../utils/constants';
+import PropTypes from 'prop-types';
 
 const card = ({ event, link }) => {
   cleanJSON(event);
@@ -29,6 +30,11 @@ const card = ({ event, link }) => {
     </Card>
   );
 }
+
+card.propTypes = {
+  event: PropTypes.object.isRequired,
+  link: PropTypes.bool
+};
 
 const Card = styled.article`
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);

@@ -1,6 +1,7 @@
 import React from 'React';
 import styled from 'styled-components';
 import About from '../../assets/about.json';
+import PropTypes from 'prop-types';
 
 const basic = ({ page, event, type }) => {
   let data;
@@ -18,11 +19,11 @@ const basic = ({ page, event, type }) => {
           if (item.hasOwnProperty('h2')) {
             return <h2 key={i}>{item.h2}</h2>;
           } else if (item.hasOwnProperty('text')) {
-            return <p key={i}>{item.text}</p>;
+            return <P key={i}>{item.text}</P>;
           } else if (item.hasOwnProperty('pullquote')) {
             return (
               <figure key={i}>
-                <blockquote>{item.pullquote.quote}</blockquote>
+                <blockquote>{`"${item.pullquote.quote}"`}</blockquote>
                 <figcaption>{item.pullquote.attribution}</figcaption>
               </figure>
             );
@@ -40,10 +41,20 @@ const basic = ({ page, event, type }) => {
   );
 };
 
+basic.propTypes = {
+  page: PropTypes.string.isRequired,
+  event: PropTypes.object,
+  type: PropTypes.string
+};
+
 const H1 = styled.h1`
   color: ${(props) => props.theme.colors.greenBean};
   font-size: ${(props) => props.theme.fontSize.xxl};
   line-height: ${(props) => props.theme.lineHeight.extraLoose};
+`;
+
+const P = styled.p`
+  padding-bottom: 20px;
 `;
 
 export default basic;

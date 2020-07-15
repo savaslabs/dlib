@@ -6,6 +6,7 @@ import Card from '../Card';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import PropTypes from 'prop-types';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
@@ -75,7 +76,7 @@ const timeline = ({ timeline }) => {
                         return (
                           <li key={ind}>
                             {event.Type === 'Feature' ? (
-                              <LinkedEvent to={`/${cleanId(event.Name)}`}>
+                              <LinkedEvent to={`/events/${cleanId(event.Name)}`}>
                                 <Card event={event} scope={event.Scope} link />
                               </LinkedEvent>
                             ) : (
@@ -93,6 +94,10 @@ const timeline = ({ timeline }) => {
       </Timeline>
     </main>
   );
+};
+
+timeline.propTypes = {
+  timeline: PropTypes.array.isRequired
 };
 
 const Timeline = styled.ol`

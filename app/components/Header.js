@@ -4,6 +4,7 @@ import { routes, cleanId, timelineDescription } from '../utils/constants';
 import menu from 'react-svg-loader!../assets/menu.svg';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
+import PropTypes from 'prop-types';
 
 const header = ({ eventPages }) => {
   const location = useLocation();
@@ -83,6 +84,10 @@ const header = ({ eventPages }) => {
     </Header>
   );
 }
+
+header.propTypes = {
+  eventPages: PropTypes.array.isRequired,
+};
 
 const Header = styled.header`
   position: relative;
