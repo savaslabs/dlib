@@ -2269,70 +2269,279 @@
     "__id": "recwroIaLBLSUiiQD"
   },
   {
-    "Type": "Regular",
-    "Name": "1963: Mayor Wense Grabarek meets protest rally, forms Durham Interim Committee on race relations.",
-    "Scope": "Durham Event",
-    "Year": 1963,
-    "Text": "Mayor Wense Grabarek meets protest rally, forms Durham Interim Committee on race relations.\n",
     "External Resource Links": [
       {
+        "Resource Title": "R. Wensell “Wense” Grabarek, City Councilman and Mayor of Durham",
+        "Source (Shortform)": "Durham County",
+        "URL": "http://andjusticeforall.dconc.gov/gallery_images/r-wensell-wense-grabarek-city-councilman-and-mayor-of-durham/",
         "Timeline Events": [
           "recYpOXAQ2IyK0KwJ"
         ],
-        "URL": "http://andjusticeforall.dconc.gov/gallery_images/r-wensell-wense-grabarek-city-councilman-and-mayor-of-durham/",
-        "Resource Title": "R. Wensell “Wense” Grabarek, City Councilman and Mayor of Durham",
-        "Source (Shortform)": "Durham County",
         "__id": "reczC0fzv7bIkWsM9"
       }
     ],
+    "Year": 1963,
+    "Scope": "Durham Event",
+    "Text": "Mayor Wense Grabarek meets protest rally, forms Durham Interim Committee on race relations.\n",
+    "Type": "Regular",
+    "Name": "1963: Mayor Wense Grabarek meets protest rally, forms Durham Interim Committee on race relations.",
     "__id": "recYpOXAQ2IyK0KwJ"
   },
   {
+    "Year": 1963,
+    "Scope": "Durham Event",
+    "Text": "Most Durham hotels and restaurants integrate.\n",
     "Type": "Regular",
     "Name": "1963: Most Durham hotels and restaurants integrate.",
-    "Scope": "Durham Event",
-    "Year": 1963,
-    "Text": "Most Durham hotels and restaurants integrate.\n",
     "__id": "recnYaom9UlFCTRsi"
   },
   {
+    "Year": 1963,
+    "Scope": "Durham Event",
+    "Text": "Public swimming pools and libraries integrate.\n",
     "Type": "Regular",
     "Name": "1963: Public swimming pools and libraries integrate.",
-    "Scope": "Durham Event",
-    "Year": 1963,
-    "Text": "Public swimming pools and libraries integrate.\n",
     "__id": "rec5kK3x7gyyoaUCp"
   },
   {
+    "Year": 1963,
+    "Scope": "Durham Event",
+    "Text": "Industrial Education Center integrates programs in retail distribution and marketing.\n\n",
     "Type": "Regular",
     "Name": "1963: Industrial Education Center integrates programs in retail distribution and marketing.\n",
-    "Scope": "Durham Event",
-    "Year": 1963,
-    "Text": "Industrial Education Center integrates programs in retail distribution and marketing.\n\n",
     "__id": "reccg57dqMiUgyr2P"
   },
   {
+    "Year": 1963,
+    "Scope": "Durham Event",
+    "Text": "Chamber of Commerce and Jaycees open membership to blacks.\n",
     "Type": "Regular",
     "Name": "1963: Chamber of Commerce and Jaycees open membership to blacks.",
-    "Scope": "Durham Event",
-    "Year": 1963,
-    "Text": "Chamber of Commerce and Jaycees open membership to blacks.\n",
     "__id": "recWuml8nIpmQHQiL"
   },
   {
+    "Year": 1963,
+    "Scope": "Durham Event",
+    "Text": "Federal court orders Durham city schools to adopt freedom-of-choice desegregation plan; pace of school integration accelerates.\n",
     "Type": "Regular",
     "Name": "1963: Federal court orders Durham city schools to adopt freedom-of-choice desegregation plan; pace of school integration accelerates.",
-    "Scope": "Durham Event",
-    "Year": 1963,
-    "Text": "Federal court orders Durham city schools to adopt freedom-of-choice desegregation plan; pace of school integration accelerates.\n",
     "__id": "recxRf6N0Ny2MSuzs"
   },
   {
+    "Year": 1963,
+    "Scope": "Durham Event",
+    "Text": "Black leaders petition Durham County schools to accept pupil reassignments.\n",
     "Type": "Regular",
     "Name": "1963: Black leaders petition Durham County schools to accept pupil reassignments.",
-    "Scope": "Durham Event",
-    "Year": 1963,
-    "Text": "Black leaders petition Durham County schools to accept pupil reassignments.\n",
     "__id": "rec9yoa3qhbuvPWVj"
+  },
+  {
+    "Year": 1963,
+    "Scope": "Durham Event",
+    "Text": "Durham County Citizens Council formed to oppose integration.\n",
+    "Type": "Regular",
+    "Name": "1963: Durham County Citizens Council formed to oppose integration.",
+    "__id": "recPQeB1PpSRX6W8s"
+  },
+  {
+    "Images": [
+      {
+        "ID": "mss_0040_067",
+        "image": [
+          {
+            "id": "att4JATeNVfIt6FeA",
+            "url": "https://dl.airtable.com/.attachments/4e914a3dbe45533623457e2ecbc6e6b9/a5724ac6/mss_0040_067e.jpg",
+            "filename": "mss_0040_067e.jpg",
+            "size": 498473,
+            "type": "image/jpeg",
+            "thumbnails": {
+              "small": {
+                "url": "https://dl.airtable.com/.attachmentThumbnails/2609e887abab42121b315e43f85ad273/6acd0496",
+                "width": 23,
+                "height": 36
+              },
+              "large": {
+                "url": "https://dl.airtable.com/.attachmentThumbnails/6de4984800564393a6a9940ae1728632/573eb7ab",
+                "width": 512,
+                "height": 792
+              },
+              "full": {
+                "url": "https://dl.airtable.com/.attachmentThumbnails/d4ab52ef0f1bc167db0cd0ad16d01cc1/8329a318",
+                "width": 3000,
+                "height": 3000
+              }
+            }
+          }
+        ],
+        "timeline_events": [
+          "reccE5w3nyg10YoBC"
+        ],
+        "alt_text": "Dr. Martin Luther King standing behind a podium.",
+        "__id": "recjpvwi02FdTYRtJ"
+      }
+    ],
+    "Year": 1964,
+    "Scope": "Durham Event",
+    "Text": "Martin Luther King visits Durham and speaks at the Jack Tar Hotel.\n",
+    "Type": "Regular",
+    "Name": "1964: Martin Luther King visits Durham and speaks at the Jack Tar Hotel.",
+    "__id": "reccE5w3nyg10YoBC"
+  },
+  {
+    "Year": 1964,
+    "Scope": "Durham Event",
+    "Text": "Durham Interim Committee replaced by Committee on Community Relations.\n",
+    "Type": "Regular",
+    "Name": "1964: Durham Interim Committee replaced by Committee on Community Relations.",
+    "__id": "recEalo06P6g5NrFW"
+  },
+  {
+    "Year": 1965,
+    "Scope": "Durham Event",
+    "Text": "Durham County schools begin desegregation under freedom-of-choice plan.\n",
+    "Type": "Regular",
+    "Name": "1965: Durham County schools begin desegregation under freedom-of-choice plan.",
+    "__id": "recLJEWw20xkxIFGU"
+  },
+  {
+    "Year": 1966,
+    "Scope": "Durham Event",
+    "Text": "Activist Howard Fuller forms United Organizations for Community Improvement to encourage black political participation.\n",
+    "Type": "Regular",
+    "Name": "1966: Activist Howard Fuller forms United Organizations for Community Improvement to encourage black political participation.",
+    "__id": "recexOvFFjIXWsqa0"
+  },
+  {
+    "Year": 1966,
+    "Scope": "Durham Event",
+    "Text": "Demonstrations held for city schools to begin Headstart and Youth Corps.\n",
+    "Type": "Regular",
+    "Name": "1966: Demonstrations held for city schools to begin Headstart and Youth Corps.",
+    "__id": "recGC3b7qIEL7gTpf"
+  },
+  {
+    "External Resource Links": [
+      {
+        "Resource Title": "Spaulding, Asa Timothy",
+        "Source (Shortform)": "NCpedia",
+        "URL": "https://www.ncpedia.org/biography/spaulding-asa-timothy",
+        "Timeline Events": [
+          "rec966DgdYzoSueDr"
+        ],
+        "__id": "recU2KjrBUt5VOQt6"
+      }
+    ],
+    "Year": 1967,
+    "Scope": "Durham Event",
+    "Text": "Asa Spaulding becomes first black on Durham Board of County Commissioners.\n",
+    "Type": "Regular",
+    "Name": "1967: Asa Spaulding becomes first black on Durham Board of County Commissioners.",
+    "__id": "rec966DgdYzoSueDr"
+  },
+  {
+    "External Resource Links": [
+      {
+        "Resource Title": "Urban Renewal Protest March",
+        "Source (Shortform)": "Durham County",
+        "URL": "http://andjusticeforall.dconc.gov/gallery_images/urban-renewal-protest-march/",
+        "Timeline Events": [
+          "recTlvUAZRrjCMtal"
+        ],
+        "__id": "recO4zzWgERiBLlGu"
+      },
+      {
+        "Resource Title": "Howard Fuller (activist)",
+        "Source (Shortform)": "Wikipedia",
+        "URL": "https://en.wikipedia.org/wiki/Howard_Fuller_(activist)",
+        "Timeline Events": [
+          "recTlvUAZRrjCMtal"
+        ],
+        "__id": "rec5b1bagxkRG6udG"
+      }
+    ],
+    "Images": [
+      {
+        "ID": "mss_0040_089",
+        "image": [
+          {
+            "id": "att1X6o2JG8JBvhVb",
+            "url": "https://dl.airtable.com/.attachments/3ac52498ab1fb864822cdce6a1ce66ec/266e4d8b/mss_0040_089e.jpg",
+            "filename": "mss_0040_089e.jpg",
+            "size": 521316,
+            "type": "image/jpeg",
+            "thumbnails": {
+              "small": {
+                "url": "https://dl.airtable.com/.attachmentThumbnails/4aff2b54daca078d68f0aa9e72845bee/52923691",
+                "width": 55,
+                "height": 36
+              },
+              "large": {
+                "url": "https://dl.airtable.com/.attachmentThumbnails/9e9a6c2e60ad59418b03b0d6eaf6501c/86b12567",
+                "width": 785,
+                "height": 512
+              },
+              "full": {
+                "url": "https://dl.airtable.com/.attachmentThumbnails/62fce458c8976c5ef587f36961c2e1df/b5396902",
+                "width": 3000,
+                "height": 3000
+              }
+            }
+          }
+        ],
+        "timeline_events": [
+          "recTlvUAZRrjCMtal"
+        ],
+        "alt_text": "A group of black people walking outside. Three armed, white men in uniforms stand and watch them.",
+        "__id": "recGkdxTJe8O8y0S5"
+      },
+      {
+        "ID": "mss_0040_090",
+        "image": [
+          {
+            "id": "attm2avSWtPWuMaLb",
+            "url": "https://dl.airtable.com/.attachments/281706d2ff6506793415c632b5da7ab4/cd382dfb/mss_0040_090e.jpg",
+            "filename": "mss_0040_090e.jpg",
+            "size": 494326,
+            "type": "image/jpeg",
+            "thumbnails": {
+              "small": {
+                "url": "https://dl.airtable.com/.attachmentThumbnails/772bf4b649907fd37dfd16282bc459fe/1849fff0",
+                "width": 23,
+                "height": 36
+              },
+              "large": {
+                "url": "https://dl.airtable.com/.attachmentThumbnails/09d6c805b015084831ddc7a73c263221/9d4d888d",
+                "width": 512,
+                "height": 797
+              },
+              "full": {
+                "url": "https://dl.airtable.com/.attachmentThumbnails/7e24c79149032e173ac6b0013bb8a167/5f209de5",
+                "width": 3000,
+                "height": 3000
+              }
+            }
+          }
+        ],
+        "timeline_events": [
+          "recTlvUAZRrjCMtal"
+        ],
+        "alt_text": "A black man looks over his shoulder while standing with some other men. Other people can be seen in the background.",
+        "__id": "recBX36w87XLmGSzR"
+      }
+    ],
+    "Year": 1967,
+    "Scope": "Durham Event",
+    "Text": "Demonstrations over housing conditions turn violent; Grabarek summons National Guard to enforce order.\n",
+    "Type": "Regular",
+    "Name": "1967: Demonstrations over housing conditions turn violent; Grabarek summons National Guard to enforce order.",
+    "__id": "recTlvUAZRrjCMtal"
+  },
+  {
+    "Year": 1967,
+    "Scope": "Durham Event",
+    "Text": "Headstart and Youth Corps instituted in city schools.\n",
+    "Type": "Regular",
+    "Name": "1967: Headstart and Youth Corps instituted in city schools.",
+    "__id": "recLHD2epgp0tMEGK"
   }
 ]
