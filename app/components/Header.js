@@ -10,29 +10,28 @@ const header = ({ eventPages }) => {
   const location = useLocation();
   // Whether or not mobile menu is open.
   const [mobileMenuState, setMobileMenuState] = useState(false);
-  // Whether or not user is hovering over expandable menu item.
-  const [mouseOverMenuExpandToggle, setMouseOverMenuExpandToggle] = useState(false);
-  // Whether or not user is hovering over expanded menu.
-  const [mouseOverExpandableMenu, setMouseOverExpandableMenu] = useState(false);
+  // Whether or not user is hovering over submenu toggle.
+  const [mouseOverSubMenuToggle, setMouseOverSubMenuToggle] = useState(false);
+  // Whether or not user is hovering over submenu.
+  const [mouseOverSubMenu, setMouseOverSubMenu] = useState(false);
   return (
     <Header>
       <HeaderContainer>
         <Top>
           <Left>
-            <SiteName>The Durham Civil Rights Heritage Project</SiteName>
+            <SiteName to={`/`}>
+              The Durham Civil Rights Heritage Project
+            </SiteName>
             <CollectionInfo>
               <p>
-                Part of the <a>North Carolina Collection</a> of the{' '}
-                <a>Durham County Library</a>
+                Part of the <a href='#'>North Carolina Collection</a> of the{' '}
+                <a href='#'>Durham County Library</a>
               </p>
             </CollectionInfo>
           </Left>
-          {(location.pathname === '/timeline' ||
-            location.pathname === '/') && (
-              <Right>
-                {timelineDescription}
-              </Right>
-            )}
+          {(location.pathname === '/timeline' || location.pathname === '/') && (
+            <Right>{timelineDescription}</Right>
+          )}
         </Top>
         <Bottom>
           <MobileMenuToggle
@@ -47,19 +46,17 @@ const header = ({ eventPages }) => {
               return route.component === 'Featured Events' ? (
                 <SubMenuToggle
                   key={index}
-                  onKeyDown={() => setMouseOverMenuExpandToggle(true)}
-                  onMouseEnter={() => setMouseOverMenuExpandToggle(true)}
-                  onMouseLeave={() => setMouseOverMenuExpandToggle(false)}
+                  onKeyDown={() => setMouseOverSubMenuToggle(true)}
+                  onMouseEnter={() => setMouseOverSubMenuToggle(true)}
+                  onMouseLeave={() => setMouseOverSubMenuToggle(false)}
                   tabIndex='0'
                 >
                   {route.component}
                   <SubMenu
-                    onMouseEnter={() => setMouseOverExpandableMenu(true)}
-                    onMouseLeave={() => setMouseOverExpandableMenu(false)}
+                    onMouseEnter={() => setMouseOverSubMenu(true)}
+                    onMouseLeave={() => setMouseOverSubMenu(false)}
                     hidden={
-                      mouseOverExpandableMenu || mouseOverMenuExpandToggle
-                        ? false
-                        : true
+                      mouseOverSubMenu || mouseOverSubMenuToggle ? false : true
                     }
                   >
                     {eventPages &&
@@ -137,7 +134,7 @@ const Left = styled.div`
   flex-direction: column;
 `;
 
-const SiteName = styled.div`
+const SiteName = styled(NavLink)`
   color: ${(props) => props.theme.colors.white};
   font-weight: 700;
   line-height: ${(props) => props.theme.lineHeight.snug};
@@ -146,8 +143,8 @@ const SiteName = styled.div`
   padding-top: 20px;
   max-width: 248px;
   ${breakpoint('lg')`
-    font-size: 31px;
-    line-height: 1.31;
+    font-size: ${(props) => props.theme.fontSize.lg};
+    line-height: ${(props) => props.theme.lineHeight.loose};
   `}
 `;
 
@@ -156,6 +153,7 @@ const CollectionInfo = styled.div`
   color: ${(props) => props.theme.colors.greenBean};
   p a {
     text-decoration: underline;
+    color: inherit;
   }
 `;
 
@@ -201,18 +199,16 @@ const Menu = styled.ul`
     justify-content: space-between;
     padding-top: 25px;
     ${(props) => props.theme.lgContainer};
-    li {
-      color: #41796f;
-      font-size: 24px;
-      letter-spacing: 0.02em;
-      line-height: 1.125;
-      padding: 20px 0;
-    }
-
-    a {
-      text-decoration: none;
-    }
   `}
+  li {
+    ${breakpoint('lg')`
+    color: ${(props) => props.theme.colors.greenBean};
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    line-height: 1.125;
+    padding: 20px 0;
+  `}
+  }
 `;
 
 const SubMenuToggle = styled.li`
@@ -231,16 +227,24 @@ const SubMenu = styled.ul`
   grid-template-columns: repeat(2, 1fr);
   background: ${(props) => props.theme.colors.bgGray};
 
-  a li {
-    font-size: 16px;
-    font-weight: 500;
-    padding: 20px 0;
-    margin: 0 18px;
-    border-bottom: 0.5px solid;
-  }
+  a {
+    li {
+      font-size: ${(props) => props.theme.fontSize.xs};
+      font-weight: ${(props) => props.theme.fontWeight.normal};
+      padding: 20px 0;
+      margin: 0 18px;
+      border-bottom: 0.5px solid;
+    }
 
-  a:last-child li, a:nth-last-child(2) li {
-    border-bottom: none;
+    &:hover li,
+    &:focus li {
+      font-weight: ${(props) => props.theme.fontWeight.bold};
+    }
+
+    &:last-child li,
+    &:nth-last-child(2) li {
+      border-bottom: none;
+    }
   }
 `;
 
