@@ -1126,6 +1126,9 @@
           "recAGBxfdGBbkXjCc"
         ],
         "alt_text": "A black man seated behind a desk reads an issue of the Carolina Times.",
+        "caption": "Louis Austin, Editor of The Carolina Times.\n",
+        "attribution": "Unknown\n",
+        "citation": "Durham Historic Photographic Archive\n",
         "__id": "recBiXHRAe1I3NnUE"
       }
     ],
@@ -1346,6 +1349,9 @@
           "reciG0gMx53OcoeyN"
         ],
         "alt_text": "A black police officer is seated in the driver's seat of a police car. ",
+        "caption": "Clyde Cox driving a police patrol car.\n",
+        "attribution": "Unknown\n",
+        "citation": "Durham Historic Photographic Archive\n",
         "__id": "recYJZhBLvQMZKwql"
       },
       {
@@ -1380,6 +1386,9 @@
           "reciG0gMx53OcoeyN"
         ],
         "alt_text": "Four black police officers stand together outside. Another officer stands off to the side. ",
+        "caption": "A still shot from \"Negro Durham Marches On\" shows four black police officers outside of a building.\n",
+        "attribution": "Negro Durham Marches On\n",
+        "citation": "Durham Historic Photographic Archive\n",
         "__id": "rec94e0ahIfXMXEAq"
       }
     ],
@@ -1470,6 +1479,9 @@
           "recCFkoA8Bn14u3KZ"
         ],
         "alt_text": "A group of white men hold their hands on a book and raise their other hands in the motion of taking an oath. ",
+        "caption": "R.N. Harris, First Black Elected to Durham City Council. Mr. Harris was elected to the council in 1953. He was also the first black appointed to the school board, in 1958. The man in the center back of the picture in the light suit is George Watts Carr Jr.\n",
+        "attribution": "Unknown\n",
+        "citation": "Durham Historic Photographic Archive\n",
         "__id": "rec26yHugPQBfFfJi"
       }
     ],
@@ -1484,6 +1496,7 @@
     "Images": [
       {
         "ID": "mss_0040_085",
+        "caption": "On October 15, 1956, Martin Luther King, Jr., spoke at Hillside High School. A young Baptist minister, King was receiving his first national attention for guiding a boycott of segregated city buses in Montgomery, Alabama. Invited by the Durham Business and Professional Chain as part of its Trade Week festivity, King told his audience, \"Doors will be open to you now that were never open in the past. … Be ready for opportunities.\" \n",
         "image": [
           {
             "id": "attXwOh8GK14740KO",
@@ -1514,6 +1527,8 @@
           "recDfGJY16SiWFASb"
         ],
         "alt_text": "Dr. Martin Luther King stands behind a podium. Two other black men can be seen seated behind him. ",
+        "attribution": "Jim Sparks, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recCldeNYMmnGqBsY"
       }
     ],
@@ -1614,6 +1629,9 @@
           "recBvYpCfQumCTE3Y"
         ],
         "alt_text": "Five black men and women kneel in prayer before a black minister.",
+        "caption": "The Royal Ice Cream strikers pray before going to court. Participants included Mary Clyburn, Virginia Williams, Rev. Douglas E. Moore, Vivian Jones, Jesse Gray, Claude Glenn, and Melvin H. Willis.  \"It was exciting, because we went where we dared not to go. I wasn't frightened or anything of that sort because either way, we could have made history. If he had served us ice cream, he would have made history. But, by refusing to, I guess we made history!\" -Virginia Williams, Royal Ice Cream Protester, 2003 Interview \n",
+        "attribution": "Virginia Williams\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recWBimICAeEMV1gG"
       }
     ],
@@ -1699,6 +1717,7 @@
     "Images": [
       {
         "ID": "mss_0040_076",
+        "caption": "Durham lawyer Floyd B. McKissick and his wife, Evelyn, escort their daughter, Andree, and Henry Vickers to their first day of classes at Carr Junior High School, Sept. 2, 1959.\n",
         "image": [
           {
             "id": "attOchu33CtjnZxPJ",
@@ -1728,7 +1747,9 @@
         "timeline_events": [
           "recopB8ucJTgyzwTX"
         ],
-        "alt_text": "A black man, woman, boy, and girl walks on a sidewalk. ",
+        "alt_text": "From left to right: Henry Vickers, Floyd McKissick, Andree McKissick, and Evelyn McKissick walk on a sidewalk outside Carr Junior High School. ",
+        "attribution": "Jim Sparks, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recfrtnouwNhCpS4i"
       }
     ],
@@ -1763,6 +1784,7 @@
     "Images": [
       {
         "ID": "mss_0040_086",
+        "caption": "Flanked by Durham minister Douglas Moore, left, and civil rights activist Rev. Ralph Abernathy, Martin Luther King, Jr., walks along Main Street in Durham for a visit to the closed Woolworth's lunch counter. The man at the far right is unidentified.\n",
         "image": [
           {
             "id": "attzxSa9hOM55168b",
@@ -1792,11 +1814,14 @@
         "timeline_events": [
           "recgypggyFl8lnDr3"
         ],
-        "alt_text": "Dr. Martin Luther King with three other black men walk outside. ",
+        "alt_text": "From left to right: Reverend Douglas Moore, Reverend Dr. Martin Luther King Jr., Reverend Ralph Abernathy, and an unidentified man walk outside in Durham. ",
+        "attribution": "Jim Thornton, Durham Herald Sun\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recPBXxDuTpIA7jSH"
       },
       {
         "ID": "mss_0040_064",
+        "caption": "Martin Luther King Jr. speaks at White Rock Baptist Church February 16, 1960. His appearance drew a standing-room-only crowd estimated at 1,200, who responded by collecting money for future demonstration expenses.\n",
         "image": [
           {
             "id": "attSf5aonGIz33H2k",
@@ -1827,6 +1852,8 @@
           "recgypggyFl8lnDr3"
         ],
         "alt_text": "Dr. Martin Luther King preaching in a church. The organ and choir are visible behind him. ",
+        "attribution": "Harold Moore, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recfty84zXl1w3Scl"
       }
     ],
@@ -1861,6 +1888,7 @@
     "Images": [
       {
         "ID": "mss_0040_078",
+        "caption": "A Carolina Theatre manager confronts prospective black patrons in the lobby. \n",
         "image": [
           {
             "id": "attBhrpMkUreBgmUp",
@@ -1891,10 +1919,13 @@
           "recy1qeziTf3KXpzZ"
         ],
         "alt_text": "Four black men inside a lobby facing a white man with his back to the camera. Other people are visible in the background. ",
+        "attribution": "Jim Thornton, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recnmPyhJzFKnWxxE"
       },
       {
         "ID": "mss_0040_079",
+        "caption": "A \"round-robin\" demonstrator asks to buy a ticket to the Carolina Theatre and gets a refusal at the box office. Once turned away, protestors went to the end of the line and waited their turns to try again. \n",
         "image": [
           {
             "id": "attVs7pyjdfKOiYCd",
@@ -1924,11 +1955,14 @@
         "timeline_events": [
           "recy1qeziTf3KXpzZ"
         ],
-        "alt_text": "A black woman stands at a ticket counter. A long line of black people is formed behind her. ",
+        "alt_text": "A black woman stands at a ticket counter speaking to a white woman ticket seller. A long line of black people is formed behind her. ",
+        "attribution": "Jim Sparks, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "rec5Aa6gGTFipfkjx"
       },
       {
         "ID": "mss_0040_080",
+        "caption": "An unidentified protestor is confronted by a Durham police officer and Carolina Theatre assistant manager Milo Crawford on March 14, 1962. Demonstrators were advised not to give their names to police for fear of white reprisals.\n",
         "image": [
           {
             "id": "attS9iLnaNslwBLcK",
@@ -1959,10 +1993,13 @@
           "recy1qeziTf3KXpzZ"
         ],
         "alt_text": "Two black men, a white man, and a white police officer stand near each other. ",
+        "attribution": "Jim Sparks, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recfKeJ5HPeXO5wWm"
       },
       {
         "ID": "mss_0040_081",
+        "caption": "A line of \"round-robin\" protesters extends along Manning Place from the Carolina Theatre box office past city hall (now Durham Arts Council Building) March 14, 1962.\n",
         "image": [
           {
             "id": "att10EvXHgdNnH9sw",
@@ -1992,11 +2029,14 @@
         "timeline_events": [
           "recy1qeziTf3KXpzZ"
         ],
-        "alt_text": "A long line of black people formed along a sidewalk. ",
+        "alt_text": "A long line of black people formed along a sidewalk outside the Carolina Theatre. ",
+        "attribution": "Jim Sparks, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recSkdSnubpOg2ZeJ"
       },
       {
         "ID": "mss_0040_082",
+        "caption": "The line of \"round-robin\" demonstrators stretches from the Carolina Theatre box office west along Manning Place, March 15, 1962. Denied tickets, marchers would return to the end of the line and wait for another turn.\n",
         "image": [
           {
             "id": "attTRsFXNsDy67ZR0",
@@ -2027,14 +2067,17 @@
           "recy1qeziTf3KXpzZ"
         ],
         "alt_text": "A long line of black people outside the Carolina Theatre. ",
+        "attribution": "Jim Sparks, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recot2QR9z5Of4nvZ"
       }
     ],
     "Year": 1961,
     "Scope": "Durham Event",
     "Text": "Protesters begin picketing Durham movie theaters including the Carolina Theatre.  When the management at the Carolina Theatre refused to desegregate, protesters began a rolling line protest that lasted for months.  When a protester approached the ticket window and was refused admittance to the white section of the theater, he or she went to the back of the line to try again.  Movie theaters desegregated in 1963.\n",
-    "Type": "Regular",
-    "Name": "1961: Protesters begin picketing Durham movie theaters including the Carolina Theatre.  When the management at the Carolina Theatre refused to desegregate, protesters began a rolling line protest that lasted for months.  When a protester approached the ticket window and was refused admittance to the white section of the theater, he or she went to the back of the line to try again.  Movie theaters desegregated in 1963.",
+    "Headline": "Rolling line protests to desegregate theaters in Durham",
+    "Type": "Feature",
+    "Name": "1961: Rolling line protests to desegregate theaters in Durham",
     "__id": "recy1qeziTf3KXpzZ"
   },
   {
@@ -2052,6 +2095,7 @@
     "Images": [
       {
         "ID": "mss_0040_073",
+        "caption": "A crowd estimated at 500 people demonstrates against segregation at Howard Johnson's Restaurant on the Durham-Chapel Hill Boulevard on August 12, 1962. Sunday afternoon protests at the restaurant went on for almost a year, until mass demonstrations in May 1963 led to integration of most eating establishments in Durham.\n",
         "image": [
           {
             "id": "att1bTMInl2nuPcOb",
@@ -2082,10 +2126,13 @@
           "recJem0878ZDwsWOd"
         ],
         "alt_text": "A large group of people gather along the side of a highway outside a Howard Johnson's.",
+        "attribution": "Harold Moore, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "rec4eLQkBFdvwvAVV"
       },
       {
         "ID": "mss_0040_069",
+        "caption": "Roy Wilkins (left), executive director of the NAACP, joins Durham Attorney Floyd McKissick and James Farmer (right), national director of the Congress of Racial Equality, to protest segregation at Durham's Howard Johnson's Restaurant on August 12, 1962.\n",
         "image": [
           {
             "id": "attnX9Kn1syrIxzIa",
@@ -2115,7 +2162,9 @@
         "timeline_events": [
           "recJem0878ZDwsWOd"
         ],
-        "alt_text": "Three black men in suits standing outside. A fourth man is standing behind them with his back turned. ",
+        "alt_text": "From left to right: Roy Wilkins, Floyd McKissick, and James Farmer in suits standing outside. A fourth man is standing behind them with his back turned. ",
+        "attribution": "Harold Moore, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recoDIM1iGmq6tdv0"
       }
     ],
@@ -2198,6 +2247,9 @@
           "rec6GW6qRlw4MNaIS"
         ],
         "alt_text": "Five black men stand and look at a piece of paper. ",
+        "caption": "Conrad Pearson, Hugh Thompson, Floyd McKissick, William G. Marsh, John H. Wheeler, Durham Schools suit lawyers.\n",
+        "attribution": "Unknown\n",
+        "citation": "Durham Historic Photographic Archive\n",
         "__id": "recHNzz14FEbVZ3M1"
       }
     ],
@@ -2228,6 +2280,7 @@
     "Images": [
       {
         "ID": "mss_0040_084",
+        "caption": "Students from North Carolina College (now North Carolina Central University) and Hillside High School demonstrate at city hall on May 18, 1963. Theirs was one of several simultaneous protests in Durham, which continued for four days and led to 850 arrests.\n",
         "image": [
           {
             "id": "attoEQ9HaL471Gw11",
@@ -2258,6 +2311,8 @@
           "recwroIaLBLSUiiQD"
         ],
         "alt_text": "A large group of black people stand together, many with their arms in the air. One person holds a sign that says \"You have the freedom to vote.\"",
+        "attribution": "Harold Moore, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recOkVEePTvKNdgLs"
       }
     ],
@@ -2347,6 +2402,7 @@
     "Images": [
       {
         "ID": "mss_0040_067",
+        "caption": "Martin Luther King, Jr., addresses the Southern Political Science Association at Durham's Jack Tar Hotel November 13, 1964. By that time, King was the best-known leader of and spokesman for the Civil Rights Movement, his efforts rewarded with the 1964 Nobel Peace Prize.\n",
         "image": [
           {
             "id": "att4JATeNVfIt6FeA",
@@ -2376,7 +2432,9 @@
         "timeline_events": [
           "reccE5w3nyg10YoBC"
         ],
-        "alt_text": "Dr. Martin Luther King standing behind a podium.",
+        "alt_text": "Dr. Martin Luther King standing behind a podium at the Jack Tar Hotel.",
+        "attribution": "Harold Moore, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recjpvwi02FdTYRtJ"
       }
     ],
@@ -2462,6 +2520,7 @@
     "Images": [
       {
         "ID": "mss_0040_089",
+        "caption": "Howard Fuller (on wall) leads demonstrators past National Guardsmen along Peabody Street on their way to a civil rights rally in front of City Hall, in this file photo from July 20, 1967.\n",
         "image": [
           {
             "id": "att1X6o2JG8JBvhVb",
@@ -2491,11 +2550,14 @@
         "timeline_events": [
           "recTlvUAZRrjCMtal"
         ],
-        "alt_text": "A group of black people walking outside. Three armed, white men in uniforms stand and watch them.",
+        "alt_text": "A group of black people walking outside. Howard Fuller stands on a wall. Three white male National Guard soldiers armed with guns with bayonets stand and watch them.",
+        "attribution": "Harold Moore, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recGkdxTJe8O8y0S5"
       },
       {
         "ID": "mss_0040_090",
+        "caption": "Organizers Howard Fuller (left) and Ben Ruffin were major figures in late-1960s actions that often focused on gaining black representation on Durham 's policy-making agencies and protesting alleged inequities in managing the city's public housing. \n",
         "image": [
           {
             "id": "attm2avSWtPWuMaLb",
@@ -2525,7 +2587,9 @@
         "timeline_events": [
           "recTlvUAZRrjCMtal"
         ],
-        "alt_text": "A black man looks over his shoulder while standing with some other men. Other people can be seen in the background.",
+        "alt_text": "Howard Fuller looks over his shoulder while standing with some other men. Other people can be seen in the background.",
+        "attribution": "Harold Moore, Durham Herald Sun.\n",
+        "citation": "Durham Civil Rights Heritage Project\n",
         "__id": "recBX36w87XLmGSzR"
       }
     ],
