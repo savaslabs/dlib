@@ -10,6 +10,10 @@ const dest = {
   images: {
     path: './app/assets/images',
   },
+  images_data: {
+    path: './app/assets/',
+    file: 'images-data.json',
+  },
   events: {
     path: './app/assets',
     file: 'events.json',
@@ -85,6 +89,12 @@ const airtable = async () => {
     primary: 'Images',
     view: 'All',
   });
+
+  // write images-data JSON
+  fs.writeFileSync(
+    path.join(dest.images_data.path, dest.images_data.file),
+    JSON.stringify(images, null, 2)
+  );
 
   // create images destination folder if none exists
   const IMAGES = path.join(dest.images.path);
