@@ -2,6 +2,7 @@ export const cleanId = name => {
   return name
     .toLowerCase()
     .replace(/ /g, '_')
+    .replace(/-/g, '_')
     .replace(/:/g, '')
     .substring(0, 50);
 };
