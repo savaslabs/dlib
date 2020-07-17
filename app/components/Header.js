@@ -48,6 +48,7 @@ const header = ({ eventPages }) => {
               return route.component === 'Featured Events' ? (
                 <SubMenuToggle
                   key={index}
+                  onFocus={() => setMouseOverSubMenuToggle(true)}
                   onKeyDown={() => setMouseOverSubMenuToggle(true)}
                   onMouseEnter={() => setMouseOverSubMenuToggle(true)}
                   onMouseLeave={() => setMouseOverSubMenuToggle(false)}
@@ -55,6 +56,7 @@ const header = ({ eventPages }) => {
                 >
                   {route.component}
                   <SubMenu
+                    onFocus={() => setMouseOverSubMenuToggle(true)}
                     onMouseEnter={() => setMouseOverSubMenu(true)}
                     onMouseLeave={() => setMouseOverSubMenu(false)}
                     hidden={
@@ -72,7 +74,22 @@ const header = ({ eventPages }) => {
                   </SubMenu>
                 </SubMenuToggle>
               ) : (
-                <NavLink to={`/${route.route}`} key={index}>
+                <NavLink
+                  to={`/${route.route}`}
+                  key={index}
+                  onFocus={() => {
+                    setMouseOverSubMenuToggle(false),
+                      setMouseOverSubMenu(false);
+                  }}
+                  onKeyDown={() => {
+                    setMouseOverSubMenuToggle(false),
+                      setMouseOverSubMenu(false);
+                  }}
+                  onMouseEnter={() => {
+                    setMouseOverSubMenuToggle(false),
+                      setMouseOverSubMenu(false);
+                  }}
+                >
                   <li>{route.component}</li>
                 </NavLink>
               );
@@ -146,33 +163,40 @@ const SiteName = styled(NavLink)`
   line-height: ${(props) => props.theme.lineHeight.snug};
   letter-spacing: 0.02em;
   font-size: ${(props) => props.theme.fontSize.md};
-  padding-top: 20px;
+  padding-top: 70px;
   max-width: 250px;
   ${breakpoint('lg')`
     font-size: 31px;
     line-height: 1.31;
     background-color: ${(props) => props.theme.colors.greenBean};
-    padding-bottom: 24px;
-    padding-right: 60px;
+    padding: 20px 60px 24px 0;
   `}
 `;
 
 const CollectionInfo = styled.div`
-  padding-top: 22px;
+  padding-top: 50px;
   color: ${(props) => props.theme.colors.greenBean};
-  font-size: ${(props) => props.theme.fontSize.md};
+  font-size: ${(props) => props.theme.fontSize.sm};
   p a {
     text-decoration: underline;
     color: inherit;
   }
+
+  ${breakpoint('lg')`
+    padding-top: 22px;
+    font-size: ${(props) => props.theme.fontSize.md};
+  `}
 `;
 
 const Right = styled.p`
   display: flex;
   max-width: 735px;
+  letter-spacing: 0.02em;
+  padding-top: 30px;
   font-size: ${(props) => props.theme.fontSize.sm};
   line-height: ${(props) => props.theme.lineHeight.xLoose};
   ${breakpoint('lg')`
+    padding-top: 0;
     font-size: ${(props) => props.theme.fontSize.md};
     line-height: ${(props) => props.theme.lineHeight.loose};
   `}
@@ -181,9 +205,11 @@ const Right = styled.p`
 const Bottom = styled.nav`
   margin-left: auto;
   position: relative;
+  margin-top: -50px;
   ${breakpoint('lg')`
     z-index: 100;
     position: default;
+    margin-top: 0;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     ${(props) => props.theme.containerFullWidth};
     background-color: ${(props) => props.theme.colors.bgGray};
