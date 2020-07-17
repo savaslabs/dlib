@@ -18,6 +18,47 @@ const timeline = ({ timeline }) => {
   yearRefs.current = [];
 
   useEffect(() => {
+    // horizontal from docs
+    gsap.from('#line', {
+      scrollTrigger: {
+        trigger: '#line',
+        scrub: true,
+        start: 'top bottom',
+        end: 'top top',
+      },
+      scaleX: 0,
+      transformOrigin: 'left center',
+      ease: 'none',
+    });
+
+    // vertical attempt, from manipulating above
+    // gsap.from('#line', {
+    //   scrollTrigger: {
+    //     trigger: '#line',
+    //     scrub: true,
+    //     start: 'top bottom',
+    //     end: 'top top',
+    //     markers: { startColor: 'green', endColor: 'red', fontSize: '12px' }, //For Dev only
+    //   },
+    //   scaleY: 0,
+    //   transformOrigin: 'left center',
+    //   ease: 'none',
+    // });
+
+    // mine
+    // gsap.from('#line', {
+    //   scrollTrigger: {
+    //     trigger: '#line',
+    //     scrub: true,
+    //     start: 'top center',
+    //     end: 'bottom end',
+    //     markers: { startColor: 'green', endColor: 'red', fontSize: '12px' }, //For Dev only
+    //   },
+    //   scaleY: 0,
+    //   transformOrigin: 'top center',
+    //   ease: 'none',
+    // });
+
     yearRefs.current.forEach((el, index) => {
       gsap.from(el, {
         scrollTrigger: {
@@ -28,11 +69,10 @@ const timeline = ({ timeline }) => {
           end: 'top top',
           toggleClass: 'active',
           toggleActions: 'play pause resume reset',
-          markers: { startColor: 'green', endColor: 'red', fontSize: '12px' }, //For Dev only
         },
       });
     });
-  }, []);
+  }, [timeline]);
 
   const addToYearRefs = (el) => {
     if (el && !yearRefs.current.includes(el)) {
@@ -45,6 +85,7 @@ const timeline = ({ timeline }) => {
       <H1>Civil Rights Heritage Project</H1>
       <TimelineKey />
       <Timeline>
+        <Line id="line"></Line>
         {timeline &&
           timeline.map((eventsPerYear, i) => {
             let position;
@@ -117,7 +158,7 @@ const Timeline = styled.ol`
   width: 100%;
   position: relative;
 
-  /* Physical Timeline */
+  /* Timeline line */
   &:after {
     content: '';
     position: absolute;
@@ -130,6 +171,39 @@ const Timeline = styled.ol`
     `}
   }
 `;
+
+// horizontal example
+const Line = styled.span`
+  width: 100%;
+  max-width: 800px;
+  height: 8px;
+  margin: 0 0 10px 0;
+  position: relative;
+  display: inline-block;
+  background-color: black;
+`;
+
+// attempt at vertical
+// const Line = styled.span`
+//   height: 100%;
+//   max-height: 181001px;
+//   width: 8px;
+//   margin: 0 0 10px 0;
+//   position: relative;
+//   display: inline-block;
+//   background-color: black;
+// `;
+
+ /* Physical timeline for animating on scroll */
+// const Line = styled.span`
+//   height: 100%;
+//   max-height: 18101px;
+//   width: 6px;
+//   left: 50%;
+//   top: 0;
+//   position: absolute;
+//   background-color: black;
+// `;
 
 const YearListItem = styled.li`
   position: relative;
