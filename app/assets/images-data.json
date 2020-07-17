@@ -1,5 +1,258 @@
 [
   {
+    "ID": "g050",
+    "caption": "A still shot from \"Negro Durham Marches On\" shows four black police officers outside of a building.\n",
+    "image": [
+      {
+        "id": "attn6d6PjQsF1ZZ17",
+        "url": "https://dl.airtable.com/.attachments/d7a3a9d94a1aa30fa1abee2f7572aaf6/6602c46e/g050e.jpg",
+        "filename": "g050e.jpg",
+        "size": 597422,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/3cd620a8b7d2177c89ae1edbe4b6dc09/8c34ce45",
+            "width": 48,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/fdd918ee1c1bb56d5d2e3b3bc98e6e64/e7d6276e",
+            "width": 685,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/ecbdba5fd8b6b74b7132aadcb91486ad/077b5fb0",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "reciG0gMx53OcoeyN"
+    ],
+    "alt_text": "Four black police officers stand together outside. Another officer stands off to the side. ",
+    "attribution": "Negro Durham Marches On\n",
+    "citation": "Durham Historic Photographic Archive (NCC.0055), North Carolina Collection, Durham County Library, NC\n",
+    "__id": "rec94e0ahIfXMXEAq"
+  },
+  {
+    "ID": "g077",
+    "caption": "Black World War II servicemen with hostesses play piano, dance, and talk at the canteen. \n",
+    "image": [
+      {
+        "id": "attZMLCM3r2amzHZ5",
+        "url": "https://dl.airtable.com/.attachments/46388d41376f2a68c1af439640a5e170/0e96ff9a/g077e.jpg",
+        "filename": "g077e.jpg",
+        "size": 837664,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/0349da6c4e92488666d5cc7ad6e4f3b6/16c22190",
+            "width": 61,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/9bb2292a0e334ec3a539fd215eebfa42/7217df23",
+            "width": 863,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/70f9f3d851c2ec4c193a06d6f53d8c37/8abcaf6d",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "alt_text": "A large indoor gathering of black men and women. The men are wearing uniforms. One person is seated at a piano, a couple dances, and numerous other people are standing and seated around them. ",
+    "attribution": "Unknown\n",
+    "citation": "Durham Historic Photographic Archive (NCC.0055), North Carolina Collection, Durham County Library, NC\n",
+    "__id": "recvvRXcri8G3fmAq"
+  },
+  {
+    "ID": "h032",
+    "caption": "Louis Austin, Editor of The Carolina Times.\n",
+    "image": [
+      {
+        "id": "attHFYVMaat7bmzYg",
+        "url": "https://dl.airtable.com/.attachments/770e079f450f80766ee2c09d827cec57/a877dbf1/h032e.jpg",
+        "filename": "h032e.jpg",
+        "size": 768930,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/1a48e22b9e85d3e611a0b1f8e642588d/308f85c2",
+            "width": 49,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/4fce28faa99ca08a94ec16be581323a8/88138a1d",
+            "width": 693,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/caf71a08db48eb3824a9561b0a8c1e3b/22c61743",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recAGBxfdGBbkXjCc"
+    ],
+    "alt_text": "Louis Austin, seated behind a desk, reads an issue of the Carolina Times.",
+    "attribution": "Unknown\n",
+    "citation": "Durham Historic Photographic Archive (NCC.0055), North Carolina Collection, Durham County Library, NC\n",
+    "__id": "recBiXHRAe1I3NnUE"
+  },
+  {
+    "ID": "h045",
+    "caption": "Clyde Cox driving a police patrol car.\n",
+    "image": [
+      {
+        "id": "attF3lK8pE6KANkOF",
+        "url": "https://dl.airtable.com/.attachments/003bc2e8abaabc51f367094894033ecd/33c36c99/h045e.jpg",
+        "filename": "h045e.jpg",
+        "size": 649907,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/1244ed63ad971c6636cf29fb68e40b4e/71efdd76",
+            "width": 52,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/e6f89815a2df404262d94184317ed50d/6972c5c9",
+            "width": 736,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/6887d69059164cd2b9c58b859fa10736/2b29f8d9",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "reciG0gMx53OcoeyN"
+    ],
+    "alt_text": "A black police officer is seated in the driver's seat of a police car. ",
+    "attribution": "Unknown\n",
+    "citation": "Durham Historic Photographic Archive (NCC.0055), North Carolina Collection, Durham County Library, NC\n",
+    "__id": "recYJZhBLvQMZKwql"
+  },
+  {
+    "ID": "h046",
+    "caption": "R.N. Harris, First Black Elected to Durham City Council. Mr. Harris was elected to the council in 1953. He was also the first black appointed to the school board, in 1958. The man in the center back of the picture in the light suit is George Watts Carr Jr.\n",
+    "image": [
+      {
+        "id": "attMCPlfOhfjdWzKu",
+        "url": "https://dl.airtable.com/.attachments/2d31c461fcfee4bcda4091483dca3f81/7e7ac962/h046e.jpg",
+        "filename": "h046e.jpg",
+        "size": 817005,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/bfad7cfd750c94cbe20e688df3b86562/2eafa03f",
+            "width": 47,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/7de72abd72f8bdaf5b55764ec9eab1ff/2547ca1a",
+            "width": 669,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/5b8c6ef939e3bcd43f436178cf0c6a06/fb213a7b",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recCFkoA8Bn14u3KZ"
+    ],
+    "alt_text": "A group of men hold their hands on a book and raise their other hands in the motion of taking an oath. ",
+    "attribution": "Unknown\n",
+    "citation": "Durham Historic Photographic Archive (NCC.0055), North Carolina Collection, Durham County Library, NC\n",
+    "__id": "rec26yHugPQBfFfJi"
+  },
+  {
+    "ID": "h047",
+    "caption": "Durham Committee on Black Affairs meets with Luther Hodges, Governor of North Carolina in 1955.\n",
+    "image": [
+      {
+        "id": "attmNrJjTvEVHOQdT",
+        "url": "https://dl.airtable.com/.attachments/1f891b2f1a5f23552a8b0378b9556230/55e321dd/h047e.jpg",
+        "filename": "h047e.jpg",
+        "size": 623172,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/9974a928f27d2c5cb503a9f6ca4f6968/fbe7e9fb",
+            "width": 45,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/23506311ad5d2272887ba629f9ee9ea2/fde3d419",
+            "width": 647,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/134a5ce8f3af8085cedb0152ddf29693/ca9aa355",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "alt_text": "A white man sits behind a desk. Another man stands in front of him with several other people seated along the perimeter of the room. ",
+    "attribution": "Unknown\n",
+    "citation": "Durham Historic Photographic Archive (NCC.0055), North Carolina Collection, Durham County Library, NC\n",
+    "__id": "recgY9FGRMGIIgd2V"
+  },
+  {
+    "ID": "i016",
+    "caption": "Conrad Pearson, Hugh Thompson, Floyd McKissick, William G. Marsh, John H. Wheeler, Durham Schools suit lawyers.\n",
+    "image": [
+      {
+        "id": "attlYEKzExvTLNscH",
+        "url": "https://dl.airtable.com/.attachments/517095cd825d02e10b55dd30f442cc25/7525c001/i016e.jpg",
+        "filename": "i016e.jpg",
+        "size": 788992,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/ebac00bd0a43499be313701573bc3edd/29136835",
+            "width": 48,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/540e47a8fbc9780a148555e16045ad5d/4964b873",
+            "width": 686,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/5fff00e17fd18bc8045573c052ba29f4/4ce6b14a",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "rec6GW6qRlw4MNaIS"
+    ],
+    "alt_text": "Five black men stand and look at a piece of paper. ",
+    "attribution": "Unknown\n",
+    "citation": "Durham Historic Photographic Archive (NCC.0055), North Carolina Collection, Durham County Library, NC\n",
+    "__id": "recHNzz14FEbVZ3M1"
+  },
+  {
     "ID": "mss_0040_003",
     "caption": "Well-dressed anti-Wallace protester attends the Wallace-for-president rally. \n",
     "image": [
@@ -28,9 +281,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
     "alt_text": "Close-up of an African-American man with a white police office standing behind him at the Wallace-for-president rally in Durham.",
+    "event_pages": [
+      "recgpsC0NyX5oiXqA"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "reccRkdgtUhVCddgG"
   },
   {
@@ -62,9 +321,15 @@
         }
       }
     ],
-    "alt_text": "A group of men at the with the camera focused on the face of an African-American police officer. ",
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
+    "alt_text": "A group of men at the Wallace-for-president rally with the camera focused on the face of an African-American police officer. ",
+    "event_pages": [
+      "recgpsC0NyX5oiXqA"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "rec2rQWkjgskAJZKg"
   },
   {
@@ -96,9 +361,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
     "alt_text": "An African-American police officer works on crowd control at the Wallace-for-president rally at the Durham police headquarters. A protest sign in the background says \"Labor Stands Up for Wallace.\"",
+    "event_pages": [
+      "recgpsC0NyX5oiXqA"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recRi98Fxi9OLIDIT"
   },
   {
@@ -130,9 +401,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
     "alt_text": "Close-up of an African-American man standing in a crowd with his arm raised in the air. ",
+    "event_pages": [
+      "recgpsC0NyX5oiXqA"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recP4dTGtkZaDUiQg"
   },
   {
@@ -164,9 +441,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
     "alt_text": "A man and woman standing in front of a George Wallace campaign car. ",
+    "event_pages": [
+      "recgpsC0NyX5oiXqA"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recN9TjzldpdusBls"
   },
   {
@@ -198,9 +481,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
     "alt_text": "A large crowd of people with signs. Some police officers in riot gear visible. ",
+    "event_pages": [
+      "recgpsC0NyX5oiXqA"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recgss1K69oLQ4ovJ"
   },
   {
@@ -232,9 +521,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
     "alt_text": "Three women in stars and stripes dresses wearing George Wallace sashes. ",
+    "event_pages": [
+      "recgpsC0NyX5oiXqA"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recl7lrz1DS9LvyYt"
   },
   {
@@ -266,9 +561,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
     "alt_text": "An African-American police officer. In the background two people are standing on a roof. ",
+    "event_pages": [
+      "recgpsC0NyX5oiXqA"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recMzmt29LYJmHBm5"
   },
   {
@@ -300,9 +601,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
     "alt_text": "Two men with gas masks, one covering his face and the other on top of his head. ",
+    "event_pages": [
+      "recgpsC0NyX5oiXqA"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recZJSBgOCH9rx3n8"
   },
   {
@@ -334,9 +641,15 @@
         }
       }
     ],
-    "alt_text": "A line of protestors with signs marching on Duke's campus. In the foreground are African-American women and in the background are some white male students. ",
+    "timeline_events": [
+      "rec5GAPtIC3N5lROy"
+    ],
+    "alt_text": "A line of protesters with signs marching on Duke's campus. In the foreground are African-American women and in the background are some white male students. ",
+    "event_pages": [
+      "recCmZ6FKSjD0daI0"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recyKI43HWKtLje5P"
   },
   {
@@ -368,13 +681,19 @@
         }
       }
     ],
-    "alt_text": "A line of protestors carrying signs on Duke's campus. ",
+    "timeline_events": [
+      "rec5GAPtIC3N5lROy"
+    ],
+    "alt_text": "A line of protesters carrying signs on Duke's campus. ",
+    "event_pages": [
+      "recCmZ6FKSjD0daI0"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recMOgSauLvWhUjwc"
   },
   {
-    "ID": "mss_0024_024",
+    "ID": "mss_0040_024",
     "caption": "Oliver Harvey and unidentified student distribute literature about employee issues in April 1967.\n",
     "image": [
       {
@@ -402,9 +721,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "rec5GAPtIC3N5lROy"
+    ],
     "alt_text": "Two white men stand at an information table. A white male student and Oliver Harvey are behind the table. ",
+    "event_pages": [
+      "recCmZ6FKSjD0daI0"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recJBqkFK5IMOuAVW"
   },
   {
@@ -436,9 +761,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recg6iNIc6zNQskxw"
+    ],
     "alt_text": "Howard Fuller and an unidentified student stand in front of a building with a sign that reads \"Malcom X Liberation University.\"",
+    "event_pages": [
+      "recBwYytBK3nP9f4O"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recEVP40Ch7sYndgD"
   },
   {
@@ -470,9 +801,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recIIUidUrYP9Wyw6"
+    ],
     "alt_text": "A large group of people in the street. Most people in the image are police in riot gear with their backs to the camera. ",
+    "event_pages": [
+      "recQXOlq6l2u6J7Go"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recyQWr5ke7JScxFI"
   },
   {
@@ -504,9 +841,15 @@
         }
       }
     ],
-    "alt_text": "A long line of protestors holding signs. A sign for the US Air Force Recruiting Station is visible. ",
+    "timeline_events": [
+      "recIIUidUrYP9Wyw6"
+    ],
+    "alt_text": "A long line of protesters holding signs. A sign for the US Air Force Recruiting Station is visible. ",
+    "event_pages": [
+      "recQXOlq6l2u6J7Go"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recfVNwB9J53xgjm2"
   },
   {
@@ -538,9 +881,15 @@
         }
       }
     ],
-    "alt_text": "A police officer directing traffic with a large group of protestors in the background.",
+    "timeline_events": [
+      "recIIUidUrYP9Wyw6"
+    ],
+    "alt_text": "A police officer directing traffic with a large group of protesters in the background.",
+    "event_pages": [
+      "recQXOlq6l2u6J7Go"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recXzBTtNtHepSAcQ"
   },
   {
@@ -572,9 +921,15 @@
         }
       }
     ],
-    "alt_text": "A protest sign that shows the shape of a star with the words \"They have replaced sheets with badges\" on the sign. ",
+    "timeline_events": [
+      "recIIUidUrYP9Wyw6"
+    ],
+    "alt_text": "A protest sign that shows the shape of a star with the words \"They have replaced sheets with badges.\" ",
+    "event_pages": [
+      "recQXOlq6l2u6J7Go"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recBD8PMEnr3vDEYq"
   },
   {
@@ -606,14 +961,20 @@
         }
       }
     ],
+    "timeline_events": [
+      "recIIUidUrYP9Wyw6"
+    ],
     "alt_text": "Two police officers in riot gear stand outside a storefront. ",
+    "event_pages": [
+      "recQXOlq6l2u6J7Go"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "rec2HRpHeLdgZY3gK"
   },
   {
     "ID": "mss_0040_043",
-    "caption": "Student protestors downtown during Orangeburg sympathy protest.\n",
+    "caption": "Student protesters downtown during Orangeburg sympathy protest.\n",
     "image": [
       {
         "id": "attHLndDQvXDBDTVs",
@@ -640,9 +1001,15 @@
         }
       }
     ],
-    "alt_text": "A group of African-American protestors. One person holds a sign that says \"End Police Brutality.\"",
+    "timeline_events": [
+      "recIIUidUrYP9Wyw6"
+    ],
+    "alt_text": "A group of African-American protesters. One person holds a sign that says \"End Police Brutality.\"",
+    "event_pages": [
+      "recQXOlq6l2u6J7Go"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recq2s7LyGcTdkqmm"
   },
   {
@@ -674,9 +1041,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recI3gZ4LEum52FMo"
+    ],
     "alt_text": "A large crowd gathered on Duke's campus. In the foreground one white man stands with a sign that says \"Silent Vigil in Memory of Martin Luther King.\"",
+    "event_pages": [
+      "recXE9UHUwAD9a6VD"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recKTnZFAe0Y8gI3y"
   },
   {
@@ -708,9 +1081,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recg6iNIc6zNQskxw"
+    ],
     "alt_text": "A large group of primarily African-American people with the Duke Chapel in the background. They carry a banner that reads \"Malcolm X Liberation School.\"",
+    "event_pages": [
+      "recBwYytBK3nP9f4O"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recLu8ttarT9ZxLxD"
   },
   {
@@ -742,9 +1121,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "rect66I8b5DgQ13md"
+    ],
     "alt_text": "Two African-American people inside a building peer through a window. ",
+    "event_pages": [
+      "recBwYytBK3nP9f4O"
+    ],
     "attribution": "Harold Moore, Durham Morning Herald.  Permission to use this image must be obtained from Wilson Library at the University of North Carolina at Chapel Hill.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "rec6No9iSO6IbPJjx"
   },
   {
@@ -776,8 +1161,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "rect66I8b5DgQ13md"
+    ],
     "alt_text": "A police office holding a baton stands over a person laying on the ground. Other people and smoke are visible in the background. ",
+    "event_pages": [
+      "recBwYytBK3nP9f4O"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recnRlIHb82w0Xt2e"
   },
   {
@@ -809,9 +1201,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "rect66I8b5DgQ13md"
+    ],
     "alt_text": "A group of officers wearing gas masks and carrying batons stand together. ",
+    "event_pages": [
+      "recBwYytBK3nP9f4O"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recb5gbo4gZD6QaUo"
   },
   {
@@ -843,9 +1241,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "rec7xNXIcM5OERLnt"
+    ],
     "alt_text": "An African-American man dressed as Santa Claus sits atop a float. Numerous people are gathered around him. ",
+    "event_pages": [
+      "recfY8okc1pfYJISN"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "rect3doAfzob4MT0f"
   },
   {
@@ -877,9 +1281,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "rec7xNXIcM5OERLnt"
+    ],
     "alt_text": "A parade with mostly African-American people watching and a float with a black man dressed as Santa Claus. ",
+    "event_pages": [
+      "recfY8okc1pfYJISN"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recgwijlhqhzJ7VY1"
   },
   {
@@ -913,7 +1323,7 @@
     ],
     "alt_text": "A white man dressed in Ku Klux Klan garb, a black man standing a few feet from him, and a black police officer standing in the background.",
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recw4Kg8XI3zUThUr"
   },
   {
@@ -945,9 +1355,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recI3gZ4LEum52FMo"
+    ],
     "alt_text": "A large crowd of people laying on the ground with blankets and sleeping bags. ",
+    "event_pages": [
+      "recXE9UHUwAD9a6VD"
+    ],
     "attribution": "Bill Boyarsky\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recMmiqe3GUHXTyQm"
   },
   {
@@ -983,8 +1399,11 @@
       "recgypggyFl8lnDr3"
     ],
     "alt_text": "Dr. Martin Luther King preaching in a church. The organ and choir are visible behind him. ",
+    "event_pages": [
+      "recAIRu6v2EA2goBI"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recfty84zXl1w3Scl"
   },
   {
@@ -1016,9 +1435,12 @@
         }
       }
     ],
+    "timeline_events": [
+      "recO6ItrLWExLiAtU"
+    ],
     "alt_text": "Malcolm X standing behind a podium. ",
     "attribution": "Harold Moore, Durham Herald Sun\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recBSZqMR7HWj1cnt"
   },
   {
@@ -1054,8 +1476,11 @@
       "reccE5w3nyg10YoBC"
     ],
     "alt_text": "Dr. Martin Luther King standing behind a podium at the Jack Tar Hotel.",
+    "event_pages": [
+      "recAIRu6v2EA2goBI"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recjpvwi02FdTYRtJ"
   },
   {
@@ -1088,8 +1513,11 @@
       }
     ],
     "alt_text": "From left to right: Reverend Ralph Abernathy, Dr. Martin Luther King, Reverend Douglas Moore and an unidentified black man standing in a store. ",
+    "event_pages": [
+      "recAIRu6v2EA2goBI"
+    ],
     "attribution": "Jim Thornton, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recqw32uCZtLmA82O"
   },
   {
@@ -1125,8 +1553,11 @@
       "recJem0878ZDwsWOd"
     ],
     "alt_text": "From left to right: Roy Wilkins, Floyd McKissick, and James Farmer in suits standing outside. A fourth man is standing behind them with his back turned. ",
+    "event_pages": [
+      "recHQvaWQL0CrQP4H"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recoDIM1iGmq6tdv0"
   },
   {
@@ -1158,9 +1589,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recttMhgMKpQmW4G1"
+    ],
     "alt_text": "Three white, armed National Guard soldiers seated on a bench. One of them is reading a newspaper. ",
+    "event_pages": [
+      "recXE9UHUwAD9a6VD"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recWM1NeJKs21EZ8I"
   },
   {
@@ -1196,8 +1633,11 @@
       "recJem0878ZDwsWOd"
     ],
     "alt_text": "A large group of people gather along the side of a highway outside a Howard Johnson's.",
+    "event_pages": [
+      "recHQvaWQL0CrQP4H"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "rec4eLQkBFdvwvAVV"
   },
   {
@@ -1229,9 +1669,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recttMhgMKpQmW4G1"
+    ],
     "alt_text": "A large crowd of people gathered outside of city hall.",
+    "event_pages": [
+      "recXE9UHUwAD9a6VD"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recA4j5gbJr4gaftu"
   },
   {
@@ -1268,7 +1714,7 @@
     ],
     "alt_text": "From left to right: Henry Vickers, Floyd McKissick, Andree McKissick, and Evelyn McKissick walk on a sidewalk outside Carr Junior High School. ",
     "attribution": "Jim Sparks, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recfrtnouwNhCpS4i"
   },
   {
@@ -1300,9 +1746,12 @@
         }
       }
     ],
+    "timeline_events": [
+      "rect66I8b5DgQ13md"
+    ],
     "alt_text": "White people running outside with tear gas all around. ",
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recisra7FXAIXQXiy"
   },
   {
@@ -1338,13 +1787,16 @@
       "recy1qeziTf3KXpzZ"
     ],
     "alt_text": "Four black men inside a lobby facing a white man with his back to the camera. Other people are visible in the background. ",
+    "event_pages": [
+      "rec6zsowUWanJJAzD"
+    ],
     "attribution": "Jim Thornton, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recnmPyhJzFKnWxxE"
   },
   {
     "ID": "mss_0040_079",
-    "caption": "A \"round-robin\" demonstrator asks to buy a ticket to the Carolina Theatre and gets a refusal at the box office. Once turned away, protestors went to the end of the line and waited their turns to try again. \n",
+    "caption": "A \"round-robin\" demonstrator asks to buy a ticket to the Carolina Theatre and gets a refusal at the box office. Once turned away, protesters went to the end of the line and waited their turns to try again. \n",
     "image": [
       {
         "id": "attVs7pyjdfKOiYCd",
@@ -1375,13 +1827,16 @@
       "recy1qeziTf3KXpzZ"
     ],
     "alt_text": "A black woman stands at a ticket counter speaking to a white woman ticket seller. A long line of black people is formed behind her. ",
+    "event_pages": [
+      "rec6zsowUWanJJAzD"
+    ],
     "attribution": "Jim Sparks, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "rec5Aa6gGTFipfkjx"
   },
   {
     "ID": "mss_0040_080",
-    "caption": "An unidentified protestor is confronted by a Durham police officer and Carolina Theatre assistant manager Milo Crawford on March 14, 1962. Demonstrators were advised not to give their names to police for fear of white reprisals.\n",
+    "caption": "An unidentified protester is confronted by a Durham police officer and Carolina Theatre assistant manager Milo Crawford on March 14, 1962. Demonstrators were advised not to give their names to police for fear of white reprisals.\n",
     "image": [
       {
         "id": "attS9iLnaNslwBLcK",
@@ -1412,8 +1867,11 @@
       "recy1qeziTf3KXpzZ"
     ],
     "alt_text": "Two black men, a white man, and a white police officer stand near each other. ",
+    "event_pages": [
+      "rec6zsowUWanJJAzD"
+    ],
     "attribution": "Jim Sparks, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recfKeJ5HPeXO5wWm"
   },
   {
@@ -1449,8 +1907,11 @@
       "recy1qeziTf3KXpzZ"
     ],
     "alt_text": "A long line of black people formed along a sidewalk outside the Carolina Theatre. ",
+    "event_pages": [
+      "rec6zsowUWanJJAzD"
+    ],
     "attribution": "Jim Sparks, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recSkdSnubpOg2ZeJ"
   },
   {
@@ -1486,8 +1947,11 @@
       "recy1qeziTf3KXpzZ"
     ],
     "alt_text": "A long line of black people outside the Carolina Theatre. ",
+    "event_pages": [
+      "rec6zsowUWanJJAzD"
+    ],
     "attribution": "Jim Sparks, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recot2QR9z5Of4nvZ"
   },
   {
@@ -1524,7 +1988,7 @@
     ],
     "alt_text": "A large group of black people stand together, many with their arms in the air. One person holds a sign that says \"You have the freedom to vote.\"",
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recOkVEePTvKNdgLs"
   },
   {
@@ -1560,8 +2024,11 @@
       "recDfGJY16SiWFASb"
     ],
     "alt_text": "Dr. Martin Luther King stands behind a podium. Two other black men can be seen seated behind him. ",
+    "event_pages": [
+      "recAIRu6v2EA2goBI"
+    ],
     "attribution": "Jim Sparks, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recCldeNYMmnGqBsY"
   },
   {
@@ -1597,8 +2064,11 @@
       "recgypggyFl8lnDr3"
     ],
     "alt_text": "From left to right: Reverend Douglas Moore, Reverend Dr. Martin Luther King Jr., Reverend Ralph Abernathy, and an unidentified man walk outside in Durham. ",
+    "event_pages": [
+      "recAIRu6v2EA2goBI"
+    ],
     "attribution": "Jim Thornton, Durham Herald Sun\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recPBXxDuTpIA7jSH"
   },
   {
@@ -1635,7 +2105,7 @@
     ],
     "alt_text": "A group of black people walking outside. Howard Fuller stands on a wall. Three white male National Guard soldiers armed with guns with bayonets stand and watch them.",
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recGkdxTJe8O8y0S5"
   },
   {
@@ -1672,7 +2142,7 @@
     ],
     "alt_text": "Howard Fuller looks over his shoulder while standing with some other men. Other people can be seen in the background.",
     "attribution": "Harold Moore, Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recBX36w87XLmGSzR"
   },
   {
@@ -1704,9 +2174,12 @@
         }
       }
     ],
+    "timeline_events": [
+      "recxHiUgqNy76bOHJ"
+    ],
     "alt_text": "A very large crowd of people stands in front of the Durham police headquarters. ",
     "attribution": "Durham Herald Sun.\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recf6JFTTYZHHOmcR"
   },
   {
@@ -1738,9 +2211,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recI3gZ4LEum52FMo"
+    ],
     "alt_text": "A group of people sit on the ground under umbrellas. ",
+    "event_pages": [
+      "recXE9UHUwAD9a6VD"
+    ],
     "attribution": "Bill Boyarsky and Jack Preiss\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recPoTRSZk6KV4JWI"
   },
   {
@@ -1772,9 +2251,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recI3gZ4LEum52FMo"
+    ],
     "alt_text": "A group of white people stand with arms crossed, holding hands and appear to be singing. ",
+    "event_pages": [
+      "recXE9UHUwAD9a6VD"
+    ],
     "attribution": "Bill Boyarsky and Jack Preiss\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recSgGlO3oxuLGHEO"
   },
   {
@@ -1806,9 +2291,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "recI3gZ4LEum52FMo"
+    ],
     "alt_text": "A large crowd of people sit on a lawn near Duke Chapel. ",
+    "event_pages": [
+      "recXE9UHUwAD9a6VD"
+    ],
     "attribution": "Bill Boyarsky and Jack Preiss\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recNn390RASVpF9s4"
   },
   {
@@ -1840,9 +2331,12 @@
         }
       }
     ],
+    "timeline_events": [
+      "recg6iNIc6zNQskxw"
+    ],
     "alt_text": "An unidentifed man and Howard Fuller sit behind a table covered in a banner that says \"Malcolm X Liberation University.\"",
     "attribution": "Harold Moore, Durham Herald Sun\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recM8cYgibaOJBerF"
   },
   {
@@ -1874,9 +2368,15 @@
         }
       }
     ],
+    "timeline_events": [
+      "rec7xNXIcM5OERLnt"
+    ],
     "alt_text": "A flyer published by the Black Solidarity Committee for Community Improvement asking for support for the \"Selective Buying Campaign.\" ",
+    "event_pages": [
+      "recfY8okc1pfYJISN"
+    ],
     "attribution": "Black Solidarity Committee for Community Improvement\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "rec3YOsCqlMvDeYZq"
   },
   {
@@ -1908,14 +2408,20 @@
         }
       }
     ],
+    "timeline_events": [
+      "rec7xNXIcM5OERLnt"
+    ],
     "alt_text": "A boycott list of stores published by the Black Solidarity Committee for Community Improvement. ",
+    "event_pages": [
+      "recfY8okc1pfYJISN"
+    ],
     "attribution": "Black Solidarity Committee for Community Improvement\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recpg11Tqlkv75U7e"
   },
   {
     "ID": "mss_0040_116",
-    "caption": "White ushers block black worshippers (Fay Mayo and fellow NCCU student) at First Baptist Church.\n",
+    "caption": "White ushers block black worshipers (Fay Mayo and fellow NCCU student) at First Baptist Church.\n",
     "image": [
       {
         "id": "att7KSA5VTqlVF1t7",
@@ -1944,7 +2450,7 @@
     ],
     "alt_text": "A black man and Fay Mayo stand on the stairs outside a church facing two white men. ",
     "attribution": "Fay Mayo\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recVLb3fSpoFyZAxy"
   },
   {
@@ -1978,11 +2484,12 @@
     ],
     "alt_text": "Two black men stand outside a building pointing at a campaign message printed on the window. ",
     "attribution": "Nathan Thomas\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "rec6uMFCeevQVFEAR"
   },
   {
     "ID": "mss_0040_126",
+    "caption": "The Royal Ice Cream strikers pray before going to court. Participants included Mary Clyburn, Virginia Williams, Rev. Douglas E. Moore, Vivian Jones, Jesse Gray, Claude Glenn, and Melvin H. Willis.  \"It was exciting, because we went where we dared not to go. I wasn't frightened or anything of that sort because either way, we could have made history. If he had served us ice cream, he would have made history. But, by refusing to, I guess we made history!\" -Virginia Williams, Royal Ice Cream Protester, 2003 Interview \n",
     "image": [
       {
         "id": "att80ogCdg82dy6eq",
@@ -2013,13 +2520,16 @@
       "recBvYpCfQumCTE3Y"
     ],
     "alt_text": "Five black men and women kneel in prayer before a black minister.",
-    "caption": "The Royal Ice Cream strikers pray before going to court. Participants included Mary Clyburn, Virginia Williams, Rev. Douglas E. Moore, Vivian Jones, Jesse Gray, Claude Glenn, and Melvin H. Willis.  \"It was exciting, because we went where we dared not to go. I wasn't frightened or anything of that sort because either way, we could have made history. If he had served us ice cream, he would have made history. But, by refusing to, I guess we made history!\" -Virginia Williams, Royal Ice Cream Protester, 2003 Interview \n",
+    "event_pages": [
+      "recysjrAhiQsb2sMm"
+    ],
     "attribution": "Virginia Williams\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "recWBimICAeEMV1gG"
   },
   {
     "ID": "mss_0040_128",
+    "caption": "A demonstrator is aided after being struck in the head during demonstration at Duke where students took over the Allen Building on February 13, 1969\n",
     "image": [
       {
         "id": "att9itjsNoiKgV0hS",
@@ -2046,34 +2556,39 @@
         }
       }
     ],
+    "timeline_events": [
+      "rect66I8b5DgQ13md"
+    ],
     "alt_text": "A white man with blood dripping down his face holds a bandage to his head. He is helped by another man with other people in the background. ",
-    "caption": "A demonstrator is aided after being struck in the head during demonstration at Duke where students took over the Allen Building on February 13, 1969\n",
+    "event_pages": [
+      "recBwYytBK3nP9f4O"
+    ],
     "attribution": "Harold Moore, Durham Herald Sun\n",
-    "citation": "Durham Civil Rights Heritage Project\n",
+    "citation": "Durham Civil Rights Heritage Project Collection (NCC.0040), North Carolina Collection, Durham County Library, NC\n",
     "__id": "rec7o53EyXJIA08E5"
   },
   {
-    "ID": "g050",
+    "ID": "mss_0238_002",
     "image": [
       {
-        "id": "attn6d6PjQsF1ZZ17",
-        "url": "https://dl.airtable.com/.attachments/d7a3a9d94a1aa30fa1abee2f7572aaf6/6602c46e/g050e.jpg",
-        "filename": "g050e.jpg",
-        "size": 597422,
+        "id": "attFgQWu1JNz0TVtX",
+        "url": "https://dl.airtable.com/.attachments/cfea740662e49a5fe8af148f9e352fe0/9deee740/mss_0238_002e.jpg",
+        "filename": "mss_0238_002e.jpg",
+        "size": 834167,
         "type": "image/jpeg",
         "thumbnails": {
           "small": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/3cd620a8b7d2177c89ae1edbe4b6dc09/8c34ce45",
-            "width": 48,
+            "url": "https://dl.airtable.com/.attachmentThumbnails/7b4c80690095b301ee36f9f57cd697e8/9634c07d",
+            "width": 54,
             "height": 36
           },
           "large": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/fdd918ee1c1bb56d5d2e3b3bc98e6e64/e7d6276e",
-            "width": 685,
+            "url": "https://dl.airtable.com/.attachmentThumbnails/21ac5177129f169c706c3a3c2cf8810d/007fef79",
+            "width": 768,
             "height": 512
           },
           "full": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/ecbdba5fd8b6b74b7132aadcb91486ad/077b5fb0",
+            "url": "https://dl.airtable.com/.attachmentThumbnails/f20288ecc1497974375f0d36f24143f1/8b4bb343",
             "width": 3000,
             "height": 3000
           }
@@ -2081,70 +2596,39 @@
       }
     ],
     "timeline_events": [
-      "reciG0gMx53OcoeyN"
+      "recXFoHg0VWYxRIRs"
     ],
-    "alt_text": "Four black police officers stand together outside. Another officer stands off to the side. ",
-    "caption": "A still shot from \"Negro Durham Marches On\" shows four black police officers outside of a building.\n",
-    "attribution": "Negro Durham Marches On\n",
-    "citation": "Durham Historic Photographic Archive\n",
-    "__id": "rec94e0ahIfXMXEAq"
+    "alt_text": "Three window panels with yellow paper hanging in them. Names of black people murdered by police are written on the paper. The words \"Black Lives Matter\" are painted in red across the windows.",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "Black Lives Matter and names of victims of police violence located in the windows at 130 East Main Street.\n",
+    "__id": "recVAYTxmgYuV6E02"
   },
   {
-    "ID": "g077",
+    "ID": "mss_0238_010",
     "image": [
       {
-        "id": "attZMLCM3r2amzHZ5",
-        "url": "https://dl.airtable.com/.attachments/46388d41376f2a68c1af439640a5e170/0e96ff9a/g077e.jpg",
-        "filename": "g077e.jpg",
-        "size": 837664,
+        "id": "attU9Gw3pVCsq6F6y",
+        "url": "https://dl.airtable.com/.attachments/94095096a9bf0a83cfba3b86e8ecc8b8/ccd71bf1/mss_0238_010e.jpg",
+        "filename": "mss_0238_010e.jpg",
+        "size": 523924,
         "type": "image/jpeg",
         "thumbnails": {
           "small": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/0349da6c4e92488666d5cc7ad6e4f3b6/16c22190",
-            "width": 61,
+            "url": "https://dl.airtable.com/.attachmentThumbnails/734d9ddba193b345e0be9a24a7684591/a871b4ad",
+            "width": 54,
             "height": 36
           },
           "large": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/9bb2292a0e334ec3a539fd215eebfa42/7217df23",
-            "width": 863,
+            "url": "https://dl.airtable.com/.attachmentThumbnails/6645e6c4a9c03c99b270664e002ea2f3/69ab4a95",
+            "width": 768,
             "height": 512
           },
           "full": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/70f9f3d851c2ec4c193a06d6f53d8c37/8abcaf6d",
-            "width": 3000,
-            "height": 3000
-          }
-        }
-      }
-    ],
-    "alt_text": "A large indoor gathering of black men and women. The men are wearing uniforms. One person is seated at a piano, a couple dances, and numerous other people are standing and seated around them. ",
-    "caption": "Black World War II servicemen with hostesses play piano, dance, and talk at the canteen. \n",
-    "attribution": "Unknown\n",
-    "citation": "Durham Historic Photographic Archive\n",
-    "__id": "recvvRXcri8G3fmAq"
-  },
-  {
-    "ID": "h032",
-    "image": [
-      {
-        "id": "attHFYVMaat7bmzYg",
-        "url": "https://dl.airtable.com/.attachments/770e079f450f80766ee2c09d827cec57/a877dbf1/h032e.jpg",
-        "filename": "h032e.jpg",
-        "size": 768930,
-        "type": "image/jpeg",
-        "thumbnails": {
-          "small": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/1a48e22b9e85d3e611a0b1f8e642588d/308f85c2",
-            "width": 49,
-            "height": 36
-          },
-          "large": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/4fce28faa99ca08a94ec16be581323a8/88138a1d",
-            "width": 693,
-            "height": 512
-          },
-          "full": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/caf71a08db48eb3824a9561b0a8c1e3b/22c61743",
+            "url": "https://dl.airtable.com/.attachmentThumbnails/3ef0d0da3e5bf0ed4a78ff21f1ea05b6/99042043",
             "width": 3000,
             "height": 3000
           }
@@ -2152,36 +2636,39 @@
       }
     ],
     "timeline_events": [
-      "recAGBxfdGBbkXjCc"
+      "recXFoHg0VWYxRIRs"
     ],
-    "alt_text": "A black man seated behind a desk reads an issue of the Carolina Times.",
-    "caption": "Louis Austin, Editor of The Carolina Times.\n",
-    "attribution": "Unknown\n",
-    "citation": "Durham Historic Photographic Archive\n",
-    "__id": "recBiXHRAe1I3NnUE"
+    "alt_text": "A colorful spray painted mural containing flowers, a woman's face, and hearts.",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "Black Lives Matter artwork by Britt Flood located at Pokeworks at 122 West Main Street.\n",
+    "__id": "recOkYOMhkTGZ2x2X"
   },
   {
-    "ID": "h045",
+    "ID": "mss_0238_012",
     "image": [
       {
-        "id": "attF3lK8pE6KANkOF",
-        "url": "https://dl.airtable.com/.attachments/003bc2e8abaabc51f367094894033ecd/33c36c99/h045e.jpg",
-        "filename": "h045e.jpg",
-        "size": 649907,
+        "id": "attlkPrxBanSqaPoY",
+        "url": "https://dl.airtable.com/.attachments/214541d384f9f26c55f3528de1b23170/a8d8a789/mss_0238_012e.jpg",
+        "filename": "mss_0238_012e.jpg",
+        "size": 772970,
         "type": "image/jpeg",
         "thumbnails": {
           "small": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/1244ed63ad971c6636cf29fb68e40b4e/71efdd76",
-            "width": 52,
+            "url": "https://dl.airtable.com/.attachmentThumbnails/c2ab124861bb954e8cb5aff7a6bdc243/2f35e60e",
+            "width": 54,
             "height": 36
           },
           "large": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/e6f89815a2df404262d94184317ed50d/6972c5c9",
-            "width": 736,
+            "url": "https://dl.airtable.com/.attachmentThumbnails/860e9628329ef5a458cf940b25c7f813/a89df7ba",
+            "width": 768,
             "height": 512
           },
           "full": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/6887d69059164cd2b9c58b859fa10736/2b29f8d9",
+            "url": "https://dl.airtable.com/.attachmentThumbnails/8e6907a1ff0bddb528ccb249a40c6ea6/bbea5c89",
             "width": 3000,
             "height": 3000
           }
@@ -2189,36 +2676,39 @@
       }
     ],
     "timeline_events": [
-      "reciG0gMx53OcoeyN"
+      "recXFoHg0VWYxRIRs"
     ],
-    "alt_text": "A black police officer is seated in the driver's seat of a police car. ",
-    "caption": "Clyde Cox driving a police patrol car.\n",
-    "attribution": "Unknown\n",
-    "citation": "Durham Historic Photographic Archive\n",
-    "__id": "recYJZhBLvQMZKwql"
+    "alt_text": "A mural with a blue background displaying buildings, raised \"power\" fists as flowers, a bull, and the words \"Black Lives Matter,\" \"A change will come,\" and \"No justice no peace.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"A Bull's City\" by Mack Wilson-Leigh, Eric Cabbell, Jr. and other members of the Raleigh Art Night group.  The artwork was located at The Oak House at 126 West Main Street.\n",
+    "__id": "recUzf9YVvq5dWqsn"
   },
   {
-    "ID": "h046",
+    "ID": "mss_0238_016",
     "image": [
       {
-        "id": "attMCPlfOhfjdWzKu",
-        "url": "https://dl.airtable.com/.attachments/2d31c461fcfee4bcda4091483dca3f81/7e7ac962/h046e.jpg",
-        "filename": "h046e.jpg",
-        "size": 817005,
+        "id": "attpECRx5kSdRJ4tC",
+        "url": "https://dl.airtable.com/.attachments/e1c723c8b36294fe6f856fe306fc8935/088af1a0/mss_0238_016e.jpg",
+        "filename": "mss_0238_016e.jpg",
+        "size": 818694,
         "type": "image/jpeg",
         "thumbnails": {
           "small": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/bfad7cfd750c94cbe20e688df3b86562/2eafa03f",
-            "width": 47,
+            "url": "https://dl.airtable.com/.attachmentThumbnails/235982b84bd5140047602df3a1e6c904/7f42da42",
+            "width": 24,
             "height": 36
           },
           "large": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/7de72abd72f8bdaf5b55764ec9eab1ff/2547ca1a",
-            "width": 669,
-            "height": 512
+            "url": "https://dl.airtable.com/.attachmentThumbnails/9944a5f6dbec9d274cd2e3cd2d70c669/a8027bcf",
+            "width": 512,
+            "height": 768
           },
           "full": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/5b8c6ef939e3bcd43f436178cf0c6a06/fb213a7b",
+            "url": "https://dl.airtable.com/.attachmentThumbnails/9f53bf1cc7da67ece96cb44a5f674bd2/335099b5",
             "width": 3000,
             "height": 3000
           }
@@ -2226,70 +2716,39 @@
       }
     ],
     "timeline_events": [
-      "recCFkoA8Bn14u3KZ"
+      "recXFoHg0VWYxRIRs"
     ],
-    "alt_text": "A group of white men hold their hands on a book and raise their other hands in the motion of taking an oath. ",
-    "caption": "R.N. Harris, First Black Elected to Durham City Council. Mr. Harris was elected to the council in 1953. He was also the first black appointed to the school board, in 1958. The man in the center back of the picture in the light suit is George Watts Carr Jr.\n",
-    "attribution": "Unknown\n",
-    "citation": "Durham Historic Photographic Archive\n",
-    "__id": "rec26yHugPQBfFfJi"
+    "alt_text": "A white background with flowers and the words \"black flowers blooming look in your mirror: it's me unending love: change your neighbor is you the dream remember? touch through black love changes all\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "Protest Haikus by Nina Oteria.  Located at The Pinhook at 117 West Main Street.\n",
+    "__id": "recsSkhXNgYgIlT9D"
   },
   {
-    "ID": "h047",
+    "ID": "mss_0238_017",
     "image": [
       {
-        "id": "attmNrJjTvEVHOQdT",
-        "url": "https://dl.airtable.com/.attachments/1f891b2f1a5f23552a8b0378b9556230/55e321dd/h047e.jpg",
-        "filename": "h047e.jpg",
-        "size": 623172,
+        "id": "attOv03ge9xVnLsgT",
+        "url": "https://dl.airtable.com/.attachments/4542860206013ea17de309813a73b85b/0edd0e48/mss_0238_017e.jpg",
+        "filename": "mss_0238_017e.jpg",
+        "size": 737976,
         "type": "image/jpeg",
         "thumbnails": {
           "small": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/9974a928f27d2c5cb503a9f6ca4f6968/fbe7e9fb",
-            "width": 45,
+            "url": "https://dl.airtable.com/.attachmentThumbnails/9134b291e9ad797c2cb2ff466e5f10cf/9771a849",
+            "width": 24,
             "height": 36
           },
           "large": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/23506311ad5d2272887ba629f9ee9ea2/fde3d419",
-            "width": 647,
-            "height": 512
+            "url": "https://dl.airtable.com/.attachmentThumbnails/654bef32be04024ee76b47191a3374a4/03ca973b",
+            "width": 512,
+            "height": 768
           },
           "full": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/134a5ce8f3af8085cedb0152ddf29693/ca9aa355",
-            "width": 3000,
-            "height": 3000
-          }
-        }
-      }
-    ],
-    "alt_text": "A white man sits behind a desk. Another man stands in front of him with several other people seated along the perimeter of the room. ",
-    "caption": "Durham Committee on Black Affairs meets with Luther Hodges, Governor of North Carolina in 1955.\n",
-    "attribution": "Unknown\n",
-    "citation": "Durham Historic Photographic Archive\n",
-    "__id": "recgY9FGRMGIIgd2V"
-  },
-  {
-    "ID": "i016",
-    "image": [
-      {
-        "id": "attlYEKzExvTLNscH",
-        "url": "https://dl.airtable.com/.attachments/517095cd825d02e10b55dd30f442cc25/7525c001/i016e.jpg",
-        "filename": "i016e.jpg",
-        "size": 788992,
-        "type": "image/jpeg",
-        "thumbnails": {
-          "small": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/ebac00bd0a43499be313701573bc3edd/29136835",
-            "width": 48,
-            "height": 36
-          },
-          "large": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/540e47a8fbc9780a148555e16045ad5d/4964b873",
-            "width": 686,
-            "height": 512
-          },
-          "full": {
-            "url": "https://dl.airtable.com/.attachmentThumbnails/5fff00e17fd18bc8045573c052ba29f4/4ce6b14a",
+            "url": "https://dl.airtable.com/.attachmentThumbnails/3f5d4e950302311873b3b5e7f69b0175/7cb6ee4c",
             "width": 3000,
             "height": 3000
           }
@@ -2297,12 +2756,1135 @@
       }
     ],
     "timeline_events": [
-      "rec6GW6qRlw4MNaIS"
+      "recXFoHg0VWYxRIRs"
     ],
-    "alt_text": "Five black men stand and look at a piece of paper. ",
-    "caption": "Conrad Pearson, Hugh Thompson, Floyd McKissick, William G. Marsh, John H. Wheeler, Durham Schools suit lawyers.\n",
-    "attribution": "Unknown\n",
-    "citation": "Durham Historic Photographic Archive\n",
-    "__id": "recHNzz14FEbVZ3M1"
+    "alt_text": "A sign addressing Black Durham and Black artists.",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"A Message to Black Durham\" located outside The Pinhook at 117 West Main Street.  Smaller versions of this sign could be found on businesses around downtown Durham.\n",
+    "__id": "recmFiacPgCeLz3wh"
+  },
+  {
+    "ID": "mss_0238_022",
+    "image": [
+      {
+        "id": "attcFfRmPiNwNCIGh",
+        "url": "https://dl.airtable.com/.attachments/2580cbb65cb309b7123525bd7fca865c/04f908a4/mss_0238_022e.jpg",
+        "filename": "mss_0238_022e.jpg",
+        "size": 913075,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/c12bb94fbeb304012e94d68ce3b9c96a/1a352702",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/b81ca8ce5e1cb12b8b12f4de68ab45d4/3f05e37b",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/32e9640ff7c22c525d0ad10e018b1a46/fca3b340",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A spray painted black man in the style of a comic book superhero. It is made to look like electricity is coming out of his hands. On the sidewalk in front of the mural are vinyl album covers of black musicians. ",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Static Shock\" by Littleton Ugliford III.  Photograph taken at Main Street Pharmacy at 213 West Main Street. From the artist's instagram, \"The homie static shock got his fresh Justice League quarantine mask on.\"\n",
+    "__id": "rec8RafxM9Ks6fSCE"
+  },
+  {
+    "ID": "mss_0238_025",
+    "image": [
+      {
+        "id": "attPqFSo3q8eeAzIc",
+        "url": "https://dl.airtable.com/.attachments/c085d8ab7839141f7aa9d58599c068aa/82e4c258/mss_0238_025e.jpg",
+        "filename": "mss_0238_025e.jpg",
+        "size": 876644,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/a6842ccf8b7a817f6caf0658cc20f024/78f58be9",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/aaad5eefa53a3184f97a45b4b46e492a/f525b631",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/fdcaa25fcc0183f5b35b7c4c8b4028e7/e6f7ea96",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "Three vertical panels depicting poetry, a vertical mouth and the face of a black woman, and a tally of hash marks.",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Sambo in Wonderland\" by Jaguar Perry, located at MDC Inc. at 307 West Main Street.\n",
+    "__id": "recLYrsB7a0f7NNEC"
+  },
+  {
+    "ID": "mss_0238_028",
+    "image": [
+      {
+        "id": "attOPin3B29cSyL6Y",
+        "url": "https://dl.airtable.com/.attachments/40d44a0835e175698c5461a52b8138b3/1183b02d/mss_0238_028e.jpg",
+        "filename": "mss_0238_028e.jpg",
+        "size": 693706,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/6aa86d250295026fb5c5c3dc7c248588/56f2809f",
+            "width": 18,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/9e56336bd478e52bcedaaf17dcf48fbc/52d919e1",
+            "width": 512,
+            "height": 1014
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/7b0ff75bd8af93770353f8d47e99e8a1/543e71d5",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A blue mural with clouds and the words \"Hate breeds war\" and \"Love breeds peace.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Hate Breeds War, Love Breeds Peace,\" by Ayana Sioux, located at MDC Inc. at 307 West Main Street.\n",
+    "__id": "rechGsORNcZXadqNS"
+  },
+  {
+    "ID": "mss_0238_029",
+    "image": [
+      {
+        "id": "attknFwkHMAa9qXWi",
+        "url": "https://dl.airtable.com/.attachments/37533828413feda55cd33a840f365073/fff0453e/mss_0238_029e.jpg",
+        "filename": "mss_0238_029e.jpg",
+        "size": 736201,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/c979f879505a92193f827c61fc83a911/2d954c19",
+            "width": 30,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/f1c5c234b79a93795b050d945416e033/d6801c98",
+            "width": 512,
+            "height": 619
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/06644dd5d7973d1c12c58099523fa86c/0a63e1bc",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A red mural depicting James Baldwin and the words \"the power of the white world is threatened whenever a black person refuses to accept the white world's definition. - James Baldwin, The Fire Next Time.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "James Baldwin Mural by Anthony Patterson, located at MDC Inc. at 307 West Main Street.\n",
+    "__id": "rec8yeCsIbJ4lQoxa"
+  },
+  {
+    "ID": "mss_0238_035",
+    "image": [
+      {
+        "id": "attWqakCCMDAGagtz",
+        "url": "https://dl.airtable.com/.attachments/246fd37b011e6a95a0ca565cce13c2e8/3b10f3db/mss_0238_035e.jpg",
+        "filename": "mss_0238_035e.jpg",
+        "size": 757522,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/de8618600db03c4276557222cf18bb97/c527821c",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/de99dcb54a566739f543575ef8f00463/0e88a007",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/3043848ed58ca703c84d9f891e876652/6d236877",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A mural depicting a black woman in a white graduation cap and gown wearing a mask over her face. Lyrics by rapper Notorious BIG are shown: \"stay far timid only make moves when your hearts in it & live the phrase 'skys the limit.'\" ",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Sky's The Limit\" by Shante' M Stewart, located at Thai@Main at 317 West Main Street.\n",
+    "__id": "rec2wR9Mh5QXciVaq"
+  },
+  {
+    "ID": "mss_0238_038",
+    "image": [
+      {
+        "id": "attFv5EDoIBkpXIK3",
+        "url": "https://dl.airtable.com/.attachments/ec5cb300534fde1d1501b14e33d0a940/a9a5d15e/mss_0238_038e.jpg",
+        "filename": "mss_0238_038e.jpg",
+        "size": 716322,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/5994ca016b39dedaf33854d942a986fd/cc0ab8c2",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/432db67c3247bdd29a43fd3a38a1993e/3fe8aa73",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/0ddaea5375db9a15df89c7f5aac078bc/38100c51",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A small white piece of paper attached to a large board covering a window with the words \"Black lives do matter.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Black Lives Do Matter\" Sign on Beyu Caffe's Door at 341 West Main Street.\n",
+    "__id": "recmNPozTHO8DhjNz"
+  },
+  {
+    "ID": "mss_0238_039",
+    "image": [
+      {
+        "id": "attgz7ieNPjHG5HZg",
+        "url": "https://dl.airtable.com/.attachments/d3e54c5a7c515714cbd4f1d706b03721/b02a4520/mss_0238_039e.jpg",
+        "filename": "mss_0238_039e.jpg",
+        "size": 811823,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/6d08247de8f79c55606b9431ef9bc6ad/f40cc43d",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/8fd40a4d1307b974ddaf94bfc17cdb8f/7dbac0c5",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/dcd433a80e3c9bf55a2bf4d1cd60a094/3b1ecfbd",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "Colorful geometric shapes in the background with images of black men, women, and children embracing. ",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "Black Lives Matter Mural by Kiara Sanders, located at Criterion at 347 West Main Street.\n",
+    "__id": "recdyQzTxRbOOZ7mO"
+  },
+  {
+    "ID": "mss_0238_040",
+    "image": [
+      {
+        "id": "attYTJwBC4FOC5vWa",
+        "url": "https://dl.airtable.com/.attachments/e054630c07b4d418dc6f41d563f208ef/2564c7a7/mss_0238_040e.jpg",
+        "filename": "mss_0238_040e.jpg",
+        "size": 801875,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/0cfb87d0bf4af525602c9474d80da307/827f5e6d",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/03a5f06a90c6b4690fd988f5d0146844/8eab4b32",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/cacd7463a55361d18f308a9c1642c053/1ada8f52",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A large white mural with hearts, clouds, eyes, and a rainbow and the words \"healing here waking ancestors speaking one strong ready.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"We R Strong\" by Kamara Thomas.  The mural was originally located between Lucky's Delicatessen and Mothers and Sons at 105 West Chapel Hill Street. Photograph was taken after the mural was relocated to Main Street near 9th Street Bakery.\n",
+    "__id": "recC1UmmhurI7m0Zv"
+  },
+  {
+    "ID": "mss_0238_041",
+    "image": [
+      {
+        "id": "att1cB4IPXMavaNJ1",
+        "url": "https://dl.airtable.com/.attachments/9b6bd878d5840640b4e69bed7a0e00d9/48a431f9/mss_0238_041e.jpg",
+        "filename": "mss_0238_041e.jpg",
+        "size": 869984,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/1b79687ccd25f262bd48ab30fd55192b/46ddfaed",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/c4f829387f14251f50341b8c80be41f6/6846f149",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/ab0140953bbbe6c4a4a231a0eccb4bdc/fa7427b9",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "An mural with abstract swirls of red and blue intertwined with the words \"black joy matters.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Black Joy Matters\" by Jamella F. Dallis.  The mural was originally located between Lucky's Delicatessen and Mothers and Sons at 105 West Chapel Hill Street. Photograph was taken after the mural was relocated to Main Street near 9th Street Bakery.\n",
+    "__id": "recwIHSkLrOs94axW"
+  },
+  {
+    "ID": "mss_0238_042",
+    "image": [
+      {
+        "id": "attYMVmpsdJvrdTYY",
+        "url": "https://dl.airtable.com/.attachments/a03941bb10319930a5532dfa12a619f7/1d924512/mss_0238_042e.jpg",
+        "filename": "mss_0238_042e.jpg",
+        "size": 816003,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/6243431c8db410ac091a5ec64fbfaf6f/a7178e7d",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/d3df9c19cfe3498aea55f1fbf7279067/32d885a0",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/6d037838c953d484a31d446f04c36a8f/f7440f99",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "The faces of a black man and woman made to appear as though light is shining from their eyes. The words \"royalty,\" \"we don't die we multiply,\" and \"we need you to feel us, not just hear us!\" appear. ",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Royalty,\" by LA Jarome Chesson.  The mural was originally located at Area Modern Home at 101 West Chapel Hill Street. Photograph was taken after the mural was relocated to Main Street near 9th Street Bakery.\n",
+    "__id": "recTLvHYk3sQ6cHF1"
+  },
+  {
+    "ID": "mss_0238_043",
+    "image": [
+      {
+        "id": "att9mw4CR70GwC9Mz",
+        "url": "https://dl.airtable.com/.attachments/a21707837fe620113074b9d69c5bfe6a/121b4af3/mss_0238_043e.jpg",
+        "filename": "mss_0238_043e.jpg",
+        "size": 864935,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/5f7babc89c1d7b95760c6b45dc7866bd/d20f6582",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/243937d4c313ecf974f05e9d85873e4c/db907d2e",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/9a4fb54dfae9f9b3034e30e39782f3bb/75041126",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "The images of black faces with a crown and the words \"still searching 4 soul city.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Still Searchin' 4 Soul City\" by Kennedi Carter and Jhon Vance.  The mural was originally located at Mothers and Sons Trattoria at 107 West Chapel Hill Street. Photograph was taken after the mural was relocated to Main Street near 9th Street Bakery.\n",
+    "__id": "reconLrnzN7OQOfs6"
+  },
+  {
+    "ID": "mss_0238_044",
+    "image": [
+      {
+        "id": "attWx6eQ86rqsgsWG",
+        "url": "https://dl.airtable.com/.attachments/536b3e5f6230e335a85541c20baa4260/d67347ce/mss_0238_044e.jpg",
+        "filename": "mss_0238_044e.jpg",
+        "size": 808406,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/15b30f93d4d779d8a078a27b6f394797/c129c404",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/2913d977f6cf7f7ac3f0f5e61ba19ae8/d7281d8d",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/8a08c978b9f4e898fa92fe2d82f3cf2c/e45c325d",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A white background with the words \"time does not heal all wounds\" painted in yellow.",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Time Does Not Heal All Wounds\" by Megan Bowser.  The mural was originally located at the Center for Responsible Lending at 302 West Main Street. Photograph was taken after the mural was relocated to Main Street near 9th Street Bakery.\n",
+    "__id": "rec4Zh1KA7snFpNo7"
+  },
+  {
+    "ID": "mss_0238_045",
+    "image": [
+      {
+        "id": "attCEXbiXa36unlGB",
+        "url": "https://dl.airtable.com/.attachments/374ccb0ff5506ef775040cfccde3043d/b72d0bf3/mss_0238_045e.jpg",
+        "filename": "mss_0238_045e.jpg",
+        "size": 882542,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/2fc4dc5a166839c7f795be0284fabb6d/5bedb409",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/069fb8562015749820e6bfd100019fe8/f1ed332e",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/000d6a354d62b1b1cb6909b5248d428a/f71091b8",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "The faces of Emmett Till, Trayvon Martin, and Michael Brown as angels and the words \"The revolution has always been in the hands of the young. The young always inherit the revolution. - Dr. Huey P. Newton.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Emmett Trayvon Michael\" by Anthony Patterson and @ShayByDesign.  The mural was originally located at Exotique at 319 West Main Street. Photograph was taken after the mural was relocated to Main Street near 9th Street Bakery.\n",
+    "__id": "recfXLodB6ILfpT92"
+  },
+  {
+    "ID": "mss_0238_046",
+    "image": [
+      {
+        "id": "attUBTnl4HxNoklrj",
+        "url": "https://dl.airtable.com/.attachments/25ad38590b3350b9eef24feced49f928/866a36c4/mss_0238_046e.jpg",
+        "filename": "mss_0238_046e.jpg",
+        "size": 777106,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/84d61ca7ff516fa0e9560a6aecc8608d/f043c35e",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/b505527e7f7a2205208d10f01dfe8b2f/68e384ec",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/a21cebfb6e832291e5225d3cea473408/1a21897c",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "The silhouette of a black person tangled in the American flag. ",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "Mural by Matthew White and Megan Elizabeth Easterling.  Photograph was taken on Main Street near 9th Street Bakery.\n",
+    "__id": "rec0gKExtxhq1WwN2"
+  },
+  {
+    "ID": "mss_0238_047",
+    "image": [
+      {
+        "id": "attCeaSSiXmORIsJA",
+        "url": "https://dl.airtable.com/.attachments/696f23b95ec147f6186f2011be6f38c0/3df58ee2/mss_0238_047e.jpg",
+        "filename": "mss_0238_047e.jpg",
+        "size": 775753,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/4b12da517d33220b1c45778915b28ae4/3f234100",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/6a8cea978da52f0f002b833407258929/a182a104",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/a97b80c8d7c84e669c4704348beef892/129e1b5e",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A solid red wall with the face of a black woman and the words \"humanize blackness.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Humanize Blackness\" by Craig Cutright.  The mural was originally located at Self-Help at 301 West Main Street. Photograph was taken after the mural was relocated to Main Street near 9th Street Bakery.\n",
+    "__id": "recH98kVh4dpw9cGn"
+  },
+  {
+    "ID": "mss_0238_049",
+    "image": [
+      {
+        "id": "attTR7ppOYw9FtTKX",
+        "url": "https://dl.airtable.com/.attachments/fece900aa06e38131bc81164d0b9da25/57c14f27/mss_0238_049e.jpg",
+        "filename": "mss_0238_049e.jpg",
+        "size": 872590,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/c7382f8976c9d66a186ab68273ccb6b1/0ecebd57",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/d3088853bb1d21b98e503e567b8a3c91/1fa2f933",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/26ca10e862661337789ce764dead4998/b1f497ee",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "The profiles of a row of people holding hands painted in red with trees on either side of them and the words \"symbol of life and possibility in landscape where little else can thrive\" and \"in times of crisis the wise build bridges.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"In Times of Crisis the Wise Build Bridges\" by Taye the Artist.  Mural located near 501 Nest Realty at 308 West Main Street.\n",
+    "__id": "recxjkfVd9LQo1njm"
+  },
+  {
+    "ID": "mss_0238_050",
+    "image": [
+      {
+        "id": "attyM2gyH6vyN3RAn",
+        "url": "https://dl.airtable.com/.attachments/50fcae3b0ae6b652e6a3ad90c450bf5e/5c5211d0/mss_0238_050e.jpg",
+        "filename": "mss_0238_050e.jpg",
+        "size": 814581,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/739d91dd6ab16e5f726ef76fad224528/3db2e687",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/d59fb96ef41172ac05fe69e149b0332f/2b64e1d7",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/645d15b518a35e85fa82c89d55193384/ebbbfb34",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "An image of a milk carton with the words \"BLM, Missing Justice Share if Found, 100% daily value of necessary\" next to a list of names of black people murdered by police and the words \"some but not all.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Missing: Justice\" by Whitney Stanley.  Mural located near Self Help at 300 West Main Street. \n",
+    "__id": "rectwkilw8YDPKVwr"
+  },
+  {
+    "ID": "mss_0238_051",
+    "image": [
+      {
+        "id": "attoc5eCPA5cZJDLB",
+        "url": "https://dl.airtable.com/.attachments/051ae1dcfbd09247817c8888e2762ad1/ba0bf27d/mss_0238_051e.jpg",
+        "filename": "mss_0238_051e.jpg",
+        "size": 735664,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/7285b70f245ac2ccd029777763e006ed/7a515d30",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/eee3d373130cb632fa000966fb935e8a/91938ba4",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/14201928718fd198bbced12e050141e4/939a3790",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "An image of a black man with a halo and tears pouring out of his eyes with a snake pictured around him, also crying.",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "Mural by Terri Shalane Jones.  Mural located near Self Help at 300 West Main Street. \n",
+    "__id": "recMXxSnFtTQehzLK"
+  },
+  {
+    "ID": "mss_0238_052",
+    "image": [
+      {
+        "id": "attHew7MyC1r1t1ad",
+        "url": "https://dl.airtable.com/.attachments/6744a42d2a2551ca612946832a41f8f5/cfeb176b/mss_0238_052e.jpg",
+        "filename": "mss_0238_052e.jpg",
+        "size": 866448,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/45e4a5c33f879230163238d48ed0c2cc/edf1584b",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/93f341cecfbe80bf5f16d2e6d33338cb/d3d45d45",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/053c2b758e8d9bfb000b0eec896ca4bf/a0996354",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "An image made to look like the sun with a yellow circle containing the words \"black is beautiful.\" The names of black people murdered by police point out from the circle like rays of light. The hashtag #saytheirnames appears at the bottom of the mural.",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Black is Beautiful\" by Anansi and Brianna.  Mural located near Self Help at 100 Market Street.\n",
+    "__id": "recICCxztOrQFCVC3"
+  },
+  {
+    "ID": "mss_0238_053",
+    "image": [
+      {
+        "id": "attqkLQMOyXkS8AIH",
+        "url": "https://dl.airtable.com/.attachments/e68da51cf98f69c138df5d7cae80ed8f/38c32031/mss_0238_053e.jpg",
+        "filename": "mss_0238_053e.jpg",
+        "size": 797959,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/265d7527e9ad5150b483e2f9819790c4/e44003e0",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/e008cb6cd048124b1ee32d8bed9c5fc9/09f030c7",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/0d4048e2a47b7c6ca97f53aaa84d82c5/a9181a61",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A collage of repeating signs that say \"Guilty: Kops Kovid Kapitalism (KKK).",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Kops Kovid Kapitalism\" by Black Youth Project (BYP100).  Mural located near Self Help at 100 Market Street.\n",
+    "__id": "recN2erR8MPmLSVuO"
+  },
+  {
+    "ID": "mss_0238_054",
+    "image": [
+      {
+        "id": "attIisZOPpyhPHezp",
+        "url": "https://dl.airtable.com/.attachments/8682c7c864ef991d22ed081227604cb7/ce05eae1/mss_0238_054e.jpg",
+        "filename": "mss_0238_054e.jpg",
+        "size": 833548,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/5954e7abcfdddc16362dd0a15501eb9b/041ed083",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/4482a2a8c5218359f1a797846c961ba8/cbbce38a",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/f5922899350a52904efe70deb6b44342/7e26e041",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A collage of photographs of black men and women, some shown protesting, some shown in portraits with family and friends.",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "Mural by Dare Kumolu-Johnson.  Mural located near Self Help at 100 Market Street and features a collage of images taken by photographer Dare Kumolu-Johnson.\n",
+    "__id": "rec5oCCSUCpHG6veF"
+  },
+  {
+    "ID": "mss_0238_060",
+    "image": [
+      {
+        "id": "attF3IgvStqcsMBOX",
+        "url": "https://dl.airtable.com/.attachments/1ecb1329ee75bd262919827ea789af02/8e655c7d/mss_0238_060e.jpg",
+        "filename": "mss_0238_060e.jpg",
+        "size": 848875,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/163b6905294325bd92e89ec0891c87d6/8a5d93c6",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/ecc8502416ddd339fbf7e0dba85a6049/f2cfd486",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/40ad2575784bf5ebc4d80194b070c20c/e1487d2f",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A mural depicting raised \"power\" fists and the words \"black lives matter,\" \"say their names,\" and \"all power to the people.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Black Lives Matter, Say Their Names,\" located at the Herald Sun Building at 136 East Chapel Hill Street. \n",
+    "__id": "rec06qEixB5wuFvHE"
+  },
+  {
+    "ID": "mss_0238_061",
+    "image": [
+      {
+        "id": "att19EPudykgk9saC",
+        "url": "https://dl.airtable.com/.attachments/c9099f25d047b33c95e8d74e3965ffc9/6ea1a236/mss_0238_061e.jpg",
+        "filename": "mss_0238_061e.jpg",
+        "size": 746910,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/2e6533160131cbd2189ffc407cda3edb/5a4f0c3e",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/ce75b9da106b63783d19302629420a64/53f59f33",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/8d43a6e9df1c2555846d5c1741efbc7e/1dcbfe8b",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A wide shot showing multiple murals on storefronts and windows. Some of the words shown are \"Killed by Durham Police,\" \"Killed in Jail,\" \"Imagine a World Without Police,\" \"Every little thing is gonna be alright,\" and \"Black as Eva.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "Image of multiple murals looking north on East Chapel Hill Street.  The murals include \"Killed By Durham Police We Will Not Forget…\" by Naeemah Kelly in front of Pizzeria Toro at 105 East Chapel Hill Street. \"Imagine a World Without Police…\" by Marcella Camara and Derrick Beasley in front of Center Studio Architecture at 107 E Chapel Hill Street.  \"every little thing is gonna be alright\" by ayonueffries in front of Center Studio Architecture at 107 E Chapel Hill Street.\n",
+    "__id": "reck99qvGaXLCUjuX"
+  },
+  {
+    "ID": "mss_0238_064",
+    "image": [
+      {
+        "id": "att2gX0MpVh4NoOaE",
+        "url": "https://dl.airtable.com/.attachments/6262752cdb9f9e18aa9409a391b15a85/b29e63c2/mss_0238_064e.jpg",
+        "filename": "mss_0238_064e.jpg",
+        "size": 799998,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/c2c5646a6be945291fa567aee1345b40/d0261754",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/6f0d7c2356573e51ee7bc097fb865227/e1087180",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/33d3fc43583a84bfa79f7f50343165cb/baf2fa48",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A red mural with the silhouette of a black man and woman with crowns, handprints all around them, and the hashtag #blm. Above that is a blue sky with clouds and the words \"There comes a time when silence is betrayal - MLK.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"There Will Come a Time When Silence is Betrayal\" by Hundo and Jai.  Mural located at M Pocha at 101 East Chapel Hill Street.  \n",
+    "__id": "recdDKG7WBYjK4JIC"
+  },
+  {
+    "ID": "mss_0238_065",
+    "image": [
+      {
+        "id": "attDtZqsJ1vvAXQ5h",
+        "url": "https://dl.airtable.com/.attachments/3f3ae46edaf19e623c845d0d5c830a23/6ef0488b/mss_0238_065e.jpg",
+        "filename": "mss_0238_065e.jpg",
+        "size": 913833,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/b435c15048e592b67add1468a3b24aee/c19eb2b9",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/b9827124fb8a593ad4ec0527e9993ffb/3896f3b2",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/c0d9587d799cab1bee6c55a2e16354cb/18ea55b5",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A mural with a black woman depicted as lady justice holding scales with the words \"no justice no peace\" and a red banner above her head displaying the words \"black lives matter.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Black Lives Matter\" by Wade H. Williams.  Mural located at M Pocha at 101 East Chapel Hill Street.  \n",
+    "__id": "recoYjIN2mfxmbL0Y"
+  },
+  {
+    "ID": "mss_0238_066",
+    "image": [
+      {
+        "id": "atteOaK6AqSHDQlyr",
+        "url": "https://dl.airtable.com/.attachments/3507ac46cdebb108f7845499dda33e39/521e6bdf/mss_0238_066e.jpg",
+        "filename": "mss_0238_066e.jpg",
+        "size": 830870,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/bee382de96f396f59ecb523e30112c38/c66c1282",
+            "width": 24,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/59d9c20f5645395e1f564f8c2018dd8f/93ebc6e1",
+            "width": 512,
+            "height": 768
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/f1ae09f19df1d067d6bffebe00129a3d/4cd83327",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A man's face made up of colorful geometric shapes with a single tear in his eye with the words \"we are George Floyd.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"We Are George Floyd\" by Kimberly Pierce Wright.  Mural located at M Pocha at 101 E Chapel Hill Street.  \n",
+    "__id": "recDJsZ3bQXAQEU4y"
+  },
+  {
+    "ID": "mss_0238_071",
+    "image": [
+      {
+        "id": "attgVZsJqzmeL8htH",
+        "url": "https://dl.airtable.com/.attachments/f1103b69b8c20c29b4c8e8deb7fee060/3e81492b/mss_0238_071e.jpg",
+        "filename": "mss_0238_071e.jpg",
+        "size": 811413,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/e24dd40feff1d0576c447d8db39b6b46/ae282153",
+            "width": 54,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/06261a80fd72bd60758aa78d829fc11c/1776c153",
+            "width": 768,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/f9059f5e23028398d36068c9212adf00/0c0b0f3b",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recXFoHg0VWYxRIRs"
+    ],
+    "alt_text": "A mural displaying a photograph of Breonna Taylor with a halo around her head and the words \"say her name.\"",
+    "event_pages": [
+      "rec6HqaM4QBaWeQTd"
+    ],
+    "attribution": "Elizabeth Shulman\n",
+    "citation": "Downtown Durham Protest Murals (NCC.0238), North Carolina Collection, Durham County Library, NC\n",
+    "caption": "\"Say Her Name Breonna Taylor.\"  Located at 109 E Chapel Hill Street. It is a large print out with information about the murder of Breonna Taylor by the Louisville Police Department.\n",
+    "__id": "reclFVv6hjqfygRRc"
+  },
+  {
+    "ID": "Toppled_Confederate_Monument",
+    "caption": "Law enforcement looks on after demonstrators toppled a Confederate monument in front of the old Durham County courthouse building on August 14, 2017, before marching down Main Street.\n",
+    "image": [
+      {
+        "id": "attt2kWzJWY15plkC",
+        "url": "https://dl.airtable.com/.attachments/c031320565a020a711819d9597705ad8/3cb825e6/Toppled_Durham_Confederate_Monument_e.jpg",
+        "filename": "Toppled_Durham_Confederate_Monument_e.jpg",
+        "size": 719890,
+        "type": "image/jpeg",
+        "thumbnails": {
+          "small": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/7a9631c2a57fbf247bbdee13e970d764/b98f02b6",
+            "width": 64,
+            "height": 36
+          },
+          "large": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/afa925af3d5cd93b95531c253d28e03e/7e655782",
+            "width": 910,
+            "height": 512
+          },
+          "full": {
+            "url": "https://dl.airtable.com/.attachmentThumbnails/861f91b65e5c7bf4f852a08984a9a12b/b359634c",
+            "width": 3000,
+            "height": 3000
+          }
+        }
+      }
+    ],
+    "timeline_events": [
+      "recOeUFa2cdAcTFZZ"
+    ],
+    "alt_text": "The fallen monument lays crumpled on the grass with the stone base in the background. Law enforcement officers survey the scene. ",
+    "event_pages": [
+      "rec9QrHUWB7zyflFD"
+    ],
+    "attribution": "Sarah Willets\n",
+    "citation": "Durham Historic Photographic Archive (NCC.0055), North Carolina Collection, Durham County Library, NC\n",
+    "__id": "recL3T9fAtnLONWn2"
   }
 ]
