@@ -170,10 +170,11 @@ const ImageAndCaptionWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  margin-bottom: 30px;
+  ${breakpoint('sm', 'lg')`
+    margin-bottom: 30px;
+  `}
   ${breakpoint('md')`
     margin-right: 30px;
-    margin-bottom: 0;
     object-fit: cover;
   `}
 `;

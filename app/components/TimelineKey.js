@@ -27,10 +27,9 @@ const timelineKey = () => {
 const Sticky = styled.div`
   position: sticky;
   top: 0;
-  background: ${(props) => props.theme.colors.white};
   ${(props) => props.theme.containerFullWidth};
-  ${breakpoint('lg')`
-    background: transparent;
+  ${breakpoint('sm', 'lg')`
+    background: ${(props) => props.theme.colors.white};
   `}
 `;
 
@@ -40,14 +39,15 @@ const TimelineHeaderGroup = styled.ul`
   align-items: flex-end;
   z-index: 50;
   padding: 14px 18px !important;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   ${(props) => props.theme.smContainer};
+  ${breakpoint('sm', 'lg')`
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  `}
   ${breakpoint('lg')`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     padding: 60px 0 40px 0;
-    box-shadow: none;
   `}
 `;
 
@@ -56,11 +56,9 @@ const Keys = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-
-  ${breakpoint('lg')`
-    width: auto;
-  ;`}
+  ${breakpoint('sm', 'lg')`
+    width: 100%;
+  `}
 `;
 
 const ColorBar = styled.span`
@@ -91,9 +89,8 @@ const TimelineHeader = styled.li`
 `;
 
 const MobileHiddenText = styled.span`
-  ${(props) => props.theme.srOnly};
-  ${breakpoint('lg')`
-    ${(props) => props.theme.notSrOnly};
+  ${breakpoint('sm', 'lg')`
+    ${(props) => props.theme.srOnly};
   `}
 `;
 

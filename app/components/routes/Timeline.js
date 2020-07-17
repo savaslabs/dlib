@@ -327,9 +327,8 @@ const H1 = styled.h1`
 `;
 
 const Ul = styled.ul`
-  margin-left: 100px;
-  ${breakpoint('lg')`
-      margin-left: 0;
+  ${breakpoint('sm','lg')`
+      margin-left: 100px;
   `}
 `;
 

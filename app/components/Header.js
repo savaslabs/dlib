@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import menu from '../assets/menu.svg';
 import { routes, cleanId, timelineDescription } from '../utils/constants';
@@ -10,10 +10,17 @@ const header = ({ eventPages }) => {
   const location = useLocation();
   // Whether or not mobile menu is open.
   const [mobileMenuState, setMobileMenuState] = useState(false);
+  // Whether or not submenu is open.
+   const [subMenuState, setSubMenuState] = useState(false);
   // Whether or not user is hovering over submenu toggle.
   const [mouseOverSubMenuToggle, setMouseOverSubMenuToggle] = useState(false);
   // Whether or not user is hovering over submenu.
   const [mouseOverSubMenu, setMouseOverSubMenu] = useState(false);
+
+  useEffect(() => {
+    mouseOverSubMenuToggle || mouseOverSubMenu
+    ? setSubMenuState(true) : setSubMenuState(false);
+  }, [mouseOverSubMenuToggle, mouseOverSubMenu])
   return (
     <Header>
       <HeaderContainer>
@@ -53,9 +60,12 @@ const header = ({ eventPages }) => {
                   onMouseEnter={() => setMouseOverSubMenuToggle(true)}
                   onMouseLeave={() => setMouseOverSubMenuToggle(false)}
                   tabIndex='0'
+                  aria-controls="menu-subMenu"
+                  aria-expanded={subMenuState}
                 >
                   {route.component}
                   <SubMenu
+                    id="menu-subMenu"
                     onFocus={() => setMouseOverSubMenuToggle(true)}
                     onMouseEnter={() => setMouseOverSubMenu(true)}
                     onMouseLeave={() => setMouseOverSubMenu(false)}
@@ -145,7 +155,6 @@ const Top = styled.div`
   display: flex;
   flex-direction: column;
   ${breakpoint('lg')`
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 115px;
@@ -192,11 +201,12 @@ const Right = styled.p`
   display: flex;
   max-width: 735px;
   letter-spacing: 0.02em;
-  padding-top: 30px;
   font-size: ${(props) => props.theme.fontSize.sm};
   line-height: ${(props) => props.theme.lineHeight.xLoose};
+  ${breakpoint('sm', 'lg')`
+    padding-top: 30px;
+  `}
   ${breakpoint('lg')`
-    padding-top: 0;
     font-size: ${(props) => props.theme.fontSize.md};
     line-height: ${(props) => props.theme.lineHeight.loose};
   `}
@@ -204,12 +214,12 @@ const Right = styled.p`
 
 const Bottom = styled.nav`
   margin-left: auto;
-  position: relative;
-  margin-top: -50px;
+  ${breakpoint('sm', 'lg')`
+    position: relative;
+    margin-top: -50px;
+  `}
   ${breakpoint('lg')`
     z-index: 100;
-    position: default;
-    margin-top: 0;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     ${(props) => props.theme.containerFullWidth};
     background-color: ${(props) => props.theme.colors.bgGray};
@@ -244,16 +254,15 @@ const Menu = styled.ul`
   justify-content: flex-end;
   flex-direction: column;
   z-index: 100;
-  position: absolute;
-  top: 0;
-  right: 0;
   background: ${(props) => props.theme.colors.white};
   ${(props) => props.theme.smContainer};
-
+  ${breakpoint('sm', 'lg')`
+    top: 0;
+    right: 0;
+    position: absolute;
+  `}
   ${breakpoint('lg')`
     position: relative;
-    top: auto;
-    right: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
