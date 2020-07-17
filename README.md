@@ -33,12 +33,9 @@ Pages are located in `/app/assets`. All event pages are in `event-pages.json`, o
       {
         "h2": ""
       },
-      <!-- Inline Image (paired with text) -->
+      <!-- Image -->
       {
-        "inline_image": {
-          "image": "image id goes here",
-          "text": ""
-        }
+        "image": "image id goes here"
       },
       <!-- Pullquote with optional attribution -->
       {
