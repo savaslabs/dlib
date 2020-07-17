@@ -2,20 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 
-const year = () => {
+const year = ({ front }) => {
   return (
     <SVG viewBox='0 0 100 100' transform='rotate(270)'>
       <Circle
         cx='50'
         cy='50'
         r='40'
-        fill='#E0E0E0'
-        stroke='white'
+        front={front}
+        fill={front ? 'none' : '#E0E0E0'}
+        stroke={front ? 'none' : '#FFFFFF'}
+        className={front ? 'secondary' : 'primary'}
         strokeWidth='6'
       ></Circle>
     </SVG>
   );
-}
+};
 
 const SVG = styled.svg`
   position: absolute;
@@ -30,9 +32,14 @@ const SVG = styled.svg`
 `;
 
 const Circle = styled.circle`
-  stroke-dasharray: 365;
-  stroke-dashoffset: 365;
-  transition: fill 0.3s ease 0.3s, stroke-dashoffset 0.7s linear;
+  ${(props) =>
+    props.front
+      ? `
+        transition: stroke-dashoffset 0.7s linear, stroke 0.7s;
+        stroke-dasharray: 365;
+        stroke-dashoffset: 365;`
+      : `transition:fill 0.3s ease 0.3s;`
+  }
 `;
 
 export default year;

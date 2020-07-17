@@ -3,19 +3,22 @@ li.active::before {
   color: white;
 }
 
-/* Year cirle stroke fill on ScrollTrigger */
-li.active svg circle {
+/* Year circle fill on ScrollTrigger */
+li.active svg circle.primary {
   fill: #202D25;
+}
+/* Year circle stroke on ScrollTrigger */
+li.active svg circle.secondary {
   stroke-dashoffset: 0;
-  stroke: #41796F;
+  stroke: #202D25;
 }
 
-/* timeline color animation on scroll */
+/* Timeline color animation on scroll */
 li.active::after {
   height: 100%;
 }
 
-/* border color animation on scroll  */
+/* Border color animation on scroll  */
 article.active::before {
   width: 100%;
 }

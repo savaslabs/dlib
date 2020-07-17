@@ -101,11 +101,14 @@ const timeline = ({ timeline }) => {
               <YearListItem
                 value={eventsPerYear.year}
                 key={i}
-                className={`${position} year_${i}`}
+                className={`${position}`}
                 ref={addToYearRefs}
                 position={position}
               >
+                {/* Element that changes fill color */}
                 <Year />
+                {/* Element that changes stroke color */}
+                <Year front />
                 <Span />
                 {eventsPerYear.events.map((eventsPerScope, index) => {
                   return (
