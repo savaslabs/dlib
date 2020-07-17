@@ -21,19 +21,20 @@ const card = React.forwardRef(({ event, link }, ref) => {
             />
           );
         })}
-      {External_Resource_Links &&
+      {/* // Don't nest external resource links if card is already a link to event page. */}
+      {link && External_Resource_Links ? (
+        <p>Read More</p>
+      ) : !link && External_Resource_Links ? (
         External_Resource_Links.map((ext, i) => {
           cleanJSON(ext);
-          // Don't nest link if card is already a link to event page.
-          return link ? (
-            <p key={i}>Read More</p>
-          ) : (
+          return (
             <ExternalLink key={i}>
               <a href={ext.URL}>{ext.Source_Shortform}</a>
               {External_Resource_Links.length === i + 1 ? null : '; '}
             </ExternalLink>
           );
-        })}
+        })
+      ) : null}
     </Card>
   );
 });
