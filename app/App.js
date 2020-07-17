@@ -108,7 +108,7 @@ const App = () => {
                           path={`/events/${cleanId(event.name)}`}
                           key={index}
                         >
-                          <Basic event={event} />
+                          <Basic event={event} imageData={Images} />
                         </Route>
                       );
                     })

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Markdown from 'react-markdown';
 
-const basic = ({ event, type }) => {
+const basic = ({ event, type, imageData }) => {
   let data;
   if (event) {
     data = event;
@@ -42,17 +42,20 @@ const basic = ({ event, type }) => {
                 })}
               </Ul>
             );
-          } else if (item.hasOwnProperty('inline_image')) {
+          } else if (item.hasOwnProperty('image')) {
+            const foundImage = imageData.filter(imageInfo => {
+              return imageInfo.ID === item.image
+            });
+
             return (
-              <InlineWrapper key={i}>
+              <ImageAndCaptionWrapper key={i}>
                 <Image
                   key={i}
-                  src={`../app/assets/images/${item.inline_image.image}/large.jpg`}
+                  src={`../app/assets/images/${item.image}/large.jpg`}
+                  alt={foundImage[0].alt_text}
                 />
-                <P source={item.inline_image.text}>
-                  {item.inline_image.text}
-                </P>
-              </InlineWrapper>
+                <p>{foundImage[0].caption}</p>
+              </ImageAndCaptionWrapper>
             );
           }
         })}
@@ -62,7 +65,19 @@ const basic = ({ event, type }) => {
 
 basic.propTypes = {
   event: PropTypes.object,
-  type: PropTypes.string
+  type: PropTypes.string,
+  imageData: PropTypes.arrayOf(
+    PropTypes.shape({
+      ID: PropTypes.string,
+      __id: PropTypes.string,
+      alt_text: PropTypes.string,
+      attribution: PropTypes.string,
+      caption: PropTypes.string,
+      citation: PropTypes.string,
+      image: PropTypes.array,
+      timelineEvents: PropTypes.array
+    })
+  ),
 };
 
 const Main = styled.main`
@@ -144,28 +159,21 @@ const Li = styled.li`
   }
 `;
 
-const InlineWrapper = styled.div`
+const ImageAndCaptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  ${breakpoint('md')`
-    justify-content: space-between;
-    flex-direction: row;
-    margin-bottom: 30px;
-  `}
+  margin-bottom: 30px;
+  &:hover {
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
+  }
 `;
 
 const Image = styled.img`
   width: 100%;
   margin-bottom: 30px;
-
-  &:hover {
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
-  }
-
   ${breakpoint('md')`
     margin-right: 30px;
     margin-bottom: 0;
-    max-width: 300px;
     object-fit: cover;
   `}
 `;
