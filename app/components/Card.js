@@ -64,6 +64,7 @@ const Card = styled.article`
   /* Animated border color */
   &:before {
     transition: all linear 0.7s;
+    transition-delay: 0.4s;
     background: none
       ${(props) => (props.scope === 'national' ? '#d5cc7f' : '#41796f;')};
     content: '';

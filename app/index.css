@@ -7,7 +7,7 @@ li.active::before {
 li.active svg circle {
   fill: #202D25;
   stroke-dashoffset: 0;
-  stroke: #202D25;
+  stroke: #41796F;
 }
 
 /* timeline color animation on scroll */
