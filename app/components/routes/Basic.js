@@ -49,9 +49,7 @@ const basic = ({ event, type }) => {
                   key={i}
                   src={`../app/assets/images/${item.inline_image.image}/large.jpg`}
                 />
-                <P source={item.inline_image.text}>
-                  {item.inline_image.text}
-                </P>
+                <P source={item.inline_image.text}>{item.inline_image.text}</P>
               </InlineWrapper>
             );
           }
@@ -62,7 +60,7 @@ const basic = ({ event, type }) => {
 
 basic.propTypes = {
   event: PropTypes.object,
-  type: PropTypes.string
+  type: PropTypes.string,
 };
 
 const Main = styled.main`

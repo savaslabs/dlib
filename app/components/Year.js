@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 
 const year = () => {
   return (
@@ -20,9 +21,12 @@ const SVG = styled.svg`
   position: absolute;
   width: 70px;
   height: 70px;
-  left: -38px;
   top: -35px;
   z-index: 20;
+  left: -6px;
+  ${breakpoint('lg')`
+      left: 47.3%;
+    `}
 `;
 
 const Circle = styled.circle`

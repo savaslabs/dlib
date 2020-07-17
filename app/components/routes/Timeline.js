@@ -67,9 +67,8 @@ const timeline = ({ timeline }) => {
                 <Year />
                 <Span />
                 {eventsPerYear.events.map((eventsPerScope, index) => {
-                  console.log('position', position);
                   return (
-                    <EventList
+                    <Ul
                       key={index}
                       className={
                         eventsPerScope.scope === 'National Event'
@@ -98,7 +97,7 @@ const timeline = ({ timeline }) => {
                           </li>
                         );
                       })}
-                    </EventList>
+                    </Ul>
                   );
                 })}
               </YearListItem>
@@ -115,18 +114,33 @@ timeline.propTypes = {
 
 const Timeline = styled.ol`
   padding-top: 80px;
-  margin-left: 25px;
+  width: 100%;
+  position: relative;
 
-  ${breakpoint('lg')`
-    margin-left: 50%;
-  `}
+  /* Physical Timeline */
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: 3px solid #e0e0e0;
+    left: 25px;
+    ${breakpoint('lg')`
+      left: 50%;
+    `}
+  }
 `;
 
 const YearListItem = styled.li`
-  border-left: 6px solid #e0e0e0;
   position: relative;
   display: flex;
+  flex-direction: column;
+  ${breakpoint('lg')`
+    flex-direction: row;
+    justify-content: space-between;
+  `}
 
+  /* Year */
   &:before {
     content: attr(value);
     position: absolute;
@@ -134,23 +148,13 @@ const YearListItem = styled.li`
     font-weight: 700;
     letter-spacing: 0.02em;
     line-height: 1.125;
-    left: -22px;
     top: -8px;
     z-index: 50;
     transition: color 0.7s linear;
-  }
-
-  &:after {
-    transition: all linear 0.7s;
-    background: ${(props) => props.theme.colors.darkGreen};
-    content: '';
-    display: block;
-    height: 0%;
-    width: 6px;
-    position: absolute;
-    left: -5px;
-    top: -50px;
-    z-index: 0;
+    left: 10px;
+    ${breakpoint('lg')`
+      left: 48.75%;
+    `}
   }
 
   ${breakpoint('lg')`
@@ -158,7 +162,7 @@ const YearListItem = styled.li`
       props.position === 'sole-left' &&
       `justify-content: flex-start;
     ${Span} {
-      left: -75px;
+      left: 44%;
       width: 40px;
 
       &::before {
@@ -173,7 +177,7 @@ const YearListItem = styled.li`
     props.position === 'sole-right' &&
     `justify-content: flex-end;
     ${Span} {
-      left: 22px;
+      left: 52%;
       width: 40px;
 
       &::before {
@@ -195,9 +199,9 @@ const Span = styled.span`
   position: absolute;
   border: 3px solid ${(props) => props.theme.colors.lightGray};
   width: 14px;
-  left: 25px;
+  left: 55px;
   ${breakpoint('lg')`
-    left: -75px;
+    left: 44%;
      width: 140px;
   `};
   transition-delay: 0.5s;
@@ -244,28 +248,21 @@ const Span = styled.span`
   }
 `;
 
-const EventList = styled.ul`
-  margin-left: auto;
-  ${breakpoint('lg')`
-    margin-left: ${(props) =>
-      props.pos === 'sole-left' && props.scope === 'national'
-        ? '-587px;'
-        : props.pos === 'sole-right' && props.scope === 'durham'
-        ? '40px;'
-        : props.pos === 'both' && props.scope === 'durham'
-        ? '237px;'
-        : '0;'};
-  `}
-`;
-
 const H1 = styled.h1`
   ${(props) => props.theme.srOnly};
 `;
 
+const Ul = styled.ul`
+  margin-left: 100px;
+  ${breakpoint('lg')`
+      margin-left: 0;
+  `}
+`;
+
 const LinkedEvent = styled(Link)`
-  color: ${(props) => props.theme.colors.greenBean};
   text-decoration: none;
   font-size: 20px;
+  color: ${(props) => props.theme.colors.greenBean};
   font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.lineHeight.snug};
 `;
