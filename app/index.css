@@ -1,22 +1,3 @@
-article {
-  width: 415px;
-}
-
-/* Year with only National Events */
-.sole-left .national {
-  margin-left: -300px;
-}
-
-/* Year with only Durham Events */
-.sole-right .durham {
-  margin-left: 40px;
-}
-
-/* Year with both National and Durham Events */
-.both .durham {
-  margin-left: 120px;
-}
-
 /* On ScrollTrigger */
 li.active::before {
   color: white;
@@ -39,18 +20,13 @@ article.active::before {
   width: 100%;
 }
 
-li.active.sole-left span::before {
-  background: #D5CC7F;
-}
-
-li.active.sole-right span::after {
-  background: #41796f;
-}
-
-li.active.both span::before {
-   background: #D5CC7F;
-}
-
+li.active.sole-left span::before,
+li.active.both span::before,
+li.active.sole-right span::after,
 li.active.both span::after {
-  background: #41796f;
+  background: #202D25;
+}
+
+li.active span {
+  border-color: #202D25;
 }

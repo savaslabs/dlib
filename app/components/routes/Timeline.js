@@ -1,10 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import { cleanId } from '../../utils/constants';
 import { Link } from 'react-router-dom';
-import TimelineNav from '../TimelineNav';
+import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
 import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PropTypes from 'prop-types';
@@ -42,7 +43,7 @@ const timeline = ({ timeline }) => {
   return (
     <main>
       <H1>Civil Rights Heritage Project</H1>
-      <TimelineNav />
+      <TimelineKey />
       <Timeline>
         {timeline &&
           timeline.map((eventsPerYear, i) => {
@@ -66,10 +67,17 @@ const timeline = ({ timeline }) => {
                 <Year />
                 <Span />
                 {eventsPerYear.events.map((eventsPerScope, index) => {
+                  console.log('position', position);
                   return (
-                    <ul
+                    <EventList
                       key={index}
                       className={
+                        eventsPerScope.scope === 'National Event'
+                          ? 'national'
+                          : 'durham'
+                      }
+                      pos={position}
+                      scope={
                         eventsPerScope.scope === 'National Event'
                           ? 'national'
                           : 'durham'
@@ -82,25 +90,15 @@ const timeline = ({ timeline }) => {
                               <LinkedEvent
                                 to={`/events/${cleanId(event.Name)}`}
                               >
-                                <Card
-                                  event={event}
-                                  scope={event.Scope}
-                                  link
-                                  ref={addToYearRefs}
-                                />
+                                <Card event={event} ref={addToYearRefs} link />
                               </LinkedEvent>
                             ) : (
-                              <Card
-                                key={i}
-                                event={event}
-                                scope={event.Scope}
-                                ref={addToYearRefs}
-                              />
+                              <Card key={i} event={event} ref={addToYearRefs} />
                             )}
                           </li>
                         );
                       })}
-                    </ul>
+                    </EventList>
                   );
                 })}
               </YearListItem>
@@ -112,16 +110,20 @@ const timeline = ({ timeline }) => {
 };
 
 timeline.propTypes = {
-  timeline: PropTypes.array.isRequired
+  timeline: PropTypes.array.isRequired,
 };
 
 const Timeline = styled.ol`
   padding-top: 80px;
-  margin-left: 50%;
+  margin-left: 25px;
+
+  ${breakpoint('lg')`
+    margin-left: 50%;
+  `}
 `;
 
 const YearListItem = styled.li`
-  border-left: 6px solid #E0E0E0;
+  border-left: 6px solid #e0e0e0;
   position: relative;
   display: flex;
 
@@ -151,11 +153,12 @@ const YearListItem = styled.li`
     z-index: 0;
   }
 
-  ${(props) =>
-    props.position === 'sole-left' &&
-    `justify-content: flex-start;
+  ${breakpoint('lg')`
+    ${(props) =>
+      props.position === 'sole-left' &&
+      `justify-content: flex-start;
     ${Span} {
-      left: -70px;
+      left: -75px;
       width: 40px;
 
       &::before {
@@ -169,8 +172,8 @@ const YearListItem = styled.li`
   ${(props) =>
     props.position === 'sole-right' &&
     `justify-content: flex-end;
-  ${Span} {
-      left: 40px;
+    ${Span} {
+      left: 22px;
       width: 40px;
 
       &::before {
@@ -183,18 +186,28 @@ const YearListItem = styled.li`
     }
 
   `}
-  ${(props) => props.position === 'both' && `flex-direction: row-reverse;`}
+    ${(props) => props.position === 'both' && `flex-direction: row-reverse;`}
+  `}
+  ${(props) => props.position === 'both' && `flex-direction: column-reverse;`}
 `;
 
 const Span = styled.span`
   position: absolute;
   border: 3px solid ${(props) => props.theme.colors.lightGray};
-  width: 165px;
-  left: -75px;
+  width: 14px;
+  left: 25px;
+  ${breakpoint('lg')`
+    left: -75px;
+     width: 140px;
+  `};
+  transition-delay: 0.5s;
+  transition: all linear 0.5s;
 
   /* Left Side */
   ::before {
-    content: '';
+    ${breakpoint('lg')`
+      content: '';
+    `}
     width: 15px;
     height: 15px;
     position: absolute;
@@ -207,15 +220,42 @@ const Span = styled.span`
   /* Right Side */
   ::after {
     content: '';
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
+    top: -5px;
+    left: 12px;
+
+    ${breakpoint('lg')`
+      width: 15px;
+      height: 15px;
+      top: -8px;
+      left: 140px;
+    `}
     position: absolute;
     z-index: 20;
     border-radius: 50%;
     background: ${(props) => props.theme.colors.lightGray};
-    top: -8px;
-    left: 160px;
   }
+
+  ::before,
+  ::after {
+    transition-delay: 0.7s;
+    transition: all linear 0.5s;
+  }
+`;
+
+const EventList = styled.ul`
+  margin-left: auto;
+  ${breakpoint('lg')`
+    margin-left: ${(props) =>
+      props.pos === 'sole-left' && props.scope === 'national'
+        ? '-587px;'
+        : props.pos === 'sole-right' && props.scope === 'durham'
+        ? '40px;'
+        : props.pos === 'both' && props.scope === 'durham'
+        ? '237px;'
+        : '0;'};
+  `}
 `;
 
 const H1 = styled.h1`

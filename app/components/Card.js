@@ -1,17 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 import { cleanJSON } from '../utils/constants';
 import PropTypes from 'prop-types';
 
 const card = React.forwardRef(({ event, link }, ref) => {
   cleanJSON(event);
   const { Scope, Name, Images, External_Resource_Links } = event;
+
   return (
-    <Card
-      ref={ref}
-      className={Scope === 'National Event' ? 'national' : 'durham'}
-      scope={Scope === 'National Event' ? 'national' : 'durham'}
-    >
+    <Card ref={ref} scope={Scope === 'National Event' ? 'national' : 'durham'}>
       <p>{Name}</p>
       {Images &&
         Images.map((p, i) => {
@@ -38,14 +36,15 @@ const card = React.forwardRef(({ event, link }, ref) => {
         })}
     </Card>
   );
-})
+});
 
 card.propTypes = {
   event: PropTypes.object.isRequired,
-  link: PropTypes.bool
+  link: PropTypes.bool,
 };
 
 const Card = styled.article`
+  z-index: -1;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 24px;
@@ -54,6 +53,14 @@ const Card = styled.article`
   border-top-style: solid;
   border-color: #e0e0e0;
   margin-bottom: 30px;
+  width: 240px;
+  ${breakpoint('md')`
+    width: 500px;
+  `}
+  ${breakpoint('lg')`
+    width: 415px;
+  `}
+
   /* Animated border color */
   &:before {
     transition: all linear 0.7s;
@@ -65,7 +72,7 @@ const Card = styled.article`
     width: 0%;
     position: absolute;
     ${(props) =>
-      props.scope === 'national' &&
+      props.scope === 'national' && // @TODO: put in lg breakpoint
       `
       right: 0;
     `};
@@ -96,4 +103,4 @@ const ExternalLink = styled.p`
   }
 `;
 
-export default card
+export default card;
