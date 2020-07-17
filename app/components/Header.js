@@ -91,6 +91,10 @@ header.propTypes = {
 const Header = styled.header`
   position: relative;
   margin-top: 74px;
+  margin-bottom: 60px;
+  ${breakpoint('lg')`
+    margin-bottom: 100px;
+  `}
   ::before {
     content: '';
     background-color: ${(props) => props.theme.colors.greenBean};

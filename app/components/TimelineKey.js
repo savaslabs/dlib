@@ -27,7 +27,6 @@ const timelineKey = () => {
 const Sticky = styled.div`
   position: sticky;
   top: 0;
-  z-index: 999;
   background: ${(props) => props.theme.colors.white};
   ${(props) => props.theme.containerFullWidth};
   ${breakpoint('lg')`
