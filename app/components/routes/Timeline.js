@@ -224,7 +224,7 @@ const YearListItem = styled.li`
     line-height: 1.125;
     top: -8px;
     z-index: 50;
-    transition: color 0.7s linear 0.8s;
+    transition: color 0.3s 0.3s;
     left: 10px;
     ${breakpoint('lg')`
       left: 48.75%;

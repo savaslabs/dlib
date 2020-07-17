@@ -32,7 +32,7 @@ const SVG = styled.svg`
 const Circle = styled.circle`
   stroke-dasharray: 365;
   stroke-dashoffset: 365;
-  transition: all 0.8s linear;
+  transition: fill 0.3s ease 0.3s, stroke-dashoffset 0.7s linear;
 `;
 
 export default year;
