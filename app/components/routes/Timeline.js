@@ -19,45 +19,26 @@ const timeline = ({ timeline }) => {
 
   useEffect(() => {
     // horizontal from docs
+    console.clear();
+
     gsap.from('#line', {
       scrollTrigger: {
-        trigger: '#line',
+        trigger: 'body',
         scrub: true,
         start: 'top bottom',
+        endTrigger: '#footer',
         end: 'top top',
+        snap: {
+          snapTo: yearRefs,
+          duration: {min: 0.2, max: 3},
+          delay: 0.2,
+          ease: "power1.inOut"
+        }
       },
-      scaleX: 0,
-      transformOrigin: 'left center',
+      scaleY: 0,
+      transformOrigin: 'top, top',
       ease: 'none',
     });
-
-    // vertical attempt, from manipulating above
-    // gsap.from('#line', {
-    //   scrollTrigger: {
-    //     trigger: '#line',
-    //     scrub: true,
-    //     start: 'top bottom',
-    //     end: 'top top',
-    //     markers: { startColor: 'green', endColor: 'red', fontSize: '12px' }, //For Dev only
-    //   },
-    //   scaleY: 0,
-    //   transformOrigin: 'left center',
-    //   ease: 'none',
-    // });
-
-    // mine
-    // gsap.from('#line', {
-    //   scrollTrigger: {
-    //     trigger: '#line',
-    //     scrub: true,
-    //     start: 'top center',
-    //     end: 'bottom end',
-    //     markers: { startColor: 'green', endColor: 'red', fontSize: '12px' }, //For Dev only
-    //   },
-    //   scaleY: 0,
-    //   transformOrigin: 'top center',
-    //   ease: 'none',
-    // });
 
     yearRefs.current.forEach((el, index) => {
       gsap.from(el, {
@@ -157,6 +138,7 @@ const Timeline = styled.ol`
   padding-top: 80px;
   width: 100%;
   position: relative;
+  margin: 0;
 
   /* Timeline line */
   &:after {
@@ -174,36 +156,16 @@ const Timeline = styled.ol`
 
 // horizontal example
 const Line = styled.span`
-  width: 100%;
-  max-width: 800px;
-  height: 8px;
-  margin: 0 0 10px 0;
-  position: relative;
-  display: inline-block;
+  width: 8px;
+  max-height: 181001px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 1px);
+  z-index: 1;
   background-color: black;
 `;
-
-// attempt at vertical
-// const Line = styled.span`
-//   height: 100%;
-//   max-height: 181001px;
-//   width: 8px;
-//   margin: 0 0 10px 0;
-//   position: relative;
-//   display: inline-block;
-//   background-color: black;
-// `;
-
- /* Physical timeline for animating on scroll */
-// const Line = styled.span`
-//   height: 100%;
-//   max-height: 18101px;
-//   width: 6px;
-//   left: 50%;
-//   top: 0;
-//   position: absolute;
-//   background-color: black;
-// `;
 
 const YearListItem = styled.li`
   position: relative;
