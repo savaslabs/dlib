@@ -79,6 +79,7 @@ const timeline = ({ timeline }) => {
         {timeline &&
           timeline.map((eventsPerYear, i) => {
             let position;
+            let gap;
             if (eventsPerYear.events.length < 2) {
               position =
                 eventsPerYear.events[0].scope === 'National Event'
@@ -87,6 +88,14 @@ const timeline = ({ timeline }) => {
             } else {
               position = 'both';
             }
+
+            // Add timeline gap if next event year is more than 5 years from the current.
+            if (i < (timeline.length - 1)) {
+              (timeline[i + 1].year - eventsPerYear.year) > 5
+                ? (gap = true)
+                : (gap = false);
+            }
+
             return (
               <YearListItem
                 value={eventsPerYear.year}
@@ -94,6 +103,7 @@ const timeline = ({ timeline }) => {
                 className={`${position}`}
                 ref={addToYearRefs}
                 position={position}
+                gap={gap}
               >
                 {/* Element that changes fill color */}
                 <Year />
@@ -118,7 +128,7 @@ const timeline = ({ timeline }) => {
                     >
                       {eventsPerScope.events.map((event, ind) => {
                         return (
-                          <li key={ind}>
+                          <li key={ind} className='event'>
                             {event.Type === 'Feature' ? (
                               <LinkedEvent
                                 to={`/events/${cleanId(event.Name)}`}
@@ -287,6 +297,22 @@ const YearListItem = styled.li`
     ${(props) => props.position === 'both' && `flex-direction: row-reverse;`}
   `}
   ${(props) => props.position === 'both' && `flex-direction: column-reverse;`}
+
+  ${(props) =>
+    props.gap &&
+    `
+    padding-bottom: 130px;
+    &:after {
+      position: absolute;
+      bottom: 20px;
+      content: '';
+      left: 50%;
+      height: 130px;
+      width: 0;
+      border-right: dashed 11px #FFFFFF;
+      z-index: 3;
+    }
+  `}
 `;
 
 const Span = styled.span`

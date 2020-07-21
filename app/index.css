@@ -14,7 +14,7 @@ li.active svg circle.secondary {
 }
 
 /* Timeline color animation on scroll */
-li.active::after {
+li.event.active::after {
   height: 100%;
 }
 
