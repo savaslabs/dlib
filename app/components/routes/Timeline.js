@@ -91,7 +91,7 @@ const timeline = ({ timeline }) => {
 
             // Add timeline gap if next event year is more than 5 years from the current.
             if (i < (timeline.length - 1)) {
-              (timeline[i + 1].year - eventsPerYear.year) > 5
+              (timeline[i + 1].year - eventsPerYear.year) > 1
                 ? (gap = true)
                 : (gap = false);
             }
