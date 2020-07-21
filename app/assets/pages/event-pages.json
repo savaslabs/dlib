@@ -48,7 +48,9 @@
       }
     ],
     "images": [
-      "cr034"
+      "mss_0040_031",
+      "mss_0040_052",
+      "mss_0040_128"
     ]
   },
   {
@@ -78,6 +80,14 @@
       {
         "text": "On election day, Wallace received 31 percent of North Carolina's popular vote. Republican Richard Nixon won the state with 40 percent, and Democrat Hubert H. Humphrey came in third with 29 percent."
       }
+    ],
+    "images": [
+      "mss_0040_003",
+      "mss_0040_004",
+      "mss_0040_006",
+      "mss_0040_007",
+      "mss_0040_012",
+      "mss_0040_014"
     ]
   },
   {
@@ -104,6 +114,12 @@
       {
         "text": "A second demonstration the following evening, with heavy police guard, proceeded without incident. It not only protested the Orangeburg killings, but also the unrelieved grievances in Durham—particularly regarding public-housing management—that had provoked demonstrations the previous summer. At least one rock-throwing incident accompanied those previous marches, which were called off when tensions reached a point where violence seemed inevitable."
       }
+    ],
+    "images": [
+      "mss_0040_036",
+      "mss_0040_039",
+      "mss_0040_040",
+      "mss_0040_041"
     ]
   },
   {
@@ -143,6 +159,11 @@
       {
         "image": "mss_0040_096"
       }
+    ],
+    "images": [
+      "mss_0040_063",
+      "mss_0040_071",
+      "mss_0040_094"
     ]
   },
   {
@@ -173,6 +194,9 @@
       {
         "text": "After a court order ended those demonstrations, activists took their case to the courts. It was not until July 1963, following a wave of mass demonstrations and strong efforts by new mayor Wense Grabarek, that Durham's segregated movie theaters opened to all the public."
       }
+    ],
+    "images": [
+      "mss_0040_078", "mss_0040_080", "mss_0040_082"
     ]
   },
   {
@@ -211,6 +235,9 @@
           "attribution": "R. Kelly Bryant, BSCCI treasurer, 2002 interview"
         }
       }
+    ],
+    "images": [
+      "mss_0040_059", "mss_0040_111"
     ]
   },
   {
@@ -307,6 +334,9 @@
       {
         "text": "Four years later, King had another date in Durham. However, he cancelled at the last minute, feeling he was needed elsewhere. King was to have been in Durham on April 4, 1968; instead, that day, he was murdered on a motel balcony in Memphis."
       }
+    ],
+    "images": [
+      "mss_0040_064", "mss_0040_085", "mss_0040_086"
     ]
   },
   {
@@ -328,7 +358,7 @@
         "text": "Moore sought the help of Durham lawyer Floyd McKissick, a prominent civil rights activist. The case was upheld by the North Carolina Supreme Court, and the United States Supreme Court declined to hear it on the grounds that the protesters’ rights had not been violated, since laws against their actions were on the books. In this photo, the protestors pray with Rev. Moore before going to court: "
       },
       {
-        "image": "mss_0040_120"
+        "image": "mss_0040_126"
       },
       {
         "text": "The Royal Ice Cream sit-in not only provoked controversy in the white community; it created a huge uproar among black citizens, many of whose members viewed the protesters not as freedom fighters but as troublemakers led astray by a radical young minister and an outsider. Although the sit-in did not get a lot of support, it did set the stage for future protests. It is documented that the Greensboro Woolworth’s protesters, who ignited lunch counter sit-ins throughout the South, knew about and were perhaps inspired by the Royal Ice Cream sit-in. By the time the 1960 sit-ins reached Durham, the views of the town’s black citizens had changed, with most being in favor of the protests."
@@ -382,6 +412,9 @@
       {
         "image": "mss_0238_066"
       }
+    ],
+    "images": [
+      "mss_0238_002", "mss_0238_010", "mss_0238_016", "mss_0238_017", "mss_0238_022", "mss_0238_025", "mss_0238_028", "mss_0238_029", "mss_0238_035", "mss_0238_038", "mss_0238_039", "mss_0238_040", "mss_0238_041", "mss_0238_042", "mss_0238_043", "mss_0238_044", "mss_0238_045", "mss_0238_047", "mss_0238_049", "mss_0238_050", "mss_0238_051", "mss_0238_052", "mss_0238_053", "mss_0238_054", "mss_0238_060", "mss_0238_061", "mss_0238_064", "mss_0238_071"
     ]
   }
 ]

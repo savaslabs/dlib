@@ -17,49 +17,68 @@ const basic = ({ event, type, imageData }) => {
   }
 
   return (
-    <Main>
-      <h1>{data.name}</h1>
-      {data.body &&
-        data.body.map((item, i) => {
-          if (item.hasOwnProperty('h2')) {
-            return <h2 key={i}>{item.h2}</h2>;
-          } else if (item.hasOwnProperty('text')) {
-            return <P key={i}>{item.text}</P>;
-          } else if (item.hasOwnProperty('pullquote')) {
-            return (
-              <Figure key={i}>
-                <Blockquote>{`"${item.pullquote.quote}"`}</Blockquote>
-                {item.pullquote.attribution && (
-                  <Figcaption>{item.pullquote.attribution}</Figcaption>
-                )}
-              </Figure>
-            );
-          } else if (item.hasOwnProperty('ul')) {
-            return (
-              <Ul key={i}>
-                {item.ul.map((li, idx) => {
-                  return <Li key={idx}>{li}</Li>;
-                })}
-              </Ul>
-            );
-          } else if (item.hasOwnProperty('image')) {
-            const foundImage = imageData.filter(imageInfo => {
-              return imageInfo.ID === item.image
-            });
+    <Content>
+      <Main>
+        <h1>{data.name}</h1>
+        {data.body &&
+          data.body.map((item, i) => {
+            if (item.hasOwnProperty('h2')) {
+              return <h2 key={i}>{item.h2}</h2>;
+            } else if (item.hasOwnProperty('text')) {
+              return <P key={i}>{item.text}</P>;
+            } else if (item.hasOwnProperty('pullquote')) {
+              return (
+                <Figure key={i}>
+                  <Blockquote>{`"${item.pullquote.quote}"`}</Blockquote>
+                  {item.pullquote.attribution && (
+                    <Figcaption>{item.pullquote.attribution}</Figcaption>
+                  )}
+                </Figure>
+              );
+            } else if (item.hasOwnProperty('ul')) {
+              return (
+                <Ul key={i}>
+                  {item.ul.map((li, idx) => {
+                    return <Li key={idx}>{li}</Li>;
+                  })}
+                </Ul>
+              );
+            } else if (item.hasOwnProperty('image')) {
+              const foundImage = imageData.filter((imageInfo) => {
+                return imageInfo.ID === item.image;
+              });
 
-            return (
-              <ImageAndCaptionWrapper key={i}>
-                <Image
-                  key={i}
-                  src={`../app/assets/images/${item.image}/large.jpg`}
+              return (
+                <ImageAndCaptionWrapper key={i}>
+                  <Image
+                    key={i}
+                    src={`../app/assets/images/${item.image}/large.jpg`}
+                    alt={foundImage[0].alt_text}
+                  />
+                  <p>{foundImage[0].caption}</p>
+                </ImageAndCaptionWrapper>
+              );
+            }
+          })}
+      </Main>
+      {data.images && (
+        <SideImages>
+          {data.images &&
+            data.images.map((imageId, idx) => {
+              const foundImage = imageData.filter((imageInfo) => {
+                return imageInfo.ID === imageId;
+              });
+              return (
+                <SideImage
+                  key={idx}
+                  src={`../app/assets/images/${imageId}/large.jpg`}
                   alt={foundImage[0].alt_text}
                 />
-                <p>{foundImage[0].caption}</p>
-              </ImageAndCaptionWrapper>
-            );
-          }
-        })}
-    </Main>
+              );
+            })}
+        </SideImages>
+      )}
+    </Content>
   );
 };
 
@@ -80,9 +99,18 @@ basic.propTypes = {
   ),
 };
 
-const Main = styled.main`
+const Content = styled.main`
+  display: flex;
+  flex-direction: column;
+
   ${breakpoint('lg')`
-    max-width: 872px;
+    flex-direction: row;
+    justify-content: space-between;
+  `}
+`;
+const Main = styled.div`
+  ${breakpoint('lg')`
+    max-width: 782px;
   `}
 `;
 
@@ -175,6 +203,29 @@ const Image = styled.img`
   `}
   ${breakpoint('md')`
     margin-right: 30px;
+    object-fit: cover;
+  `}
+`;
+
+const SideImages = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${breakpoint('lg')`
+    max-width: 291px;
+  `}
+`;
+
+const SideImage = styled.img`
+  width: 100%;
+  margin-bottom: 30px;
+
+  &:hover {
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
+  }
+
+  ${breakpoint('lg')`
+    width: 291px;
+    height: 291px;
     object-fit: cover;
   `}
 `;

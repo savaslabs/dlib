@@ -309,7 +309,7 @@ const YearListItem = styled.li`
       left: 50%;
       height: 130px;
       width: 0;
-      border-right: dashed 11px #FFFFFF;
+      border-right: dashed 12px #FFFFFF;
       z-index: 3;
     }
   `}
