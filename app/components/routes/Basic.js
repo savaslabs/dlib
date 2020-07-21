@@ -1,4 +1,5 @@
-import React from 'React';
+import React, { useState, useEffect } from 'react';
+import Lightbox from '../Lightbox';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import PropTypes from 'prop-types';
@@ -6,15 +7,62 @@ import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Markdown from 'react-markdown';
 
-const basic = ({ event, type, imageData }) => {
+const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
   let data;
+  let lightBoxImageIds = [];
+  let captions;
+  let altText;
+
   if (event) {
     data = event;
+    // Add inline event image ids.
+    data.body.forEach((el, i) => {
+      el.hasOwnProperty('image') ? lightBoxImageIds.push(el.image) : null;
+    });
+    // Add additional event image ids if they exist.
+    lightBoxImageIds = event.images ? lightBoxImageIds.concat(event.images) : lightBoxImageIds;
+
+    lightBoxImageIds.forEach(id => {
+      captions = imageData.filter((imageInfo) => {
+        if (imageInfo.ID === id) {
+          return imageInfo.caption;
+        }
+      });
+      altText = imageData.filter((imageInfo) => {
+        if (imageInfo.ID === id) {
+          return imageInfo.caption;
+        }
+      });
+    })
+
+    console.log('captions', captions);
+    console.log('alt text', altText);
+
   } else if (type === 'about') {
     data = AboutPage;
   } else if (type === 'oral_histories') {
     data = OralHistoriesPage;
+  } else if (type === 'gallery') {
+    data = { name: 'Photo Gallery' };
   }
+
+  // Open lightbox anytime a photo is clicked.
+  const openLightbox = e => {
+    const photoIndex = e.target.getAttribute('data-photoindex');
+    setPhotoIndex(photoIndex);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = e => {
+    setIsLightboxOpen(false);
+  }
+
+  const nextLightboxImage = e => {
+    setPhotoIndex((photoIndex + 1) % imageIds.length);
+  };
 
   return (
     <Content>
@@ -49,20 +97,46 @@ const basic = ({ event, type, imageData }) => {
               });
 
               return (
-                <ImageAndCaptionWrapper key={i}>
-                  <Image
+                <InlineImageWrapper key={i}>
+                  <InlineImage
                     key={i}
+                    data-photoindex={lightBoxImageIds.indexOf(item.image)}
+                    onClick={openLightbox}
                     src={`../app/assets/images/${item.image}/large.jpg`}
                     alt={foundImage[0].alt_text}
                   />
                   <p>{foundImage[0].caption}</p>
-                </ImageAndCaptionWrapper>
+                </InlineImageWrapper>
               );
             }
           })}
+        {type === 'gallery' && (
+          <GalleryGrid>
+            {imageIds &&
+              imageIds.map((id, i) => {
+                return (
+                  <GalleryImage
+                    src={`app/assets/images/${id}/full.jpg`}
+                    alt={imageAltText[i]}
+                    key={i}
+                    data-photoindex={i}
+                    onClick={openLightbox}
+                  />
+                );
+              })}
+          </GalleryGrid>
+        )}
+        <Lightbox
+          imageIds={lightBoxImageIds.length > 0 ? lightBoxImageIds : imageIds}
+          imageCaptions={captions ? captions : imageCaptions}
+          isOpen={isLightboxOpen}
+          photoIndex={photoIndex}
+          closeLightbox={closeLightbox}
+          nextLightboxImage={nextLightboxImage}
+        />
       </Main>
       {data.images && (
-        <SideImages>
+        <SideImagesWrapper>
           {data.images &&
             data.images.map((imageId, idx) => {
               const foundImage = imageData.filter((imageInfo) => {
@@ -76,7 +150,7 @@ const basic = ({ event, type, imageData }) => {
                 />
               );
             })}
-        </SideImages>
+        </SideImagesWrapper>
       )}
     </Content>
   );
@@ -85,6 +159,9 @@ const basic = ({ event, type, imageData }) => {
 basic.propTypes = {
   event: PropTypes.object,
   type: PropTypes.string,
+  imageIds: PropTypes.array,
+  imageAltText: PropTypes.array,
+  imageCaptions: PropTypes.array,
   imageData: PropTypes.arrayOf(
     PropTypes.shape({
       ID: PropTypes.string,
@@ -94,7 +171,7 @@ basic.propTypes = {
       caption: PropTypes.string,
       citation: PropTypes.string,
       image: PropTypes.array,
-      timelineEvents: PropTypes.array
+      timelineEvents: PropTypes.array,
     })
   ),
 };
@@ -187,7 +264,7 @@ const Li = styled.li`
   }
 `;
 
-const ImageAndCaptionWrapper = styled.div`
+const InlineImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
@@ -196,7 +273,7 @@ const ImageAndCaptionWrapper = styled.div`
   }
 `;
 
-const Image = styled.img`
+const InlineImage = styled.img`
   width: 100%;
   ${breakpoint('sm', 'lg')`
     margin-bottom: 30px;
@@ -207,7 +284,7 @@ const Image = styled.img`
   `}
 `;
 
-const SideImages = styled.div`
+const SideImagesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   ${breakpoint('lg')`
@@ -227,6 +304,35 @@ const SideImage = styled.img`
     width: 291px;
     height: 291px;
     object-fit: cover;
+  `}
+`;
+
+const GalleryGrid = styled.div`
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr;
+  row-gap: 24px;
+
+  ${breakpoint('md')`
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 61px;
+    row-gap: 61px;
+  `}
+
+  ${breakpoint('lg')`
+    grid-template-columns: repeat(3, 1fr);
+  `}
+`;
+
+const GalleryImage = styled.img`
+  object-fit: cover;
+  ${breakpoint('md')`
+    max-width: 339px;
+    max-height: 339px;
+  `}
+  ${breakpoint('lg')`
+    width: 347px;
+    height: 347px;
   `}
 `;
 

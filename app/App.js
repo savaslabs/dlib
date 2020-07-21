@@ -7,7 +7,6 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
 import Basic from './components/routes/Basic';
-import Gallery from './components/routes/Gallery';
 import Footer from './components/Footer';
 
 // Data.
@@ -112,20 +111,16 @@ const App = () => {
                         </Route>
                       );
                     })
-                  ) : r.route === 'gallery' &&
-                    imageAltText &&
-                    imageCaptions &&
-                    imageIds ? (
-                    <Route path='/gallery' key={i}>
-                      <Gallery
-                        imageIds={imageIds}
-                        imageCaptions={imageCaptions}
-                        imageAltText={imageAltText}
-                      />
-                    </Route>
                   ) : (
                     <Route path={`/${r.route}`} key={i}>
-                      <Basic type={r.route} />
+                      <Basic
+                        type={r.route}
+                        {...(r.route === 'gallery' && {
+                        imageIds: imageIds,
+                        imageCaptions: imageCaptions,
+                        imageAltText: imageAltText
+                      })}
+                      />
                     </Route>
                   );
                 })}
