@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { cleanId } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
-import styled from 'styled-components';
+import backTop from '../../assets/backTop.svg';
+import styled, { keyframes } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 const timeline = ({ timeline }) => {
+  const [showScroll, setShowScroll] = useState(false);
   const yearRefs = useRef([]);
   yearRefs.current = [];
 
@@ -30,34 +32,6 @@ const timeline = ({ timeline }) => {
       transformOrigin: 'left center',
       ease: 'none',
     });
-
-    // vertical attempt, from manipulating above
-    // gsap.from('#line', {
-    //   scrollTrigger: {
-    //     trigger: '#line',
-    //     scrub: true,
-    //     start: 'top bottom',
-    //     end: 'top top',
-    //     markers: { startColor: 'green', endColor: 'red', fontSize: '12px' }, //For Dev only
-    //   },
-    //   scaleY: 0,
-    //   transformOrigin: 'left center',
-    //   ease: 'none',
-    // });
-
-    // mine
-    // gsap.from('#line', {
-    //   scrollTrigger: {
-    //     trigger: '#line',
-    //     scrub: true,
-    //     start: 'top center',
-    //     end: 'bottom end',
-    //     markers: { startColor: 'green', endColor: 'red', fontSize: '12px' }, //For Dev only
-    //   },
-    //   scaleY: 0,
-    //   transformOrigin: 'top center',
-    //   ease: 'none',
-    // });
 
     yearRefs.current.forEach((el, index) => {
       gsap.from(el, {
@@ -80,12 +54,28 @@ const timeline = ({ timeline }) => {
     }
   };
 
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 700) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 700) {
+      setShowScroll(false);
+    }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  window.addEventListener('scroll', checkScrollTop);
+
   return (
     <main>
       <H1>Civil Rights Heritage Project</H1>
+      <BackToTop onClick={scrollTop} showScroll={showScroll}>
+        <ScreenReaderText>Back to top</ScreenReaderText>
+      </BackToTop>
       <TimelineKey />
       <Timeline>
-        <Line id="line"></Line>
+        <Line id='line'></Line>
         {timeline &&
           timeline.map((eventsPerYear, i) => {
             let position;
@@ -156,6 +146,55 @@ timeline.propTypes = {
   timeline: PropTypes.array.isRequired,
 };
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const BackToTop = styled.button`
+  display: ${(props) => (props.showScroll ? 'flex' : 'none')};
+  position: fixed;
+  border: none;
+  border-radius: 50%;
+  z-index: 1000;
+  cursor: pointer;
+  right: 10px;
+  bottom: 50%;
+  animation: ${fadeIn} 0.3s;
+  transition: opacity 0.4s;
+  opacity: 1;
+  padding: 20px;
+  background: ${(props) => props.theme.colors.greenBean};
+  &:before {
+    content: '';
+    mask: url(${backTop}) no-repeat 50% 50%;
+    mask-size: cover;
+    width: 20px;
+    height: 20px;
+    background: ${(props) => props.theme.colors.white};
+  }
+
+  &:hover {
+    background: ${(props) => props.theme.colors.darkGreen};
+  }
+
+  ${breakpoint('lg')`
+    bottom: 30%;
+    margin-bottom: 150px;
+  `}
+`;
+
+const ScreenReaderText = styled.span`
+  ${props => props.theme.srOnly}
+`;
+
 const Timeline = styled.ol`
   padding-top: 80px;
   width: 100%;
@@ -185,28 +224,6 @@ const Line = styled.span`
   display: inline-block;
   background-color: black;
 `;
-
-// attempt at vertical
-// const Line = styled.span`
-//   height: 100%;
-//   max-height: 181001px;
-//   width: 8px;
-//   margin: 0 0 10px 0;
-//   position: relative;
-//   display: inline-block;
-//   background-color: black;
-// `;
-
- /* Physical timeline for animating on scroll */
-// const Line = styled.span`
-//   height: 100%;
-//   max-height: 18101px;
-//   width: 6px;
-//   left: 50%;
-//   top: 0;
-//   position: absolute;
-//   background-color: black;
-// `;
 
 const YearListItem = styled.li`
   position: relative;
@@ -330,7 +347,7 @@ const H1 = styled.h1`
 `;
 
 const Ul = styled.ul`
-  ${breakpoint('sm','lg')`
+  ${breakpoint('sm', 'lg')`
       margin-left: 100px;
   `}
 `;
