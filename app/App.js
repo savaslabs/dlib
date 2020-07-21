@@ -11,8 +11,8 @@ import Gallery from './components/routes/Gallery';
 import Footer from './components/Footer';
 
 // Data.
-import EventPages from './assets/event-pages.json';
-import Events from './assets/events.json';
+import EventPages from './assets/pages/event-pages.json';
+import Events from './assets/events-data.json';
 import Images from './assets/images-data.json';
 
 // Styling.

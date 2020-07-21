@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
-import backTop from '../../assets/backTop.svg';
+import backTop from '../../assets/icons/backTop.svg';
 import styled, { keyframes } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import gsap from 'gsap';

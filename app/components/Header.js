@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import menu from '../assets/menu.svg';
+import menu from '../assets/icons/menu.svg';
 import { routes, cleanId, timelineDescription } from '../utils/constants';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
