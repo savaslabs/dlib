@@ -10,29 +10,27 @@ export default class lightbox extends Component {
       isOpen,
       closeLightbox,
       nextLightboxImage,
+      eventPage
     } = this.props;
 
+    let location;
+    if (eventPage) {
+      location = "../app";
+    } else {
+      location = 'app';
+    }
     return (
       <>
         {isOpen && (
           <Lightbox
-            mainSrc={`app/assets/images/${imageIds[photoIndex]}/full.jpg`}
-            nextSrc={`app/assets/images/${
-              imageIds[(photoIndex + 1) % imageIds.length]
-            }/full.jpg`}
-            previousSrc={`app/assets/images/${
-              imageIds[(photoIndex + imageIds.length - 1) % imageIds.length]
+            mainSrc={`${location}/assets/images/${imageIds[photoIndex]}/full.jpg`}
+            nextSrc={`${location}/assets/images/${
+              imageIds[(photoIndex + 1 < imageIds.length)
+                ? photoIndex + 1
+                : 0]
             }/full.jpg`}
             onCloseRequest={() => closeLightbox()}
-            onMovePrevRequest={() =>
-              this.setState({
-                photoIndex:
-                  (photoIndex + imageIds.length - 1) % imageIds.length,
-              })
-            }
-            onMoveNextRequest={() =>
-              nextLightboxImage()
-            }
+            onMoveNextRequest={() => nextLightboxImage()}
             imageCaption={imageCaptions[photoIndex]}
           />
         )}

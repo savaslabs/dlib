@@ -13,12 +13,12 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
 
   let data;
   let lightBoxImageIds = [];
-  let captions;
-  let altText;
+  let eventLightBoxData = [];
+  let captions = [];
 
   if (event) {
     data = event;
-    // Add inline event image ids.
+    // Add inline event image ids for lightbox.
     data.body.forEach((el, i) => {
       el.hasOwnProperty('image') ? lightBoxImageIds.push(el.image) : null;
     });
@@ -26,21 +26,20 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     lightBoxImageIds = event.images ? lightBoxImageIds.concat(event.images) : lightBoxImageIds;
 
     lightBoxImageIds.forEach(id => {
-      captions = imageData.filter((imageInfo) => {
+      eventLightBoxData.push(imageData.filter((imageInfo) => {
         if (imageInfo.ID === id) {
-          return imageInfo.caption;
+          return imageInfo;
         }
-      });
-      altText = imageData.filter((imageInfo) => {
-        if (imageInfo.ID === id) {
-          return imageInfo.caption;
-        }
-      });
+      }));
+
     })
 
-    console.log('captions', captions);
-    console.log('alt text', altText);
-
+    // Create captions array for lightbox.
+    captions = eventLightBoxData.map((c => {
+      return c.map((ci) => {
+        return ci.caption;
+      }).flat()
+    }));
   } else if (type === 'about') {
     data = AboutPage;
   } else if (type === 'oral_histories') {
@@ -51,7 +50,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
 
   // Open lightbox anytime a photo is clicked.
   const openLightbox = e => {
-    const photoIndex = e.target.getAttribute('data-photoindex');
+    const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
     setPhotoIndex(photoIndex);
     setIsLightboxOpen(true);
   };
@@ -61,7 +60,14 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   }
 
   const nextLightboxImage = e => {
-    setPhotoIndex((photoIndex + 1) % imageIds.length);
+    let ids;
+    if (event) {
+      ids = lightBoxImageIds;
+    } else {
+      ids = imageIds;
+    }
+
+    setPhotoIndex((photoIndex + 1) < ids.length ? photoIndex + 1 : 0);
   };
 
   return (
@@ -116,7 +122,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
               imageIds.map((id, i) => {
                 return (
                   <GalleryImage
-                    src={`app/assets/images/${id}/full.jpg`}
+                    src={`../app/assets/images/${id}/full.jpg`}
                     alt={imageAltText[i]}
                     key={i}
                     data-photoindex={i}
@@ -126,14 +132,17 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
               })}
           </GalleryGrid>
         )}
-        <Lightbox
-          imageIds={lightBoxImageIds.length > 0 ? lightBoxImageIds : imageIds}
-          imageCaptions={captions ? captions : imageCaptions}
-          isOpen={isLightboxOpen}
-          photoIndex={photoIndex}
-          closeLightbox={closeLightbox}
-          nextLightboxImage={nextLightboxImage}
-        />
+        {(type === 'gallery' || event) && (
+          <Lightbox
+            imageIds={lightBoxImageIds.length > 0 ? lightBoxImageIds : imageIds}
+            imageCaptions={captions.length > 0 ? captions : imageCaptions}
+            isOpen={isLightboxOpen}
+            photoIndex={photoIndex}
+            closeLightbox={closeLightbox}
+            nextLightboxImage={nextLightboxImage}
+            eventPage={event}
+          />
+        )}
       </Main>
       {data.images && (
         <SideImagesWrapper>
@@ -145,6 +154,8 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
               return (
                 <SideImage
                   key={idx}
+                  data-photoindex={lightBoxImageIds.indexOf(imageId)}
+                  onClick={openLightbox}
                   src={`../app/assets/images/${imageId}/large.jpg`}
                   alt={foundImage[0].alt_text}
                 />
