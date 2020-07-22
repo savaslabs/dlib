@@ -164,7 +164,7 @@ const Left = styled.div`
 
 const SiteName = styled(NavLink)`
   color: ${(props) => props.theme.colors.white};
-  font-weight: 700;
+  font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.lineHeight.snug};
   letter-spacing: 0.02em;
   font-size: ${(props) => props.theme.fontSize.md};
