@@ -20,7 +20,7 @@ const timeline = ({ timeline }) => {
   yearRefs.current = [];
 
   useEffect(() => {
-    // horizontal from docs
+    // Timeline line animation.
     gsap.from('#line', {
       scrollTrigger: {
         trigger: '#line',
@@ -33,6 +33,7 @@ const timeline = ({ timeline }) => {
       ease: 'none',
     });
 
+    // Year and card animation.
     yearRefs.current.forEach((el, index) => {
       gsap.from(el, {
         scrollTrigger: {
@@ -89,13 +90,12 @@ const timeline = ({ timeline }) => {
               position = 'both';
             }
 
-            // Add timeline gap if next event year is more than 5 years from the current.
+            // Add timeline gap if next event year more than one year in the future.
             if (i < (timeline.length - 1)) {
               (timeline[i + 1].year - eventsPerYear.year) > 1
                 ? (gap = true)
                 : (gap = false);
             }
-
             return (
               <YearListItem
                 value={eventsPerYear.year}

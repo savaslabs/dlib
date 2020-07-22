@@ -81,7 +81,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
               return <h2 key={i}>{item.h2}</h2>;
               // Body text.
             } else if (item.hasOwnProperty('text')) {
-              return <P key={i}>{item.text}</P>;
+              return <P key={i} source={item.text}>{item.text}</P>;
               // Pullquote with optional attribution.
             } else if (item.hasOwnProperty('pullquote')) {
               return (

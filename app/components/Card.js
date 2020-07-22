@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { cleanJSON } from '../utils/constants';
 import PropTypes from 'prop-types';
+import Markdown from 'react-markdown';
 
 const card = React.forwardRef(({ event, feature }, ref) => {
   cleanJSON(event);
@@ -12,8 +13,10 @@ const card = React.forwardRef(({ event, feature }, ref) => {
     <Card ref={ref} scope={designation.toLowerCase()}>
       {/* Mobile scope pill. */}
       <Level scope={designation.toLowerCase()}>{designation}</Level>
-      {feature && (<Title>{Headline}</Title>)}
-      <Body>{Text}</Body>
+      {feature && (
+        <Title>{Headline}</Title>
+      )}
+      <Body source={Text}>{Text}</Body>
       {Images &&
         Images.slice(0, 3).map((p, i) => {
           return (
@@ -101,7 +104,7 @@ const Title = styled.h1`
   color: ${(props) => props.theme.colors.greenBean};
 `;
 
-const Body = styled.p`
+const Body = styled(Markdown)`
   color: ${(props) => props.theme.colors.darkGreen};
   font-size: ${(props) => props.theme.fontSize.sm};
 `;
