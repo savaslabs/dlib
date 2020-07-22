@@ -45,6 +45,9 @@ Pages are located in `/app/assets`. All event pages are in `event-pages.json`, o
           "attribution": ""
         }
       },
+    ],
+    "images": [
+      "additional image ids from the Event Pages airtable go here"
     ]
   }
 ```
