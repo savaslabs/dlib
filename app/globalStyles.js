@@ -12,7 +12,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    margin-bottom: 40px;
+    margin-top: 80px;
+    margin-bottom: 70px;
     font-size: ${(props) => props.theme.fontSize.xxl};
   }
 
