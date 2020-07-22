@@ -11,7 +11,6 @@ import Markdown from 'react-markdown';
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [preventScroll, setPreventScroll] = useState(false);
 
   let data;
   let lightBoxImageIds = [];
@@ -72,107 +71,113 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     setPhotoIndex((photoIndex + 1) < ids.length ? photoIndex + 1 : 0);
   };
 
-  useEffect(() => {
-    isLightboxOpen ? setPreventScroll(true) : setPreventScroll(false);
-  }, [isLightboxOpen])
-
   return (
-    <Content preventScroll={preventScroll}>
-      <Main gallery={type === 'gallery' ? true : !data.images ? true : false}>
-        <H1>{data.name}</H1>
-        {data.body &&
-          data.body.map((item, i) => {
-            // Second level heading.
-            if (item.hasOwnProperty('h2')) {
-              return <h2 key={i}>{item.h2}</h2>;
-              // Body text.
-            } else if (item.hasOwnProperty('text')) {
-              return <P key={i} source={item.text}>{item.text}</P>;
-              // Pullquote with optional attribution.
-            } else if (item.hasOwnProperty('pullquote')) {
-              return (
-                <Figure key={i}>
-                  <Blockquote>{`"${item.pullquote.quote}"`}</Blockquote>
-                  {item.pullquote.attribution && (
-                    <Figcaption>{item.pullquote.attribution}</Figcaption>
-                  )}
-                </Figure>
-              );
-              // Unordered list.
-            } else if (item.hasOwnProperty('ul')) {
-              return (
-                <Ul key={i}>
-                  {item.ul.map((li, idx) => {
-                    return (
-                      <Li key={idx}>
-                        <Markdown source={li}>{li}</Markdown>
-                      </Li>
-                    );
-                  })}
-                </Ul>
-              );
-              // Inline image with caption.
-            } else if (item.hasOwnProperty('image')) {
-              const foundImage = imageData.filter((imageInfo) => {
-                return imageInfo.ID === item.image;
-              });
-              return (
-                <InlineImageWrapper key={i}>
-                  <InlineImage
-                    key={i}
-                    data-photoindex={lightBoxImageIds.indexOf(item.image)}
-                    onClick={openLightbox}
-                    src={`../app/assets/images/${item.image}/large.jpg`}
-                    alt={foundImage[0].alt_text}
-                  />
-                  <InlineImageCaption>{foundImage[0].caption}</InlineImageCaption>
-                </InlineImageWrapper>
-              );
-            }
-          })}
-        {type === 'gallery' && (
-          <GalleryGrid>
-            {imageIds &&
-              imageIds.map((id, i) => {
+    <Content isLightboxOpen={isLightboxOpen}>
+      <FloatWrapper>
+        <Main gallery={type === 'gallery' ? true : !data.images ? true : false}>
+          <H1>{data.name}</H1>
+          {data.body &&
+            data.body.map((item, i) => {
+              // Second level heading.
+              if (item.hasOwnProperty('h2')) {
+                return <h2 key={i}>{item.h2}</h2>;
+                // Body text.
+              } else if (item.hasOwnProperty('text')) {
                 return (
-                  <GalleryImage
-                    src={`../app/assets/images/${id}/full.jpg`}
-                    alt={imageAltText[i]}
-                    key={i}
-                    data-photoindex={i}
-                    onClick={openLightbox}
-                  />
+                  <P key={i} source={item.text}>
+                    {item.text}
+                  </P>
                 );
-              })}
-          </GalleryGrid>
-        )}
-        {(type === 'gallery' || event) && (
-          <Lightbox
-            imageIds={lightBoxImageIds.length > 0 ? lightBoxImageIds : imageIds}
-            imageCaptions={captions.length > 0 ? captions : imageCaptions}
-            isOpen={isLightboxOpen}
-            photoIndex={photoIndex}
-            closeLightbox={closeLightbox}
-            nextLightboxImage={nextLightboxImage}
-            eventPage={event}
-          />
-        )}
-      </Main>
-      {data.images &&
-        data.images.map((imageId, idx) => {
-          const foundImage = imageData.filter((imageInfo) => {
-            return imageInfo.ID === imageId;
-          });
-          return (
-            <SideImage
-              key={idx}
-              data-photoindex={lightBoxImageIds.indexOf(imageId)}
-              onClick={openLightbox}
-              src={`../app/assets/images/${imageId}/large.jpg`}
-              alt={foundImage[0].alt_text}
+                // Pullquote with optional attribution.
+              } else if (item.hasOwnProperty('pullquote')) {
+                return (
+                  <Figure key={i}>
+                    <Blockquote>{`"${item.pullquote.quote}"`}</Blockquote>
+                    {item.pullquote.attribution && (
+                      <Figcaption>{item.pullquote.attribution}</Figcaption>
+                    )}
+                  </Figure>
+                );
+                // Unordered list.
+              } else if (item.hasOwnProperty('ul')) {
+                return (
+                  <Ul key={i}>
+                    {item.ul.map((li, idx) => {
+                      return (
+                        <Li key={idx}>
+                          <Markdown source={li}>{li}</Markdown>
+                        </Li>
+                      );
+                    })}
+                  </Ul>
+                );
+                // Inline image with caption.
+              } else if (item.hasOwnProperty('image')) {
+                const foundImage = imageData.filter((imageInfo) => {
+                  return imageInfo.ID === item.image;
+                });
+                return (
+                  <InlineImageWrapper key={i}>
+                    <InlineImage
+                      key={i}
+                      data-photoindex={lightBoxImageIds.indexOf(item.image)}
+                      onClick={openLightbox}
+                      src={`../app/assets/images/${item.image}/large.jpg`}
+                      alt={foundImage[0].alt_text}
+                    />
+                    <InlineImageCaption>
+                      {captions[lightBoxImageIds.indexOf(item.image)]}
+                    </InlineImageCaption>
+                  </InlineImageWrapper>
+                );
+              }
+            })}
+          {type === 'gallery' && (
+            <GalleryGrid>
+              {imageIds &&
+                imageIds.map((id, i) => {
+                  return (
+                    <GalleryImage
+                      src={`../app/assets/images/${id}/full.jpg`}
+                      alt={imageAltText[i]}
+                      key={i}
+                      data-photoindex={i}
+                      onClick={openLightbox}
+                    />
+                  );
+                })}
+            </GalleryGrid>
+          )}
+          {(type === 'gallery' || event) && (
+            <Lightbox
+              imageIds={
+                lightBoxImageIds.length > 0 ? lightBoxImageIds : imageIds
+              }
+              imageCaptions={captions.length > 0 ? captions : imageCaptions}
+              isOpen={isLightboxOpen}
+              photoIndex={photoIndex}
+              closeLightbox={closeLightbox}
+              nextLightboxImage={nextLightboxImage}
+              eventPage={event}
             />
-          );
-        })}
+          )}
+        </Main>
+        {data.images &&
+          data.images.map((imageId, idx) => {
+            const foundImage = imageData.filter((imageInfo) => {
+              return imageInfo.ID === imageId;
+            });
+            return (
+              <SideImage
+                key={idx}
+                data-photoindex={lightBoxImageIds.indexOf(imageId)}
+                onClick={openLightbox}
+                src={`../app/assets/images/${imageId}/large.jpg`}
+                alt={foundImage[0].alt_text}
+              />
+            );
+          })}
+      </FloatWrapper>
     </Content>
   );
 };
@@ -198,10 +203,17 @@ basic.propTypes = {
 };
 
 const Content = styled.main`
-  overflow-y: ${props => props.preventScroll ? 'hidden' : 'auto'};
-  ${breakpoint('lg')`
-    overflow: auto;
-  `}
+  overflow-y: ${(props) => (props.isLightboxOpen ? 'hidden' : 'auto')};
+
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+`;
+
+const FloatWrapper = styled.div`
+  margin-right: -21px;
 `;
 
 const Main = styled.div`
@@ -330,12 +342,18 @@ const SideImage = styled.img`
 
   &:hover {
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
+    cursor: pointer;
   }
 
   ${breakpoint('lg')`
     width: 275px;
     height: 275px;
-    margin-bottom: 30px;
+    margin-bottom: 23px;
+    margin-right: 21px;
+
+    &:first-of-type {
+      margin-top: 85px;
+    }
   `}
 `;
 
