@@ -73,7 +73,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
 
   return (
     <Content>
-      <Main>
+      <Main gallery={type === 'gallery' ? true : false}>
         <H1>{data.name}</H1>
         {data.body &&
           data.body.map((item, i) => {
@@ -196,7 +196,7 @@ const Content = styled.main`
 
 const Main = styled.div`
   ${breakpoint('lg')`
-    width: 782px;
+    width: ${props => props.gallery ? '100%' : '782px'};
     height: fit-content;
     float: left;
     margin-right: 105px;
@@ -321,19 +321,13 @@ const SideImage = styled.img`
 `;
 
 const GalleryGrid = styled.div`
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr;
-  row-gap: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 
   ${breakpoint('md')`
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 75px;
-    row-gap: 75px;
-  `}
-
-  ${breakpoint('lg')`
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: row;
+    justify-content: space-between;
   `}
 `;
 
@@ -346,6 +340,7 @@ const GalleryImage = styled.img`
   ${breakpoint('lg')`
     width: 347px;
     height: 347px;
+    margin-bottom: 75px;
   `}
 `;
 
