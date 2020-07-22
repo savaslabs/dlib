@@ -133,7 +133,7 @@ const timeline = ({ timeline }) => {
                               <LinkedEvent
                                 to={`/events/${cleanId(event.Name)}`}
                               >
-                                <Card event={event} ref={addToYearRefs} link />
+                                <Card event={event} ref={addToYearRefs} feature />
                                 <Arrow />
                               </LinkedEvent>
                             ) : (
@@ -396,32 +396,41 @@ const LinkedEvent = styled(Link)`
   text-decoration: none;
   position: relative;
   display: block;
-  font-size: 20px;
   color: ${(props) => props.theme.colors.greenBean};
   font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.lineHeight.snug};
 `;
 
 const Arrow = styled.span`
-  height: 61px;
-  width: 61px;
-  position: absolute;
-  right: -35px;
-  background: linear-gradient(to right, transparent 45%, black 45%);
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  bottom: 50%;
+  ${breakpoint('lg')`
+    height: 61px;
+    width: 61px;
+    position: absolute;
+    right: -35px;
+    background: linear-gradient(to right, transparent 45%, black 45%);
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    bottom: 50%;
+`}
   &:before {
     content: '';
     mask: url(${arrow}) no-repeat 50% 50%;
     mask-size: cover;
-    background: ${(props) => props.theme.colors.white};
     width: 15px;
     height: 20px;
     right: 10px;
-    top: 20px;
     position: absolute;
     transform: rotate(90deg);
+    background: ${(props) => props.theme.colors.greenBean};
+
+    ${breakpoint('sm')`
+      bottom: 10px;
+    `}
+
+    ${breakpoint('lg')`
+      background: ${(props) => props.theme.colors.white};
+      top: 20px;
+    `}
   }
 `;
 

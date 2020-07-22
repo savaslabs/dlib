@@ -2,16 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { cleanJSON } from '../utils/constants';
-import arrow from '../assets/icons/arrow.svg';
 import PropTypes from 'prop-types';
 
-const card = React.forwardRef(({ event, link }, ref) => {
+const card = React.forwardRef(({ event, feature }, ref) => {
   cleanJSON(event);
-  const { Scope, Text, Images, External_Resource_Links } = event;
-
+  const { Scope, Headline, Text, Images, External_Resource_Links } = event;
+  const designation = Scope === 'National Event' ? 'National' : 'Durham';
   return (
-    <Card ref={ref} scope={Scope === 'National Event' ? 'national' : 'durham'}>
-      <p>{Text}</p>
+    <Card ref={ref} scope={designation.toLowerCase()}>
+      {/* Mobile scope pill. */}
+      <Level scope={designation.toLowerCase()}>{designation}</Level>
+      {feature && (<Title>{Headline}</Title>)}
+      <Body>{Text}</Body>
       {Images &&
         Images.slice(0, 3).map((p, i) => {
           return (
@@ -22,8 +24,7 @@ const card = React.forwardRef(({ event, link }, ref) => {
             />
           );
         })}
-      {/* // Don't nest external resource links if card is already a link to event page. */}
-      {!link && External_Resource_Links ? (
+      {!feature && External_Resource_Links && (
         <ExternalLinksWrapper>
           <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
           {External_Resource_Links.map((ext, i) => {
@@ -36,30 +37,30 @@ const card = React.forwardRef(({ event, link }, ref) => {
             );
           })}
         </ExternalLinksWrapper>
-      ) : null}
+      )}
     </Card>
   );
 });
 
 card.propTypes = {
   event: PropTypes.object.isRequired,
-  link: PropTypes.bool,
+  feature: PropTypes.bool,
 };
 
 const Card = styled.article`
   z-index: -1;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  padding: 24px;
+  padding: 12px 10px;
   letter-spacing: 0.02em;
   position: relative;
   border-top: 6px;
   border-top-style: solid;
   border-color: #e0e0e0;
   margin-bottom: 30px;
-  width: 240px;
   ${breakpoint('md')`
     width: 500px;
+    padding: 24px;
   `}
   ${breakpoint('lg')`
     width: 415px;
@@ -91,6 +92,39 @@ const Card = styled.article`
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
+`;
+
+const Title = styled.h1`
+  font-size: 20px;
+  margin: 0 0 15px 0;
+  line-height: ${(props) => props.theme.lineHeight.snug};
+  color: ${(props) => props.theme.colors.greenBean};
+`;
+
+const Body = styled.p`
+  color: ${(props) => props.theme.colors.darkGreen};
+  font-size: ${(props) => props.theme.fontSize.sm};
+`;
+
+const Level = styled.p`
+  width: fit-content;
+  border-radius: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.21;
+  margin-bottom: 10px;
+  padding: 1px 10px;
+  background: ${(props) =>
+    props.scope === 'national'
+      ? props.theme.colors.leafy
+      : props.theme.colors.greenBean};
+  color: ${(props) =>
+    props.scope === 'national'
+      ? props.theme.colors.charcoal
+      : props.theme.colors.white};
+  ${breakpoint('md')`
+    display: none;
+  `}
 `;
 
 const CardImage = styled.img`
