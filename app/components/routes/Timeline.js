@@ -20,16 +20,25 @@ const timeline = ({ timeline }) => {
   yearRefs.current = [];
 
   useEffect(() => {
-    // Timeline line animation.
+    // horizontal from docs
+    console.clear();
+
     gsap.from('#line', {
       scrollTrigger: {
-        trigger: '#line',
+        trigger: 'body',
         scrub: true,
         start: 'top bottom',
+        endTrigger: '#footer',
         end: 'top top',
+        snap: {
+          snapTo: yearRefs,
+          duration: {min: 0.2, max: 3},
+          delay: 0.2,
+          ease: "power1.inOut"
+        }
       },
-      scaleX: 0,
-      transformOrigin: 'left center',
+      scaleY: 0,
+      transformOrigin: 'top, top',
       ease: 'none',
     });
 
@@ -227,6 +236,7 @@ const Timeline = styled.ol`
   padding-top: 80px;
   width: 100%;
   position: relative;
+  margin: 0;
 
   /* Timeline line */
   &:after {
@@ -244,12 +254,14 @@ const Timeline = styled.ol`
 
 // horizontal example
 const Line = styled.span`
-  width: 100%;
-  max-width: 800px;
-  height: 8px;
-  margin: 0 0 10px 0;
-  position: relative;
-  display: inline-block;
+  width: 8px;
+  max-height: 181001px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 1px);
+  z-index: 1;
   background-color: black;
 `;
 

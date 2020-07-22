@@ -5,7 +5,7 @@ import breakpoint from 'styled-components-breakpoint';
 
 const footer = () => {
   return (
-    <Footer>
+    <Footer id="footer">
       <FooterContainer>
         <SiteInfo footer="true" />
       </FooterContainer>
