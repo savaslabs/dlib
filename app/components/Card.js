@@ -51,7 +51,6 @@ card.propTypes = {
 };
 
 const Card = styled.article`
-  z-index: -1;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 12px 10px;

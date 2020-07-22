@@ -287,17 +287,18 @@ const InlineImageWrapper = styled.div`
 `;
 
 const InlineImage = styled.img`
-  width: 100%;
-  margin-bottom: 30px;
+  object-fit: cover;
+  width: calc(100vw - 36px);
+  height: calc(100vw - 36px);
+
   &:hover {
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
   }
   ${breakpoint('sm', 'lg')`
-    margin-bottom: 30px;
+    margin-bottom: 18px;
   `}
   ${breakpoint('md')`
     margin-right: 30px;
-    object-fit: cover;
   `}
 `;
 
@@ -306,8 +307,10 @@ const InlineImageCaption = styled.p`
 `;
 
 const SideImage = styled.img`
-  width: 100%;
-  margin-bottom: 30px;
+  object-fit: cover;
+  width: calc(100vw - 36px);
+  height: calc(100vw - 36px);
+  margin-bottom: 18px;
 
   &:hover {
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
@@ -316,7 +319,7 @@ const SideImage = styled.img`
   ${breakpoint('lg')`
     width: 275px;
     height: 275px;
-    object-fit: cover;
+    margin-bottom: 30px;
   `}
 `;
 
@@ -333,9 +336,13 @@ const GalleryGrid = styled.div`
 
 const GalleryImage = styled.img`
   object-fit: cover;
+  width: calc(100vw - 36px);
+  height: calc(100vw - 36px);
+  margin-bottom: 18px;
   ${breakpoint('md')`
-    max-width: 339px;
-    max-height: 339px;
+    width: 225px;
+    height: 225px;
+    margin-bottom: 30px;
   `}
   ${breakpoint('lg')`
     width: 347px;
