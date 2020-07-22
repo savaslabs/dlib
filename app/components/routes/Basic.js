@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { prepareCaptions } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
@@ -11,6 +11,7 @@ import Markdown from 'react-markdown';
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [preventScroll, setPreventScroll] = useState(false);
 
   let data;
   let lightBoxImageIds = [];
@@ -71,8 +72,12 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     setPhotoIndex((photoIndex + 1) < ids.length ? photoIndex + 1 : 0);
   };
 
+  useEffect(() => {
+    isLightboxOpen ? setPreventScroll(true) : setPreventScroll(false);
+  }, [isLightboxOpen])
+
   return (
-    <Content>
+    <Content preventScroll={preventScroll}>
       <Main gallery={type === 'gallery' ? true : !data.images ? true : false}>
         <H1>{data.name}</H1>
         {data.body &&
@@ -98,7 +103,11 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
               return (
                 <Ul key={i}>
                   {item.ul.map((li, idx) => {
-                    return <Li key={idx}>{li}</Li>;
+                    return (
+                      <Li key={idx}>
+                        <Markdown source={li}>{li}</Markdown>
+                      </Li>
+                    );
                   })}
                 </Ul>
               );
@@ -189,6 +198,7 @@ basic.propTypes = {
 };
 
 const Content = styled.main`
+  overflow-y: ${props => props.preventScroll ? 'hidden' : 'auto'};
   ${breakpoint('lg')`
     overflow: auto;
   `}
@@ -267,6 +277,11 @@ const Li = styled.li`
   line-height: ${(props) => props.theme.lineHeight.xxLoose};
   font-size: ${(props) => props.theme.fontSize.sm};
   position: relative;
+  p a {
+    color: ${(props) => props.theme.colors.darkGreen};
+    line-height: ${(props) => props.theme.lineHeight.xxLoose};
+    text-decoration: underline;
+  }
 
   &::before {
     content: '';
