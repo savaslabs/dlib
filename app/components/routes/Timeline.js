@@ -69,7 +69,7 @@ const timeline = ({ timeline }) => {
 
   return (
     <main>
-      <H1>Civil Rights Heritage Project</H1>
+      <H1>Civil Rights Timeline</H1>
       <BackToTop onClick={scrollTop} showScroll={showScroll}>
         <ScreenReaderText>Back to top</ScreenReaderText>
       </BackToTop>
@@ -166,6 +166,23 @@ const fadeIn = keyframes`
   100% {
     opacity: 1;
   }
+`;
+
+  // h1 small sizes
+  // ${breakpoint('sm')`
+  //   font-size: ${(props) => props.theme.fontSize.lg};
+  //   font-weight: ${(props) => props.theme.fontWeight.normal};
+  //   color: ${(props) => props.theme.colors.greenBean};
+  //   padding: 20px 0 30px 0;
+  // `};
+
+  // below are tablet and up sizes
+const H1 = styled.h1`
+  padding: 80px 0 30px 0;
+  text-align: center;
+  background: ${(props) => props.theme.colors.greenBean};
+  color: ${(props) => props.theme.colors.white};
+  ${(props) => props.theme.containerFullWidth};
 `;
 
 const BackToTop = styled.button`
@@ -366,10 +383,6 @@ const Span = styled.span`
     transition-delay: 0.7s;
     transition: all linear 0.5s;
   }
-`;
-
-const H1 = styled.h1`
-  ${(props) => props.theme.srOnly};
 `;
 
 const Ul = styled.ul`
