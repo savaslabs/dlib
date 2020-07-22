@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '@babel/polyfill';
-import { routes, cleanId } from './utils/constants';
+import { routes, cleanId, prepareCaptions } from './utils/constants';
 import { Switch, Route } from 'react-router-dom';
 
 // Components.
@@ -73,7 +73,7 @@ const App = () => {
     );
     setImageCaptions(
       Images.map((image) => {
-        return image.caption;
+        return prepareCaptions(image);
       })
     );
     setImageAltText(
@@ -82,6 +82,8 @@ const App = () => {
       })
     );
   }, [Images]);
+
+  console.log('imageCaptions', imageCaptions);
 
   return (
     <ThemeProvider theme={theme}>

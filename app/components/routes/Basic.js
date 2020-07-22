@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Lightbox from '../Lightbox';
+import React, { useState } from 'react';
+import { prepareCaptions } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
+import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
 
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
@@ -37,7 +38,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     // Create captions array for lightbox.
     captions = eventLightBoxData.map((c => {
       return c.map((ci) => {
-        return ci.caption;
+        return prepareCaptions(ci);
       }).flat()
     }));
   } else if (type === 'about') {

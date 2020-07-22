@@ -21,6 +21,11 @@ export const cleanJSON = obj => {
   return obj;
 }
 
+// Helper function to structure photo gallery and event page image captions.
+export const prepareCaptions = item => {
+  return `${item.caption} Attribution: ${item.attribution}. Citation: ${item.citation}.`;
+};
+
 export const routes = [
   { component: 'Timeline', route: 'timeline', },
   { component: 'Featured Events' },
