@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import SiteInfo from './SiteInfo';
 import menu from '../assets/icons/menu.svg';
 import { routes, cleanId, timelineDescription } from '../utils/constants';
 import styled from 'styled-components';
@@ -26,17 +27,7 @@ const header = ({ eventPages }) => {
       <HeaderContainer>
         <Top>
           <Left>
-            <SiteName to={`/`}>
-              The Durham Civil Rights Heritage Project
-            </SiteName>
-            <CollectionInfo>
-              <p>
-                Part of the <a href='#'>North Carolina Collection</a>
-                <br />
-                of the{' '}
-                <a href='#'>Durham County Library</a>
-              </p>
-            </CollectionInfo>
+            <SiteInfo header />
           </Left>
           {(location.pathname === '/timeline' || location.pathname === '/') && (
             <Right>{timelineDescription}</Right>
@@ -160,37 +151,6 @@ const Top = styled.div`
 const Left = styled.div`
   display: flex;
   flex-direction: column;
-`;
-
-const SiteName = styled(NavLink)`
-  color: ${(props) => props.theme.colors.white};
-  font-weight: ${(props) => props.theme.fontWeight.bold};
-  line-height: ${(props) => props.theme.lineHeight.snug};
-  letter-spacing: 0.02em;
-  font-size: ${(props) => props.theme.fontSize.md};
-  padding-top: 70px;
-  max-width: 250px;
-  ${breakpoint('lg')`
-    font-size: 31px;
-    line-height: 1.31;
-    background-color: ${(props) => props.theme.colors.greenBean};
-    padding: 20px 60px 24px 0;
-  `}
-`;
-
-const CollectionInfo = styled.div`
-  padding-top: 50px;
-  color: ${(props) => props.theme.colors.greenBean};
-  font-size: ${(props) => props.theme.fontSize.sm};
-  p a {
-    text-decoration: underline;
-    color: inherit;
-  }
-
-  ${breakpoint('lg')`
-    padding-top: 22px;
-    font-size: ${(props) => props.theme.fontSize.md};
-  `}
 `;
 
 const Right = styled.p`
