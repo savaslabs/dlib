@@ -315,6 +315,7 @@ const InlineImageWrapper = styled.div`
 
 const InlineImage = styled.img`
   object-fit: cover;
+  margin-bottom: 18px;
 
   &:hover {
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
@@ -322,7 +323,6 @@ const InlineImage = styled.img`
   ${breakpoint('sm', 'lg')`
     width: calc(100vw - 36px);
     height: calc(100vw - 36px);
-    margin-bottom: 18px;
   `}
   ${breakpoint('md')`
     margin-right: 30px;
