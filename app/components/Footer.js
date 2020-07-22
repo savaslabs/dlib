@@ -4,7 +4,7 @@ import breakpoint from 'styled-components-breakpoint';
 
 const footer = () => {
   return (
-    <Footer>
+    <Footer id="footer">
       <FooterContainer>
         <SiteName>The Durham Civil Rights Heritage Project</SiteName>
         <CollectionInfo>
