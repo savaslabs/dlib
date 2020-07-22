@@ -27,7 +27,7 @@ const header = ({ eventPages }) => {
       <HeaderContainer>
         <Top>
           <Left>
-            <SiteInfo header />
+            <SiteInfo header="true" />
           </Left>
           {(location.pathname === '/timeline' || location.pathname === '/') && (
             <Right>{timelineDescription}</Right>
@@ -233,6 +233,11 @@ const Menu = styled.ul`
     line-height: 1.125;
     padding: 20px 0;
   `}
+  }
+
+  a:hover li,
+  a:focus li {
+    font-weight: ${(props) => props.theme.fontWeight.bold};
   }
 `;
 

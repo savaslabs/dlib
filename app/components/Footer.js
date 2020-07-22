@@ -7,7 +7,7 @@ const footer = () => {
   return (
     <Footer>
       <FooterContainer>
-        <SiteInfo footer />
+        <SiteInfo footer="true" />
       </FooterContainer>
     </Footer>
   );

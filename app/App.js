@@ -83,8 +83,6 @@ const App = () => {
     );
   }, [Images]);
 
-  console.log('imageCaptions', imageCaptions);
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
