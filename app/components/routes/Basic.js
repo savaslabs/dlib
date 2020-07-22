@@ -76,10 +76,13 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         <h1>{data.name}</h1>
         {data.body &&
           data.body.map((item, i) => {
+            // Second level heading.
             if (item.hasOwnProperty('h2')) {
               return <h2 key={i}>{item.h2}</h2>;
+              // Body text.
             } else if (item.hasOwnProperty('text')) {
               return <P key={i}>{item.text}</P>;
+              // Pullquote with optional attribution.
             } else if (item.hasOwnProperty('pullquote')) {
               return (
                 <Figure key={i}>
@@ -89,6 +92,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                   )}
                 </Figure>
               );
+              // Unordered list.
             } else if (item.hasOwnProperty('ul')) {
               return (
                 <Ul key={i}>
@@ -97,11 +101,11 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                   })}
                 </Ul>
               );
+              // Inline image with caption.
             } else if (item.hasOwnProperty('image')) {
               const foundImage = imageData.filter((imageInfo) => {
                 return imageInfo.ID === item.image;
               });
-
               return (
                 <InlineImageWrapper key={i}>
                   <InlineImage
@@ -188,17 +192,17 @@ basic.propTypes = {
 };
 
 const Content = styled.main`
-  display: flex;
-  flex-direction: column;
-
   ${breakpoint('lg')`
-    flex-direction: row;
-    justify-content: space-between;
+    overflow: auto;
   `}
 `;
+
 const Main = styled.div`
   ${breakpoint('lg')`
-    max-width: 782px;
+    width: 782px;
+    height: fit-content;
+    float: left;
+    margin-right: 105px;
   `}
 `;
 
@@ -296,11 +300,6 @@ const InlineImage = styled.img`
 `;
 
 const SideImagesWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  ${breakpoint('lg')`
-    max-width: 291px;
-  `}
 `;
 
 const SideImage = styled.img`
@@ -312,8 +311,8 @@ const SideImage = styled.img`
   }
 
   ${breakpoint('lg')`
-    width: 291px;
-    height: 291px;
+    width: 275px;
+    height: 275px;
     object-fit: cover;
   `}
 `;
