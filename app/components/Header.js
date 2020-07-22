@@ -175,7 +175,7 @@ const Bottom = styled.nav`
     margin-top: -50px;
   `}
   ${breakpoint('lg')`
-    z-index: 100;
+    z-index: 999;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     ${(props) => props.theme.containerFullWidth};
     background-color: ${(props) => props.theme.colors.bgGray};
@@ -251,7 +251,6 @@ const SubMenu = styled.ul`
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  z-index: -1;
   width: 400%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

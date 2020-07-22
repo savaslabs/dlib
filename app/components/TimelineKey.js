@@ -29,7 +29,7 @@ const Sticky = styled.div`
   ${breakpoint('md')`
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 500;
     ${(props) => props.theme.containerFullWidth};
     background: ${(props) => props.theme.colors.white};
   `}
