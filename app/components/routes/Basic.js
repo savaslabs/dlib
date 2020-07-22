@@ -73,7 +73,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
 
   return (
     <Content>
-      <Main gallery={type === 'gallery' ? true : false}>
+      <Main gallery={type === 'gallery' ? true : !data.images ? true : false}>
         <H1>{data.name}</H1>
         {data.body &&
           data.body.map((item, i) => {
@@ -288,17 +288,18 @@ const InlineImageWrapper = styled.div`
 
 const InlineImage = styled.img`
   object-fit: cover;
-  width: calc(100vw - 36px);
-  height: calc(100vw - 36px);
 
   &:hover {
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
   }
   ${breakpoint('sm', 'lg')`
+    width: calc(100vw - 36px);
+    height: calc(100vw - 36px);
     margin-bottom: 18px;
   `}
   ${breakpoint('md')`
     margin-right: 30px;
+    width: 100%;
   `}
 `;
 
