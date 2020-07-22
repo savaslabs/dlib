@@ -328,8 +328,8 @@ const GalleryGrid = styled.div`
 
   ${breakpoint('md')`
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 61px;
-    row-gap: 61px;
+    column-gap: 75px;
+    row-gap: 75px;
   `}
 
   ${breakpoint('lg')`
