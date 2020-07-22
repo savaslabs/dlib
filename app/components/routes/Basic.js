@@ -116,7 +116,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                     src={`../app/assets/images/${item.image}/large.jpg`}
                     alt={foundImage[0].alt_text}
                   />
-                  <p>{foundImage[0].caption}</p>
+                  <InlineImageCaption>{foundImage[0].caption}</InlineImageCaption>
                 </InlineImageWrapper>
               );
             }
@@ -149,25 +149,21 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
           />
         )}
       </Main>
-      {data.images && (
-        <SideImagesWrapper>
-          {data.images &&
-            data.images.map((imageId, idx) => {
-              const foundImage = imageData.filter((imageInfo) => {
-                return imageInfo.ID === imageId;
-              });
-              return (
-                <SideImage
-                  key={idx}
-                  data-photoindex={lightBoxImageIds.indexOf(imageId)}
-                  onClick={openLightbox}
-                  src={`../app/assets/images/${imageId}/large.jpg`}
-                  alt={foundImage[0].alt_text}
-                />
-              );
-            })}
-        </SideImagesWrapper>
-      )}
+      {data.images &&
+        data.images.map((imageId, idx) => {
+          const foundImage = imageData.filter((imageInfo) => {
+            return imageInfo.ID === imageId;
+          });
+          return (
+            <SideImage
+              key={idx}
+              data-photoindex={lightBoxImageIds.indexOf(imageId)}
+              onClick={openLightbox}
+              src={`../app/assets/images/${imageId}/large.jpg`}
+              alt={foundImage[0].alt_text}
+            />
+          );
+        })}
     </Content>
   );
 };
@@ -288,13 +284,14 @@ const InlineImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
-  &:hover {
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
-  }
 `;
 
 const InlineImage = styled.img`
   width: 100%;
+  margin-bottom: 30px;
+  &:hover {
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
+  }
   ${breakpoint('sm', 'lg')`
     margin-bottom: 30px;
   `}
@@ -304,7 +301,8 @@ const InlineImage = styled.img`
   `}
 `;
 
-const SideImagesWrapper = styled.div`
+const InlineImageCaption = styled.p`
+  font-weight: ${props => props.theme.fontWeight.bold};
 `;
 
 const SideImage = styled.img`

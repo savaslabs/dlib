@@ -399,6 +399,10 @@ const LinkedEvent = styled(Link)`
   color: ${(props) => props.theme.colors.greenBean};
   font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.lineHeight.snug};
+  &:hover,
+  &:hover span {
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 const Arrow = styled.span`
