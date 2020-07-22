@@ -4,6 +4,8 @@ export const cleanId = name => {
     .replace(/ /g, '_')
     .replace(/-/g, '_')
     .replace(/:/g, '')
+    .replace(/,/g, '')
+    .replace(/–/g, '_')
     .substring(0, 50);
 };
 

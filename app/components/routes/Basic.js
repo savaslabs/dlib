@@ -73,7 +73,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   return (
     <Content>
       <Main>
-        <h1>{data.name}</h1>
+        <H1>{data.name}</H1>
         {data.body &&
           data.body.map((item, i) => {
             // Second level heading.
@@ -204,6 +204,10 @@ const Main = styled.div`
     float: left;
     margin-right: 105px;
   `}
+`;
+
+const H1 = styled.h1`
+  line-height: 1.15;
 `;
 
 const P = styled(Markdown)`
