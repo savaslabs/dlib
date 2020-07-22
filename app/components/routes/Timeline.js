@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
-import backTop from '../../assets/icons/backTop.svg';
+import arrow from '../../assets/icons/arrow.svg';
 import styled, { keyframes } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import gsap from 'gsap';
@@ -109,7 +109,7 @@ const timeline = ({ timeline }) => {
                 <Year />
                 {/* Element that changes stroke color */}
                 <Year front />
-                <Span />
+                <Span className="arms" />
                 {eventsPerYear.events.map((eventsPerScope, index) => {
                   return (
                     <Ul
@@ -134,6 +134,7 @@ const timeline = ({ timeline }) => {
                                 to={`/events/${cleanId(event.Name)}`}
                               >
                                 <Card event={event} ref={addToYearRefs} link />
+                                <Arrow />
                               </LinkedEvent>
                             ) : (
                               <Card key={i} event={event} ref={addToYearRefs} />
@@ -201,7 +202,7 @@ const BackToTop = styled.button`
   background: ${(props) => props.theme.colors.greenBean};
   &:before {
     content: '';
-    mask: url(${backTop}) no-repeat 50% 50%;
+    mask: url(${arrow}) no-repeat 50% 50%;
     mask-size: cover;
     width: 20px;
     height: 20px;
@@ -393,10 +394,35 @@ const Ul = styled.ul`
 
 const LinkedEvent = styled(Link)`
   text-decoration: none;
+  position: relative;
+  display: block;
   font-size: 20px;
   color: ${(props) => props.theme.colors.greenBean};
   font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.lineHeight.snug};
+`;
+
+const Arrow = styled.span`
+  height: 61px;
+  width: 61px;
+  position: absolute;
+  right: -35px;
+  background: linear-gradient(to right, transparent 45%, black 45%);
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  bottom: 50%;
+  &:before {
+    content: '';
+    mask: url(${arrow}) no-repeat 50% 50%;
+    mask-size: cover;
+    background: ${(props) => props.theme.colors.white};
+    width: 15px;
+    height: 20px;
+    right: 10px;
+    top: 20px;
+    position: absolute;
+    transform: rotate(90deg);
+  }
 `;
 
 export default timeline;

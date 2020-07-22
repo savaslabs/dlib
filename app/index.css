@@ -23,13 +23,13 @@ article.active::before {
   width: 100%;
 }
 
-li.active.sole-left span::before,
-li.active.both span::before,
-li.active.sole-right span::after,
-li.active.both span::after {
+li.active.sole-left span.arms::before,
+li.active.both span.arms::before,
+li.active.sole-right span.arms::after,
+li.active.both span.arms::after {
   background: #202D25;
 }
 
-li.active span {
+li.active span.arms {
   border-color: #202D25;
 }

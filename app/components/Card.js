@@ -2,19 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { cleanJSON } from '../utils/constants';
+import arrow from '../assets/icons/arrow.svg';
 import PropTypes from 'prop-types';
 
 const card = React.forwardRef(({ event, link }, ref) => {
   cleanJSON(event);
-  const { Scope, Name, Images, External_Resource_Links } = event;
+  const { Scope, Text, Images, External_Resource_Links } = event;
 
   return (
     <Card ref={ref} scope={Scope === 'National Event' ? 'national' : 'durham'}>
-      <p>{Name}</p>
+      <p>{Text}</p>
       {Images &&
-        Images.map((p, i) => {
+        Images.slice(0, 3).map((p, i) => {
           return (
-            <Image
+            <CardImage
               key={i}
               src={`app/assets/images/${p.ID}/large.jpg`}
               alt={p.alt_text}
@@ -22,18 +23,19 @@ const card = React.forwardRef(({ event, link }, ref) => {
           );
         })}
       {/* // Don't nest external resource links if card is already a link to event page. */}
-      {link && External_Resource_Links ? (
-        <p>Read More</p>
-      ) : !link && External_Resource_Links ? (
-        External_Resource_Links.map((ext, i) => {
-          cleanJSON(ext);
-          return (
-            <ExternalLink key={i}>
-              <a href={ext.URL}>{ext.Source_Shortform}</a>
-              {External_Resource_Links.length === i + 1 ? null : '; '}
-            </ExternalLink>
-          );
-        })
+      {!link && External_Resource_Links ? (
+        <ExternalLinksWrapper>
+          <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
+          {External_Resource_Links.map((ext, i) => {
+            cleanJSON(ext);
+            return (
+              <ExternalLink key={i} href={ext.URL}>
+                <LinkTitle>{ext.Resource_Title}</LinkTitle>
+                <LinkSource>{ext.Source_Shortform}</LinkSource>
+              </ExternalLink>
+            );
+          })}
+        </ExternalLinksWrapper>
       ) : null}
     </Card>
   );
@@ -49,6 +51,7 @@ const Card = styled.article`
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 24px;
+  letter-spacing: 0.02em;
   position: relative;
   border-top: 6px;
   border-top-style: solid;
@@ -90,19 +93,48 @@ const Card = styled.article`
   }
 `;
 
-const Image = styled.img`
-  max-width: 117px;
-  max-height: 117px;
+const CardImage = styled.img`
+  width: 117px;
+  height: 117px;
+  object-fit: cover;
+  margin: 15px 15px 0 0;
 `;
 
-const ExternalLink = styled.p`
-  text-decoration: underline;
-  color: ${(props) => props.theme.colors.greenBean};
+const ExternalLinksWrapper = styled.div`
+  margin-top: 10px;
+`;
+
+const ExternalLinksNote = styled.p`
+  font-weight: ${(props) => props.theme.fontWeight.bold};
+`;
+
+const ExternalLink = styled.a`
+  display: block;
+  cursor: pointer;
   font-weight: ${(props) => props.theme.fontWeight.normal};
 
-  a {
-    color: ${(props) => props.theme.colors.greenBean};
+  &:first-of-type {
+    margin-top: 10px;
   }
+
+  &:not(:first-of-type) {
+    margin-top: 5px;
+  }
+`;
+
+const LinkTitle = styled.p`
+  text-decoration: underline;
+  cursor: pointer;
+  line-height: 1.28;
+  color: ${(props) => props.theme.colors.greenBean};
+  font-size: ${(props) => props.theme.fontSize.sm};
+`;
+
+const LinkSource = styled.p`
+  cursor: pointer;
+  line-height: 1.44;
+  color: ${(props) => props.theme.colors.linkSource};
+  font-size: ${(props) => props.theme.fontSize.xs};
 `;
 
 export default card;
