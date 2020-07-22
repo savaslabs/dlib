@@ -20,9 +20,9 @@ const timeline = ({ timeline }) => {
   yearRefs.current = [];
 
   useEffect(() => {
-    // horizontal from docs
     console.clear();
 
+    // Timeline line animation.
     gsap.from('#line', {
       scrollTrigger: {
         trigger: 'body',
@@ -247,14 +247,14 @@ const Timeline = styled.ol`
     border: 3px solid #e0e0e0;
     left: 25px;
     ${breakpoint('lg')`
-      left: 50%;
+      left: 49.95%;
     `}
   }
 `;
 
 // horizontal example
 const Line = styled.span`
-  width: 8px;
+  width: 6px;
   max-height: 181001px;
   height: 100%;
   position: absolute;
@@ -336,7 +336,7 @@ const YearListItem = styled.li`
       position: absolute;
       bottom: 20px;
       content: '';
-      left: 50%;
+      left: 49.7%;
       height: 130px;
       width: 0;
       border-right: dashed 12px #FFFFFF;

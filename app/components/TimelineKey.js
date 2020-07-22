@@ -29,6 +29,7 @@ const Sticky = styled.div`
   ${breakpoint('md')`
     position: sticky;
     top: 0;
+    z-index: 999;
     ${(props) => props.theme.containerFullWidth};
     background: ${(props) => props.theme.colors.white};
   `}
@@ -38,7 +39,6 @@ const TimelineHeaderGroup = styled.ul`
   ${breakpoint('md')`
     display: flex;
     flex-direction: row;
-    z-index: 999;
     justify-content: space-around;
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
