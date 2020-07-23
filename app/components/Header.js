@@ -66,9 +66,14 @@ const header = ({ eventPages }) => {
                   >
                     {eventPages &&
                       eventPages.map((page, i) => {
+                        let pageName = page.name.split(',');
+                        console.log('pageName', pageName);
+                        pageName = pageName.length > 2
+                          ? `${pageName[0]}, ${pageName[1]}`
+                          : pageName[0];
                         return (
                           <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
-                            <li>{page.name.split(',')[0]}</li>
+                            <li>{pageName}</li>
                           </NavLink>
                         );
                       })}

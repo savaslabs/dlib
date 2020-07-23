@@ -74,7 +74,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   return (
     <Content isLightboxOpen={isLightboxOpen}>
       <FloatWrapper>
-        <Main gallery={type === 'gallery' ? true : !data.images ? true : false}>
+        <Main gallery={type === 'gallery' ? true : false}>
           <H1>{data.name}</H1>
           {data.body &&
             data.body.map((item, i) => {
@@ -213,7 +213,12 @@ const Content = styled.main`
 `;
 
 const FloatWrapper = styled.div`
-  margin-right: -21px;
+  ${breakpoint('md')`
+    margin-right: -20px;
+  `}
+  ${breakpoint('lg')`
+    margin-right: -21px;
+  `}
 `;
 
 const Main = styled.div`
@@ -345,11 +350,16 @@ const SideImage = styled.img`
     cursor: pointer;
   }
 
+  ${breakpoint('md')`
+    width: 230px;
+    height: 230px;
+    margin: 0 20px 27px 0;
+  `}
+
   ${breakpoint('lg')`
     width: 275px;
     height: 275px;
-    margin-bottom: 23px;
-    margin-right: 21px;
+    margin: 0 21px 23px 0;
 
     &:first-of-type {
       margin-top: 85px;
