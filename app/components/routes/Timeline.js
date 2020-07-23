@@ -25,17 +25,11 @@ const timeline = ({ timeline }) => {
     // Timeline line animation.
     gsap.from('#line', {
       scrollTrigger: {
-        trigger: 'body',
         scrub: true,
-        start: 'top bottom',
-        endTrigger: '#footer',
-        end: 'top top',
-        snap: {
-          snapTo: yearRefs,
-          duration: {min: 0.2, max: 3},
-          delay: 0.2,
-          ease: "power1.inOut"
-        }
+        trigger: "#line-anchor",
+        start: "top center",
+        end: "bottom bottom",
+        endTrigger: "#footer",
       },
       scaleY: 0,
       transformOrigin: 'top, top',
@@ -43,16 +37,14 @@ const timeline = ({ timeline }) => {
     });
 
     // Year and card animation.
-    yearRefs.current.forEach((el, index) => {
+    yearRefs.current.forEach(el => {
       gsap.from(el, {
         scrollTrigger: {
-          id: `section-${index + 1}`,
           trigger: el,
           scrub: true,
           start: 'top center',
           end: 'top top',
           toggleClass: 'active',
-          toggleActions: 'play pause resume reset',
         },
       });
     });
@@ -64,18 +56,25 @@ const timeline = ({ timeline }) => {
     }
   };
 
-  const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 700) {
-      setShowScroll(true);
-    } else if (showScroll && window.pageYOffset <= 700) {
-      setShowScroll(false);
-    }
-  };
-
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-  window.addEventListener('scroll', checkScrollTop);
+
+  useEffect(function setupListener() {
+    const checkScrollTop = () => {
+      if (!showScroll && window.pageYOffset > 700) {
+        setShowScroll(true);
+      } else if (showScroll && window.pageYOffset <= 700) {
+        setShowScroll(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScrollTop);
+
+    return function cleanupListener() {
+      window.removeEventListener('scroll', checkScrollTop);
+    };
+  })
 
   return (
     <main>

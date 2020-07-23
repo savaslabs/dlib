@@ -5,7 +5,7 @@ import breakpoint from 'styled-components-breakpoint';
 
 const timelineKey = () => {
   return (
-    <Sticky>
+    <Sticky id="line-anchor">
       <TimelineHeaderGroup>
         {timelineScopes &&
           timelineScopes.map((header, i) => {

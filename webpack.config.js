@@ -10,7 +10,25 @@ module.exports = {
   target: 'web',
   module: {
     rules: [
-      { test: /\.(js)$/, use: 'babel-loader' },
+      {
+        test: /\.(js)$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: 'defaults',
+                  },
+                ],
+              ],
+              plugins: ['babel-plugin-styled-components'],
+            },
+          },
+        ]
+      },
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       {
         test: /\.(woff|woff2|eot|ttf|svg|ico|jpe?g|png)$/,

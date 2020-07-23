@@ -33,6 +33,7 @@
     "@babel/preset-react": "^7.7.4",
     "airtable-json": "^1.2.6",
     "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.7",
     "colors": "^1.4.0",
     "css-loader": "^3.4.0",
     "fs": "^0.0.1-security",
