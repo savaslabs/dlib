@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import SiteInfo from './SiteInfo';
 import menu from '../assets/icons/menu.svg';
+import caret from '../assets/icons/caret.svg';
 import { routes, cleanId, timelineDescription } from '../utils/constants';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
@@ -27,36 +28,39 @@ const header = ({ eventPages }) => {
       <HeaderContainer>
         <Top>
           <Left>
-            <SiteInfo header="true" />
+            <SiteInfo header='true' />
           </Left>
           {(location.pathname === '/timeline' || location.pathname === '/') && (
             <Right>{timelineDescription}</Right>
           )}
         </Top>
-        <Bottom>
+        <Bottom state={mobileMenuState}>
           <MobileMenuToggle
+            state={mobileMenuState}
             onClick={() => setMobileMenuState(!mobileMenuState)}
           >
             <ScreenReaderText>{`${
               mobileMenuState ? 'Close' : 'Open'
             } Menu`}</ScreenReaderText>
           </MobileMenuToggle>
-          <Menu state={mobileMenuState}>
+          <Menu state={mobileMenuState} subMenu={subMenuState}>
             {routes.map((route, index) => {
               return route.component === 'Featured Events' ? (
                 <SubMenuToggle
                   key={index}
+                  state={mobileMenuState}
+                  subMenu={subMenuState}
                   onFocus={() => setMouseOverSubMenuToggle(true)}
                   onKeyDown={() => setMouseOverSubMenuToggle(true)}
                   onMouseEnter={() => setMouseOverSubMenuToggle(true)}
                   onMouseLeave={() => setMouseOverSubMenuToggle(false)}
                   tabIndex='0'
-                  aria-controls="menu-subMenu"
+                  aria-controls='menu-subMenu'
                   aria-expanded={subMenuState}
                 >
                   {route.component}
                   <SubMenu
-                    id="menu-subMenu"
+                    id='menu-subMenu'
                     onFocus={() => setMouseOverSubMenuToggle(true)}
                     onMouseEnter={() => setMouseOverSubMenu(true)}
                     onMouseLeave={() => setMouseOverSubMenu(false)}
@@ -68,9 +72,10 @@ const header = ({ eventPages }) => {
                       eventPages.map((page, i) => {
                         let pageName = page.name.split(',');
                         console.log('pageName', pageName);
-                        pageName = pageName.length > 2
-                          ? `${pageName[0]}, ${pageName[1]}`
-                          : pageName[0];
+                        pageName =
+                          pageName.length > 2
+                            ? `${pageName[0]}, ${pageName[1]}`
+                            : pageName[0];
                         return (
                           <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
                             <li>{pageName}</li>
@@ -174,12 +179,24 @@ const Right = styled.p`
 `;
 
 const Bottom = styled.nav`
-  margin-left: auto;
-  ${breakpoint('sm', 'lg')`
-    position: relative;
+  ${breakpoint('sm', 'md')`
+    display: flex;
+    flex-direction: column;
     margin-top: -50px;
+
+    ${(props) =>
+      props.state &&
+      `
+      align-items: center;
+      width: 100%;
+    `}
+    ${(props) =>
+      props.state ||
+      `
+      align-items: flex-end;
+    `}
   `}
-  ${breakpoint('lg')`
+  ${breakpoint('md')`
     z-index: 999;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     ${(props) => props.theme.containerFullWidth};
@@ -201,7 +218,12 @@ const MobileMenuToggle = styled.button`
     height: 20px;
     background: ${(props) => props.theme.colors.charcoal};
   }
-  ${breakpoint('lg')`
+  ${breakpoint('sm', 'md')`
+    display: flex;
+    align-self: flex-end;
+  `}
+
+  ${breakpoint('md')`
     display: none;
   `}
 `;
@@ -217,12 +239,37 @@ const Menu = styled.ul`
   z-index: 100;
   background: ${(props) => props.theme.colors.white};
   ${(props) => props.theme.smContainer};
-  ${breakpoint('sm', 'lg')`
+  ${breakpoint('sm', 'md')`
     top: 0;
-    right: 0;
     position: absolute;
+
+    ${(props) =>
+      props.state &&
+      `
+        width: calc(100vw - 36px);
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        height: 100vh;
+
+        a {
+          width: 100%;
+          text-align: center;
+        }
+    `}
+
+    ${(props) =>
+      props.state &&
+      props.subMenu &&
+      `
+        ${SubMenuToggle} + a {
+          padding-top: 735px;
+        }
+    `}
   `}
-  ${breakpoint('lg')`
+
+  ${breakpoint('md')`
     position: relative;
     display: flex;
     flex-direction: row;
@@ -230,36 +277,115 @@ const Menu = styled.ul`
     background: ${(props) => props.theme.colors.bgGray};
     ${(props) => props.theme.lgContainer};
   `}
+
+  a:hover li,
+  a:focus li {
+    font-weight: ${(props) => props.theme.fontWeight.bold};
+  }
+
   li {
-    ${breakpoint('lg')`
     color: ${(props) => props.theme.colors.greenBean};
+    ${breakpoint('sm', 'md')`
+      line-height: 1.28;
+      font-size: 18px;
+      padding: 20px 0 17px 0;
+      border-bottom: 1px solid pink;
+    `}
+
+    ${breakpoint('md')`
     font-size: 24px;
     letter-spacing: 0.02em;
     line-height: 1.125;
     padding: 20px 0;
   `}
   }
-
-  a:hover li,
-  a:focus li {
-    font-weight: ${(props) => props.theme.fontWeight.bold};
-  }
 `;
 
 const SubMenuToggle = styled.li`
   position: relative;
+
+  ${breakpoint('sm', 'md')`
+
+    ${(props) =>
+      props.state &&
+      `
+        width: 100%;
+        text-align: center;
+    `}
+
+    ${(props) => {
+      props.state &&
+        `
+        :after {
+         mask: url(${caret}) no-repeat 50% 50%;
+        mask-size: cover;
+        align-items: center;
+        display: inline-block;
+        position: relative;
+        width: 13px;
+        height: 5px;
+        background: black;
+        }
+
+      `;
+    }}
+    ${(props) =>
+      props.state &&
+      props.subMenu &&
+      `
+      :after {
+        mask: url(${caret}) no-repeat 50% 50%;
+        mask-size: cover;
+        align-items: center;
+        display: inline-block;
+        position: relative;
+        width: 13px;
+        height: 5px;
+        background: black;
+        border: solid 2px black;
+      }
+    `}
+
+    ${(props) =>
+      props.state &&
+      !props.subMenu &&
+      `
+      :after {
+        content: '';
+        mask: url(${caret}) no-repeat 50% 50%;
+        transform: rotate(180deg);
+        mask-size: cover;
+        align-items: center;
+        display: inline-block;
+        position: relative;
+        width: 13px;
+        height: 5px;
+        background: black;
+        border: solid 2px black;
+      }
+    `}
+  `}
 `;
 
 const SubMenu = styled.ul`
   position: absolute;
   top: 65px;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  width: 400%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background: ${(props) => props.theme.colors.bgGray};
+
+  ${breakpoint('sm', 'md')`
+    width: 100vw;
+    margin: 0 -18px 0 -18px;
+    background: pink;
+  `}
+
+  ${breakpoint('lg')`
+      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      width: 400%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      background: ${(props) => props.theme.colors.bgGray};
+  `}
 
   a {
     li {
