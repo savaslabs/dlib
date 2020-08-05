@@ -65,4 +65,6 @@ export const theme = {
     overflow: visible;
     clip: auto;
     white-space: normal;`,
+  noScrollBody: `overflow: auto;
+    height: 100%;`
 };

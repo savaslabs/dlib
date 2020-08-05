@@ -21,6 +21,13 @@ export const cleanJSON = obj => {
   return obj;
 }
 
+export const cleanMenuNames = page => {
+  let pageName = page.name.split(',');
+  pageName =
+    pageName.length > 2 ? `${pageName[0]}, ${pageName[1]}` : pageName[0];
+  return pageName;
+}
+
 // Helper function to structure photo gallery and event page image captions.
 export const prepareCaptions = item => {
   return `${item.caption} Attribution: ${item.attribution}. Citation: ${item.citation}.`;

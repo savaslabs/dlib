@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { cleanId } from '../utils/constants';
+import { cleanId, cleanMenuNames } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import styled, { ThemeContext } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
@@ -39,14 +39,9 @@ const subMenu = ({ setMouseOverSubMenu,
     >
       {eventPages &&
         eventPages.map((page, i) => {
-          let pageName = page.name.split(',');
-          pageName =
-            pageName.length > 2
-              ? `${pageName[0]}, ${pageName[1]}`
-              : pageName[0];
           return (
             <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
-              <li>{pageName}</li>
+              <li>{cleanMenuNames(page)}</li>
             </NavLink>
           );
         })}

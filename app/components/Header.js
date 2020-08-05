@@ -8,6 +8,7 @@ import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import styled, { ThemeContext } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
 const header = ({ eventPages }) => {
@@ -17,7 +18,7 @@ const header = ({ eventPages }) => {
   // Whether or not mobile menu is open.
   const [mobileMenuState, setMobileMenuState] = useState(false);
   // Whether or not submenu is open.
-   const [subMenuState, setSubMenuState] = useState(false);
+  const [subMenuState, setSubMenuState] = useState(false);
   // Whether or not user is hovering over submenu toggle.
   const [mouseOverSubMenuToggle, setMouseOverSubMenuToggle] = useState(false);
   // Whether or not user is hovering over submenu.
@@ -25,8 +26,9 @@ const header = ({ eventPages }) => {
 
   useEffect(() => {
     mouseOverSubMenuToggle || mouseOverSubMenu
-    ? setSubMenuState(true) : setSubMenuState(false);
-  }, [mouseOverSubMenuToggle, mouseOverSubMenu])
+      ? setSubMenuState(true)
+      : setSubMenuState(false);
+  }, [mouseOverSubMenuToggle, mouseOverSubMenu]);
 
   const toggleSubMenu = (eventType, isToggle, event) => {
     // SubMenu toggle or other top-level nav item.
@@ -43,7 +45,6 @@ const header = ({ eventPages }) => {
 
         // Handle event states for tablet/desktop.
         if (windowSize.width > themeContext.breakpoints.md) {
-          console.log('this is not mobile');
           switch (eventType) {
             case 'mouseenter':
               setMouseOverSubMenuToggle(true);
@@ -76,77 +77,89 @@ const header = ({ eventPages }) => {
               if (event.which === 13) {
                 setMouseOverSubMenuToggle(false);
                 setMouseOverSubMenu(false);
-              break;
-            }
+                break;
+              }
           }
         }
         break;
     }
-  }
+  };
 
   return (
-    <Header>
-      <HeaderContainer>
-        <Top>
-          <Left>
-            <SiteInfo header='true' />
-          </Left>
-          {(location.pathname === '/timeline' || location.pathname === '/') && (
-            <Right>{timelineDescription}</Right>
-          )}
-        </Top>
-        <Bottom state={mobileMenuState}>
-          <MobileMenuToggle
-            state={mobileMenuState}
-            onClick={() => setMobileMenuState(!mobileMenuState)}
-          >
-            <ScreenReaderText>{`${
-              mobileMenuState ? 'Close' : 'Open'
-            } Menu`}</ScreenReaderText>
-          </MobileMenuToggle>
-          <Menu state={mobileMenuState} subMenu={subMenuState}>
-            {routes.map((route, index) => {
-              return route.component === 'Featured Events' ? (
-                <SubMenuToggle
-                  key={index}
-                  state={mobileMenuState}
-                  subMenu={subMenuState}
-                  onFocus={() => toggleSubMenu('focus', true)}
-                  onClick={() => toggleSubMenu('click', true)}
-                  onKeyDown={(e) => toggleSubMenu('keydown', true, e)}
-                  onMouseEnter={() => toggleSubMenu('mouseenter', true)}
-                  onMouseLeave={() => toggleSubMenu('mouseleave', true)}
-                  tabIndex='0'
-                  aria-controls='menu-subMenu'
-                  aria-expanded={subMenuState}
-                >
-                  {route.component}
-                  <SubMenu
-                    setMouseOverSubMenu={setMouseOverSubMenu}
-                    setMouseOverSubMenuToggle={setMouseOverSubMenuToggle}
-                    mouseOverSubMenu={mouseOverSubMenu}
-                    mouseOverSubMenuToggle={mouseOverSubMenuToggle}
-                    eventPages={eventPages}
-                  />
-                </SubMenuToggle>
-              ) : (
-                <NavLink
-                  to={`/${route.route}`}
-                  key={index}
-                  onFocus={() => toggleSubMenu('focus')}
-                  onKeyDown={(e) => toggleSubMenu('keydown', false, e)}
-                  onMouseEnter={() => toggleSubMenu('mouseenter')}
-                >
-                  <li>{route.component}</li>
-                </NavLink>
-              );
-            })}
-          </Menu>
-        </Bottom>
-      </HeaderContainer>
-    </Header>
+    <>
+      <Helmet>
+        <html style={mobileMenuState ? 'overflow: hidden;' : null} />
+        <body style={mobileMenuState ? themeContext.noScrollBody : null} />
+      </Helmet>
+      <Header>
+        <HeaderContainer>
+          <Top>
+            <Left>
+              <SiteInfo header='true' />
+            </Left>
+            {(location.pathname === '/timeline' ||
+              location.pathname === '/') && (
+              <Right>{timelineDescription}</Right>
+            )}
+          </Top>
+          <Nav>
+            <NavContainer state={mobileMenuState}>
+              <MobileMenuToggle
+                state={mobileMenuState}
+                onClick={() => setMobileMenuState(!mobileMenuState)}
+              >
+                <ScreenReaderText>{`${
+                  mobileMenuState ? 'Close' : 'Open'
+                } Menu`}</ScreenReaderText>
+              </MobileMenuToggle>
+              <Menu state={mobileMenuState} subMenu={subMenuState}>
+                {routes.map((route, index) => {
+                  return route.component === 'Featured Events' ? (
+                    <SubMenuToggle
+                      key={index}
+                      state={mobileMenuState}
+                      subMenu={subMenuState}
+                      onFocus={() => toggleSubMenu('focus', true)}
+                      onClick={() => toggleSubMenu('click', true)}
+                      onKeyDown={(e) => toggleSubMenu('keydown', true, e)}
+                      onMouseEnter={() => toggleSubMenu('mouseenter', true)}
+                      onMouseLeave={() => toggleSubMenu('mouseleave', true)}
+                      tabIndex='0'
+                      aria-controls='menu-subMenu'
+                      aria-expanded={subMenuState}
+                    >
+                      {route.component}
+                      <SubMenu
+                        setMouseOverSubMenu={setMouseOverSubMenu}
+                        setMouseOverSubMenuToggle={setMouseOverSubMenuToggle}
+                        mouseOverSubMenu={mouseOverSubMenu}
+                        mouseOverSubMenuToggle={mouseOverSubMenuToggle}
+                        eventPages={eventPages}
+                      />
+                    </SubMenuToggle>
+                  ) : (
+                    <NavLink
+                      to={`/${route.route}`}
+                      key={index}
+                      onFocus={() => toggleSubMenu('focus')}
+                      onKeyDown={(e) => toggleSubMenu('keydown', false, e)}
+                      onMouseEnter={() => toggleSubMenu('mouseenter')}
+                    >
+                      <li>{route.component}</li>
+                    </NavLink>
+                  );
+                })}
+              </Menu>
+              <SiteNameWrapper state={mobileMenuState}>
+                <SiteName>The Durham Civil Rights Heritage Project</SiteName>
+              </SiteNameWrapper>
+            </NavContainer>
+          </Nav>
+        </HeaderContainer>
+      </Header>
+    </>
   );
-}
+};
 
 header.propTypes = {
   eventPages: PropTypes.array.isRequired,
@@ -214,23 +227,15 @@ const Right = styled.p`
   `}
 `;
 
-const Bottom = styled.nav`
+const Nav = styled.nav`
   ${breakpoint('sm', 'md')`
-    display: flex;
-    flex-direction: column;
-    margin-top: -50px;
-
-    ${(props) =>
-      props.state &&
-      `
-      align-items: center;
-      width: 100%;
-    `}
-    ${(props) =>
-      props.state ||
-      `
-      align-items: flex-end;
-    `}
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
   `}
   ${breakpoint('md')`
     z-index: 999;
@@ -240,7 +245,52 @@ const Bottom = styled.nav`
   `}
 `;
 
+const NavContainer = styled.div`
+  ${breakpoint('sm', 'md')`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    ${(props) =>
+      props.state &&
+      `
+      align-items: center;
+      width: 100%;
+      background: white;
+    `}
+    ${(props) =>
+      props.state ||
+      `
+      align-items: flex-end;
+    `}
+  `}
+`;
+
+const SiteNameWrapper = styled.div`
+  ${(props) => !props.state && `display: none;`}
+  width: 100%;
+  height: 140px;
+  background: ${(props) => props.theme.colors.greenBean};
+`;
+
+const SiteName = styled.p`
+  max-width: 250px;
+  color: ${(props) => props.theme.colors.white};
+  font-size: 21px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  padding: 34px 18px;
+`;
+
 const MobileMenuToggle = styled.button`
+  z-index: 20;
+  margin-top: 40px;
   background: white;
   border: none;
   &:before {
@@ -252,6 +302,7 @@ const MobileMenuToggle = styled.button`
     position: relative;
     width: 20px;
     height: 20px;
+    right: 10px;
     background: ${(props) => props.theme.colors.charcoal};
   }
   ${breakpoint('sm', 'md')`
@@ -276,14 +327,12 @@ const Menu = styled.ul`
   background: ${(props) => props.theme.colors.white};
   ${(props) => props.theme.smContainer};
   ${breakpoint('sm', 'md')`
-    top: 0;
-    position: absolute;
-
     ${(props) =>
       props.state &&
       `
         width: calc(100vw - 36px);
         display: flex;
+        padding-top: 40px;
         flex-direction: column;
         justify-content: start;
         align-items: center;
@@ -355,21 +404,6 @@ const SubMenuToggle = styled.li`
         text-align: center;
     `}
 
-    ${(props) => {
-      props.state &&
-        `
-        :after {
-          mask: url(${caret}) no-repeat 50% 50%;
-          mask-size: cover;
-          align-items: center;
-          display: inline-block;
-          position: relative;
-          width: 13px;
-          height: 5px;
-          background: black;
-        }
-      `;
-    }}
     ${(props) =>
       props.state &&
       props.subMenu &&
@@ -384,6 +418,8 @@ const SubMenuToggle = styled.li`
         height: 5px;
         background: black;
         border: solid 2px black;
+        left: 10px;
+        top: -2px;
       }
     `}
 
@@ -403,6 +439,8 @@ const SubMenuToggle = styled.li`
         height: 5px;
         background: black;
         border: solid 2px black;
+        left: 10px;
+        top: -2px;
       }
     `}
   `}
