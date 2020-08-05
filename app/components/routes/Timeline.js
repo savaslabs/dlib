@@ -32,8 +32,8 @@ const timeline = ({ timeline }) => {
         endTrigger: "#footer",
       },
       scaleY: 0,
-      transformOrigin: 'top, top',
-      ease: 'none',
+      transformOrigin: "top, top",
+      ease: "none",
     });
 
     // Year and card animation.
@@ -42,10 +42,10 @@ const timeline = ({ timeline }) => {
         scrollTrigger: {
           trigger: el,
           scrub: true,
-          start: 'top center',
-          end: 'top top',
-          toggleClass: 'active',
-        },
+          start: "top center",
+          end: "top top",
+          toggleClass: "active",
+        }
       });
     });
   }, [timeline]);
@@ -197,7 +197,7 @@ const H1 = styled.h1`
 const BackToTop = styled.button`
   display: ${(props) => (props.showScroll ? 'flex' : 'none')};
   position: fixed;
-  border: none;
+  border: 2px solid ${(props) => props.theme.colors.greenBean};
   border-radius: 50%;
   z-index: 1000;
   cursor: pointer;
@@ -206,19 +206,29 @@ const BackToTop = styled.button`
   animation: ${fadeIn} 0.3s;
   transition: opacity 0.4s;
   opacity: 1;
-  padding: 20px;
-  background: ${(props) => props.theme.colors.greenBean};
+  padding: 10px;
+  background: ${(props) => props.theme.colors.white};
   &:before {
     content: '';
     mask: url(${arrow}) no-repeat 50% 50%;
     mask-size: cover;
     width: 20px;
     height: 20px;
-    background: ${(props) => props.theme.colors.white};
+    border: 1px solid ${(props) => props.theme.colors.greenBean};
+    background: ${(props) => props.theme.colors.greenBean};
   }
 
   &:hover {
-    background: ${(props) => props.theme.colors.darkGreen};
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    background: ${(props) => props.theme.colors.greenBean};
+
+    &:before {
+      border-color: ${(props) => props.theme.colors.white};
+      background: ${(props) => props.theme.colors.white};
+    }
   }
 
   ${breakpoint('lg')`
@@ -251,7 +261,7 @@ const Timeline = styled.ol`
   }
 `;
 
-// horizontal example
+/* Timeline line denoting scroll position */
 const Line = styled.span`
   width: 6px;
   max-height: 181001px;
@@ -259,9 +269,13 @@ const Line = styled.span`
   position: absolute;
   top: 0;
   bottom: 0;
-  left: calc(50% - 1px);
+  left: 25px;
   z-index: 1;
   background-color: black;
+
+  ${breakpoint('lg')`
+    left: calc(50% - 1px);
+  `}
 `;
 
 const YearListItem = styled.li`
@@ -398,8 +412,15 @@ const Span = styled.span`
 `;
 
 const Ul = styled.ul`
-  ${breakpoint('sm', 'lg')`
+  ${breakpoint('sm', 'md')`
       margin-left: 100px;
+  `}
+
+  ${breakpoint('md')`
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   `}
 `;
 

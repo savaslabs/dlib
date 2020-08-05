@@ -60,12 +60,28 @@ const Card = styled.article`
   border-top-style: solid;
   border-color: #e0e0e0;
   margin-bottom: 30px;
+  ${breakpoint('sm', 'lg')`
+    &:before {
+      ${(props) =>
+        props.scope === 'national' &&
+        `
+      left: -1px;
+    `};
+    }
+  `}
   ${breakpoint('md')`
     width: 500px;
     padding: 24px;
   `}
   ${breakpoint('lg')`
     width: 415px;
+    &:before {
+      ${(props) =>
+        props.scope === 'national' &&
+        `
+      right: 0;
+    `};
+    }
   `}
 
   /* Animated border color */
@@ -79,11 +95,6 @@ const Card = styled.article`
     height: 6px;
     width: 0%;
     position: absolute;
-    ${(props) =>
-      props.scope === 'national' && // @TODO: put in lg breakpoint
-      `
-      right: 0;
-    `};
     ${(props) =>
       props.scope === 'durham' &&
       `

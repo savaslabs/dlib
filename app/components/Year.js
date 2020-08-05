@@ -42,4 +42,4 @@ const Circle = styled.circle`
   }
 `;
 
-export default year;
+export default React.memo(year);

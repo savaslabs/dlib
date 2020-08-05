@@ -24,6 +24,7 @@ article.active::before {
 }
 
 li.active.sole-left span.arms::before,
+li.active.sole-left span.arms::after,
 li.active.both span.arms::before,
 li.active.sole-right span.arms::after,
 li.active.both span.arms::after {
