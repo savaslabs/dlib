@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import SiteInfo from './SiteInfo';
+import SubMenu from './SubMenu';
 import menu from '../assets/icons/menu.svg';
 import caret from '../assets/icons/caret.svg';
-import { routes, cleanId, timelineDescription } from '../utils/constants';
-import styled from 'styled-components';
+import { routes, timelineDescription } from '../utils/constants';
+import useWindowSize from '../utils/hooks/useWindowSize';
+import styled, { ThemeContext } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import PropTypes from 'prop-types';
 
 const header = ({ eventPages }) => {
   const location = useLocation();
+  const themeContext = useContext(ThemeContext);
+  const windowSize = useWindowSize();
   // Whether or not mobile menu is open.
   const [mobileMenuState, setMobileMenuState] = useState(false);
   // Whether or not submenu is open.
@@ -23,6 +27,63 @@ const header = ({ eventPages }) => {
     mouseOverSubMenuToggle || mouseOverSubMenu
     ? setSubMenuState(true) : setSubMenuState(false);
   }, [mouseOverSubMenuToggle, mouseOverSubMenu])
+
+  const toggleSubMenu = (eventType, isToggle, event) => {
+    // SubMenu toggle or other top-level nav item.
+    switch (isToggle) {
+      case true:
+        // Event handling shared by all screen sizes.
+        switch (eventType) {
+          case 'keydown':
+            if (event.which === 13) {
+              setMouseOverSubMenuToggle(!subMenuState);
+            }
+            break;
+        }
+
+        // Handle event states for tablet/desktop.
+        if (windowSize.width > themeContext.breakpoints.md) {
+          console.log('this is not mobile');
+          switch (eventType) {
+            case 'mouseenter':
+              setMouseOverSubMenuToggle(true);
+              break;
+            case 'mouseleave':
+              setMouseOverSubMenuToggle(false);
+              break;
+            case 'focus':
+              setMouseOverSubMenuToggle(true);
+              break;
+          }
+        } else {
+          // Hanlde event states for mobile.
+          switch (eventType) {
+            case 'click':
+              setMouseOverSubMenuToggle(!subMenuState);
+              break;
+          }
+        }
+        break;
+      case false:
+        if (windowSize.width > themeContext.breakpoints.md) {
+          switch (eventType) {
+            case 'focus':
+            case 'mouseenter':
+              setMouseOverSubMenuToggle(false);
+              setMouseOverSubMenu(false);
+              break;
+            case 'keydown':
+              if (event.which === 13) {
+                setMouseOverSubMenuToggle(false);
+                setMouseOverSubMenu(false);
+              break;
+            }
+          }
+        }
+        break;
+    }
+  }
+
   return (
     <Header>
       <HeaderContainer>
@@ -50,56 +111,31 @@ const header = ({ eventPages }) => {
                   key={index}
                   state={mobileMenuState}
                   subMenu={subMenuState}
-                  onFocus={() => setMouseOverSubMenuToggle(true)}
-                  onKeyDown={() => setMouseOverSubMenuToggle(true)}
-                  onMouseEnter={() => setMouseOverSubMenuToggle(true)}
-                  onMouseLeave={() => setMouseOverSubMenuToggle(false)}
+                  onFocus={() => toggleSubMenu('focus', true)}
+                  onClick={() => toggleSubMenu('click', true)}
+                  onKeyDown={(e) => toggleSubMenu('keydown', true, e)}
+                  onMouseEnter={() => toggleSubMenu('mouseenter', true)}
+                  onMouseLeave={() => toggleSubMenu('mouseleave', true)}
                   tabIndex='0'
                   aria-controls='menu-subMenu'
                   aria-expanded={subMenuState}
                 >
                   {route.component}
                   <SubMenu
-                    id='menu-subMenu'
-                    onFocus={() => setMouseOverSubMenuToggle(true)}
-                    onMouseEnter={() => setMouseOverSubMenu(true)}
-                    onMouseLeave={() => setMouseOverSubMenu(false)}
-                    hidden={
-                      mouseOverSubMenu || mouseOverSubMenuToggle ? false : true
-                    }
-                  >
-                    {eventPages &&
-                      eventPages.map((page, i) => {
-                        let pageName = page.name.split(',');
-                        console.log('pageName', pageName);
-                        pageName =
-                          pageName.length > 2
-                            ? `${pageName[0]}, ${pageName[1]}`
-                            : pageName[0];
-                        return (
-                          <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
-                            <li>{pageName}</li>
-                          </NavLink>
-                        );
-                      })}
-                  </SubMenu>
+                    setMouseOverSubMenu={setMouseOverSubMenu}
+                    setMouseOverSubMenuToggle={setMouseOverSubMenuToggle}
+                    mouseOverSubMenu={mouseOverSubMenu}
+                    mouseOverSubMenuToggle={mouseOverSubMenuToggle}
+                    eventPages={eventPages}
+                  />
                 </SubMenuToggle>
               ) : (
                 <NavLink
                   to={`/${route.route}`}
                   key={index}
-                  onFocus={() => {
-                    setMouseOverSubMenuToggle(false),
-                      setMouseOverSubMenu(false);
-                  }}
-                  onKeyDown={() => {
-                    setMouseOverSubMenuToggle(false),
-                      setMouseOverSubMenu(false);
-                  }}
-                  onMouseEnter={() => {
-                    setMouseOverSubMenuToggle(false),
-                      setMouseOverSubMenu(false);
-                  }}
+                  onFocus={() => toggleSubMenu('focus')}
+                  onKeyDown={(e) => toggleSubMenu('keydown', false, e)}
+                  onMouseEnter={() => toggleSubMenu('mouseenter')}
                 >
                   <li>{route.component}</li>
                 </NavLink>
@@ -128,7 +164,7 @@ const Header = styled.header`
     top: 0;
     width: 100%;
     z-index: -1;
-    ${breakpoint('lg')`
+    ${breakpoint('md')`
       width: 20%;
       height: 164px;
     `}
@@ -142,7 +178,7 @@ const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
   ${(props) => props.theme.smContainer};
-  ${breakpoint('lg')`
+  ${breakpoint('md')`
     flex-direction: column;
     ${(props) => props.theme.lgContainer};
   `}
@@ -151,7 +187,7 @@ const HeaderContainer = styled.div`
 const Top = styled.div`
   display: flex;
   flex-direction: column;
-  ${breakpoint('lg')`
+  ${breakpoint('md')`
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 115px;
@@ -169,10 +205,10 @@ const Right = styled.p`
   letter-spacing: 0.02em;
   font-size: ${(props) => props.theme.fontSize.sm};
   line-height: ${(props) => props.theme.lineHeight.xLoose};
-  ${breakpoint('sm', 'lg')`
+  ${breakpoint('sm', 'md')`
     padding-top: 30px;
   `}
-  ${breakpoint('lg')`
+  ${breakpoint('md')`
     font-size: ${(props) => props.theme.fontSize.md};
     line-height: ${(props) => props.theme.lineHeight.loose};
   `}
@@ -251,20 +287,10 @@ const Menu = styled.ul`
         flex-direction: column;
         justify-content: start;
         align-items: center;
-        height: 100vh;
 
         a {
           width: 100%;
           text-align: center;
-        }
-    `}
-
-    ${(props) =>
-      props.state &&
-      props.subMenu &&
-      `
-        ${SubMenuToggle} + a {
-          padding-top: 735px;
         }
     `}
   `}
@@ -283,21 +309,37 @@ const Menu = styled.ul`
     font-weight: ${(props) => props.theme.fontWeight.bold};
   }
 
+  a li {
+    padding: 20px 0 17px 0;
+  }
+
+  a + li {
+    padding-top: 20px;
+
+    ${breakpoint('sm', 'md')`
+      ${(props) => !props.subMenu && `padding-bottom: 17px;`}
+    `}
+  }
+
   li {
     color: ${(props) => props.theme.colors.greenBean};
+    line-height: 1.12;
+    font-size: 24px;
+
     ${breakpoint('sm', 'md')`
-      line-height: 1.28;
-      font-size: 18px;
-      padding: 20px 0 17px 0;
-      border-bottom: 1px solid pink;
+      border-bottom: 1px solid ${(props) => props.theme.colors.greenBean};
     `}
 
     ${breakpoint('md')`
-    font-size: 24px;
-    letter-spacing: 0.02em;
-    line-height: 1.125;
-    padding: 20px 0;
-  `}
+      font-size: 16px;
+      letter-spacing: 0.02em;
+    `};
+
+    ${breakpoint('lg')`
+      font-size: 24px;
+      line-height: 1.125;
+      padding: 20px 0;
+    `}
   }
 `;
 
@@ -317,16 +359,15 @@ const SubMenuToggle = styled.li`
       props.state &&
         `
         :after {
-         mask: url(${caret}) no-repeat 50% 50%;
-        mask-size: cover;
-        align-items: center;
-        display: inline-block;
-        position: relative;
-        width: 13px;
-        height: 5px;
-        background: black;
+          mask: url(${caret}) no-repeat 50% 50%;
+          mask-size: cover;
+          align-items: center;
+          display: inline-block;
+          position: relative;
+          width: 13px;
+          height: 5px;
+          background: black;
         }
-
       `;
     }}
     ${(props) =>
@@ -365,47 +406,6 @@ const SubMenuToggle = styled.li`
       }
     `}
   `}
-`;
-
-const SubMenu = styled.ul`
-  position: absolute;
-  top: 65px;
-
-  ${breakpoint('sm', 'md')`
-    width: 100vw;
-    margin: 0 -18px 0 -18px;
-    background: pink;
-  `}
-
-  ${breakpoint('lg')`
-      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      width: 400%;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      background: ${(props) => props.theme.colors.bgGray};
-  `}
-
-  a {
-    li {
-      font-size: ${(props) => props.theme.fontSize.xs};
-      font-weight: ${(props) => props.theme.fontWeight.normal};
-      padding: 20px 0;
-      margin: 0 18px;
-      border-bottom: 0.5px solid;
-    }
-
-    &:hover li,
-    &:focus li {
-      font-weight: ${(props) => props.theme.fontWeight.bold};
-    }
-
-    &:last-child li,
-    &:nth-last-child(2) li {
-      border-bottom: none;
-    }
-  }
 `;
 
 export default header;
