@@ -16,7 +16,7 @@ const dest = {
   },
   events: {
     path: './app/assets',
-    file: 'events.json',
+    file: 'events-data.json',
   },
 };
 
