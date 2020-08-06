@@ -334,12 +334,22 @@ const YearListItem = styled.li`
       position: absolute;
       bottom: 20px;
       content: '';
-      left: 49.7%;
+      left: 25px;
       height: 130px;
       width: 0;
       border-right: dashed 12px #FFFFFF;
       z-index: 3;
     }
+  `}
+
+  ${breakpoint('lg')`
+    ${(props) =>
+      props.gap &&
+      `
+    &:after {
+        left: 49.7%;
+      }
+    `}
   `}
 `;
 
