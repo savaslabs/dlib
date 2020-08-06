@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import SiteInfo from './SiteInfo';
 import SubMenu from './SubMenu';
-import menu from '../assets/icons/menu.svg';
+import menuOpen from '../assets/icons/menu--open.svg';
+import menuClose from '../assets/icons/menu--close.svg';
 import caret from '../assets/icons/caret.svg';
 import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
@@ -303,7 +304,10 @@ const MobileMenuToggle = styled.button`
   border: none;
   &:before {
     content: '';
-    mask: url(${menu}) no-repeat 50% 50%;
+    ${(props) => !props.state && `mask: url(${menuOpen}) no-repeat 50% 50%;`}
+    ${(props) =>
+      props.state &&
+      `mask: url(${menuClose}) no-repeat 50% 50%;`}
     mask-size: cover;
     align-items: center;
     display: inline-block;
