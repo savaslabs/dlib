@@ -7,7 +7,11 @@ const siteInfo = ({ header, footer }) => {
   return (
     <>
       <SiteName to={`/`} header={header} footer={footer}>
-        The Durham Civil Rights Heritage Project
+        The Durham
+        <br />
+        Civil Rights
+        <br />
+        Heritage Project
       </SiteName>
       <CollectionInfo header={header} footer={footer}>
         <p>
@@ -40,8 +44,10 @@ const SiteName = styled(NavLink)`
   line-height: ${(props) => props.theme.lineHeight.snug};
   letter-spacing: 0.02em;
   font-size: ${(props) => props.theme.fontSize.md};
-  padding-top: 70px;
-  max-width: 250px;
+  padding-top: 30px;
+  ${breakpoint('md')`
+    font-size: 24px;
+  `}
   ${breakpoint('lg')`
     font-size: 31px;
     line-height: 1.31;
@@ -58,6 +64,10 @@ const CollectionInfo = styled.div`
     text-decoration: underline;
     color: inherit;
   }
+
+  ${breakpoint('md', 'lg')`
+    ${props => props.header && `padding-top: 20px;`}
+  `}
 
   ${breakpoint('lg')`
     padding-top: 22px;

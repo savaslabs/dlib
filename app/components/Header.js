@@ -159,7 +159,13 @@ const header = ({ eventPages }) => {
                   })}
                 </Menu>
                 <SiteNameWrapper state={mobileMenuState}>
-                  <SiteName>The Durham Civil Rights Heritage Project</SiteName>
+                  <SiteName>
+                    The Durham
+                    <br />
+                    Civil Rights
+                    <br />
+                    Heritage Project
+                  </SiteName>
                 </SiteNameWrapper>
               </NavContainer>
             </Nav>
@@ -187,6 +193,10 @@ const Header = styled.header`
     width: 100%;
     z-index: -1;
     ${breakpoint('md')`
+      width: 35%;
+      height: 133px;
+    `}
+    ${breakpoint('lg')`
       width: 20%;
       height: 164px;
     `}
@@ -223,7 +233,6 @@ const Left = styled.div`
 
 const Right = styled.p`
   display: flex;
-  max-width: 735px;
   letter-spacing: 0.02em;
   font-size: ${(props) => props.theme.fontSize.sm};
   line-height: ${(props) => props.theme.lineHeight.xLoose};
@@ -231,8 +240,13 @@ const Right = styled.p`
     padding-top: 30px;
   `}
   ${breakpoint('md')`
+    max-width: 425px;
     font-size: ${(props) => props.theme.fontSize.md};
     line-height: ${(props) => props.theme.lineHeight.loose};
+  `}
+
+  ${breakpoint('lg')`
+    max-width: 735px;
   `}
 `;
 
@@ -289,7 +303,6 @@ const SiteNameWrapper = styled.div`
 `;
 
 const SiteName = styled.p`
-  max-width: 250px;
   color: ${(props) => props.theme.colors.white};
   font-size: 21px;
   line-height: 1.14;
