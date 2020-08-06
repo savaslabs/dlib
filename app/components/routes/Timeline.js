@@ -20,22 +20,6 @@ const timeline = ({ timeline }) => {
   yearRefs.current = [];
 
   useEffect(() => {
-    console.clear();
-
-    // Timeline line animation.
-    gsap.from('#line', {
-      scrollTrigger: {
-        scrub: true,
-        trigger: "#line-anchor",
-        start: "top center",
-        end: "bottom bottom",
-        endTrigger: "#footer",
-      },
-      scaleY: 0,
-      transformOrigin: "top, top",
-      ease: "none",
-    });
-
     // Year and card animation.
     yearRefs.current.forEach(el => {
       gsap.from(el, {
@@ -84,7 +68,7 @@ const timeline = ({ timeline }) => {
       </BackToTop>
       <TimelineKey />
       <Timeline>
-        <Line id='line'></Line>
+        <Line />
         {timeline &&
           timeline.map((eventsPerYear, i) => {
             let position;
@@ -206,7 +190,7 @@ const BackToTop = styled.button`
   z-index: 1000;
   cursor: pointer;
   right: 10px;
-  bottom: 50%;
+  bottom: 20px;
   animation: ${fadeIn} 0.3s;
   transition: opacity 0.4s;
   opacity: 1;
@@ -236,8 +220,7 @@ const BackToTop = styled.button`
   }
 
   ${breakpoint('lg')`
-    bottom: 30%;
-    margin-bottom: 150px;
+    margin-bottom: 60px;
   `}
 `;
 
@@ -268,12 +251,10 @@ const Timeline = styled.ol`
 /* Timeline line denoting scroll position */
 const Line = styled.span`
   width: 6px;
-  max-height: 181001px;
-  height: 100%;
-  position: absolute;
+  height: 50vh;
+  position: fixed;
   top: 0;
-  bottom: 0;
-  left: 25px;
+  left: 43px;
   z-index: 1;
   background-color: black;
 
@@ -441,7 +422,7 @@ const LinkedEvent = styled(Link)`
 
   &:hover span {
     ${breakpoint('lg')`
-      background: linear-gradient(to right, transparent 45%, #404040 45%);
+      background: linear-gradient(to right, transparent 45%, #202D25 45%);
     `}
   }
 `;
