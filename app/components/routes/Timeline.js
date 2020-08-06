@@ -78,7 +78,7 @@ const timeline = ({ timeline }) => {
 
   return (
     <main>
-      <H1>Civil Rights Timeline</H1>
+      <H1 id='line-anchor'>Civil Rights Timeline</H1>
       <BackToTop onClick={scrollTop} showScroll={showScroll}>
         <ScreenReaderText>Back to top</ScreenReaderText>
       </BackToTop>
@@ -99,8 +99,8 @@ const timeline = ({ timeline }) => {
             }
 
             // Add timeline gap if next event year more than one year in the future.
-            if (i < (timeline.length - 1)) {
-              (timeline[i + 1].year - eventsPerYear.year) > 1
+            if (i < timeline.length - 1) {
+              timeline[i + 1].year - eventsPerYear.year > 1
                 ? (gap = true)
                 : (gap = false);
             }
@@ -117,7 +117,7 @@ const timeline = ({ timeline }) => {
                 <Year />
                 {/* Element that changes stroke color */}
                 <Year front />
-                <Span className="arms" />
+                <Span className='arms' />
                 {eventsPerYear.events.map((eventsPerScope, index) => {
                   return (
                     <Ul
@@ -141,7 +141,11 @@ const timeline = ({ timeline }) => {
                               <LinkedEvent
                                 to={`/events/${cleanId(event.Name)}`}
                               >
-                                <Card event={event} ref={addToYearRefs} feature />
+                                <Card
+                                  event={event}
+                                  ref={addToYearRefs}
+                                  feature
+                                />
                                 <Arrow />
                               </LinkedEvent>
                             ) : (
@@ -431,9 +435,14 @@ const LinkedEvent = styled(Link)`
   color: ${(props) => props.theme.colors.greenBean};
   font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.lineHeight.snug};
-  &:hover,
-  &:hover span {
+  &:hover {
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &:hover span {
+    ${breakpoint('lg')`
+      background: linear-gradient(to right, transparent 45%, #404040 45%);
+    `}
   }
 `;
 
@@ -442,12 +451,13 @@ const Arrow = styled.span`
     height: 61px;
     width: 61px;
     position: absolute;
-    right: -35px;
-    background: linear-gradient(to right, transparent 45%, black 45%);
+    right: -34px;
+    background: linear-gradient(to right, transparent 45%, #C4C4C4 45%);
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
-    bottom: 50%;
-`}
+    top: 50%;
+    transform: translateY(-50%);
+  `}
   &:before {
     content: '';
     mask: url(${arrow}) no-repeat 50% 50%;
