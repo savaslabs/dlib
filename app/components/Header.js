@@ -9,6 +9,7 @@ import useWindowSize from '../utils/hooks/useWindowSize';
 import styled, { ThemeContext } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { Helmet } from 'react-helmet';
+import FocusLock from 'react-focus-lock';
 import PropTypes from 'prop-types';
 
 const header = ({ eventPages }) => {
@@ -29,6 +30,11 @@ const header = ({ eventPages }) => {
       ? setSubMenuState(true)
       : setSubMenuState(false);
   }, [mouseOverSubMenuToggle, mouseOverSubMenu]);
+
+  // Ensure focus lock only is occuring on mobile screenwidths.
+  useEffect(() => {
+    windowSize.width > themeContext.breakpoints.md && setMobileMenuState(false);
+  }, [windowSize.width]);
 
   const toggleSubMenu = (eventType, isToggle, event) => {
     // SubMenu toggle or other top-level nav item.
@@ -102,59 +108,61 @@ const header = ({ eventPages }) => {
               <Right>{timelineDescription}</Right>
             )}
           </Top>
-          <Nav>
-            <NavContainer state={mobileMenuState}>
-              <MobileMenuToggle
-                state={mobileMenuState}
-                onClick={() => setMobileMenuState(!mobileMenuState)}
-              >
-                <ScreenReaderText>{`${
-                  mobileMenuState ? 'Close' : 'Open'
-                } Menu`}</ScreenReaderText>
-              </MobileMenuToggle>
-              <Menu state={mobileMenuState} subMenu={subMenuState}>
-                {routes.map((route, index) => {
-                  return route.component === 'Featured Events' ? (
-                    <SubMenuToggle
-                      key={index}
-                      state={mobileMenuState}
-                      subMenu={subMenuState}
-                      onFocus={() => toggleSubMenu('focus', true)}
-                      onClick={() => toggleSubMenu('click', true)}
-                      onKeyDown={(e) => toggleSubMenu('keydown', true, e)}
-                      onMouseEnter={() => toggleSubMenu('mouseenter', true)}
-                      onMouseLeave={() => toggleSubMenu('mouseleave', true)}
-                      tabIndex='0'
-                      aria-controls='menu-subMenu'
-                      aria-expanded={subMenuState}
-                    >
-                      {route.component}
-                      <SubMenu
-                        setMouseOverSubMenu={setMouseOverSubMenu}
-                        setMouseOverSubMenuToggle={setMouseOverSubMenuToggle}
-                        mouseOverSubMenu={mouseOverSubMenu}
-                        mouseOverSubMenuToggle={mouseOverSubMenuToggle}
-                        eventPages={eventPages}
-                      />
-                    </SubMenuToggle>
-                  ) : (
-                    <NavLink
-                      to={`/${route.route}`}
-                      key={index}
-                      onFocus={() => toggleSubMenu('focus')}
-                      onKeyDown={(e) => toggleSubMenu('keydown', false, e)}
-                      onMouseEnter={() => toggleSubMenu('mouseenter')}
-                    >
-                      <li>{route.component}</li>
-                    </NavLink>
-                  );
-                })}
-              </Menu>
-              <SiteNameWrapper state={mobileMenuState}>
-                <SiteName>The Durham Civil Rights Heritage Project</SiteName>
-              </SiteNameWrapper>
-            </NavContainer>
-          </Nav>
+          <FocusLock disabled={!mobileMenuState}>
+            <Nav>
+              <NavContainer state={mobileMenuState}>
+                <MobileMenuToggle
+                  state={mobileMenuState}
+                  onClick={() => setMobileMenuState(!mobileMenuState)}
+                >
+                  <ScreenReaderText>{`${
+                    mobileMenuState ? 'Close' : 'Open'
+                  } Menu`}</ScreenReaderText>
+                </MobileMenuToggle>
+                <Menu state={mobileMenuState} subMenu={subMenuState}>
+                  {routes.map((route, index) => {
+                    return route.component === 'Featured Events' ? (
+                      <SubMenuToggle
+                        key={index}
+                        state={mobileMenuState}
+                        subMenu={subMenuState}
+                        onFocus={() => toggleSubMenu('focus', true)}
+                        onClick={() => toggleSubMenu('click', true)}
+                        onKeyDown={(e) => toggleSubMenu('keydown', true, e)}
+                        onMouseEnter={() => toggleSubMenu('mouseenter', true)}
+                        onMouseLeave={() => toggleSubMenu('mouseleave', true)}
+                        tabIndex='0'
+                        aria-controls='menu-subMenu'
+                        aria-expanded={subMenuState}
+                      >
+                        {route.component}
+                        <SubMenu
+                          setMouseOverSubMenu={setMouseOverSubMenu}
+                          setMouseOverSubMenuToggle={setMouseOverSubMenuToggle}
+                          mouseOverSubMenu={mouseOverSubMenu}
+                          mouseOverSubMenuToggle={mouseOverSubMenuToggle}
+                          eventPages={eventPages}
+                        />
+                      </SubMenuToggle>
+                    ) : (
+                      <NavLink
+                        to={`/${route.route}`}
+                        key={index}
+                        onFocus={() => toggleSubMenu('focus')}
+                        onKeyDown={(e) => toggleSubMenu('keydown', false, e)}
+                        onMouseEnter={() => toggleSubMenu('mouseenter')}
+                      >
+                        <li>{route.component}</li>
+                      </NavLink>
+                    );
+                  })}
+                </Menu>
+                <SiteNameWrapper state={mobileMenuState}>
+                  <SiteName>The Durham Civil Rights Heritage Project</SiteName>
+                </SiteNameWrapper>
+              </NavContainer>
+            </Nav>
+          </FocusLock>
         </HeaderContainer>
       </Header>
     </>
