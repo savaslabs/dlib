@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { cleanId } from '../../utils/constants';
+import { cleanId, cleanJSON } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
@@ -103,37 +103,42 @@ const timeline = ({ timeline }) => {
                 <Year front />
                 <Span className='arms' />
                 {eventsPerYear.events.map((eventsPerScope, index) => {
+                  const level =
+                    eventsPerScope.scope === 'National Event'
+                      ? 'national'
+                      : 'durham';
                   return (
                     <Ul
                       key={index}
-                      className={
-                        eventsPerScope.scope === 'National Event'
-                          ? 'national'
-                          : 'durham'
-                      }
+                      className={level}
                       pos={position}
-                      scope={
-                        eventsPerScope.scope === 'National Event'
-                          ? 'national'
-                          : 'durham'
-                      }
+                      scope={level}
                     >
                       {eventsPerScope.events.map((event, ind) => {
+                        const cleanedEvent = cleanJSON(event);
                         return (
                           <li key={ind} className='event'>
-                            {event.Type === 'Feature' ? (
+                            {event.event_page ? (
                               <LinkedEvent
-                                to={`/events/${cleanId(event.Name)}`}
+                                to={`/events/${cleanId(event.event_page)}`}
                               >
                                 <Card
-                                  event={event}
+                                  event={cleanedEvent}
                                   ref={addToYearRefs}
                                   feature
+                                  link
                                 />
                                 <Arrow />
                               </LinkedEvent>
                             ) : (
-                              <Card key={i} event={event} ref={addToYearRefs} />
+                              <Card
+                                key={i}
+                                event={event}
+                                {...(event.type === 'Feature' && {
+                                  feature: true,
+                                })}
+                                ref={addToYearRefs}
+                              />
                             )}
                           </li>
                         );
@@ -413,7 +418,6 @@ const Ul = styled.ul`
 
   ${breakpoint('md')`
     align-items: center;
-    justify-content: center;
     display: flex;
     flex-direction: column;
   `}

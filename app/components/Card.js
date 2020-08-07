@@ -1,24 +1,21 @@
 import React from 'react';
+import { cleanJSON } from '../utils/constants';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
-import { cleanJSON } from '../utils/constants';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 
-const card = React.forwardRef(({ event, feature }, ref) => {
-  cleanJSON(event);
-  const { Scope, Headline, Text, Images, External_Resource_Links } = event;
-  const designation = Scope === 'National Event' ? 'National' : 'Durham';
+const card = React.forwardRef(({ event, feature, link }, ref) => {
+  const { scope, headline, text, images, external_resource_links } = event;
+  const designation = scope === 'National Event' ? 'National' : 'Durham';
   return (
     <Card ref={ref} scope={designation.toLowerCase()}>
       {/* Mobile scope pill. */}
       <Level scope={designation.toLowerCase()}>{designation}</Level>
-      {feature && (
-        <Title>{Headline}</Title>
-      )}
-      <Body source={Text}>{Text}</Body>
-      {Images &&
-        Images.slice(0, 3).map((p, i) => {
+      {feature && <Title scope={designation.toLowerCase()}>{headline}</Title>}
+      <Body source={text}>{text}</Body>
+      {images &&
+        images.slice(0, 3).map((p, i) => {
           return (
             <CardImage
               key={i}
@@ -27,24 +24,23 @@ const card = React.forwardRef(({ event, feature }, ref) => {
             />
           );
         })}
-      {!feature && External_Resource_Links && (
-        <ExternalLinksWrapper>
-          <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
-          {External_Resource_Links.map((ext, i) => {
-            cleanJSON(ext);
-            return (
-              <ExternalLink key={i} href={ext.URL}>
-                <LinkTitle>{ext.Resource_Title}</LinkTitle>
-                <LinkSource>{ext.Source_Shortform}</LinkSource>
-              </ExternalLink>
-            );
-          })}
-        </ExternalLinksWrapper>
-      )}
+      {(!link && external_resource_links) && (
+          <ExternalLinksWrapper>
+            <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
+            {external_resource_links.map((ext, i) => {
+              cleanJSON(ext);
+              return (
+                <ExternalLink key={i} href={ext.url}>
+                  <LinkTitle>{ext.resource_title}</LinkTitle>
+                  <LinkSource>{ext.source_shortform}</LinkSource>
+                </ExternalLink>
+              );
+            })}
+          </ExternalLinksWrapper>
+        )}
     </Card>
   );
 });
-
 card.propTypes = {
   event: PropTypes.object.isRequired,
   feature: PropTypes.bool,
@@ -111,7 +107,10 @@ const Title = styled.h1`
   font-size: 20px;
   margin: 0 0 15px 0;
   line-height: ${(props) => props.theme.lineHeight.snug};
-  color: ${(props) => props.theme.colors.greenBean};
+  color: ${(props) =>
+    props.scope === 'national'
+      ? props.theme.colors.medGray
+      : props.theme.colors.greenBean};
 `;
 
 const Body = styled(Markdown)`

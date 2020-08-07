@@ -13,6 +13,7 @@ export const theme = {
     cloudySkies: '#ABBEBC',
     bgGray: '#FBFBFB',
     lightGray: '#E0E0E0',
+    medGray: '#828282',
     linkSource: '#6C6C6C',
     darkGray: '#C4C4C4',
     charcoal: '#404040',

@@ -947,6 +947,7 @@
     "Type": "Feature",
     "Links": 1,
     "Name": "1957: Royal Ice Cream Sit In",
+    "Event Page": "Royal Ice Cream Sit-in, 1957",
     "__id": "recBvYpCfQumCTE3Y"
   },
   {
@@ -1269,6 +1270,7 @@
     "Type": "Feature",
     "Links": 0,
     "Name": "1960: Martin Luther King Jr. visits Durham and speaks at White Rock Baptist Church",
+    "Event Page": "Martin Luther King, Jr.'s Visits to Durham, 1956–1964",
     "__id": "recgypggyFl8lnDr3"
   },
   {
@@ -1504,6 +1506,7 @@
     "Type": "Feature",
     "Links": 1,
     "Name": "1961: Rolling line protests to desegregate theaters in Durham",
+    "Event Page": "Carolina Theatre, 1961–1963",
     "__id": "recy1qeziTf3KXpzZ"
   },
   {
@@ -1638,6 +1641,7 @@
     "Type": "Feature",
     "Links": 1,
     "Name": "1962: Demonstrations at Howard Johnson's begin the struggle to integrate restaurants in Durham",
+    "Event Page": "Howard Johnson's Restaurant, 1962",
     "__id": "recJem0878ZDwsWOd"
   },
   {
@@ -2386,6 +2390,7 @@
     "Type": "Regular",
     "Links": 1,
     "Name": "1965: Local 77 labor union is created at Duke University to advocate for improved working conditions, increase in wages, and health benefits for working class workers at Duke, many of whom were African-American.",
+    "Event Page": "Duke University Labor Organizing, 1961–1968",
     "__id": "rec5GAPtIC3N5lROy"
   },
   {
@@ -2753,6 +2758,7 @@
     "Type": "Feature",
     "Links": 0,
     "Name": "1968: Protests, arson, and curfew follow Martin Luther King Jr.'s assassination",
+    "Event Page": "Aftermath of M.L.K, Jr.'s Assassination, 1968",
     "__id": "recttMhgMKpQmW4G1"
   },
   {
@@ -2920,6 +2926,7 @@
     "Type": "Regular",
     "Links": 1,
     "Name": "1968: Protesters in Durham march in sympathy with the victims of the Orangeburg Massacre.",
+    "Event Page": "Orangeburg Sympathy Protest, 1968",
     "__id": "recIIUidUrYP9Wyw6"
   },
   {
@@ -3106,6 +3113,7 @@
     "Type": "Feature",
     "Links": 1,
     "Name": "1968: Black Solidarity Committee for Community Improvement begins a selective merchant boycott in Durham",
+    "Event Page": "Selective Buying Campaign, 1968–1969",
     "__id": "rec7xNXIcM5OERLnt"
   },
   {
@@ -3416,6 +3424,7 @@
     "Type": "Feature",
     "Links": 1,
     "Name": "1968: George Wallace Presidential Campaign Rally",
+    "Event Page": "Wallace-for-President Rally, 1968",
     "__id": "recxHiUgqNy76bOHJ"
   },
   {
@@ -3571,6 +3580,7 @@
     "Type": "Feature",
     "Links": 2,
     "Name": "1969: Allen Building Takeover",
+    "Event Page": "Duke University Allen Building Takeover, 1969",
     "__id": "rect66I8b5DgQ13md"
   },
   {
@@ -4142,6 +4152,7 @@
     "Type": "Feature",
     "Links": 2,
     "Name": "2017: Protestors topple the Durham County Confederate monument",
+    "Event Page": "Toppling of the Downtown Confederate Monument, 2017",
     "__id": "recOeUFa2cdAcTFZZ"
   },
   {
@@ -4318,6 +4329,7 @@
     "Type": "Feature",
     "Links": 0,
     "Name": "2020: Durham Protest Murals",
+    "Event Page": "2020 Black Lives Matter Protests, 2020",
     "__id": "recXFoHg0VWYxRIRs"
   }
 ]

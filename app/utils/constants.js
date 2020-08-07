@@ -1,4 +1,4 @@
-export const cleanId = name => {
+export const cleanId = (name) => {
   return name
     .toLowerCase()
     .replace(/ /g, '_')
@@ -10,31 +10,34 @@ export const cleanId = name => {
 };
 
 // Helper function to replace parentheses and spaces in JSON keys.
-export const cleanJSON = obj => {
+export const cleanJSON = (obj) => {
   Object.keys(obj).forEach((key) => {
-    const replaced = key.replace(/\s/g, '_').replace(/["'()]/g, '');
+    const replaced = key
+      .replace(/\s/g, '_')
+      .replace(/["'()]/g, '')
+      .toLowerCase();
     if (key !== replaced) {
       obj[replaced] = obj[key];
       delete obj[key];
     }
   });
   return obj;
-}
+};
 
-export const cleanMenuNames = page => {
+export const cleanMenuNames = (page) => {
   let pageName = page.name.split(',');
   pageName =
     pageName.length > 2 ? `${pageName[0]}, ${pageName[1]}` : pageName[0];
   return pageName;
-}
+};
 
 // Helper function to structure photo gallery and event page image captions.
-export const prepareCaptions = item => {
+export const prepareCaptions = (item) => {
   return `${item.caption} ${item.attribution}. ${item.citation}.`;
 };
 
 export const routes = [
-  { component: 'Timeline', route: 'timeline', },
+  { component: 'Timeline', route: 'timeline' },
   { component: 'Featured Events' },
   { component: 'Photo Gallery', route: 'gallery' },
   { component: 'Oral Histories', route: 'oral_histories' },
