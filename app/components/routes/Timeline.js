@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { cleanId, cleanJSON } from '../../utils/constants';
+import { cleanId, cleanJSON, timelineDescription } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
 import BackToTop from '../BackToTop';
 import arrow from '../../assets/icons/arrow.svg';
+import ogImage from '../../assets/images/ogImage.svg';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,15 +24,15 @@ const timeline = ({ timeline }) => {
 
   useEffect(() => {
     // Year and card animation.
-    yearRefs.current.forEach(el => {
+    yearRefs.current.forEach((el) => {
       gsap.from(el, {
         scrollTrigger: {
           trigger: el,
           scrub: true,
-          start: "top center",
-          end: "top top",
-          toggleClass: "active",
-        }
+          start: 'top center',
+          end: 'top top',
+          toggleClass: 'active',
+        },
       });
     });
   }, [timeline]);
@@ -62,94 +64,107 @@ const timeline = ({ timeline }) => {
   };
 
   return (
-    <main>
-      <H1>Civil Rights Timeline</H1>
-      <BackToTop onClick={scrollTop} showScroll={showScroll} />
-      <TimelineKey />
-      <Timeline>
-        <Line />
-        {timeline &&
-          timeline.map((eventsPerYear, i) => {
-            let position;
-            let gap;
-            if (eventsPerYear.events.length < 2) {
-              position =
-                eventsPerYear.events[0].scope === 'National Event'
-                  ? 'sole-left'
-                  : 'sole-right';
-            } else {
-              position = 'both';
-            }
+    <>
+      <Helmet>
+        <title>Timeline | Durham Civil Rights Heritage Project</title>
+        <meta
+          property='og:title'
+          content='Timeline | Durham Civil Rights Heritage Project'
+        />
+        <meta name='description' content={timelineDescription} />
+        <meta property='og:description' content={timelineDescription} />
+        <link rel='logo' type='image/svg' href={ogImage} />
+        <meta property='og:image' content={ogImage} />
+      </Helmet>
+      <main>
+        <H1>Civil Rights Timeline</H1>
+        <BackToTop onClick={scrollTop} showScroll={showScroll} />
+        <TimelineKey />
+        <Timeline>
+          <Line />
+          {timeline &&
+            timeline.map((eventsPerYear, i) => {
+              let position;
+              let gap;
+              if (eventsPerYear.events.length < 2) {
+                position =
+                  eventsPerYear.events[0].scope === 'National Event'
+                    ? 'sole-left'
+                    : 'sole-right';
+              } else {
+                position = 'both';
+              }
 
-            // Add timeline gap if next event year more than one year in the future.
-            if (i < timeline.length - 1) {
-              timeline[i + 1].year - eventsPerYear.year > 1
-                ? (gap = true)
-                : (gap = false);
-            }
-            return (
-              <YearListItem
-                value={eventsPerYear.year}
-                key={i}
-                className={`${position}`}
-                ref={addToYearRefs}
-                position={position}
-                gap={gap}
-              >
-                {/* Element that changes fill color */}
-                <Year />
-                {/* Element that changes stroke color */}
-                <Year front />
-                <Span className='arms' />
-                {eventsPerYear.events.map((eventsPerScope, index) => {
-                  const level =
-                    eventsPerScope.scope === 'National Event'
-                      ? 'national'
-                      : 'durham';
-                  return (
-                    <Ul
-                      key={index}
-                      className={level}
-                      pos={position}
-                      scope={level}
-                    >
-                      {eventsPerScope.events.map((event, ind) => {
-                        const cleanedEvent = cleanJSON(event);
-                        return (
-                          <li key={ind} className='event'>
-                            {event.event_page ? (
-                              <LinkedEvent
-                                to={`/events/${cleanId(event.event_page)}`}
-                              >
+              // Add timeline gap if next event year more than one year in the future.
+              if (i < timeline.length - 1) {
+                timeline[i + 1].year - eventsPerYear.year > 1
+                  ? (gap = true)
+                  : (gap = false);
+              }
+              return (
+                <YearListItem
+                  value={eventsPerYear.year}
+                  key={i}
+                  className={`${position}`}
+                  ref={addToYearRefs}
+                  position={position}
+                  gap={gap}
+                >
+                  {/* Element that changes fill color */}
+                  <Year />
+                  {/* Element that changes stroke color */}
+                  <Year front />
+                  <Span className='arms' />
+                  {eventsPerYear.events.map((eventsPerScope, index) => {
+                    const level =
+                      eventsPerScope.scope === 'National Event'
+                        ? 'national'
+                        : 'durham';
+                    return (
+                      <Ul
+                        key={index}
+                        className={level}
+                        pos={position}
+                        scope={level}
+                      >
+                        {eventsPerScope.events.map((event, ind) => {
+                          const cleanedEvent = cleanJSON(event);
+                          return (
+                            <li key={ind} className='event'>
+                              {event.event_page ? (
+                                <LinkedEvent
+                                  to={`/events/${cleanId(event.event_page)}`}
+                                >
+                                  <Card
+                                    event={cleanedEvent}
+                                    ref={addToYearRefs}
+                                    feature
+                                    link
+                                  />
+                                  <Arrow />
+                                </LinkedEvent>
+                              ) : (
                                 <Card
-                                  event={cleanedEvent}
+                                  key={i}
+                                  event={event}
+                                  {...(event.type === 'Feature' && {
+                                    feature: true,
+                                  })}
                                   ref={addToYearRefs}
-                                  feature
-                                  link
                                 />
-                                <Arrow />
-                              </LinkedEvent>
-                            ) : (
-                              <Card
-                                key={i}
-                                event={event}
-                                {...(event.type === 'Feature' && {
-                                  feature: true,
-                                })}
-                                ref={addToYearRefs}
-                              />
-                            )}
-                          </li>
-                        );
-                      })}
-                    </Ul>
-                  );
-                })}
-              </YearListItem>
-            );
-          })}
-      </Timeline>
-    </main>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </Ul>
+                    );
+                  })}
+                </YearListItem>
+              );
+            })}
+        </Timeline>
+      </main>
+    </>
   );
 };
 
@@ -157,15 +172,15 @@ timeline.propTypes = {
   timeline: PropTypes.array.isRequired,
 };
 
-  // h1 small sizes
-  // ${breakpoint('sm')`
-  //   font-size: ${(props) => props.theme.fontSize.lg};
-  //   font-weight: ${(props) => props.theme.fontWeight.normal};
-  //   color: ${(props) => props.theme.colors.greenBean};
-  //   padding: 20px 0 30px 0;
-  // `};
+// h1 small sizes
+// ${breakpoint('sm')`
+//   font-size: ${(props) => props.theme.fontSize.lg};
+//   font-weight: ${(props) => props.theme.fontWeight.normal};
+//   color: ${(props) => props.theme.colors.greenBean};
+//   padding: 20px 0 30px 0;
+// `};
 
-  // below are tablet and up sizes
+// below are tablet and up sizes
 const H1 = styled.h1`
   padding: 80px 0 30px 0;
   text-align: center;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '@babel/polyfill';
-import { Helmet } from 'react-helmet';
 import { routes, cleanId, prepareCaptions } from './utils/constants';
 import { Switch, Route } from 'react-router-dom';
 
@@ -87,15 +86,6 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Helmet>
-        <meta
-          property='og:title'
-          content='Durham Civil Rights Heritage Project'
-        />
-        <meta name='description' content='TBD.' />
-        <meta property='og:description' content='TBD.' />
-        <title>Durham Civil Rights Heritage Project</title>
-      </Helmet>
       {timeline ? (
         <>
           <SkipToMainContent href='#main-content'>

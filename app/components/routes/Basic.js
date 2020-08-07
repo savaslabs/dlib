@@ -1,18 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { prepareCaptions } from '../../utils/constants';
+import React, { useState, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
+import { prepareCaptions, timelineDescription } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
+import logo from '../../assets/images/ogImage.svg';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
+import { Helmet } from 'react-helmet';
 
-const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
+const basic = ({
+  event,
+  type,
+  imageData,
+  imageIds,
+  imageAltText,
+  imageCaptions,
+}) => {
+  const location = useLocation();
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   let data;
+  let ogDescription;
+  let ogImage;
   let lightBoxImageIds = [];
   let eventLightBoxData = [];
   let captions = [];
@@ -24,43 +37,56 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
       el.hasOwnProperty('image') ? lightBoxImageIds.push(el.image) : null;
     });
     // Add additional event image ids if they exist.
-    lightBoxImageIds = event.images ? lightBoxImageIds.concat(event.images) : lightBoxImageIds;
+    lightBoxImageIds = event.images
+      ? lightBoxImageIds.concat(event.images)
+      : lightBoxImageIds;
 
-    lightBoxImageIds.forEach(id => {
-      eventLightBoxData.push(imageData.filter((imageInfo) => {
-        if (imageInfo.ID === id) {
-          return imageInfo;
-        }
-      }));
-
-    })
+    lightBoxImageIds.forEach((id) => {
+      eventLightBoxData.push(
+        imageData.filter((imageInfo) => {
+          if (imageInfo.ID === id) {
+            return imageInfo;
+          }
+        })
+      );
+    });
 
     // Create captions array for lightbox.
-    captions = eventLightBoxData.map((c => {
-      return c.map((ci) => {
-        return prepareCaptions(ci);
-      }).flat()
-    }));
+    captions = eventLightBoxData.map((c) => {
+      return c
+        .map((ci) => {
+          return prepareCaptions(ci);
+        })
+        .flat();
+    });
+    ogDescription = data.body[0].text;
+    ogImage = `../app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
   } else if (type === 'about') {
     data = AboutPage;
+    ogDescription = timelineDescription;
+    ogImage = `app/assets/images/${logo}`;
   } else if (type === 'oral_histories') {
     data = OralHistoriesPage;
+    ogDescription = data.body[0].text;
+    ogImage = `app/assets/images/${logo}`;
   } else if (type === 'gallery') {
     data = { name: 'Photo Gallery' };
+    ogDescription = timelineDescription;
+    ogImage = `app/assets/images/${imageIds[0]}/large.jpg`;
   }
 
   // Open lightbox anytime a photo is clicked.
-  const openLightbox = e => {
+  const openLightbox = (e) => {
     const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
     setPhotoIndex(photoIndex);
     setIsLightboxOpen(true);
   };
 
-  const closeLightbox = e => {
+  const closeLightbox = (e) => {
     setIsLightboxOpen(false);
-  }
+  };
 
-  const nextLightboxImage = e => {
+  const nextLightboxImage = (e) => {
     let ids;
     if (event) {
       ids = lightBoxImageIds;
@@ -68,117 +94,133 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
       ids = imageIds;
     }
 
-    setPhotoIndex((photoIndex + 1) < ids.length ? photoIndex + 1 : 0);
+    setPhotoIndex(photoIndex + 1 < ids.length ? photoIndex + 1 : 0);
   };
 
   return (
-    <Content isLightboxOpen={isLightboxOpen}>
-      <FloatWrapper>
-        <Main gallery={type === 'gallery' ? true : false}>
-          <H1>{data.name}</H1>
-          {data.body &&
-            data.body.map((item, i) => {
-              // Second level heading.
-              if (item.hasOwnProperty('h2')) {
-                return <h2 key={i}>{item.h2}</h2>;
-                // Body text.
-              } else if (item.hasOwnProperty('text')) {
-                return (
-                  <P key={i} source={item.text}>
-                    {item.text}
-                  </P>
-                );
-                // Pullquote with optional attribution.
-              } else if (item.hasOwnProperty('pullquote')) {
-                return (
-                  <Figure key={i}>
-                    <Blockquote>{`"${item.pullquote.quote}"`}</Blockquote>
-                    {item.pullquote.attribution && (
-                      <Figcaption>{item.pullquote.attribution}</Figcaption>
-                    )}
-                  </Figure>
-                );
-                // Unordered list.
-              } else if (item.hasOwnProperty('ul')) {
-                return (
-                  <Ul key={i}>
-                    {item.ul.map((li, idx) => {
-                      return (
-                        <Li key={idx}>
-                          <Markdown source={li}>{li}</Markdown>
-                        </Li>
-                      );
-                    })}
-                  </Ul>
-                );
-                // Inline image with caption.
-              } else if (item.hasOwnProperty('image')) {
-                const foundImage = imageData.filter((imageInfo) => {
-                  return imageInfo.ID === item.image;
-                });
-                return (
-                  <InlineImageWrapper key={i}>
-                    <InlineImage
-                      key={i}
-                      data-photoindex={lightBoxImageIds.indexOf(item.image)}
-                      onClick={openLightbox}
-                      src={`../app/assets/images/${item.image}/large.jpg`}
-                      alt={foundImage[0].alt_text}
-                    />
-                    <InlineImageCaption>
-                      {captions[lightBoxImageIds.indexOf(item.image)]}
-                    </InlineImageCaption>
-                  </InlineImageWrapper>
-                );
-              }
-            })}
-          {type === 'gallery' && (
-            <GalleryGrid>
-              {imageIds &&
-                imageIds.map((id, i) => {
+    <>
+      <Helmet>
+        <title>{`${data.name} | Durham Civil Rights Heritage Project`}</title>
+        <meta
+          property='og:title'
+          content={`${data.name} | Durham Civil Rights Heritage Project`}
+        />
+        <meta name='description' content={ogDescription} />
+        <meta property='og:description' content={ogDescription} />
+        <link rel='logo' type='image/svg' href={ogImage} />
+        <meta property='og:image' content={ogImage} />
+      </Helmet>
+      <Content isLightboxOpen={isLightboxOpen}>
+        <FloatWrapper>
+          <Main gallery={type === 'gallery' ? true : false}>
+            <H1>{data.name}</H1>
+            {data.body &&
+              data.body.map((item, i) => {
+                // Second level heading.
+                if (item.hasOwnProperty('h2')) {
+                  return <h2 key={i}>{item.h2}</h2>;
+                  // Body text.
+                } else if (item.hasOwnProperty('text')) {
                   return (
-                    <GalleryImage
-                      src={`../app/assets/images/${id}/full.jpg`}
-                      alt={imageAltText[i]}
-                      key={i}
-                      data-photoindex={i}
-                      onClick={openLightbox}
-                    />
+                    <P key={i} source={item.text}>
+                      {item.text}
+                    </P>
                   );
-                })}
-            </GalleryGrid>
-          )}
-          {(type === 'gallery' || event) && (
-            <Lightbox
-              imageIds={
-                lightBoxImageIds.length > 0 ? lightBoxImageIds : imageIds
-              }
-              imageCaptions={captions.length > 0 ? captions : imageCaptions}
-              isOpen={isLightboxOpen}
-              photoIndex={photoIndex}
-              closeLightbox={closeLightbox}
-              nextLightboxImage={nextLightboxImage}
-              eventPage={event}
-            />
-          )}
-        </Main>
-        {data.images &&
-          data.images.map((imageId, idx) => {
-            const foundImage = imageData.filter((imageInfo) => {
-              return imageInfo.ID === imageId;
-            });
-            return (
-              <SideImage
-                key={idx}
-                data-photoindex={lightBoxImageIds.indexOf(imageId)}
-                onClick={openLightbox}
-                src={`../app/assets/images/${imageId}/large.jpg`}
-                alt={foundImage[0].alt_text}
+                  // Pullquote with optional attribution.
+                } else if (item.hasOwnProperty('pullquote')) {
+                  return (
+                    <Figure key={i}>
+                      <Blockquote>{`"${item.pullquote.quote}"`}</Blockquote>
+                      {item.pullquote.attribution && (
+                        <Figcaption>{item.pullquote.attribution}</Figcaption>
+                      )}
+                    </Figure>
+                  );
+                  // Unordered list.
+                } else if (item.hasOwnProperty('ul')) {
+                  return (
+                    <Ul key={i}>
+                      {item.ul.map((li, idx) => {
+                        return (
+                          <Li key={idx}>
+                            <Markdown source={li}>{li}</Markdown>
+                          </Li>
+                        );
+                      })}
+                    </Ul>
+                  );
+                  // Inline image with caption.
+                } else if (item.hasOwnProperty('image')) {
+                  const foundImage = imageData.filter((imageInfo) => {
+                    return imageInfo.ID === item.image;
+                  });
+                  return (
+                    <InlineImageWrapper key={i}>
+                      <InlineImage
+                        key={i}
+                        data-photoindex={lightBoxImageIds.indexOf(item.image)}
+                        onClick={openLightbox}
+                        src={`../app/assets/images/${item.image}/large.jpg`}
+                        alt={foundImage[0].alt_text}
+                      />
+                      <InlineImageCaption>
+                        {captions[lightBoxImageIds.indexOf(item.image)]}
+                      </InlineImageCaption>
+                    </InlineImageWrapper>
+                  );
+                }
+              })}
+            {type === 'gallery' &&
+              useMemo(() => {
+                return (
+                  <GalleryGrid>
+                    {imageIds &&
+                      imageIds.map((id, i) => {
+                        return (
+                          <GalleryImage
+                            src={`../app/assets/images/${id}/full.jpg`}
+                            alt={imageAltText[i]}
+                            key={i}
+                            data-photoindex={i}
+                            onClick={openLightbox}
+                          />
+                        );
+                      })}
+                  </GalleryGrid>
+                );
+              })}
+            {(type === 'gallery' || event) && (
+              <Lightbox
+                imageIds={
+                  lightBoxImageIds.length > 0 ? lightBoxImageIds : imageIds
+                }
+                imageCaptions={captions.length > 0 ? captions : imageCaptions}
+                isOpen={isLightboxOpen}
+                photoIndex={photoIndex}
+                closeLightbox={closeLightbox}
+                nextLightboxImage={nextLightboxImage}
+                eventPage={event}
               />
-            );
-          })}
-      </FloatWrapper>
-    </Content>
+            )}
+          </Main>
+          {data.images &&
+            data.images.map((imageId, idx) => {
+              const foundImage = imageData.filter((imageInfo) => {
+                return imageInfo.ID === imageId;
+              });
+              return (
+                <SideImage
+                  key={idx}
+                  data-photoindex={lightBoxImageIds.indexOf(imageId)}
+                  onClick={openLightbox}
+                  src={`../app/assets/images/${imageId}/large.jpg`}
+                  alt={foundImage[0].alt_text}
+                />
+              );
+            })}
+        </FloatWrapper>
+      </Content>
+    </>
   );
 };
 
@@ -223,7 +265,7 @@ const FloatWrapper = styled.div`
 
 const Main = styled.div`
   ${breakpoint('lg')`
-    width: ${props => props.gallery ? '100%' : '782px'};
+    width: ${(props) => (props.gallery ? '100%' : '782px')};
     height: fit-content;
     float: left;
     margin-right: 105px;
@@ -336,7 +378,7 @@ const InlineImage = styled.img`
 `;
 
 const InlineImageCaption = styled.p`
-  font-weight: ${props => props.theme.fontWeight.bold};
+  font-weight: ${(props) => props.theme.fontWeight.bold};
 `;
 
 const SideImage = styled.img`
