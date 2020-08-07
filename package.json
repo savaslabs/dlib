@@ -42,6 +42,7 @@
     "html-webpack-plugin": "^3.2.0",
     "image-downloader": "^4.0.1",
     "json-loader": "^0.5.7",
+    "node": "13.7.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react-markdown": "^4.3.1",
