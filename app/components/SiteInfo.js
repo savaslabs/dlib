@@ -32,6 +32,7 @@ const SiteName = styled(NavLink)`
       z-index: 1;
       margin-top: 30px;
       color: ${props.theme.colors.greenBean};
+      max-width: 250px;
   `}
 
   ${(props) =>

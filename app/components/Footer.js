@@ -11,7 +11,7 @@ const footer = () => {
       </FooterContainer>
     </Footer>
   );
-}
+};
 
 const Footer = styled.footer`
   color: ${(props) => props.theme.colors.white};
@@ -19,6 +19,7 @@ const Footer = styled.footer`
   height: 200px;
   position: relative;
   width: 100vw;
+  z-index: 50;
   ${breakpoint('lg')`
     height: 361px;
   `}

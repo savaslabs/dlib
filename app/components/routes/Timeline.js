@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cleanId, cleanJSON } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
@@ -447,10 +447,16 @@ const LinkedEvent = styled(Link)`
 `;
 
 const Arrow = styled.span`
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: ${(props) => props.theme.colors.medGray};
+  border-radius: 50%;
+  height: 27px;
+  width: 27px;
   ${breakpoint('lg')`
     height: 61px;
     width: 61px;
-    position: absolute;
     right: -34px;
     background: linear-gradient(to right, transparent 45%, #C4C4C4 45%);
     border-top-right-radius: 50%;
@@ -462,19 +468,22 @@ const Arrow = styled.span`
     content: '';
     mask: url(${arrow}) no-repeat 50% 50%;
     mask-size: cover;
-    width: 15px;
-    height: 20px;
-    right: 10px;
     position: absolute;
     transform: rotate(90deg);
-    background: ${(props) => props.theme.colors.greenBean};
+    background: ${(props) => props.theme.colors.white};
+    width: 10px;
+    height: 15px;
+    right: 8px;
+    top: 5px;
 
-    ${breakpoint('sm')`
+    ${breakpoint('sm', 'lg')`
       bottom: 10px;
     `}
 
     ${breakpoint('lg')`
-      background: ${(props) => props.theme.colors.white};
+      width: 15px;
+      right: 10px;
+      height: 20px;
       top: 20px;
     `}
   }
