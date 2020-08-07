@@ -71,8 +71,6 @@ const timeline = ({ timeline }) => {
           property='og:title'
           content='Timeline | Durham Civil Rights Heritage Project'
         />
-        <meta name='description' content={timelineDescription} />
-        <meta property='og:description' content={timelineDescription} />
         <link rel='logo' type='image/svg' href={ogImage} />
         <meta property='og:image' content={ogImage} />
       </Helmet>
