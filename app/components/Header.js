@@ -110,7 +110,7 @@ const header = ({ eventPages }) => {
             )}
           </Top>
           <FocusLock disabled={!mobileMenuState}>
-            <Nav>
+            <Nav state={mobileMenuState}>
               <NavContainer state={mobileMenuState}>
                 <MobileMenuToggle
                   state={mobileMenuState}
@@ -256,7 +256,7 @@ const Right = styled.p`
 const Nav = styled.nav`
   ${breakpoint('sm', 'md')`
     display: block;
-    position: fixed;
+    ${(props) => props.state && `position: fixed;`}
     top: 0;
     left: 0;
     width: 100%;
