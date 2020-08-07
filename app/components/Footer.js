@@ -16,7 +16,7 @@ const footer = () => {
 const Footer = styled.footer`
   color: ${(props) => props.theme.colors.white};
   background-color: ${(props) => props.theme.colors.greenBean};
-  height: 200px;
+  height: fit-content;
   position: relative;
   width: 100vw;
   z-index: 50;
@@ -31,7 +31,10 @@ const Footer = styled.footer`
     position: absolute;
     left: 0;
     top: 30px;
-    width: 100%;
+    ${breakpoint('md')`
+      width: 35%;
+      height: 133px;
+    `}
     ${breakpoint('lg')`
       width: 20%;
       height: 164px;

@@ -26,6 +26,10 @@ const siteInfo = ({ header, footer }) => {
 };
 
 const SiteName = styled(NavLink)`
+  ${breakpoint('sm', 'md')`
+    ${props => props.footer && `color: ${props.theme.colors.white};`}
+  `}
+
   ${(props) =>
     props.footer &&
     `
