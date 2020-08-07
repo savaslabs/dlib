@@ -98,7 +98,7 @@ const App = () => {
       </Helmet>
       {timeline ? (
         <>
-          <SkipToMainContent href='#main-contet'>
+          <SkipToMainContent href='#main-content'>
             <ScreenReaderText>Skip to main content</ScreenReaderText>
           </SkipToMainContent>
           <Header eventPages={EventPages} />
