@@ -37,11 +37,11 @@ const header = ({ eventPages }) => {
     windowSize.width > themeContext.breakpoints.md && setMobileMenuState(false);
   }, [windowSize.width]);
 
+  // Handle user interaction with nav items, submenu toggle, and submenu.
   const toggleSubMenu = (eventType, isToggle, event) => {
-    // SubMenu toggle or other top-level nav item.
     switch (isToggle) {
       case true:
-        // Event handling shared by all screen sizes.
+        // Event handling shared by all screen sizes for subMenu toggle.
         switch (eventType) {
           case 'keydown':
             if (event.which === 13) {
@@ -50,8 +50,8 @@ const header = ({ eventPages }) => {
             break;
         }
 
-        // Handle event states for tablet/desktop.
-        if (windowSize.width > themeContext.breakpoints.md) {
+        // Tablet/desktop event handling for subMenu toggle.
+        if (windowSize.width >= themeContext.breakpoints.md) {
           switch (eventType) {
             case 'mouseenter':
               setMouseOverSubMenuToggle(true);
@@ -64,7 +64,7 @@ const header = ({ eventPages }) => {
               break;
           }
         } else {
-          // Hanlde event states for mobile.
+          // Mobile event handling for subMenu toggle.
           switch (eventType) {
             case 'click':
               setMouseOverSubMenuToggle(!subMenuState);
@@ -73,7 +73,8 @@ const header = ({ eventPages }) => {
         }
         break;
       case false:
-        if (windowSize.width > themeContext.breakpoints.md) {
+        // Tablet/desktop event handling for top level nav items.
+        if (windowSize.width >= themeContext.breakpoints.md) {
           switch (eventType) {
             case 'focus':
             case 'mouseenter':
@@ -84,6 +85,18 @@ const header = ({ eventPages }) => {
               if (event.which === 13) {
                 setMouseOverSubMenuToggle(false);
                 setMouseOverSubMenu(false);
+                break;
+              }
+          }
+        } else {
+          // Mobile event handling for top level nav items.
+          switch (eventType) {
+            case 'focus':
+              setMobileMenuState(false);
+              break;
+            case 'keydown':
+              if (event.which === 13) {
+                setMobileMenuState(false);
                 break;
               }
           }
@@ -149,9 +162,9 @@ const header = ({ eventPages }) => {
                       <NavLink
                         to={`/${route.route}`}
                         key={index}
-                        onFocus={() => toggleSubMenu('focus')}
+                        onFocus={() => toggleSubMenu('focus', false)}
                         onKeyDown={(e) => toggleSubMenu('keydown', false, e)}
-                        onMouseEnter={() => toggleSubMenu('mouseenter')}
+                        onMouseEnter={() => toggleSubMenu('mouseenter', false)}
                       >
                         <li>{route.component}</li>
                       </NavLink>
