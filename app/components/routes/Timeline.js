@@ -63,7 +63,7 @@ const timeline = ({ timeline }) => {
 
   return (
     <main>
-      <H1 id='line-anchor'>Civil Rights Timeline</H1>
+      <H1>Civil Rights Timeline</H1>
       <BackToTop onClick={scrollTop} showScroll={showScroll} />
       <TimelineKey />
       <Timeline>
@@ -376,11 +376,13 @@ const LinkedEvent = styled(Link)`
   color: ${(props) => props.theme.colors.greenBean};
   font-weight: ${(props) => props.theme.fontWeight.bold};
   line-height: ${(props) => props.theme.lineHeight.snug};
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
   }
 
-  &:hover span {
+  &:hover span,
+  &:focus span {
     background: black;
     ${breakpoint('lg')`
       background: linear-gradient(to right, transparent 45%, #202D25 45%);
