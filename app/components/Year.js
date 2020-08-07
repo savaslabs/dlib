@@ -27,8 +27,8 @@ const SVG = styled.svg`
   z-index: 20;
   left: -6px;
   ${breakpoint('lg')`
-      left: 47.3%;
-    `}
+    left: 47.3%;
+  `}
 `;
 
 const Circle = styled.circle`

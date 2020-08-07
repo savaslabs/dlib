@@ -182,12 +182,15 @@ header.propTypes = {
 
 const Header = styled.header`
   position: relative;
-  margin-top: 74px;
+  background: ${(props) => props.theme.colors.white};
+  z-index: 50;
+  padding-top: 74px;
   ::before {
     content: '';
     background-color: ${(props) => props.theme.colors.greenBean};
     height: 130px;
     position: absolute;
+    margin-top: 74px;
     left: 0;
     top: 0;
     width: 100%;
@@ -284,7 +287,6 @@ const NavContainer = styled.div`
       props.state &&
       `
       align-items: center;
-      width: 100%;
       background: white;
     `}
     ${(props) =>
@@ -300,6 +302,7 @@ const SiteNameWrapper = styled.div`
   width: 100%;
   height: 140px;
   background: ${(props) => props.theme.colors.greenBean};
+  margin-top: auto;
 `;
 
 const SiteName = styled.p`

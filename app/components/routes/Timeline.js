@@ -182,9 +182,14 @@ const fadeIn = keyframes`
 const H1 = styled.h1`
   padding: 80px 0 30px 0;
   text-align: center;
+  position: relative;
+  z-index: 20;
   background: ${(props) => props.theme.colors.greenBean};
   color: ${(props) => props.theme.colors.white};
   ${(props) => props.theme.containerFullWidth};
+  ${breakpoint('md')`
+    z-index: 50;
+  `}
 `;
 
 const BackToTop = styled.button`
@@ -286,7 +291,7 @@ const YearListItem = styled.li`
     letter-spacing: 0.02em;
     line-height: 1.125;
     top: -8px;
-    z-index: 50;
+    z-index: 30;
     transition: color 0.3s 0.3s;
     left: 10px;
     ${breakpoint('lg')`
