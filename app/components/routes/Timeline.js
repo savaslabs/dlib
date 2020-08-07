@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
+import BackToTop from '../BackToTop';
 import arrow from '../../assets/icons/arrow.svg';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -40,10 +41,6 @@ const timeline = ({ timeline }) => {
     }
   };
 
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   useEffect(function setupListener() {
     const checkScrollTop = () => {
       if (!showScroll && window.pageYOffset > 700) {
@@ -58,14 +55,16 @@ const timeline = ({ timeline }) => {
     return function cleanupListener() {
       window.removeEventListener('scroll', checkScrollTop);
     };
-  })
+  });
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <main>
       <H1 id='line-anchor'>Civil Rights Timeline</H1>
-      <BackToTop onClick={scrollTop} showScroll={showScroll}>
-        <ScreenReaderText>Back to top</ScreenReaderText>
-      </BackToTop>
+      <BackToTop onClick={scrollTop} showScroll={showScroll} />
       <TimelineKey />
       <Timeline>
         <Line />
@@ -158,18 +157,6 @@ timeline.propTypes = {
   timeline: PropTypes.array.isRequired,
 };
 
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
   // h1 small sizes
   // ${breakpoint('sm')`
   //   font-size: ${(props) => props.theme.fontSize.lg};
@@ -190,52 +177,6 @@ const H1 = styled.h1`
   ${breakpoint('md')`
     z-index: 50;
   `}
-`;
-
-const BackToTop = styled.button`
-  display: ${(props) => (props.showScroll ? 'flex' : 'none')};
-  position: fixed;
-  border: 2px solid ${(props) => props.theme.colors.greenBean};
-  border-radius: 50%;
-  z-index: 1000;
-  cursor: pointer;
-  right: 10px;
-  bottom: 20px;
-  animation: ${fadeIn} 0.3s;
-  transition: opacity 0.4s;
-  opacity: 1;
-  padding: 10px;
-  background: ${(props) => props.theme.colors.white};
-  &:before {
-    content: '';
-    mask: url(${arrow}) no-repeat 50% 50%;
-    mask-size: cover;
-    width: 20px;
-    height: 20px;
-    border: 1px solid ${(props) => props.theme.colors.greenBean};
-    background: ${(props) => props.theme.colors.greenBean};
-  }
-
-  &:hover {
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  &:active {
-    background: ${(props) => props.theme.colors.greenBean};
-
-    &:before {
-      border-color: ${(props) => props.theme.colors.white};
-      background: ${(props) => props.theme.colors.white};
-    }
-  }
-
-  ${breakpoint('lg')`
-    margin-bottom: 60px;
-  `}
-`;
-
-const ScreenReaderText = styled.span`
-  ${props => props.theme.srOnly}
 `;
 
 const Timeline = styled.ol`
@@ -440,6 +381,7 @@ const LinkedEvent = styled(Link)`
   }
 
   &:hover span {
+    background: black;
     ${breakpoint('lg')`
       background: linear-gradient(to right, transparent 45%, #202D25 45%);
     `}
@@ -472,12 +414,13 @@ const Arrow = styled.span`
     transform: rotate(90deg);
     background: ${(props) => props.theme.colors.white};
     width: 10px;
-    height: 15px;
+    height: 10px;
     right: 8px;
-    top: 5px;
+    top: 8px;
 
     ${breakpoint('sm', 'lg')`
       bottom: 10px;
+      border: 1px solid white;
     `}
 
     ${breakpoint('lg')`
