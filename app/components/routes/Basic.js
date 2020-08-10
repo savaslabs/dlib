@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { prepareCaptions, timelineDescription } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
-import logo from '../../assets/images/ogImage.svg';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
@@ -60,19 +59,19 @@ const basic = ({
         .flat();
     });
     ogDescription = data.body[0].text;
-    ogImage = `../app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
+    ogImage = `/app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
   } else if (type === 'about') {
     data = AboutPage;
     ogDescription = timelineDescription;
-    ogImage = `app/assets/images/${logo}`;
+    ogImage = `/app/assets/images/ogImage.svg`;
   } else if (type === 'oral_histories') {
     data = OralHistoriesPage;
     ogDescription = data.body[0].text;
-    ogImage = `app/assets/images/${logo}`;
+    ogImage = `/app/assets/images/ogImage.svg`;
   } else if (type === 'gallery') {
     data = { name: 'Photo Gallery' };
     ogDescription = timelineDescription;
-    ogImage = `app/assets/images/${imageIds[0]}/large.jpg`;
+    ogImage = `/app/assets/images/${imageIds[0]}/large.jpg`;
   }
 
   // Open lightbox anytime a photo is clicked.
@@ -178,7 +177,7 @@ const basic = ({
                       imageIds.map((id, i) => {
                         return (
                           <GalleryImage
-                            src={`../app/assets/images/${id}/full.jpg`}
+                            src={`/app/assets/images/${id}/full.jpg`}
                             alt={imageAltText[i]}
                             key={i}
                             data-photoindex={i}
@@ -213,7 +212,7 @@ const basic = ({
                   key={idx}
                   data-photoindex={lightBoxImageIds.indexOf(imageId)}
                   onClick={openLightbox}
-                  src={`../app/assets/images/${imageId}/large.jpg`}
+                  src={`/app/assets/images/${imageId}/large.jpg`}
                   alt={foundImage[0].alt_text}
                 />
               );
