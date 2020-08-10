@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { cleanId, cleanJSON, timelineDescription } from '../../utils/constants';
+import { cleanId, cleanJSON } from '../../utils/constants';
+import useLightbox from '../../utils/hooks/useLightbox';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
 import BackToTop from '../BackToTop';
+import Lightbox from '../Lightbox';
 import arrow from '../../assets/icons/arrow.svg';
 import ogImage from '../../assets/images/ogImage.svg';
 import styled from 'styled-components';
@@ -17,7 +19,8 @@ import PropTypes from 'prop-types';
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
-const timeline = ({ timeline }) => {
+const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
+  const lightbox = useLightbox();
   const [showScroll, setShowScroll] = useState(false);
   const yearRefs = useRef([]);
   yearRefs.current = [];
@@ -145,6 +148,8 @@ const timeline = ({ timeline }) => {
                                 <Card
                                   key={i}
                                   event={event}
+                                  imageIds={imageIds}
+                                  onClick={lightbox.openLightbox}
                                   {...(event.type === 'Feature' && {
                                     feature: true,
                                   })}
@@ -161,6 +166,15 @@ const timeline = ({ timeline }) => {
               );
             })}
         </Timeline>
+        <Lightbox
+          imageIds={imageIds}
+          imageCaptions={imageCaptions}
+          isOpen={lightbox.isLightboxOpen}
+          photoIndex={lightbox.photoIndex}
+          closeLightbox={lightbox.closeLightbox}
+          nextLightboxImage={lightbox.nextLightboxImage}
+          eventPage={event}
+        />
       </main>
     </>
   );

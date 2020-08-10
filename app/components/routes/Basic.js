@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { prepareCaptions, timelineDescription } from '../../utils/constants';
+import useLightbox from '../../utils/hooks/useLightbox';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import logo from '../../assets/images/ogImage.svg';
@@ -20,8 +21,15 @@ const basic = ({
   imageCaptions,
 }) => {
   const location = useLocation();
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const {
+    photoIndex,
+    isLightboxOpen,
+    openLightbox,
+    closeLightbox,
+    nextLightboxImage,
+  } = useLightbox();
+  // const [photoIndex, setPhotoIndex] = useState(0);
+  // const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   let data;
   let ogDescription;
@@ -76,26 +84,26 @@ const basic = ({
   }
 
   // Open lightbox anytime a photo is clicked.
-  const openLightbox = (e) => {
-    const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
-    setPhotoIndex(photoIndex);
-    setIsLightboxOpen(true);
-  };
+  // const openLightbox = (e) => {
+  //   const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
+  //   setPhotoIndex(photoIndex);
+  //   setIsLightboxOpen(true);
+  // };
 
-  const closeLightbox = (e) => {
-    setIsLightboxOpen(false);
-  };
+  // const closeLightbox = (e) => {
+  //   setIsLightboxOpen(false);
+  // };
 
-  const nextLightboxImage = (e) => {
-    let ids;
-    if (event) {
-      ids = lightBoxImageIds;
-    } else {
-      ids = imageIds;
-    }
+  // const nextLightboxImage = (e) => {
+  //   let ids;
+  //   if (event) {
+  //     ids = lightBoxImageIds;
+  //   } else {
+  //     ids = imageIds;
+  //   }
 
-    setPhotoIndex(photoIndex + 1 < ids.length ? photoIndex + 1 : 0);
-  };
+  //   setPhotoIndex(photoIndex + 1 < ids.length ? photoIndex + 1 : 0);
+  // };
 
   return (
     <>

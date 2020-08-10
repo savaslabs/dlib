@@ -5,7 +5,7 @@ import breakpoint from 'styled-components-breakpoint';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 
-const card = React.forwardRef(({ event, feature, link }, ref) => {
+const card = React.forwardRef(({ event, feature, link, imageIds, onClick }, ref) => {
   const { scope, headline, text, images, external_resource_links } = event;
   const designation = scope === 'National Event' ? 'National' : 'Durham';
   return (
@@ -21,6 +21,11 @@ const card = React.forwardRef(({ event, feature, link }, ref) => {
               key={i}
               src={`app/assets/images/${p.ID}/large.jpg`}
               alt={p.alt_text}
+              data-photoindex={imageIds && imageIds.indexOf(p.ID)}
+              onClick={console.log('click')}
+              // {...(onClick && {
+              //   onClick: onClick,
+              // })}
             />
           );
         })}

@@ -25,7 +25,7 @@ const lightbox = ({
             imageIds[photoIndex + 1 < imageIds.length ? photoIndex + 1 : 0]
           }/full.jpg`}
           onCloseRequest={() => closeLightbox()}
-          onMoveNextRequest={() => nextLightboxImage()}
+          onMoveNextRequest={() => nextLightboxImage(imageIds)}
           imageCaption={imageCaptions[photoIndex]}
         />
       )}
