@@ -322,9 +322,11 @@ const Span = styled.span`
   border: 3px solid ${(props) => props.theme.colors.lightGray};
   width: 14px;
   left: 55px;
+  top: 0;
   ${breakpoint('lg')`
     left: 44%;
-     width: 140px;
+    top: auto;
+    width: 140px;
   `};
   transition-delay: 0.5s;
   transition: all linear 0.5s;
