@@ -4,7 +4,6 @@ import SiteInfo from './SiteInfo';
 import SubMenu from './SubMenu';
 import menuOpen from '../assets/icons/menu--open.svg';
 import menuClose from '../assets/icons/menu--close.svg';
-import caret from '../assets/icons/caret.svg';
 import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import styled, { ThemeContext } from 'styled-components';
@@ -334,10 +333,12 @@ const MobileMenuToggle = styled.button`
   border: none;
   &:before {
     content: '';
-    ${(props) => !props.state && `mask: url(${menuOpen}) no-repeat 50% 50%;`}
+    ${(props) =>
+      !props.state &&
+      `mask: url('/app/assets/icons/menu--open.svg') no-repeat 50% 50%;`}
     ${(props) =>
       props.state &&
-      `mask: url(${menuClose}) no-repeat 50% 50%;`}
+      `mask: url('/app/assets/icons/menu--close.svg') no-repeat 50% 50%;`}
     mask-size: cover;
     align-items: center;
     display: inline-block;
@@ -446,7 +447,7 @@ const SubMenuToggle = styled.li`
 
         &:after {
           content: '';
-          mask: url(${caret}) no-repeat 50% 50%;
+          mask: url('/app/assets/icons/caret.svg') no-repeat 50% 50%;
           mask-size: cover;
           align-items: center;
           display: inline-block;

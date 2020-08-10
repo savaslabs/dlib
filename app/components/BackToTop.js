@@ -1,5 +1,4 @@
 import React from 'react';
-import arrow from '../assets/icons/arrow.svg';
 import styled, { keyframes } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 
@@ -39,7 +38,7 @@ const BackToTop = styled.button`
   background: ${(props) => props.theme.colors.white};
   &:before {
     content: '';
-    mask: url(${arrow}) no-repeat 50% 50%;
+    mask: url('/app/assets/icons/arrow.svg') no-repeat 50% 50%;
     mask-size: cover;
     width: 20px;
     height: 20px;
