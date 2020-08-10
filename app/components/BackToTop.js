@@ -62,8 +62,12 @@ const BackToTop = styled.button`
 
   ${breakpoint('md')`
     display: ${(props) => (props.showScroll ? 'flex' : 'none')};
+  `}
+
+  ${breakpoint('md', 'lg')`
     transform: scale(0.7);
   `}
+
   ${breakpoint('lg')`
     margin-bottom: 60px;
   `}

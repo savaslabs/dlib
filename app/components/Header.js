@@ -257,12 +257,13 @@ const Right = styled.p`
   `}
   ${breakpoint('md')`
     max-width: 425px;
+  `}
+  ${breakpoint('lg')`
+    padding-left: 30px;
+    flex: 1;
+    max-width: 735px;
     font-size: ${(props) => props.theme.fontSize.md};
     line-height: ${(props) => props.theme.lineHeight.loose};
-  `}
-
-  ${breakpoint('lg')`
-    max-width: 735px;
   `}
 `;
 
@@ -437,51 +438,39 @@ const SubMenuToggle = styled.li`
   position: relative;
 
   ${breakpoint('sm', 'md')`
-
     ${(props) =>
       props.state &&
       `
         width: 100%;
         text-align: center;
+
+        &:after {
+          content: '';
+          mask: url(${caret}) no-repeat 50% 50%;
+          mask-size: cover;
+          align-items: center;
+          display: inline-block;
+          position: relative;
+          width: 13px;
+          height: 5px;
+          background: ${props.theme.colors.greenBean};
+          border: solid 2px ${props.theme.colors.greenBean};
+        }
     `}
 
     ${(props) =>
-      props.state &&
-      props.subMenu &&
-      `
-      :after {
-        mask: url(${caret}) no-repeat 50% 50%;
-        mask-size: cover;
-        align-items: center;
-        display: inline-block;
-        position: relative;
-        width: 13px;
-        height: 5px;
-        background: black;
-        border: solid 2px black;
+      props.state && !props.subMenu
+        ? `
+      &:after {
+        transform: rotate(180deg);
         left: 10px;
         top: -2px;
       }
-    `}
-
-    ${(props) =>
-      props.state &&
-      !props.subMenu &&
-      `
-      :after {
-        content: '';
-        mask: url(${caret}) no-repeat 50% 50%;
-        transform: rotate(180deg);
-        mask-size: cover;
-        align-items: center;
-        display: inline-block;
-        position: relative;
-        width: 13px;
-        height: 5px;
-        background: black;
-        border: solid 2px black;
-        left: 10px;
-        top: -2px;
+    `
+        : `
+      &:after {
+        left: 110px;
+        top: -718px;
       }
     `}
   `}
