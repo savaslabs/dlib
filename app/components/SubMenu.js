@@ -5,7 +5,8 @@ import useWindowSize from '../utils/hooks/useWindowSize';
 import styled, { ThemeContext } from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 
-const subMenu = ({ setMouseOverSubMenu,
+const subMenu = ({ setMobileMenuState,
+  setMouseOverSubMenu,
   setMouseOverSubMenuToggle,
   mouseOverSubMenu,
   mouseOverSubMenuToggle,
@@ -13,8 +14,8 @@ const subMenu = ({ setMouseOverSubMenu,
   const themeContext = useContext(ThemeContext);
   const windowSize = useWindowSize();
 
-  const toggleSubMenu = eventType => {
-    if (windowSize.width > themeContext.breakpoints.md) {
+  const toggleSubMenu = (eventType, e)=> {
+    if (windowSize.width >= themeContext.breakpoints.md) {
       // Tablet and desktop event handling.
       switch(eventType) {
         case 'focus':
@@ -25,9 +26,20 @@ const subMenu = ({ setMouseOverSubMenu,
         case 'mouseout':
           setMouseOverSubMenu(false);
           break;
+        default:
+          setMouseOverSubMenu(false);
       }
     }
   };
+
+  // If submenu nav links are clicked/focused, close menus.
+  const closeMenus = e => {
+    if (windowSize.width < themeContext.breakpoints.md) {
+      setMobileMenuState(false);
+      setMouseOverSubMenu(false);
+      setMouseOverSubMenuToggle(false);
+    }
+  }
 
   return (
     <SubMenu
@@ -41,7 +53,9 @@ const subMenu = ({ setMouseOverSubMenu,
         eventPages.map((page, i) => {
           return (
             <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
-              <li>{cleanMenuNames(page)}</li>
+              <li onClick={closeMenus} onKeyDown={(e) => e.which === 13 && closeMenus}>
+                {cleanMenuNames(page)}
+              </li>
             </NavLink>
           );
         })}
