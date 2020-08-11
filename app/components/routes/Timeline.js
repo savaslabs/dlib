@@ -188,7 +188,7 @@ const H1 = styled.h1`
   color: ${(props) => props.theme.colors.white};
   ${(props) => props.theme.containerFullWidth};
   ${breakpoint('md')`
-    z-index: 50;
+    z-index: 20;
   `}
 `;
 

@@ -104,7 +104,7 @@ const App = () => {
                     EventPages.map((event, index) => {
                       return (
                         <Route
-                          path={`/events/${cleanId(event.name)}`}
+                          path={`/events/:eventId`}
                           key={index}
                         >
                           <Basic event={event} imageData={Images} />

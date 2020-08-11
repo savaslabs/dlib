@@ -150,6 +150,7 @@ const header = ({ eventPages }) => {
                       >
                         {route.component}
                         <SubMenu
+                          setMobileMenuState={setMobileMenuState}
                           setMouseOverSubMenu={setMouseOverSubMenu}
                           setMouseOverSubMenuToggle={setMouseOverSubMenuToggle}
                           mouseOverSubMenu={mouseOverSubMenu}
@@ -437,6 +438,10 @@ const Menu = styled.ul`
 
 const SubMenuToggle = styled.li`
   position: relative;
+
+  &:hover {
+    font-weight: ${props => props.theme.fontWeight.bold};
+  }
 
   ${breakpoint('sm', 'md')`
     ${(props) =>
