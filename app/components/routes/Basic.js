@@ -103,7 +103,7 @@ const basic = ({
           property='og:title'
           content={`${data.name} | Durham Civil Rights Heritage Project`}
         />
-        <meta name='description' content={ogDescription} />
+        <meta property='description' content={ogDescription} />
         <meta property='og:description' content={ogDescription} />
         <link rel='logo' type='image/svg' href={ogImage} />
         <meta property='og:image' content={ogImage} />

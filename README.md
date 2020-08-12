@@ -7,7 +7,11 @@
 1. Run `yarn add image-downloader --dev --ignore-engines`
 1. Development: `yarn start`
 The project will be available at http://localhost:8080/.
-1. Generate dist folder: `yarn build`
+
+## Deployment
+1. Generate dist folder: `yarn build` (Due to react-snap, you may have to delete everything in /dist except `_redirects` and then run `yarn build` again);
+2. Push to master.
+Test site will be available at https://dlib.netlify.app/;
 
 ## Get Most Recent Content from Airtable
 1. Run `yarn node ./scripts/airtable.js`
