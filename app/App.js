@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
 import Basic from './components/routes/Basic';
 import Footer from './components/Footer';
+import NoMatch from './components/routes/NoMatch';
 
 // Data.
 import EventPages from './assets/pages/event-pages.json';
@@ -87,11 +88,11 @@ const App = () => {
       <GlobalStyles />
       {timeline ? (
         <>
-          <SkipToMainContent href='#main-content'>
+          <SkipToMainContent href="#main-content">
             <ScreenReaderText>Skip to main content</ScreenReaderText>
           </SkipToMainContent>
           <Header eventPages={EventPages} />
-          <ContentContainer id='main-content'>
+          <ContentContainer id="main-content">
             <Switch>
               {routes &&
                 routes.map((r, i) => {
@@ -102,10 +103,7 @@ const App = () => {
                   ) : r.component === 'Featured Events' && EventPages ? (
                     EventPages.map((event, index) => {
                       return (
-                        <Route
-                          path={`/events/:eventId`}
-                          key={index}
-                        >
+                        <Route path={`/events/:eventId`} key={index}>
                           <Basic event={event} imageData={Images} />
                         </Route>
                       );
@@ -123,6 +121,10 @@ const App = () => {
                     </Route>
                   );
                 })}
+              {/* No Match routes */}
+              <Route path="*">
+                <NoMatch />
+              </Route>
             </Switch>
           </ContentContainer>
           <Footer />
