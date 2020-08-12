@@ -311,11 +311,11 @@ const Figure = styled.figure`
   line-height: ${props => props.theme.lineHeight.loose};
   margin-bottom: 30px;
 
-  @media ${props => props.theme.fontSize.md} {
+  @media ${props => props.theme.breakpoints.md} {
     font-size: ${props => props.theme.fontSize.md};
   }
 
-  @media ${props => props.theme.fontSize.lg} {
+  @media ${props => props.theme.breakpoints.lg} {
     font-size: ${props => props.theme.fontSize.lg};
   }
 
@@ -441,8 +441,14 @@ const GalleryGrid = styled.div`
   flex-wrap: wrap;
 
   @media ${props => props.theme.breakpoints.md} {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 225px 225px 225px;
     justify-content: space-between;
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    display: grid;
+    grid-template-columns: 347px 347px 347px;
   }
 `;
 
@@ -461,6 +467,10 @@ const GalleryImage = styled.img`
   @media ${props => props.theme.breakpoints.lg} {
     width: 347px;
     height: 347px;
+    margin-bottom: 50px;
+  }
+
+  @media ${props => props.theme.breakpoints.max} {
     margin-bottom: 75px;
   }
 `;
