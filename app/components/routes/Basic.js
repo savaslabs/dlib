@@ -242,8 +242,12 @@ basic.propTypes = {
   ),
 };
 
+// Prevent scroll and ensure header is behind lightbox when open.
 const Content = styled.main`
-  overflow-y: ${(props) => (props.isLightboxOpen ? 'hidden' : 'auto')};
+  ${props => props.isLightboxOpen && `
+    z-index: 999;
+    overflow-y: hidden;
+  `}
 
   &:after {
     content: '';
