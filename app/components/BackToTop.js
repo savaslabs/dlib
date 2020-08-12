@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 
 const backToTop = ({ showScroll, onClick }) => {
   return (
@@ -14,9 +13,11 @@ const fadeIn = keyframes`
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0.5;
   }
+
   100% {
     opacity: 1;
   }
@@ -25,7 +26,7 @@ const fadeIn = keyframes`
 const BackToTop = styled.button`
   display: none;
   position: fixed;
-  border: 2px solid ${(props) => props.theme.colors.greenBean};
+  border: 2px solid ${props => props.theme.colors.greenBean};
   border-radius: 50%;
   z-index: 1000;
   cursor: pointer;
@@ -35,41 +36,42 @@ const BackToTop = styled.button`
   transition: opacity 0.4s;
   opacity: 1;
   padding: 10px;
-  background: ${(props) => props.theme.colors.white};
+  background: ${props => props.theme.colors.white};
+
+  @media ${props => props.theme.breakpoints.md} {
+    display: ${props => (props.showScroll ? 'flex' : 'none')};
+  }
+
+  @media ${props => props.theme.breakpoints.mdMax} {
+    transform: scale(0.7);
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    margin-bottom: 60px;
+  }
+
   &:before {
     content: '';
     mask: url('/app/assets/icons/arrow.svg') no-repeat 50% 50%;
     mask-size: cover;
     width: 20px;
     height: 20px;
-    border: 1px solid ${(props) => props.theme.colors.greenBean};
-    background: ${(props) => props.theme.colors.greenBean};
+    border: 1px solid ${props => props.theme.colors.greenBean};
+    background: ${props => props.theme.colors.greenBean};
   }
 
   &:hover {
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: ${props => props.theme.boxShadow.xLight};
   }
 
   &:active {
-    background: ${(props) => props.theme.colors.greenBean};
+    background: ${props => props.theme.colors.greenBean};
 
     &:before {
-      border-color: ${(props) => props.theme.colors.white};
-      background: ${(props) => props.theme.colors.white};
+      border-color: ${props => props.theme.colors.white};
+      background: ${props => props.theme.colors.white};
     }
   }
-
-  ${breakpoint('md')`
-    display: ${(props) => (props.showScroll ? 'flex' : 'none')};
-  `}
-
-  ${breakpoint('md', 'lg')`
-    transform: scale(0.7);
-  `}
-
-  ${breakpoint('lg')`
-    margin-bottom: 60px;
-  `}
 `;
 
 const ScreenReaderText = styled.span`

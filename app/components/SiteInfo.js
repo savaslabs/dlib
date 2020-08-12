@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 
 const siteInfo = ({ header, footer }) => {
   return (
@@ -26,11 +25,13 @@ const siteInfo = ({ header, footer }) => {
 };
 
 const SiteName = styled(NavLink)`
-  ${breakpoint('sm', 'md')`
-    ${props => props.footer && `color: ${props.theme.colors.white};`}
-  `}
+  font-weight: ${props => props.theme.fontWeight.bold};
+  line-height: ${props => props.theme.lineHeight.snug};
+  letter-spacing: 0.02em;
+  font-size: ${props => props.theme.fontSize.md};
+  padding-top: 30px;
 
-  ${(props) =>
+  ${props =>
     props.footer &&
     `
       z-index: 1;
@@ -39,45 +40,56 @@ const SiteName = styled(NavLink)`
       max-width: 250px;
   `}
 
-  ${(props) =>
+  ${props =>
     props.header &&
     `
     color: ${props.theme.colors.white};
   `}
 
-  font-weight: ${(props) => props.theme.fontWeight.bold};
-  line-height: ${(props) => props.theme.lineHeight.snug};
-  letter-spacing: 0.02em;
-  font-size: ${(props) => props.theme.fontSize.md};
-  padding-top: 30px;
-  ${breakpoint('md')`
-    font-size: 24px;
-  `}
-  ${breakpoint('lg')`
-    font-size: 31px;
-    line-height: 1.31;
-    background-color: ${(props) => props.header ? props.theme.colors.greenBean : props.theme.colors.white};
+  @media ${props => props.theme.breakpoints.smMax} {
+    ${props =>
+      props.footer &&
+      `
+    color: ${props.theme.colors.white};
+    padding: 0 0 30px 0;
+    `}
+  }
+
+  @media ${props => props.theme.breakpoints.md} {
+    font-size: ${props => props.theme.fontSize.lg};
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    font-size: ${props => props.theme.fontSize.xl};
+    line-height: ${props => props.theme.lineHeight.loose};
+    background-color: ${props =>
+      props.header ? props.theme.colors.greenBean : props.theme.colors.white};
     padding: 20px 60px 24px 0;
-  `}
+  }
 `;
 
 const CollectionInfo = styled.div`
   padding-top: 50px;
-  color: ${(props) => props.header ? props.theme.colors.greenBean : props.theme.colors.white};
-  font-size: ${(props) => props.theme.fontSize.sm};
+  color: ${props => (props.header ? props.theme.colors.greenBean : props.theme.colors.white)};
+  font-size: ${props => props.theme.fontSize.sm};
+
+  @media ${props => props.theme.breakpoints.smMax} {
+    ${props => props.footer && `display: none`};
+  }
+
+  @media ${props => props.theme.breakpoints.mdMax} {
+    ${props => props.header && `padding-top: 40px;`}
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    padding-top: 22px;
+    font-size: ${props => props.theme.fontSize.md};
+  }
+
   p a {
     text-decoration: underline;
     color: inherit;
   }
-
-  ${breakpoint('md', 'lg')`
-    ${props => props.header && `padding-top: 20px;`}
-  `}
-
-  ${breakpoint('lg')`
-    padding-top: 22px;
-    font-size: ${(props) => props.theme.fontSize.md};
-  `}
 `;
 
 export default siteInfo;

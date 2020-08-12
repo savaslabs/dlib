@@ -1,7 +1,6 @@
 import React from 'react';
 import SiteInfo from './SiteInfo';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 
 const footer = () => {
   return (
@@ -20,9 +19,10 @@ const Footer = styled.footer`
   position: relative;
   width: 100vw;
   z-index: 50;
-  ${breakpoint('lg')`
+
+  @media ${props =>props.theme.breakpoints.lg} {
     height: 361px;
-  `}
+  }
 
   ::before {
     content: '';
@@ -31,17 +31,20 @@ const Footer = styled.footer`
     position: absolute;
     left: 0;
     top: 30px;
-    ${breakpoint('md')`
+
+    @media ${props => props.theme.breakpoints.md} {
       width: 35%;
       height: 133px;
-    `}
-    ${breakpoint('lg')`
+    }
+
+    @media ${props => props.theme.breakpoints.lg} {
       width: 20%;
       height: 164px;
-    `}
-    ${breakpoint('max')`
+    }
+
+    @media ${props => props.theme.breakpoints.max} {
       width: 30%;
-    `}
+    }
   }
 `;
 
@@ -49,9 +52,10 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   ${(props) => props.theme.smContainer};
-  ${breakpoint('lg')`
+
+  @media ${props => props.theme.breakpoints.lg} {
     ${(props) => props.theme.lgContainer};
-  `}
+  }
 `;
 
 

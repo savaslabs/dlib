@@ -7,7 +7,6 @@ import menuClose from '../assets/icons/menu--close.svg';
 import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import styled, { ThemeContext } from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
 import PropTypes from 'prop-types';
@@ -33,7 +32,7 @@ const header = ({ eventPages }) => {
 
   // Ensure focus lock only is occuring on mobile screenwidths.
   useEffect(() => {
-    windowSize.width > themeContext.breakpoints.md && setMobileMenuState(false);
+    (windowSize.width >= 768) && setMobileMenuState(false);
   }, [windowSize.width]);
 
   // Handle user interaction with nav items, submenu toggle, and submenu.
@@ -50,7 +49,7 @@ const header = ({ eventPages }) => {
         }
 
         // Tablet/desktop event handling for subMenu toggle.
-        if (windowSize.width >= themeContext.breakpoints.md) {
+        if (windowSize.width >= 768) {
           switch (eventType) {
             case 'mouseenter':
               setMouseOverSubMenuToggle(true);
@@ -73,7 +72,7 @@ const header = ({ eventPages }) => {
         break;
       case false:
         // Tablet/desktop event handling for top level nav items.
-        if (windowSize.width >= themeContext.breakpoints.md) {
+        if (windowSize.width >= 768) {
           switch (eventType) {
             case 'focus':
             case 'mouseenter':
@@ -141,11 +140,11 @@ const header = ({ eventPages }) => {
                         subMenu={subMenuState}
                         onFocus={() => toggleSubMenu('focus', true)}
                         onClick={() => toggleSubMenu('click', true)}
-                        onKeyDown={(e) => toggleSubMenu('keydown', true, e)}
+                        onKeyDown={e => toggleSubMenu('keydown', true, e)}
                         onMouseEnter={() => toggleSubMenu('mouseenter', true)}
                         onMouseLeave={() => toggleSubMenu('mouseleave', true)}
-                        tabIndex='0'
-                        aria-controls='menu-subMenu'
+                        tabIndex="0"
+                        aria-controls="menu-subMenu"
                         aria-expanded={subMenuState}
                       >
                         {route.component}
@@ -163,7 +162,7 @@ const header = ({ eventPages }) => {
                         to={`/${route.route}`}
                         key={index}
                         onFocus={() => toggleSubMenu('focus', false)}
-                        onKeyDown={(e) => toggleSubMenu('keydown', false, e)}
+                        onKeyDown={e => toggleSubMenu('keydown', false, e)}
                         onMouseEnter={() => toggleSubMenu('mouseenter', false)}
                       >
                         <li>{route.component}</li>
@@ -196,8 +195,9 @@ header.propTypes = {
 const Header = styled.header`
   position: relative;
   background: ${(props) => props.theme.colors.white};
-  z-index: 50;
+  z-index: 100;
   padding-top: 74px;
+
   ::before {
     content: '';
     background-color: ${(props) => props.theme.colors.greenBean};
@@ -208,17 +208,20 @@ const Header = styled.header`
     top: 0;
     width: 100%;
     z-index: -1;
-    ${breakpoint('md')`
+
+    @media ${props => props.theme.breakpoints.md} {
       width: 35%;
       height: 133px;
-    `}
-    ${breakpoint('lg')`
+    }
+
+    @media ${props => props.theme.breakpoints.lg} {
       width: 20%;
       height: 164px;
-    `}
-    ${breakpoint('max')`
+    }
+
+    @media ${props => props.theme.breakpoints.max} {
       width: 30%;
-    `}
+    }
   }
 `;
 
@@ -226,20 +229,22 @@ const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
   ${(props) => props.theme.smContainer};
-  ${breakpoint('md')`
+
+  @media ${props => props.theme.breakpoints.md} {
     flex-direction: column;
     ${(props) => props.theme.lgContainer};
-  `}
+  }
 `;
 
 const Top = styled.div`
   display: flex;
   flex-direction: column;
-  ${breakpoint('md')`
+
+  @media ${props => props.theme.breakpoints.md} {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 115px;
-  `}
+  }
 `;
 
 const Left = styled.div`
@@ -252,41 +257,45 @@ const Right = styled.p`
   letter-spacing: 0.02em;
   font-size: ${(props) => props.theme.fontSize.sm};
   line-height: ${(props) => props.theme.lineHeight.xLoose};
-  ${breakpoint('sm', 'md')`
+
+  @media ${props => props.theme.breakpoints.smMax} {
     padding-top: 30px;
-  `}
-  ${breakpoint('md')`
+  }
+
+  @media ${props => props.theme.breakpoints.md} {
     max-width: 425px;
-  `}
-  ${breakpoint('lg')`
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
     padding-left: 30px;
     flex: 1;
     max-width: 735px;
     font-size: ${(props) => props.theme.fontSize.md};
     line-height: ${(props) => props.theme.lineHeight.loose};
-  `}
+  }
 `;
 
 const Nav = styled.nav`
-  ${breakpoint('sm', 'md')`
+  @media ${props => props.theme.breakpoints.smMax} {
     display: block;
-    ${(props) => props.state && `position: fixed;`}
+    ${props => props.state && `position: fixed;`}
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 9999;
-  `}
-  ${breakpoint('md')`
+  }
+
+  @media ${props => props.theme.breakpoints.md} {
     z-index: 999;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    ${(props) => props.theme.containerFullWidth};
-    background-color: ${(props) => props.theme.colors.bgGray};
-  `}
+    ${props => props.theme.containerFullWidth};
+    background-color: ${props => props.theme.colors.bgGray};
+    box-shadow: ${props => props.theme.boxShadow.med};
+  }
 `;
 
 const NavContainer = styled.div`
-  ${breakpoint('sm', 'md')`
+  @media ${props => props.theme.breakpoints.smMax} {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -308,7 +317,7 @@ const NavContainer = styled.div`
       `
       align-items: flex-end;
     `}
-  `}
+  }
 `;
 
 const SiteNameWrapper = styled.div`
@@ -320,24 +329,34 @@ const SiteNameWrapper = styled.div`
 `;
 
 const SiteName = styled.p`
-  color: ${(props) => props.theme.colors.white};
-  font-size: 21px;
-  line-height: 1.14;
+  color: ${props => props.theme.colors.white};
+  font-size: ${props => props.theme.fontSize.md};
+  line-height: ${props => props.theme.lineHeight.snug};
   letter-spacing: 0.02em;
   padding: 34px 18px;
 `;
 
 const MobileMenuToggle = styled.button`
   z-index: 20;
-  margin-top: 40px;
-  background: white;
+  margin-top: 30px;
+  background: ${props => props.theme.colors.white};
+
+  /* stylelint-disable-next-line declaration-property-value-blacklist */
   border: none;
+
+  @media ${props => props.theme.breakpoints.smMax} {
+    display: flex;
+    align-self: flex-end;
+  }
+
+  @media ${props => props.theme.breakpoints.md} {
+    display: none;
+  }
+
   &:before {
     content: '';
-    ${(props) =>
-      !props.state &&
-      `mask: url('/app/assets/icons/menu--open.svg') no-repeat 50% 50%;`}
-    ${(props) =>
+    ${props => !props.state && `mask: url('/app/assets/icons/menu--open.svg') no-repeat 50% 50%;`}
+    ${props =>
       props.state &&
       `mask: url('/app/assets/icons/menu--close.svg') no-repeat 50% 50%;`}
     mask-size: cover;
@@ -347,16 +366,8 @@ const MobileMenuToggle = styled.button`
     width: 20px;
     height: 20px;
     right: 10px;
-    background: ${(props) => props.theme.colors.charcoal};
+    background: ${props => props.theme.colors.charcoal};
   }
-  ${breakpoint('sm', 'md')`
-    display: flex;
-    align-self: flex-end;
-  `}
-
-  ${breakpoint('md')`
-    display: none;
-  `}
 `;
 
 const ScreenReaderText = styled.span`
@@ -364,14 +375,15 @@ const ScreenReaderText = styled.span`
 `;
 
 const Menu = styled.ul`
-  display: ${(props) => (props.state ? 'flex' : 'none')};
+  display: ${props => (props.state ? 'flex' : 'none')};
   justify-content: flex-end;
   flex-direction: column;
   z-index: 100;
-  background: ${(props) => props.theme.colors.white};
-  ${(props) => props.theme.smContainer};
-  ${breakpoint('sm', 'md')`
-    ${(props) =>
+  background: ${props => props.theme.colors.white};
+  ${props => props.theme.smContainer};
+
+  @media ${props => props.theme.breakpoints.smMax} {
+    ${props =>
       props.state &&
       `
         width: calc(100vw - 36px);
@@ -386,20 +398,20 @@ const Menu = styled.ul`
           text-align: center;
         }
     `}
-  `}
+  }
 
-  ${breakpoint('md')`
+  @media ${props => props.theme.breakpoints.md} {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: ${(props) => props.theme.colors.bgGray};
-    ${(props) => props.theme.lgContainer};
-  `}
+    background: ${props => props.theme.colors.bgGray};
+    ${props => props.theme.lgContainer};
+  }
 
   a:hover li,
   a:focus li {
-    font-weight: ${(props) => props.theme.fontWeight.bold};
+    font-weight: ${props => props.theme.fontWeight.bold};
   }
 
   a li {
@@ -409,42 +421,37 @@ const Menu = styled.ul`
   a + li {
     padding-top: 20px;
 
-    ${breakpoint('sm', 'md')`
-      ${(props) => !props.subMenu && `padding-bottom: 17px;`}
-    `}
+    @media ${props => props.theme.breakpoints.smMax} {
+      ${props => !props.subMenu && `padding-bottom: 17px;`}
+    }
   }
 
   li {
-    color: ${(props) => props.theme.colors.greenBean};
-    line-height: 1.12;
-    font-size: 24px;
+    color: ${props => props.theme.colors.greenBean};
+    line-height: ${props => props.theme.lineHeight.tight};
+    font-size: ${props => props.theme.fontSize.lg};
 
-    ${breakpoint('sm', 'md')`
-      border-bottom: 1px solid ${(props) => props.theme.colors.greenBean};
-    `}
+    @media ${props => props.theme.breakpoints.smMax} {
+      border-bottom: 1px solid ${props => props.theme.colors.greenBean};
+    }
 
-    ${breakpoint('md')`
-      font-size: 16px;
+    @media ${props => props.theme.breakpoints.md} {
+      font-size: ${props => props.theme.fontSize.xs};
       letter-spacing: 0.02em;
-    `};
+    }
 
-    ${breakpoint('lg')`
-      font-size: 24px;
-      line-height: 1.125;
+    @media ${props => props.theme.breakpoints.lg} {
+      font-size: ${props => props.theme.fontSize.lg};
       padding: 20px 0;
-    `}
+    }
   }
 `;
 
 const SubMenuToggle = styled.li`
   position: relative;
 
-  &:hover {
-    font-weight: ${props => props.theme.fontWeight.bold};
-  }
-
-  ${breakpoint('sm', 'md')`
-    ${(props) =>
+  @media ${props => props.theme.breakpoints.smMax} {
+    ${props =>
       props.state &&
       `
         width: 100%;
@@ -464,7 +471,7 @@ const SubMenuToggle = styled.li`
         }
     `}
 
-    ${(props) =>
+    ${props =>
       props.state && !props.subMenu
         ? `
       &:after {
@@ -479,7 +486,11 @@ const SubMenuToggle = styled.li`
         top: -718px;
       }
     `}
-  `}
+  }
+
+  &:hover {
+    font-weight: ${props => props.theme.fontWeight.bold};
+  }
 `;
 
 export default header;

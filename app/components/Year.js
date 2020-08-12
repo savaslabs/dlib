@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 
 const year = ({ front }) => {
   return (
@@ -26,9 +25,10 @@ const SVG = styled.svg`
   top: -35px;
   z-index: 20;
   left: -6px;
-  ${breakpoint('lg')`
+
+  @media ${props => props.theme.breakpoints.lg} {
     left: 47.3%;
-  `}
+  }
 `;
 
 const Circle = styled.circle`

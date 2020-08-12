@@ -5,7 +5,6 @@ import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
 import { Helmet } from 'react-helmet';
@@ -254,25 +253,40 @@ const Content = styled.main`
 `;
 
 const FloatWrapper = styled.div`
-  ${breakpoint('md')`
+  @media ${props => props.theme.breakpoints.md} {
     margin-right: -20px;
-  `}
-  ${breakpoint('lg')`
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
     margin-right: -21px;
-  `}
+  }
 `;
 
 const Main = styled.div`
-  ${breakpoint('lg')`
-    width: ${(props) => (props.gallery ? '100%' : '782px')};
+  @media ${props => props.theme.breakpoints.lg} {
+    width: ${props => props.gallery ? '100%' : '782px'};
     height: fit-content;
     float: left;
     margin-right: 105px;
-  `}
+  }
 `;
 
 const H1 = styled.h1`
-  line-height: 1.15;
+  font-size: ${props => props.theme.fontSize.md};
+  line-height: ${props => props.theme.lineHeight.xLoose};
+
+  @media ${props => props.theme.breakpoints.md} {
+    font-size: ${props => props.theme.fontSize.mdLg};
+    line-height: ${props => props.theme.lineHeight.snug};
+  }
+
+  @media ${props => props.theme.breakpoints.mdMax} {
+    margin: 50px 0 20px 0;
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    font-size: ${props => props.theme.fontSize.xxl};
+  }
 `;
 
 const P = styled(Markdown)`
@@ -293,13 +307,22 @@ const Figure = styled.figure`
   display: flex;
   flex-direction: column;
   font-style: italic;
-  font-size: ${(props) => props.theme.fontSize.lg};
-  line-height: ${(props) => props.theme.lineHeight.loose};
+  font-size: ${props => props.theme.fontSize.sm};
+  line-height: ${props => props.theme.lineHeight.loose};
   margin-bottom: 30px;
+
+  @media ${props => props.theme.fontSize.md} {
+    font-size: ${props => props.theme.fontSize.md};
+  }
+
+  @media ${props => props.theme.fontSize.lg} {
+    font-size: ${props => props.theme.fontSize.lg};
+  }
+
   &:before {
     content: '';
     position: absolute;
-    border-left: 8px solid ${(props) => props.theme.colors.greenBean};
+    border-left: 8px solid ${props => props.theme.colors.greenBean};
     left: 0;
     height: 100%;
     width: 1px;
@@ -318,6 +341,7 @@ const Figcaption = styled.figcaption`
   color: ${(props) => props.theme.colors.greenBean};
   max-width: 60%;
   position: relative;
+
   &:before {
     content: '—';
     position: absolute;
@@ -335,6 +359,7 @@ const Li = styled.li`
   line-height: ${(props) => props.theme.lineHeight.xxLoose};
   font-size: ${(props) => props.theme.fontSize.sm};
   position: relative;
+
   p a {
     color: ${(props) => props.theme.colors.darkGreen};
     line-height: ${(props) => props.theme.lineHeight.xxLoose};
@@ -363,17 +388,19 @@ const InlineImage = styled.img`
   object-fit: cover;
   margin-bottom: 18px;
 
-  &:hover {
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
-  }
-  ${breakpoint('sm', 'lg')`
+  @media ${props => props.theme.breakpoints.mdMax} {
     width: calc(100vw - 36px);
     height: calc(100vw - 36px);
-  `}
-  ${breakpoint('md')`
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
     margin-right: 30px;
     width: 100%;
-  `}
+  }
+
+  &:hover {
+    box-shadow: ${props => props.theme.boxShadow.xDark};
+  }
 `;
 
 const InlineImageCaption = styled.p`
@@ -386,18 +413,13 @@ const SideImage = styled.img`
   height: calc(100vw - 36px);
   margin-bottom: 18px;
 
-  &:hover {
-    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.29);
-    cursor: pointer;
-  }
-
-  ${breakpoint('md')`
+  @media ${props => props.theme.breakpoints.md} {
     width: 230px;
     height: 230px;
     margin: 0 20px 27px 0;
-  `}
+  }
 
-  ${breakpoint('lg')`
+  @media ${props => props.theme.breakpoints.lg} {
     width: 275px;
     height: 275px;
     margin: 0 21px 23px 0;
@@ -405,7 +427,12 @@ const SideImage = styled.img`
     &:first-of-type {
       margin-top: 85px;
     }
-  `}
+  }
+
+  &:hover {
+    box-shadow: ${props => props.theme.boxShadow.xDark};
+    cursor: pointer;
+  }
 `;
 
 const GalleryGrid = styled.div`
@@ -413,10 +440,10 @@ const GalleryGrid = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
 
-  ${breakpoint('md')`
+  @media ${props => props.theme.breakpoints.md} {
     flex-direction: row;
     justify-content: space-between;
-  `}
+  }
 `;
 
 const GalleryImage = styled.img`
@@ -424,16 +451,18 @@ const GalleryImage = styled.img`
   width: calc(100vw - 36px);
   height: calc(100vw - 36px);
   margin-bottom: 18px;
-  ${breakpoint('md')`
+
+  @media ${props => props.theme.breakpoints.md} {
     width: 225px;
     height: 225px;
     margin-bottom: 30px;
-  `}
-  ${breakpoint('lg')`
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
     width: 347px;
     height: 347px;
     margin-bottom: 75px;
-  `}
+  }
 `;
 
 export default basic;

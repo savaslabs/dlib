@@ -19,7 +19,6 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './utils/theme';
 import GlobalStyles from './globalStyles';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 import './index.css';
 
 const App = () => {
@@ -137,9 +136,10 @@ const App = () => {
 
 const ContentContainer = styled.div`
   ${(props) => props.theme.smContainer};
-  ${breakpoint('lg')`
+
+  @media ${props => props.theme.breakpoints.lg} {
     ${(props) => props.theme.lgContainer};
-  `}
+  }
 `;
 
 const ScreenReaderText = styled.span`

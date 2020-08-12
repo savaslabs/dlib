@@ -1,7 +1,6 @@
 import React from 'react';
 import { cleanJSON } from '../utils/constants';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 
@@ -47,51 +46,55 @@ card.propTypes = {
 };
 
 const Card = styled.article`
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: ${props => props.theme.boxShadow.light};
   border-radius: 4px;
   padding: 12px 10px;
   letter-spacing: 0.02em;
   position: relative;
   border-top: 6px;
   border-top-style: solid;
-  border-color: #e0e0e0;
+  border-color: ${props => props.theme.colors.lightGray};
   margin-bottom: 30px;
-  ${breakpoint('sm', 'lg')`
+
+  @media ${props => props.theme.breakpoints.mdMax} {
     &:before {
-      ${(props) =>
+      ${props =>
         props.scope === 'national' &&
         `
       left: -1px;
     `};
     }
-  `}
-  ${breakpoint('md')`
+  }
+
+  @media ${props => props.theme.breakpoints.md} {
     width: 500px;
     padding: 24px;
-  `}
-  ${breakpoint('lg')`
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
     width: 415px;
+
     &:before {
-      ${(props) =>
+      ${props =>
         props.scope === 'national' &&
         `
       right: 0;
     `};
     }
-  `}
+  }
 
   /* Animated border color */
   &:before {
     transition: all linear 0.7s;
     transition-delay: 0.4s;
-    background: none
-      ${(props) => (props.scope === 'national' ? '#d5cc7f' : '#41796f;')};
+    background: ${props => (props.scope === 'national' ? '#d5cc7f' : '#41796f;')};
     content: '';
     display: block;
     height: 6px;
     width: 0%;
     position: absolute;
-    ${(props) =>
+
+    ${props =>
       props.scope === 'durham' &&
       `
       left: 0;
@@ -123,20 +126,17 @@ const Level = styled.p`
   border-radius: 19px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  line-height: 1.21;
+  line-height: ${props => props.theme.lineHeight.loose};
   margin-bottom: 10px;
   padding: 1px 10px;
-  background: ${(props) =>
-    props.scope === 'national'
-      ? props.theme.colors.leafy
-      : props.theme.colors.greenBean};
-  color: ${(props) =>
-    props.scope === 'national'
-      ? props.theme.colors.charcoal
-      : props.theme.colors.white};
-  ${breakpoint('md')`
+  background: ${props =>
+    props.scope === 'national' ? props.theme.colors.leafy : props.theme.colors.greenBean};
+  color: ${props =>
+    props.scope === 'national' ? props.theme.colors.charcoal : props.theme.colors.white};
+
+  @media ${props => props.theme.breakpoints.lg} {
     display: none;
-  `}
+  }
 `;
 
 const CardImage = styled.img`
@@ -171,16 +171,20 @@ const ExternalLink = styled.a`
 const LinkTitle = styled.p`
   text-decoration: underline;
   cursor: pointer;
-  line-height: 1.28;
-  color: ${(props) => props.theme.colors.greenBean};
-  font-size: ${(props) => props.theme.fontSize.sm};
+  line-height: ${props => props.theme.lineHeight.mdLoose};
+  color: ${props => props.theme.colors.greenBean};
+  font-size: ${props => props.theme.fontSize.xs};
+
+  @media ${props => props.theme.breakpoints.md} {
+    font-size: ${props => props.theme.fontSize.sm};
+  }
 `;
 
 const LinkSource = styled.p`
   cursor: pointer;
-  line-height: 1.44;
-  color: ${(props) => props.theme.colors.linkSource};
-  font-size: ${(props) => props.theme.fontSize.xs};
+  line-height: ${props => props.theme.lineHeight.mdLoose};
+  color: ${props => props.theme.colors.linkSource};
+  font-size: ${props => props.theme.fontSize.xs};
 `;
 
 export default card;
