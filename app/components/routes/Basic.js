@@ -9,14 +9,7 @@ import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
 import { Helmet } from 'react-helmet';
 
-const basic = ({
-  event,
-  type,
-  imageData,
-  imageIds,
-  imageAltText,
-  imageCaptions,
-}) => {
+const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const location = useLocation();
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -35,13 +28,11 @@ const basic = ({
       el.hasOwnProperty('image') ? lightBoxImageIds.push(el.image) : null;
     });
     // Add additional event image ids if they exist.
-    lightBoxImageIds = event.images
-      ? lightBoxImageIds.concat(event.images)
-      : lightBoxImageIds;
+    lightBoxImageIds = event.images ? lightBoxImageIds.concat(event.images) : lightBoxImageIds;
 
-    lightBoxImageIds.forEach((id) => {
+    lightBoxImageIds.forEach(id => {
       eventLightBoxData.push(
-        imageData.filter((imageInfo) => {
+        imageData.filter(imageInfo => {
           if (imageInfo.ID === id) {
             return imageInfo;
           }
@@ -50,9 +41,9 @@ const basic = ({
     });
 
     // Create captions array for lightbox.
-    captions = eventLightBoxData.map((c) => {
+    captions = eventLightBoxData.map(c => {
       return c
-        .map((ci) => {
+        .map(ci => {
           return prepareCaptions(ci);
         })
         .flat();
@@ -74,39 +65,42 @@ const basic = ({
   }
 
   // Open lightbox anytime a photo is clicked.
-  const openLightbox = (e) => {
+  const openLightbox = e => {
     const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
     setPhotoIndex(photoIndex);
     setIsLightboxOpen(true);
   };
 
-  const closeLightbox = (e) => {
+  const closeLightbox = e => {
     setIsLightboxOpen(false);
   };
 
-  const nextLightboxImage = (e) => {
+  const getImageIds = () => {
     let ids;
     if (event) {
       ids = lightBoxImageIds;
     } else {
       ids = imageIds;
     }
-
-    setPhotoIndex(photoIndex + 1 < ids.length ? photoIndex + 1 : 0);
+    return ids;
   };
 
+  const nextLightboxImage = e => {
+    setPhotoIndex(photoIndex + 1 < getImageIds().length ? photoIndex + 1 : 0);
+  };
+
+  const prevLightboxImage = e => {
+    setPhotoIndex(photoIndex - 1 > 0 ? photoIndex - 1 : getImageIds()[getImageIds().length - 1]);
+  };
   return (
     <>
       <Helmet>
         <title>{`${data.name} | Durham Civil Rights Heritage Project`}</title>
-        <meta
-          property='og:title'
-          content={`${data.name} | Durham Civil Rights Heritage Project`}
-        />
-        <meta property='description' content={ogDescription} />
-        <meta property='og:description' content={ogDescription} />
-        <link rel='logo' type='image/svg' href={ogImage} />
-        <meta property='og:image' content={ogImage} />
+        <meta property="og:title" content={`${data.name} | Durham Civil Rights Heritage Project`} />
+        <meta property="description" content={ogDescription} />
+        <meta property="og:description" content={ogDescription} />
+        <link rel="logo" type="image/svg" href={ogImage} />
+        <meta property="og:image" content={ogImage} />
       </Helmet>
       <Content isLightboxOpen={isLightboxOpen}>
         <FloatWrapper>
@@ -149,7 +143,7 @@ const basic = ({
                   );
                   // Inline image with caption.
                 } else if (item.hasOwnProperty('image')) {
-                  const foundImage = imageData.filter((imageInfo) => {
+                  const foundImage = imageData.filter(imageInfo => {
                     return imageInfo.ID === item.image;
                   });
                   return (
@@ -189,13 +183,12 @@ const basic = ({
               })}
             {(type === 'gallery' || event) && (
               <Lightbox
-                imageIds={
-                  lightBoxImageIds.length > 0 ? lightBoxImageIds : imageIds
-                }
+                imageIds={lightBoxImageIds.length > 0 ? lightBoxImageIds : imageIds}
                 imageCaptions={captions.length > 0 ? captions : imageCaptions}
                 isOpen={isLightboxOpen}
                 photoIndex={photoIndex}
                 closeLightbox={closeLightbox}
+                prevLightboxImage={prevLightboxImage}
                 nextLightboxImage={nextLightboxImage}
                 eventPage={event}
               />
@@ -203,7 +196,7 @@ const basic = ({
           </Main>
           {data.images &&
             data.images.map((imageId, idx) => {
-              const foundImage = imageData.filter((imageInfo) => {
+              const foundImage = imageData.filter(imageInfo => {
                 return imageInfo.ID === imageId;
               });
               return (
@@ -244,7 +237,9 @@ basic.propTypes = {
 
 // Prevent scroll and ensure header is behind lightbox when open.
 const Content = styled.main`
-  ${props => props.isLightboxOpen && `
+  ${props =>
+    props.isLightboxOpen &&
+    `
     z-index: 999;
     overflow-y: hidden;
   `}
@@ -268,7 +263,7 @@ const FloatWrapper = styled.div`
 
 const Main = styled.div`
   @media ${props => props.theme.breakpoints.lg} {
-    width: ${props => props.gallery ? '100%' : '782px'};
+    width: ${props => (props.gallery ? '100%' : '782px')};
     height: fit-content;
     float: left;
     margin-right: 105px;
@@ -295,10 +290,10 @@ const H1 = styled.h1`
 
 const P = styled(Markdown)`
   margin-bottom: 30px;
-  font-size: ${(props) => props.theme.fontSize.sm};
+  font-size: ${props => props.theme.fontSize.sm};
 
   a {
-    color: ${(props) => props.theme.colors.greenBean};
+    color: ${props => props.theme.colors.greenBean};
   }
 `;
 
@@ -342,7 +337,7 @@ const Blockquote = styled.blockquote`
 const Figcaption = styled.figcaption`
   margin-top: 10px;
   align-self: flex-end;
-  color: ${(props) => props.theme.colors.greenBean};
+  color: ${props => props.theme.colors.greenBean};
   max-width: 60%;
   position: relative;
 
@@ -360,13 +355,13 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  line-height: ${(props) => props.theme.lineHeight.xxLoose};
-  font-size: ${(props) => props.theme.fontSize.sm};
+  line-height: ${props => props.theme.lineHeight.xxLoose};
+  font-size: ${props => props.theme.fontSize.sm};
   position: relative;
 
   p a {
-    color: ${(props) => props.theme.colors.darkGreen};
-    line-height: ${(props) => props.theme.lineHeight.xxLoose};
+    color: ${props => props.theme.colors.darkGreen};
+    line-height: ${props => props.theme.lineHeight.xxLoose};
     text-decoration: underline;
   }
 
@@ -374,7 +369,7 @@ const Li = styled.li`
     content: '';
     position: absolute;
     left: -30px;
-    background: ${(props) => props.theme.colors.greenBean};
+    background: ${props => props.theme.colors.greenBean};
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -408,7 +403,7 @@ const InlineImage = styled.img`
 `;
 
 const InlineImageCaption = styled.p`
-  font-weight: ${(props) => props.theme.fontWeight.bold};
+  font-weight: ${props => props.theme.fontWeight.bold};
 `;
 
 const SideImage = styled.img`
