@@ -10,11 +10,14 @@
       "@babel/preset-react"
     ]
   },
-  "homepage": "http://www.durhamcountylibrary.org/exhibits/dcrhp",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
-    "build": "webpack --config ./webpack.config.js"
+    "build": "webpack --config ./webpack.config.js",
+    "postbuild": "react-snap"
+  },
+  "reactSnap": {
+    "source": "./dist"
   },
   "dependencies": {
     "file-loader": "^6.0.0",
@@ -25,6 +28,7 @@
     "react-focus-lock": "^2.4.1",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
+    "react-snap": "^1.23.0",
     "styled-components": "^5.1.1",
     "styled-normalize": "^8.0.7"
   },
