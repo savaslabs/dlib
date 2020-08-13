@@ -13,6 +13,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
+    "prebuild": "rm -R dist/* && cp ./_redirects ./dist && mkdir ./dist/app && cp -R ./app/assets ./dist/app",
     "build": "webpack --config ./webpack.config.js",
     "postbuild": "react-snap"
   },
