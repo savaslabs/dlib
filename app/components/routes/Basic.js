@@ -97,11 +97,15 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     <>
       <Helmet>
         <title>{`${data.name} | Durham Civil Rights Heritage Project`}</title>
-        <meta property="og:title" content={`${data.name} | Durham Civil Rights Heritage Project`} />
-        <meta property="description" content={ogDescription} />
-        <meta property="og:description" content={ogDescription} />
-        <link rel="logo" type="image/svg" href={ogImage} />
-        <meta property="og:image" content={ogImage} />
+        <meta
+          property="og:title"
+          content={`${data.name} | Durham Civil Rights Heritage Project`}
+          data-react-helmet="true"
+        />
+        <meta property="description" content={ogDescription} data-react-helmet="true" />
+        <meta property="og:description" content={ogDescription} data-react-helmet="true" />
+        <link rel="logo" type="image/svg" href={ogImage} data-react-helmet="true" />
+        <meta property="og:image" content={ogImage} data-react-helmet="true" />
         <html style={isLightboxOpen ? 'overflow: hidden;' : null} />
         <body style={isLightboxOpen ? themeContext.noScrollBody : null} />
       </Helmet>

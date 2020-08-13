@@ -66,9 +66,13 @@ const timeline = ({ timeline }) => {
     <>
       <Helmet>
         <title>Timeline | Durham Civil Rights Heritage Project</title>
-        <meta property="og:title" content="Timeline | Durham Civil Rights Heritage Project" />
-        <link rel="logo" type="image/svg" href={ogImage} />
-        <meta property="og:image" content={ogImage} />
+        <meta
+          property="og:title"
+          content="Timeline | Durham Civil Rights Heritage Project"
+          data-react-helmet="true"
+        />
+        <link rel="logo" type="image/svg" href={ogImage} data-react-helmet="true" />
+        <meta property="og:image" content={ogImage} data-react-helmet="true" />
       </Helmet>
       <main>
         <H1>Civil Rights Timeline</H1>
