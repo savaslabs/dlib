@@ -10,9 +10,7 @@ const timelineKey = () => {
           timelineScopes.map((header, i) => {
             return (
               <Keys key={i}>
-                <TimelineHeader>
-                  {header.title}
-                </TimelineHeader>
+                <TimelineHeader>{header.title}</TimelineHeader>
               </Keys>
             );
           })}
@@ -30,8 +28,8 @@ const Sticky = styled.div`
     position: sticky;
     top: 0;
     z-index: 50;
-    ${(props) => props.theme.containerFullWidth};
-    background: ${(props) => props.theme.colors.white};
+    ${props => props.theme.containerFullWidth};
+    background: ${props => props.theme.colors.white};
   }
 `;
 

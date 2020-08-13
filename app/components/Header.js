@@ -25,14 +25,12 @@ const header = ({ eventPages }) => {
   const [mouseOverSubMenu, setMouseOverSubMenu] = useState(false);
 
   useEffect(() => {
-    mouseOverSubMenuToggle || mouseOverSubMenu
-      ? setSubMenuState(true)
-      : setSubMenuState(false);
+    mouseOverSubMenuToggle || mouseOverSubMenu ? setSubMenuState(true) : setSubMenuState(false);
   }, [mouseOverSubMenuToggle, mouseOverSubMenu]);
 
   // Ensure focus lock only is occuring on mobile screenwidths.
   useEffect(() => {
-    (windowSize.width >= 768) && setMobileMenuState(false);
+    windowSize.width >= 768 && setMobileMenuState(false);
   }, [windowSize.width]);
 
   // Handle user interaction with nav items, submenu toggle, and submenu.
@@ -113,10 +111,9 @@ const header = ({ eventPages }) => {
         <HeaderContainer>
           <Top>
             <Left>
-              <SiteInfo header='true' />
+              <SiteInfo header="true" />
             </Left>
-            {(location.pathname === '/timeline' ||
-              location.pathname === '/') && (
+            {(location.pathname === '/timeline' || location.pathname === '/') && (
               <Right>{timelineDescription}</Right>
             )}
           </Top>
@@ -194,13 +191,13 @@ header.propTypes = {
 
 const Header = styled.header`
   position: relative;
-  background: ${(props) => props.theme.colors.white};
+  background: ${props => props.theme.colors.white};
   z-index: 100;
   padding-top: 74px;
 
   ::before {
     content: '';
-    background-color: ${(props) => props.theme.colors.greenBean};
+    background-color: ${props => props.theme.colors.greenBean};
     height: 130px;
     position: absolute;
     margin-top: 74px;
@@ -228,11 +225,11 @@ const Header = styled.header`
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  ${(props) => props.theme.smContainer};
+  ${props => props.theme.smContainer};
 
   @media ${props => props.theme.breakpoints.md} {
     flex-direction: column;
-    ${(props) => props.theme.lgContainer};
+    ${props => props.theme.lgContainer};
   }
 `;
 
@@ -255,8 +252,8 @@ const Left = styled.div`
 const Right = styled.p`
   display: flex;
   letter-spacing: 0.02em;
-  font-size: ${(props) => props.theme.fontSize.sm};
-  line-height: ${(props) => props.theme.lineHeight.xLoose};
+  font-size: ${props => props.theme.fontSize.sm};
+  line-height: ${props => props.theme.lineHeight.xLoose};
 
   @media ${props => props.theme.breakpoints.smMax} {
     padding-top: 30px;
@@ -270,8 +267,8 @@ const Right = styled.p`
     padding-left: 30px;
     flex: 1;
     max-width: 735px;
-    font-size: ${(props) => props.theme.fontSize.md};
-    line-height: ${(props) => props.theme.lineHeight.loose};
+    font-size: ${props => props.theme.fontSize.md};
+    line-height: ${props => props.theme.lineHeight.loose};
   }
 `;
 
@@ -306,13 +303,13 @@ const NavContainer = styled.div`
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
-    ${(props) =>
+    ${props =>
       props.state &&
       `
       align-items: center;
       background: white;
     `}
-    ${(props) =>
+    ${props =>
       props.state ||
       `
       align-items: flex-end;
@@ -321,10 +318,10 @@ const NavContainer = styled.div`
 `;
 
 const SiteNameWrapper = styled.div`
-  ${(props) => !props.state && `display: none;`}
+  ${props => !props.state && `display: none;`}
   width: 100%;
   height: 140px;
-  background: ${(props) => props.theme.colors.greenBean};
+  background: ${props => props.theme.colors.greenBean};
   margin-top: auto;
 `;
 
@@ -371,7 +368,7 @@ const MobileMenuToggle = styled.button`
 `;
 
 const ScreenReaderText = styled.span`
-  ${(props) => props.theme.srOnly};
+  ${props => props.theme.srOnly};
 `;
 
 const Menu = styled.ul`

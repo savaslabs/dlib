@@ -4,18 +4,20 @@ import { cleanId, cleanMenuNames } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import styled from 'styled-components';
 
-const subMenu = ({ setMobileMenuState,
+const subMenu = ({
+  setMobileMenuState,
   setMouseOverSubMenu,
   setMouseOverSubMenuToggle,
   mouseOverSubMenu,
   mouseOverSubMenuToggle,
-  eventPages }) => {
+  eventPages,
+}) => {
   const windowSize = useWindowSize();
 
-  const toggleSubMenu = (eventType, e)=> {
+  const toggleSubMenu = (eventType, e) => {
     if (windowSize.width >= 768) {
       // Tablet and desktop event handling.
-      switch(eventType) {
+      switch (eventType) {
         case 'focus':
           setMouseOverSubMenuToggle(true);
           break;
@@ -37,11 +39,11 @@ const subMenu = ({ setMobileMenuState,
       setMouseOverSubMenu(false);
       setMouseOverSubMenuToggle(false);
     }
-  }
+  };
 
   return (
     <SubMenu
-      id='menu-subMenu'
+      id="menu-subMenu"
       onFocus={() => toggleSubMenu('focus')}
       onMouseEnter={() => toggleSubMenu('mouseenter')}
       onMouseLeave={() => toggleSubMenu('mouseleave')}
@@ -51,7 +53,7 @@ const subMenu = ({ setMobileMenuState,
         eventPages.map((page, i) => {
           return (
             <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
-              <li onClick={closeMenus} onKeyDown={(e) => e.which === 13 && closeMenus}>
+              <li onClick={closeMenus} onKeyDown={e => e.which === 13 && closeMenus}>
                 {cleanMenuNames(page)}
               </li>
             </NavLink>

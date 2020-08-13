@@ -7,7 +7,7 @@ const backToTop = ({ showScroll, onClick }) => {
       <ScreenReaderText>Back to top</ScreenReaderText>
     </BackToTop>
   );
-}
+};
 
 const fadeIn = keyframes`
   0% {
@@ -75,7 +75,7 @@ const BackToTop = styled.button`
 `;
 
 const ScreenReaderText = styled.span`
-  ${(props) => props.theme.srOnly}
+  ${props => props.theme.srOnly}
 `;
 
 export default backToTop;

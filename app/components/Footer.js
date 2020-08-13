@@ -13,20 +13,20 @@ const footer = () => {
 };
 
 const Footer = styled.footer`
-  color: ${(props) => props.theme.colors.white};
-  background-color: ${(props) => props.theme.colors.greenBean};
+  color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.greenBean};
   height: fit-content;
   position: relative;
   width: 100vw;
   z-index: 50;
 
-  @media ${props =>props.theme.breakpoints.lg} {
+  @media ${props => props.theme.breakpoints.lg} {
     height: 361px;
   }
 
   ::before {
     content: '';
-    background-color: ${(props) => props.theme.colors.white};
+    background-color: ${props => props.theme.colors.white};
     height: 130px;
     position: absolute;
     left: 0;
@@ -51,12 +51,11 @@ const Footer = styled.footer`
 const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
-  ${(props) => props.theme.smContainer};
+  ${props => props.theme.smContainer};
 
   @media ${props => props.theme.breakpoints.lg} {
-    ${(props) => props.theme.lgContainer};
+    ${props => props.theme.lgContainer};
   }
 `;
-
 
 export default footer;

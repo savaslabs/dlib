@@ -1,16 +1,17 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { prepareCaptions, timelineDescription } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
 import { Helmet } from 'react-helmet';
 
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const location = useLocation();
+  const themeContext = useContext(ThemeContext);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -49,19 +50,19 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         .flat();
     });
     ogDescription = data.body[0].text;
-    ogImage = `/app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
+    ogImage = `../app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
   } else if (type === 'about') {
     data = AboutPage;
     ogDescription = timelineDescription;
-    ogImage = `/app/assets/images/ogImage.svg`;
+    ogImage = `../app/assets/images/ogImage.svg`;
   } else if (type === 'oral_histories') {
     data = OralHistoriesPage;
     ogDescription = data.body[0].text;
-    ogImage = `/app/assets/images/ogImage.svg`;
+    ogImage = `../app/assets/images/ogImage.svg`;
   } else if (type === 'gallery') {
     data = { name: 'Photo Gallery' };
     ogDescription = timelineDescription;
-    ogImage = `/app/assets/images/${imageIds[0]}/large.jpg`;
+    ogImage = `../app/assets/images/${imageIds[0]}/large.jpg`;
   }
 
   // Open lightbox anytime a photo is clicked.
@@ -101,6 +102,8 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         <meta property="og:description" content={ogDescription} />
         <link rel="logo" type="image/svg" href={ogImage} />
         <meta property="og:image" content={ogImage} />
+        <html style={isLightboxOpen ? 'overflow: hidden;' : null} />
+        <body style={isLightboxOpen ? themeContext.noScrollBody : null} />
       </Helmet>
       <Content isLightboxOpen={isLightboxOpen}>
         <FloatWrapper>
@@ -170,7 +173,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                       imageIds.map((id, i) => {
                         return (
                           <GalleryImage
-                            src={`/app/assets/images/${id}/full.jpg`}
+                            src={`../app/assets/images/${id}/full.jpg`}
                             alt={imageAltText[i]}
                             key={i}
                             data-photoindex={i}
@@ -204,7 +207,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                   key={idx}
                   data-photoindex={lightBoxImageIds.indexOf(imageId)}
                   onClick={openLightbox}
-                  src={`/app/assets/images/${imageId}/large.jpg`}
+                  src={`../app/assets/images/${imageId}/large.jpg`}
                   alt={foundImage[0].alt_text}
                 />
               );

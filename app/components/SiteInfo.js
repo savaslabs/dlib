@@ -14,10 +14,10 @@ const siteInfo = ({ header, footer }) => {
       </SiteName>
       <CollectionInfo header={header} footer={footer}>
         <p>
-          Part of the <a href='https://durhamcountylibrary.org/contact/ncc/'>North Carolina Collection</a>
+          Part of the{' '}
+          <a href="https://durhamcountylibrary.org/contact/ncc/">North Carolina Collection</a>
           <br />
-          of the{' '}
-          <a href='https://durhamcountylibrary.org/'>Durham County Library</a>
+          of the <a href="https://durhamcountylibrary.org/">Durham County Library</a>
         </p>
       </CollectionInfo>
     </>

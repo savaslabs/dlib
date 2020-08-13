@@ -15,28 +15,22 @@ const card = React.forwardRef(({ event, feature, link }, ref) => {
       <Body source={text}>{text}</Body>
       {images &&
         images.slice(0, 3).map((p, i) => {
-          return (
-            <CardImage
-              key={i}
-              src={`app/assets/images/${p.ID}/large.jpg`}
-              alt={p.alt_text}
-            />
-          );
+          return <CardImage key={i} src={`app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} />;
         })}
-      {(!link && external_resource_links) && (
-          <ExternalLinksWrapper>
-            <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
-            {external_resource_links.map((ext, i) => {
-              cleanJSON(ext);
-              return (
-                <ExternalLink key={i} href={ext.url}>
-                  <LinkTitle>{ext.resource_title}</LinkTitle>
-                  <LinkSource>{ext.source_shortform}</LinkSource>
-                </ExternalLink>
-              );
-            })}
-          </ExternalLinksWrapper>
-        )}
+      {!link && external_resource_links && (
+        <ExternalLinksWrapper>
+          <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
+          {external_resource_links.map((ext, i) => {
+            cleanJSON(ext);
+            return (
+              <ExternalLink key={i} href={ext.url}>
+                <LinkTitle>{ext.resource_title}</LinkTitle>
+                <LinkSource>{ext.source_shortform}</LinkSource>
+              </ExternalLink>
+            );
+          })}
+        </ExternalLinksWrapper>
+      )}
     </Card>
   );
 });
@@ -109,16 +103,14 @@ const Card = styled.article`
 const Title = styled.h1`
   font-size: 20px;
   margin: 0 0 15px 0;
-  line-height: ${(props) => props.theme.lineHeight.snug};
-  color: ${(props) =>
-    props.scope === 'national'
-      ? props.theme.colors.medGray
-      : props.theme.colors.greenBean};
+  line-height: ${props => props.theme.lineHeight.snug};
+  color: ${props =>
+    props.scope === 'national' ? props.theme.colors.medGray : props.theme.colors.greenBean};
 `;
 
 const Body = styled(Markdown)`
-  color: ${(props) => props.theme.colors.darkGreen};
-  font-size: ${(props) => props.theme.fontSize.sm};
+  color: ${props => props.theme.colors.darkGreen};
+  font-size: ${props => props.theme.fontSize.sm};
 `;
 
 const Level = styled.p`
@@ -151,13 +143,13 @@ const ExternalLinksWrapper = styled.div`
 `;
 
 const ExternalLinksNote = styled.p`
-  font-weight: ${(props) => props.theme.fontWeight.bold};
+  font-weight: ${props => props.theme.fontWeight.bold};
 `;
 
 const ExternalLink = styled.a`
   display: block;
   cursor: pointer;
-  font-weight: ${(props) => props.theme.fontWeight.normal};
+  font-weight: ${props => props.theme.fontWeight.normal};
 
   &:first-of-type {
     margin-top: 10px;
