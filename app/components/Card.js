@@ -15,7 +15,9 @@ const card = React.forwardRef(({ event, feature, link }, ref) => {
       <Body source={text}>{text}</Body>
       {images &&
         images.slice(0, 3).map((p, i) => {
-          return <CardImage key={i} src={`app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} />;
+          return (
+            <CardImage key={i} src={`./app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} />
+          );
         })}
       {!link && external_resource_links && (
         <ExternalLinksWrapper>

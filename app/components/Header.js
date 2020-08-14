@@ -352,10 +352,10 @@ const MobileMenuToggle = styled.button`
 
   &:before {
     content: '';
-    ${props => !props.state && `mask: url('/app/assets/icons/menu--open.svg') no-repeat 50% 50%;`}
+    ${props => !props.state && `mask: url('./app/assets/icons/menu--open.svg') no-repeat 50% 50%;`}
     ${props =>
       props.state &&
-      `mask: url('/app/assets/icons/menu--close.svg') no-repeat 50% 50%;`}
+      `mask: url('./app/assets/icons/menu--close.svg') no-repeat 50% 50%;`}
     mask-size: cover;
     align-items: center;
     display: inline-block;
@@ -456,7 +456,7 @@ const SubMenuToggle = styled.li`
 
         &:after {
           content: '';
-          mask: url('/app/assets/icons/caret.svg') no-repeat 50% 50%;
+          mask: url('./app/assets/icons/caret.svg') no-repeat 50% 50%;
           mask-size: cover;
           align-items: center;
           display: inline-block;
