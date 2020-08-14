@@ -50,19 +50,19 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         .flat();
     });
     ogDescription = data.body[0].text;
-    ogImage = `app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
+    ogImage = `./app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
   } else if (type === 'about') {
     data = AboutPage;
     ogDescription = timelineDescription;
-    ogImage = `app/assets/images/ogImage.svg`;
+    ogImage = `./app/assets/images/ogImage.svg`;
   } else if (type === 'oral_histories') {
     data = OralHistoriesPage;
     ogDescription = data.body[0].text;
-    ogImage = `app/assets/images/ogImage.svg`;
+    ogImage = `./app/assets/images/ogImage.svg`;
   } else if (type === 'gallery') {
     data = { name: 'Photo Gallery' };
     ogDescription = timelineDescription;
-    ogImage = `app/assets/images/${imageIds[0]}/large.jpg`;
+    ogImage = `./app/assets/images/${imageIds[0]}/large.jpg`;
   }
 
   // Open lightbox anytime a photo is clicked.
