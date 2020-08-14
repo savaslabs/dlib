@@ -103,7 +103,7 @@ const App = () => {
                   ) : r.component === 'Featured Events' && EventPages ? (
                     EventPages.map((event, index) => {
                       return (
-                        <Route path={`/events/:eventId`} key={index}>
+                        <Route path={`/events/${cleanId(event.name)}`} key={index}>
                           <Basic event={event} imageData={Images} />
                         </Route>
                       );

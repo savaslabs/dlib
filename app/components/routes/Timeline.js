@@ -6,7 +6,6 @@ import Year from '../Year';
 import Card from '../Card';
 import BackToTop from '../BackToTop';
 import arrow from '../../assets/icons/arrow.svg';
-import ogImage from '../../assets/images/ogImage.svg';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -71,8 +70,17 @@ const timeline = ({ timeline }) => {
           content="Timeline | Durham Civil Rights Heritage Project"
           data-react-helmet="true"
         />
-        <link rel="logo" type="image/svg" href={ogImage} data-react-helmet="true" />
-        <meta property="og:image" content={ogImage} data-react-helmet="true" />
+        <link
+          rel="logo"
+          type="image/svg"
+          href="../app/assets/images/ogImage.svg"
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:image"
+          content="../app/assets/images/ogImage.svg"
+          data-react-helmet="true"
+        />
       </Helmet>
       <main>
         <H1>Civil Rights Timeline</H1>
