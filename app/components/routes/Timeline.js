@@ -73,12 +73,12 @@ const timeline = ({ timeline }) => {
         <link
           rel="logo"
           type="image/svg"
-          href="../app/assets/images/ogImage.svg"
+          href="../../app/assets/images/ogImage.svg"
           data-react-helmet="true"
         />
         <meta
           property="og:image"
-          content="../app/assets/images/ogImage.svg"
+          content="../../app/assets/images/ogImage.svg"
           data-react-helmet="true"
         />
       </Helmet>
