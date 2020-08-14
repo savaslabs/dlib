@@ -50,7 +50,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         .flat();
     });
     ogDescription = data.body[0].text;
-    ogImage = `../../app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
+    ogImage = `app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
   } else if (type === 'about') {
     data = AboutPage;
     ogDescription = timelineDescription;
