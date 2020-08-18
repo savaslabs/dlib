@@ -3,12 +3,13 @@ import { cleanJSON } from '../utils/constants';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
+import arrow from '../assets/icons/arrow.svg';
 
 const card = React.forwardRef(({ event, feature, link }, ref) => {
   const { scope, headline, text, images, external_resource_links } = event;
   const designation = scope === 'National Event' ? 'National' : 'Durham';
   return (
-    <Card ref={ref} scope={designation.toLowerCase()}>
+    <Card ref={ref} scope={designation.toLowerCase()} link={link}>
       {/* Mobile scope pill. */}
       <Level scope={designation.toLowerCase()}>{designation}</Level>
       {feature && <Title scope={designation.toLowerCase()}>{headline}</Title>}
@@ -16,7 +17,7 @@ const card = React.forwardRef(({ event, feature, link }, ref) => {
       {images &&
         images.slice(0, 3).map((p, i) => {
           return (
-            <CardImage key={i} src={`./app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} />
+            <CardImage key={i} src={`./app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} link={link} />
           );
         })}
       {!link && external_resource_links && (
@@ -32,6 +33,11 @@ const card = React.forwardRef(({ event, feature, link }, ref) => {
             );
           })}
         </ExternalLinksWrapper>
+      )}
+      {link && (
+        <Arrow>
+          <More>More about this event</More>
+        </Arrow>
       )}
     </Card>
   );
@@ -51,6 +57,19 @@ const Card = styled.article`
   border-top-style: solid;
   border-color: ${props => props.theme.colors.lightGray};
   margin-bottom: 30px;
+
+  ${props =>
+    props.link &&
+    `
+    transition: background 0.3s;
+    &:hover {
+      background: #D9E6E3;
+
+      ${Arrow} {
+        height: 75px;
+      }
+    }
+  `}
 
   @media ${props => props.theme.breakpoints.mdMax} {
     &:before {
@@ -137,7 +156,15 @@ const CardImage = styled.img`
   width: 117px;
   height: 117px;
   object-fit: cover;
-  margin: 15px 15px 0 0;
+  margin: 15px 15px 0px 0;
+
+  @media ${props => props.theme.breakpoints.sm} {
+    ${props => props.link && `margin-bottom: 45px;`}
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    ${props => props.link && `margin-bottom: 35px;`}
+  }
 `;
 
 const ExternalLinksWrapper = styled.div`
@@ -179,6 +206,47 @@ const LinkSource = styled.p`
   line-height: ${props => props.theme.lineHeight.mdLoose};
   color: ${props => props.theme.colors.linkSource};
   font-size: ${props => props.theme.fontSize.xs};
+`;
+
+const Arrow = styled.div`
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  z-index: 1;
+  border-radius: 0 0 4px 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: height 0.3s;
+  background: ${props => props.theme.colors.greenBean};
+
+  &:after {
+    content: '';
+    mask: url(${arrow}) no-repeat 50% 50%;
+    mask-size: cover;
+    position: absolute;
+    transform: rotate(90deg) translateY(-50%);
+    background: ${props => props.theme.colors.white};
+    width: 15px;
+    height: 25px;
+    right: 12px;
+
+    @media ${props => props.theme.breakpoints.md} {
+      right: 24px;
+    }
+  }
+`;
+
+export const More = styled.p`
+  color: ${props => props.theme.colors.white};
+  padding: 0 12px 0 12px;
+
+  @media ${props => props.theme.breakpoints.md} {
+    padding: 0 24px 0 24px;
+  }
 `;
 
 export default card;

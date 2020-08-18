@@ -5,7 +5,6 @@ import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
 import BackToTop from '../BackToTop';
-import arrow from '../../assets/icons/arrow.svg';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -128,7 +127,6 @@ const timeline = ({ timeline }) => {
                               {event.event_page ? (
                                 <LinkedEvent to={`/events/${cleanId(event.event_page)}`}>
                                   <Card event={cleanedEvent} ref={addToYearRefs} feature link />
-                                  <Arrow />
                                 </LinkedEvent>
                               ) : (
                                 <Card
@@ -390,6 +388,7 @@ const LinkedEvent = styled(Link)`
   text-decoration: none;
   position: relative;
   display: block;
+  border-radius: 4px;
   color: ${props => props.theme.colors.greenBean};
   font-weight: ${props => props.theme.fontWeight.bold};
   line-height: ${props => props.theme.lineHeight.snug};
@@ -397,69 +396,6 @@ const LinkedEvent = styled(Link)`
   &:hover,
   &:focus {
     box-shadow: ${props => props.theme.boxShadow.xLight};
-  }
-
-  &:hover span,
-  &:focus span {
-    background: ${props => props.theme.colors.black};
-
-    @media ${props => props.theme.breakpoints.lg} {
-      background: linear-gradient(
-        to right,
-        transparent 45%,
-        ${props => props.theme.colors.darkGreen} 45%
-      );
-    }
-  }
-`;
-
-const Arrow = styled.span`
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  background: ${props => props.theme.colors.medGray};
-  border-radius: 50%;
-  height: 27px;
-  width: 27px;
-
-  @media ${props => props.theme.breakpoints.lg} {
-    height: 61px;
-    width: 61px;
-    right: -34px;
-    background: linear-gradient(
-      to right,
-      transparent 45%,
-      ${props => props.theme.colors.darkGray} 45%
-    );
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  &:before {
-    content: '';
-    mask: url(${arrow}) no-repeat 50% 50%;
-    mask-size: cover;
-    position: absolute;
-    transform: rotate(90deg);
-    background: ${props => props.theme.colors.white};
-    width: 10px;
-    height: 10px;
-    right: 8px;
-    top: 8px;
-
-    @media ${props => props.theme.breakpoints.mdMax} {
-      bottom: 10px;
-      border: 1px solid ${props => props.theme.colors.white};
-    }
-
-    @media ${props => props.theme.breakpoints.lg} {
-      width: 15px;
-      right: 10px;
-      height: 20px;
-      top: 20px;
-    }
   }
 `;
 
