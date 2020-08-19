@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { prepareCaptions, timelineDescription } from '../../utils/constants';
+import { prepareCaptions, timelineDescription, pathToImages } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import PropTypes from 'prop-types';
@@ -50,24 +50,24 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         .flat();
     });
     ogDescription = data.body[0].text;
-    ogImage = `https://dlib.netlify.app/app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
+    ogImage = `${lightBoxImageIds[0]}/large.jpg`;
     ogImageAlt = imageData.filter(imageInfo => {
       return imageInfo.ID === lightBoxImageIds[0];
     })[0].alt_text;
   } else if (type === 'about') {
     data = AboutPage;
     ogDescription = timelineDescription;
-    ogImage = 'https://dlib.netlify.app/app/assets/images/ogImage.svg';
+    ogImage = 'ogImage.svg';
     ogImageAlt = 'placeholder';
   } else if (type === 'oral_histories') {
     data = OralHistoriesPage;
     ogDescription = data.body[0].text;
-    ogImage = 'https://dlib.netlify.app/app/assets/images/ogImage.svg';
+    ogImage = 'ogImage.svg';
     ogImageAlt = 'placeholder';
   } else if (type === 'gallery') {
     data = { name: 'Photo Gallery' };
     ogDescription = timelineDescription;
-    ogImage = `https://dlib.netlify.app/app/assets/images/${imageIds[0]}/large.jpg`;
+    ogImage = `${imageIds[0]}/large.jpg`;
     ogImageAlt = imageAltText[0];
   }
 
@@ -110,17 +110,26 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         />
         <meta property="description" content={ogDescription} data-react-helmet="true" />
         <meta property="og:description" content={ogDescription} data-react-helmet="true" />
-        <link rel="logo" type="image/svg" href={ogImage} data-react-helmet="true" />
-        <meta property="og:image" content={ogImage} data-react-helmet="true" />
+        <link
+          rel="logo"
+          type="image/svg"
+          content={`${pathToImages}${ogImage}`}
+          data-react-helmet="true"
+        />
+        <meta property="og:image" content={`${pathToImages}${ogImage}`} data-react-helmet="true" />
         <meta property="og:image:alt" content={ogImageAlt} />
-        <meta property="twitter:url" content={`https://dlib.netlify.app${location.pathname}`} data-react-helmet="true" />
+        <meta
+          property="twitter:url"
+          content={`https://dlib.netlify.app${location.pathname}`}
+          data-react-helmet="true"
+        />
         <meta
           name="twitter:title"
           content={`${data.name} | Durham Civil Rights Heritage Project`}
           data-react-helmet="true"
         />
         <meta name="twitter:description" content={ogDescription} data-react-helmet="true" />
-        <meta name="twitter:image" content={ogImage} data-react-helmet="true" />
+        <meta name="twitter:image" content={`${pathToImages}${ogImage}`} data-react-helmet="true" />
         <html style={isLightboxOpen ? 'overflow: hidden;' : null} />
         <body style={isLightboxOpen ? themeContext.noScrollBody : null} />
       </Helmet>
@@ -174,7 +183,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                         key={i}
                         data-photoindex={lightBoxImageIds.indexOf(item.image)}
                         onClick={openLightbox}
-                        src={`../app/assets/images/${item.image}/large.jpg`}
+                        src={`${pathToImages}${item.image}/large.jpg`}
                         alt={foundImage[0].alt_text}
                       />
                       <InlineImageCaption>
@@ -192,7 +201,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                       imageIds.map((id, i) => {
                         return (
                           <GalleryImage
-                            src={`../app/assets/images/${id}/full.jpg`}
+                            src={`${pathToImages}${id}/full.jpg`}
                             alt={imageAltText[i]}
                             key={i}
                             data-photoindex={i}
@@ -212,7 +221,6 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                 closeLightbox={closeLightbox}
                 prevLightboxImage={prevLightboxImage}
                 nextLightboxImage={nextLightboxImage}
-                eventPage={event}
               />
             )}
           </Main>
@@ -226,7 +234,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                   key={idx}
                   data-photoindex={lightBoxImageIds.indexOf(imageId)}
                   onClick={openLightbox}
-                  src={`../app/assets/images/${imageId}/large.jpg`}
+                  src={`${pathToImages}${imageId}/large.jpg`}
                   alt={foundImage[0].alt_text}
                 />
               );

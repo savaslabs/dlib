@@ -1,5 +1,6 @@
 import React from 'react';
 import Lightbox from 'react-image-lightbox';
+import { pathToImages } from '../utils/constants';
 import 'react-image-lightbox/style.css';
 
 const lightbox = ({
@@ -9,24 +10,17 @@ const lightbox = ({
   isOpen,
   closeLightbox,
   prevLightboxImage,
-  nextLightboxImage,
-  eventPage,
+  nextLightboxImage
 }) => {
-  let location;
-  if (eventPage) {
-    location = '../app';
-  } else {
-    location = 'app';
-  }
   return (
     <>
       {isOpen && (
         <Lightbox
-          mainSrc={`${location}/assets/images/${imageIds[photoIndex]}/full.jpg`}
-          nextSrc={`${location}/assets/images/${
+          mainSrc={`${pathToImages}${imageIds[photoIndex]}/full.jpg`}
+          nextSrc={`${pathToImages}${
             imageIds[photoIndex + 1 < imageIds.length ? photoIndex + 1 : 0]
           }/full.jpg`}
-          prevSrc={`${location}/assets/images/${
+          prevSrc={`${pathToImages}${
             imageIds[photoIndex - 1 > 0 ? photoIndex - 1 : imageIds[imageIds.length - 1]]
           }/full.jpg`}
           onCloseRequest={() => closeLightbox()}

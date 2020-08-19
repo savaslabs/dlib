@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanJSON } from '../utils/constants';
+import { cleanJSON, pathToImages } from '../utils/constants';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
@@ -17,7 +17,7 @@ const card = React.forwardRef(({ event, feature, link }, ref) => {
       {images &&
         images.slice(0, 3).map((p, i) => {
           return (
-            <CardImage key={i} src={`./app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} link={link} />
+            <CardImage key={i} src={`${pathToImages}${p.ID}/large.jpg`} alt={p.alt_text} link={link} />
           );
         })}
       {!link && external_resource_links && (

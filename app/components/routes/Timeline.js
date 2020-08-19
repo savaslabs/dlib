@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { cleanId, cleanJSON, timelineDescription } from '../../utils/constants';
+import { cleanId, cleanJSON, timelineDescription, pathToImages } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
@@ -72,18 +72,18 @@ const timeline = ({ timeline }) => {
         <link
           rel="logo"
           type="image/svg"
-          href="https://dlib.netlify.app/app/assets/images/ogImage.svg"
+          href={`${pathToImages}ogImage.svg`}
           data-react-helmet="true"
         />
-        <meta
-          property="og:image"
-          content="https://dlib.netlify.app/app/assets/images/ogImage.svg"
-          data-react-helmet="true"
-        />
+        <meta property="og:image" content={`${pathToImages}ogImage.svg`} data-react-helmet="true" />
         <meta property="og:image:alt" content="Placeholder" />
         <meta property="og:description" content={timelineDescription} data-react-helmet="true" />
         <meta property="description" content={timelineDescription} data-react-helmet="true" />
-        <meta property="twitter:url" content="https://dlib.netlify.app/timeline" data-react-helmet="true" />
+        <meta
+          property="twitter:url"
+          content="https://dlib.netlify.app/timeline"
+          data-react-helmet="true"
+        />
         <meta
           name="twitter:title"
           content="Timeline | Durham Civil Rights Heritage Project"
@@ -92,7 +92,7 @@ const timeline = ({ timeline }) => {
         <meta name="twitter:description" content={timelineDescription} data-react-helmet="true" />
         <meta
           name="twitter:image"
-          content="https://dlib.netlify.app/app/assets/images/ogImage.svg"
+          content={`${pathToImages}ogImage.svg`}
           data-react-helmet="true"
         />
       </Helmet>
