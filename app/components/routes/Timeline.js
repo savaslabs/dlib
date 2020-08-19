@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { cleanId, cleanJSON } from '../../utils/constants';
-import useLightbox from '../../utils/hooks/useLightbox';
+import { cleanId, cleanJSON, timelineDescription } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
 import BackToTop from '../BackToTop';
+import useLightbox from '../../utils/hooks/useLightbox';
 import Lightbox from '../Lightbox';
-import arrow from '../../assets/icons/arrow.svg';
-import ogImage from '../../assets/images/ogImage.svg';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -19,7 +17,14 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
-  const lightbox = useLightbox();
+  const {
+    photoIndex,
+    isLightboxOpen,
+    openLightbox,
+    closeLightbox,
+    prevLightboxImage,
+    nextLightboxImage,
+  } = useLightbox();
   const [showScroll, setShowScroll] = useState(false);
   const yearRefs = useRef([]);
   yearRefs.current = [];
@@ -88,7 +93,11 @@ const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
         <meta property="og:image:alt" content="Placeholder" />
         <meta property="og:description" content={timelineDescription} data-react-helmet="true" />
         <meta property="description" content={timelineDescription} data-react-helmet="true" />
-        <meta property="twitter:url" content="https://dlib.netlify.app/timeline" data-react-helmet="true" />
+        <meta
+          property="twitter:url"
+          content="https://dlib.netlify.app/timeline"
+          data-react-helmet="true"
+        />
         <meta
           name="twitter:title"
           content="Timeline | Durham Civil Rights Heritage Project"
@@ -153,10 +162,10 @@ const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
                                   key={i}
                                   event={event}
                                   imageIds={imageIds}
-                                  onClick={lightbox.openLightbox}
                                   {...(event.type === 'Feature' && {
                                     feature: true,
                                   })}
+                                  openLightbox={openLightbox}
                                   ref={addToYearRefs}
                                 />
                               )}
@@ -173,11 +182,11 @@ const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
         <Lightbox
           imageIds={imageIds}
           imageCaptions={imageCaptions}
-          isOpen={lightbox.isLightboxOpen}
-          photoIndex={lightbox.photoIndex}
-          closeLightbox={lightbox.closeLightbox}
-          nextLightboxImage={lightbox.nextLightboxImage}
-          eventPage={event}
+          isOpen={isLightboxOpen}
+          photoIndex={photoIndex}
+          closeLightbox={closeLightbox}
+          prevLightboxImage={prevLightboxImage}
+          nextLightboxImage={nextLightboxImage}
         />
       </main>
     </>

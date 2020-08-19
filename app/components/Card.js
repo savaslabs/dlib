@@ -5,54 +5,56 @@ import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import arrow from '../assets/icons/arrow.svg';
 
-const card = React.forwardRef(({ event, feature, link, imageIds, onClick }, ref) => {
+const card = React.forwardRef(({ event, feature, link, imageIds, openLightbox }, ref) => {
   const { scope, headline, text, images, external_resource_links } = event;
   const designation = scope === 'National Event' ? 'National' : 'Durham';
   return (
-    <Card ref={ref} scope={designation.toLowerCase()} link={link}>
-      {/* Mobile scope pill. */}
-      <Level scope={designation.toLowerCase()}>{designation}</Level>
-      {feature && <Title scope={designation.toLowerCase()}>{headline}</Title>}
-      <Body source={text}>{text}</Body>
-      {images &&
-        images.slice(0, 3).map((p, i) => {
-          return (
-<<<<<<< HEAD
-            <CardImage
-              key={i}
-              src={`app/assets/images/${p.ID}/large.jpg`}
-              alt={p.alt_text}
-              data-photoindex={imageIds && imageIds.indexOf(p.ID)}
-              onClick={console.log('click')}
-              // {...(onClick && {
-              //   onClick: onClick,
-              // })}
-            />
-=======
-            <CardImage key={i} src={`./app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} link={link} />
->>>>>>> 6e82044d5a2cb71b06509903baaa3278418bd85b
-          );
-        })}
-      {!link && external_resource_links && (
-        <ExternalLinksWrapper>
-          <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
-          {external_resource_links.map((ext, i) => {
-            cleanJSON(ext);
+    <>
+      <Card ref={ref} scope={designation.toLowerCase()} link={link}>
+        {/* Mobile scope pill. */}
+        <Level scope={designation.toLowerCase()}>{designation}</Level>
+        {feature && <Title scope={designation.toLowerCase()}>{headline}</Title>}
+        <Body source={text}>{text}</Body>
+        {images &&
+          images.slice(0, 3).map((p, i) => {
             return (
-              <ExternalLink key={i} href={ext.url}>
-                <LinkTitle>{ext.resource_title}</LinkTitle>
-                <LinkSource>{ext.source_shortform}</LinkSource>
-              </ExternalLink>
+              <CardImage
+                src={`./app/assets/images/${p.ID}/large.jpg`}
+                alt={p.alt_text}
+                link={link}
+                key={i}
+                data-photoindex={imageIds && imageIds.indexOf(p.ID)}
+                openLightbox={openLightbox}
+                {...(openLightbox && {
+                  onClick: openLightbox,
+                  onKeyDown: e => e.which === 13 && openLightbox(e),
+                  tabIndex: 0
+                })}
+
+              />
             );
           })}
-        </ExternalLinksWrapper>
-      )}
-      {link && (
-        <Arrow>
-          <More>More about this event</More>
-        </Arrow>
-      )}
-    </Card>
+        {!link && external_resource_links && (
+          <ExternalLinksWrapper>
+            <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
+            {external_resource_links.map((ext, i) => {
+              cleanJSON(ext);
+              return (
+                <ExternalLink key={i} href={ext.url}>
+                  <LinkTitle>{ext.resource_title}</LinkTitle>
+                  <LinkSource>{ext.source_shortform}</LinkSource>
+                </ExternalLink>
+              );
+            })}
+          </ExternalLinksWrapper>
+        )}
+        {link && (
+          <Arrow>
+            <More>More about this event</More>
+          </Arrow>
+        )}
+      </Card>
+    </>
   );
 });
 card.propTypes = {
@@ -75,7 +77,9 @@ const Card = styled.article`
     props.link &&
     `
     transition: background 0.3s;
-    &:hover {
+
+    &:hover,
+    &:focus {
       background: #D9E6E3;
 
       ${Arrow} {
@@ -170,6 +174,16 @@ const CardImage = styled.img`
   height: 117px;
   object-fit: cover;
   margin: 15px 15px 0px 0;
+
+  ${props =>
+    props.openLightbox &&
+    `
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      filter: drop-shadow(5px 5px 30px rgba(0, 0, 0, 0.29));
+    }
+  `}
 
   @media ${props => props.theme.breakpoints.sm} {
     ${props => props.link && `margin-bottom: 45px;`}
