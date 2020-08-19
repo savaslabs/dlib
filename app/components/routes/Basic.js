@@ -14,10 +14,10 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   const themeContext = useContext(ThemeContext);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-
   let data;
   let ogDescription;
   let ogImage;
+  let ogImageAlt;
   let lightBoxImageIds = [];
   let eventLightBoxData = [];
   let captions = [];
@@ -51,18 +51,24 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     });
     ogDescription = data.body[0].text;
     ogImage = `https://dlib.netlify.app/app/assets/images/${lightBoxImageIds[0]}/large.jpg`;
+    ogImageAlt = imageData.filter(imageInfo => {
+      return imageInfo.ID === lightBoxImageIds[0];
+    })[0].alt_text;
   } else if (type === 'about') {
     data = AboutPage;
     ogDescription = timelineDescription;
     ogImage = 'https://dlib.netlify.app/app/assets/images/ogImage.svg';
+    ogImageAlt = 'placeholder';
   } else if (type === 'oral_histories') {
     data = OralHistoriesPage;
     ogDescription = data.body[0].text;
     ogImage = 'https://dlib.netlify.app/app/assets/images/ogImage.svg';
+    ogImageAlt = 'placeholder';
   } else if (type === 'gallery') {
     data = { name: 'Photo Gallery' };
     ogDescription = timelineDescription;
     ogImage = `https://dlib.netlify.app/app/assets/images/${imageIds[0]}/large.jpg`;
+    ogImageAlt = imageAltText[0];
   }
 
   // Open lightbox anytime a photo is clicked.
@@ -106,6 +112,15 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         <meta property="og:description" content={ogDescription} data-react-helmet="true" />
         <link rel="logo" type="image/svg" href={ogImage} data-react-helmet="true" />
         <meta property="og:image" content={ogImage} data-react-helmet="true" />
+        <meta property="og:image:alt" content={ogImageAlt} />
+        <meta property="twitter:url" content={`https://dlib.netlify.app${location.pathname}`} data-react-helmet="true" />
+        <meta
+          name="twitter:title"
+          content={`${data.name} | Durham Civil Rights Heritage Project`}
+          data-react-helmet="true"
+        />
+        <meta name="twitter:description" content={ogDescription} data-react-helmet="true" />
+        <meta name="twitter:image" content={ogImage} data-react-helmet="true" />
         <html style={isLightboxOpen ? 'overflow: hidden;' : null} />
         <body style={isLightboxOpen ? themeContext.noScrollBody : null} />
       </Helmet>

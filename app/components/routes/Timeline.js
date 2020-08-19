@@ -80,6 +80,21 @@ const timeline = ({ timeline }) => {
           content="https://dlib.netlify.app/app/assets/images/ogImage.svg"
           data-react-helmet="true"
         />
+        <meta property="og:image:alt" content="Placeholder" />
+        <meta property="og:description" content={timelineDescription} data-react-helmet="true" />
+        <meta property="description" content={timelineDescription} data-react-helmet="true" />
+        <meta property="twitter:url" content="https://dlib.netlify.app/timeline" data-react-helmet="true" />
+        <meta
+          name="twitter:title"
+          content="Timeline | Durham Civil Rights Heritage Project"
+          data-react-helmet="true"
+        />
+        <meta name="twitter:description" content={timelineDescription} data-react-helmet="true" />
+        <meta
+          name="twitter:image"
+          content="https://dlib.netlify.app/app/assets/images/ogImage.svg"
+          data-react-helmet="true"
+        />
       </Helmet>
       <main>
         <H1>Civil Rights Timeline</H1>
