@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
 import Basic from './components/routes/Basic';
 import Footer from './components/Footer';
+import NoMatch from './components/routes/NoMatch';
 
 // Data.
 import EventPages from './assets/pages/event-pages.json';
@@ -19,7 +20,6 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './utils/theme';
 import GlobalStyles from './globalStyles';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 import './index.css';
 
 const App = () => {
@@ -88,11 +88,11 @@ const App = () => {
       <GlobalStyles />
       {timeline ? (
         <>
-          <SkipToMainContent href='#main-content'>
+          <SkipToMainContent href="#main-content">
             <ScreenReaderText>Skip to main content</ScreenReaderText>
           </SkipToMainContent>
           <Header eventPages={EventPages} />
-          <ContentContainer id='main-content'>
+          <ContentContainer id="main-content">
             <Switch>
               {routes &&
                 routes.map((r, i) => {
@@ -108,10 +108,7 @@ const App = () => {
                   ) : r.component === 'Featured Events' && EventPages ? (
                     EventPages.map((event, index) => {
                       return (
-                        <Route
-                          path={`/events/${cleanId(event.name)}`}
-                          key={index}
-                        >
+                        <Route path={`/events/${cleanId(event.name)}`} key={index}>
                           <Basic event={event} imageData={Images} />
                         </Route>
                       );
@@ -129,6 +126,10 @@ const App = () => {
                     </Route>
                   );
                 })}
+              {/* No Match routes */}
+              <Route path="*">
+                <NoMatch />
+              </Route>
             </Switch>
           </ContentContainer>
           <Footer />
@@ -142,9 +143,10 @@ const App = () => {
 
 const ContentContainer = styled.div`
   ${(props) => props.theme.smContainer};
-  ${breakpoint('lg')`
+
+  @media ${props => props.theme.breakpoints.lg} {
     ${(props) => props.theme.lgContainer};
-  `}
+  }
 `;
 
 const ScreenReaderText = styled.span`

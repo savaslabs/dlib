@@ -20,7 +20,11 @@ function useLightbox() {
     setPhotoIndex(photoIndex + 1 < ids.length ? photoIndex + 1 : 0);
   };
 
-  return [photoIndex, isLightboxOpen, openLightbox, closeLightbox, nextLightboxImage];
+  const prevLightboxImage = (e, ids) => {
+    setPhotoIndex(photoIndex - 1 > 0 ? photoIndex - 1 : ids[ids.length - 1]);
+  };
+
+  return [photoIndex, isLightboxOpen, openLightbox, closeLightbox, nextLightboxImage, prevLightboxImage];
 }
 
 export default useLightbox;

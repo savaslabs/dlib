@@ -3,6 +3,7 @@ import { normalize } from 'styled-normalize';
 
 const GlobalStyles = createGlobalStyle`
   ${normalize}
+
   @import url('${(props) => props.theme.fontSource}');
 
   body {
@@ -22,7 +23,8 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.theme.fontSize.lg};
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     color: ${(props) => props.theme.colors.greenBean};
     line-height: ${(props) => props.theme.lineHeight.xLoose};
   }
@@ -38,7 +40,8 @@ const GlobalStyles = createGlobalStyle`
     line-height: ${(props) => props.theme.lineHeight.xLoose};
   }
 
-  ul, ol {
+  ul,
+  ol {
     list-style: none;
     padding-inline-start: 0;
     margin-block-start: 0;

@@ -13,19 +13,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
-    "build": "webpack --config ./webpack.config.js"
+    "prebuild": "rm -R dist/* && cp ./_redirects ./dist && mkdir ./dist/app && cp -R ./app/assets ./dist/app",
+    "build": "webpack --config ./webpack.config.js",
+    "postbuild": "react-snap"
+  },
+  "reactSnap": {
+    "source": "./dist"
   },
   "dependencies": {
     "file-loader": "^6.0.0",
     "gsap": "^3.4.0",
     "react": "^16.12.0",
-    "react-accessible-lightbox": "^0.7.8",
     "react-dom": "^16.12.0",
     "react-focus-lock": "^2.4.1",
     "react-helmet": "^6.1.0",
+    "react-image-lightbox": "^5.1.1",
     "react-router-dom": "^5.2.0",
+    "react-snap": "^1.23.0",
     "styled-components": "^5.1.1",
-    "styled-components-breakpoint": "^3.0.0-preview.20",
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
@@ -38,16 +43,34 @@
     "babel-plugin-styled-components": "^1.10.7",
     "colors": "^1.4.0",
     "css-loader": "^3.4.0",
+    "cssnano": "^4.1.10",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "fs": "^0.0.1-security",
     "html-webpack-plugin": "^3.2.0",
     "image-downloader": "^4.0.1",
     "json-loader": "^0.5.7",
+    "mini-css-extract-plugin": "^0.10.0",
+    "node-sass": "^4.14.1",
     "path": "^0.12.7",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-normalize": "^9.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-url": "^8.0.0",
     "prop-types": "^15.7.2",
     "react-markdown": "^4.3.1",
+    "sass-loader": "^9.0.3",
     "style-loader": "^1.1.2",
-    "webpack": "^4.41.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-airbnb": "^0.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-custom-processor-loader": "^0.6.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "stylelint-scss": "^3.18.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "webpack-fix-style-only-entries": "^0.5.1"
   }
 }

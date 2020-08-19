@@ -1,7 +1,6 @@
 import React from 'react';
 import { timelineScopes } from '../utils/constants';
 import styled from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
 
 const timelineKey = () => {
   return (
@@ -11,9 +10,7 @@ const timelineKey = () => {
           timelineScopes.map((header, i) => {
             return (
               <Keys key={i}>
-                <TimelineHeader>
-                  {header.title}
-                </TimelineHeader>
+                <TimelineHeader>{header.title}</TimelineHeader>
               </Keys>
             );
           })}
@@ -23,27 +20,28 @@ const timelineKey = () => {
 };
 
 const Sticky = styled.div`
-  ${breakpoint('sm', 'md')`
-      display: none;
-  `}
-  ${breakpoint('md')`
+  @media ${props => props.theme.breakpoints.mdMax} {
+    display: none;
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
     position: sticky;
     top: 0;
     z-index: 50;
-    ${(props) => props.theme.containerFullWidth};
-    background: ${(props) => props.theme.colors.white};
-  `}
+    ${props => props.theme.containerFullWidth};
+    background: ${props => props.theme.colors.white};
+  }
 `;
 
 const TimelineHeaderGroup = styled.ul`
-  ${breakpoint('md')`
+  @media ${props => props.theme.breakpoints.lg} {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background: ${(props) => props.theme.colors.white};
-  `}
+    box-shadow: ${props => props.theme.boxShadow.dark};
+    background: ${props => props.theme.colors.white};
+  }
 `;
 
 const Keys = styled.div`
@@ -54,14 +52,14 @@ const Keys = styled.div`
 `;
 
 const TimelineHeader = styled.li`
-  ${breakpoint('md')`
+  @media ${props => props.theme.breakpoints.lg} {
     position: relative;
     padding: 20px 0 14px 0;
     letter-spacing: 0.02em;
-    font-size: 27px;
-    line-height: ${(props) => props.theme.lineHeight.xLoose};
-    font-weight: ${(props) => props.theme.fontWeight.normal};
-  `}
+    font-size: ${props => props.theme.fontSize.mdlg};
+    line-height: ${props => props.theme.lineHeight.xLoose};
+    font-weight: ${props => props.theme.fontWeight.normal};
+  }
 `;
 
 export default timelineKey;

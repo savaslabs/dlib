@@ -2,21 +2,22 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { cleanId, cleanMenuNames } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
-import styled, { ThemeContext } from 'styled-components';
-import breakpoint from 'styled-components-breakpoint';
+import styled from 'styled-components';
 
-const subMenu = ({ setMouseOverSubMenu,
+const subMenu = ({
+  setMobileMenuState,
+  setMouseOverSubMenu,
   setMouseOverSubMenuToggle,
   mouseOverSubMenu,
   mouseOverSubMenuToggle,
-  eventPages }) => {
-  const themeContext = useContext(ThemeContext);
+  eventPages,
+}) => {
   const windowSize = useWindowSize();
 
-  const toggleSubMenu = eventType => {
-    if (windowSize.width > themeContext.breakpoints.md) {
+  const toggleSubMenu = (eventType, e) => {
+    if (windowSize.width >= 768) {
       // Tablet and desktop event handling.
-      switch(eventType) {
+      switch (eventType) {
         case 'focus':
           setMouseOverSubMenuToggle(true);
           break;
@@ -25,13 +26,24 @@ const subMenu = ({ setMouseOverSubMenu,
         case 'mouseout':
           setMouseOverSubMenu(false);
           break;
+        default:
+          setMouseOverSubMenu(false);
       }
+    }
+  };
+
+  // If submenu nav links are clicked/focused, close menus.
+  const closeMenus = e => {
+    if (windowSize.width < 768) {
+      setMobileMenuState(false);
+      setMouseOverSubMenu(false);
+      setMouseOverSubMenuToggle(false);
     }
   };
 
   return (
     <SubMenu
-      id='menu-subMenu'
+      id="menu-subMenu"
       onFocus={() => toggleSubMenu('focus')}
       onMouseEnter={() => toggleSubMenu('mouseenter')}
       onMouseLeave={() => toggleSubMenu('mouseleave')}
@@ -41,7 +53,9 @@ const subMenu = ({ setMouseOverSubMenu,
         eventPages.map((page, i) => {
           return (
             <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
-              <li>{cleanMenuNames(page)}</li>
+              <li onClick={closeMenus} onKeyDown={e => e.which === 13 && closeMenus}>
+                {cleanMenuNames(page)}
+              </li>
             </NavLink>
           );
         })}
@@ -50,59 +64,61 @@ const subMenu = ({ setMouseOverSubMenu,
 };
 
 const SubMenu = styled.ul`
-  ${breakpoint('sm', 'md')`
+  @media ${props => props.theme.breakpoints.smMax} {
     width: 100vw;
     margin: 17px -18px 0 -18px;
-    background: ${(props) => props.theme.colors.greenBean};
-  `}
+    background: ${props => props.theme.colors.greenBean};
+  }
 
-  ${breakpoint('md')`
+  @media ${props => props.theme.breakpoints.md} {
     position: absolute;
     top: 53px;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: ${props => props.theme.boxShadow.xLight};
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 300%;
-    background: ${(props) => props.theme.colors.bgGray};
-  `}
+    background: ${props => props.theme.colors.bgGray};
+  }
 
-  ${breakpoint('lg')`
+  @media ${props => props.theme.breakpoints.lg} {
     width: 400%;
     top: 65px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  `}
+  }
 
   a {
     li {
-      font-size: ${(props) => props.theme.fontSize.xs};
-      font-weight: ${(props) => props.theme.fontWeight.normal};
+      font-size: ${props => props.theme.fontSize.xs};
+      font-weight: ${props => props.theme.fontWeight.normal};
       padding: 20px 0;
       margin: 0 18px;
       border-bottom: 0.5px solid;
 
-      ${breakpoint('sm', 'md')`
-        color: ${(props) => props.theme.colors.white};
-      `}
+      @media ${props => props.theme.breakpoints.smMax} {
+        color: ${props => props.theme.colors.white};
+      }
     }
 
     &:hover li,
     &:focus li {
-      font-weight: ${(props) => props.theme.fontWeight.bold};
+      font-weight: ${props => props.theme.fontWeight.bold};
     }
 
-    ${breakpoint('md', 'lg')`
-      &:last-child li {
+    &:last-child li {
+      @media ${props => props.theme.breakpoints.mdMax} {
+        /* stylelint-disable-next-line declaration-property-value-blacklist */
         border-bottom: none;
       }
-    `}
+    }
 
-    ${breakpoint('lg')`
-      &:last-child li,
-      &:nth-last-child(2) li {
+    &:last-child li,
+    &:nth-last-child(2) li {
+      @media ${props => props.theme.breakpoints.lg} {
+        /* stylelint-disable-next-line declaration-property-value-blacklist */
         border-bottom: none;
       }
-    `}
+    }
   }
 `;
 
