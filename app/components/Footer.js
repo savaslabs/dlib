@@ -1,12 +1,27 @@
 import React from 'react';
-import SiteInfo from './SiteInfo';
+import CollectionInfo from './CollectionInfo';
+import { libraryInfo, lastUpdated } from '../utils/constants';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const footer = () => {
   return (
     <Footer id="footer">
       <FooterContainer>
-        <SiteInfo footer="true" />
+        <SiteName to={`/`}>The Durham Civil Rights Heritage Project</SiteName>
+        <CollectionInfo footer />
+        <AddressInfo>
+          {libraryInfo.map((info, idx) => {
+            return info.hasOwnProperty('url') ? (
+              <a key={idx} href={info.url}>
+                {info.text}{' '}
+              </a>
+            ) : (
+              <p key={idx}>{info}</p>
+            );
+          })}
+        </AddressInfo>
+        <Updated>{lastUpdated}</Updated>
       </FooterContainer>
     </Footer>
   );
@@ -19,33 +34,7 @@ const Footer = styled.footer`
   position: relative;
   width: 100vw;
   z-index: 50;
-
-  @media ${props => props.theme.breakpoints.lg} {
-    height: 361px;
-  }
-
-  ::before {
-    content: '';
-    background-color: ${props => props.theme.colors.white};
-    height: 130px;
-    position: absolute;
-    left: 0;
-    top: 30px;
-
-    @media ${props => props.theme.breakpoints.md} {
-      width: 35%;
-      height: 133px;
-    }
-
-    @media ${props => props.theme.breakpoints.lg} {
-      width: 20%;
-      height: 164px;
-    }
-
-    @media ${props => props.theme.breakpoints.max} {
-      width: 30%;
-    }
-  }
+  border-top: 10px solid ${props => props.theme.colors.cloudySkies};
 `;
 
 const FooterContainer = styled.div`
@@ -53,9 +42,26 @@ const FooterContainer = styled.div`
   flex-direction: column;
   ${props => props.theme.smContainer};
 
+  @media ${props => props.theme.breakpoints.md} {
+    ${props => props.theme.mdContainer};
+  }
+
   @media ${props => props.theme.breakpoints.lg} {
     ${props => props.theme.lgContainer};
   }
 `;
+
+const SiteName = styled(NavLink)``;
+
+const AddressInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${props => props.theme.breakpoints.lg} {
+    flex-direction: row;
+  }
+`;
+
+const Updated = styled.div``;
 
 export default footer;

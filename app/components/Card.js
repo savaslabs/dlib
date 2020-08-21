@@ -14,15 +14,18 @@ const card = React.forwardRef(({ event, feature, link }, ref) => {
       <Level scope={designation.toLowerCase()}>{designation}</Level>
       {feature && <Title scope={designation.toLowerCase()}>{headline}</Title>}
       <Body source={text}>{text}</Body>
-      {images &&
-        images.slice(0, 3).map((p, i) => {
-          return (
-            <CardImage key={i} src={`./app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} link={link} />
-          );
-        })}
+      {images && (
+        <ImageGrid link={link}>
+          {images.slice(0, 3).map((p, i) => {
+            return (
+              <CardImage key={i} src={`./app/assets/images/${p.ID}/large.jpg`} alt={p.alt_text} />
+            );
+          })}
+        </ImageGrid>
+      )}
       {!link && external_resource_links && (
         <ExternalLinksWrapper>
-          <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
+          <ExternalLinksNote>For Further Reading</ExternalLinksNote>
           {external_resource_links.map((ext, i) => {
             cleanJSON(ext);
             return (
@@ -54,9 +57,10 @@ const Card = styled.article`
   letter-spacing: 0.02em;
   position: relative;
   border-top: 6px;
+  background: ${props => props.theme.colors.white};
   border-top-style: solid;
   border-color: ${props => props.theme.colors.lightGray};
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 
   ${props =>
     props.link &&
@@ -82,12 +86,12 @@ const Card = styled.article`
   }
 
   @media ${props => props.theme.breakpoints.md} {
-    width: 500px;
+    width: 521px;
     padding: 24px;
   }
 
   @media ${props => props.theme.breakpoints.lg} {
-    width: 415px;
+    width: 375px;
 
     &:before {
       ${props =>
@@ -96,6 +100,10 @@ const Card = styled.article`
       right: 0;
     `};
     }
+  }
+
+  @media ${props => props.theme.breakpoints.max} {
+    width: 430px;
   }
 
   /* Animated border color */
@@ -122,16 +130,33 @@ const Card = styled.article`
 `;
 
 const Title = styled.h1`
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 0 15px 0;
-  line-height: ${props => props.theme.lineHeight.snug};
+  line-height: 1.1;
+  font-weight: ${props => props.theme.fontWeight.extraBold};
+  font-family: ${props => props.theme.fontFamily.muli};
   color: ${props =>
     props.scope === 'national' ? props.theme.colors.medGray : props.theme.colors.greenBean};
+
+  @media ${props => props.theme.breakpoints.md} {
+    font-size: 20px;
+    line-break: 1.2;
+  }
 `;
 
 const Body = styled(Markdown)`
   color: ${props => props.theme.colors.darkGreen};
-  font-size: ${props => props.theme.fontSize.sm};
+  font-size: 16px;
+  font-weight: ${props => props.theme.fontWeight.normal};
+  letter-spacing: 0.02em;
+
+  @media ${props => props.theme.breakpoints.md} {
+    font-size: 18px;
+  }
+
+  > p {
+    line-height: 1.2;
+  }
 `;
 
 const Level = styled.p`
@@ -139,9 +164,11 @@ const Level = styled.p`
   border-radius: 19px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  line-height: ${props => props.theme.lineHeight.loose};
+  font-family: ${props => props.theme.fontFamily.muli};
+  line-height: 1.1;
+  font-weight: ${props => props.theme.fontFamily.semiBold};
   margin-bottom: 10px;
-  padding: 1px 10px;
+  padding: 3px 10px;
   background: ${props =>
     props.scope === 'national' ? props.theme.colors.leafy : props.theme.colors.greenBean};
   color: ${props =>
@@ -152,49 +179,57 @@ const Level = styled.p`
   }
 `;
 
-const CardImage = styled.img`
-  width: 117px;
-  height: 117px;
-  object-fit: cover;
-  margin: 15px 15px 0px 0;
-
-  @media ${props => props.theme.breakpoints.sm} {
-    ${props => props.link && `margin-bottom: 45px;`}
-  }
+const ImageGrid = styled.div`
+  display: grid;
+  grid-column-gap: 12px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 25px;
+  ${props => props.link && `margin-bottom: 45px;`}
 
   @media ${props => props.theme.breakpoints.lg} {
-    ${props => props.link && `margin-bottom: 35px;`}
+    grid-column-gap: 16px;
+    ${props => props.link && `margin-bottom: 40px;`}
+  }
+`;
+
+const CardImage = styled.img`
+  width: 100%;
+  height: 64px;
+  object-fit: cover;
+
+  @media ${props => props.theme.breakpoints.md} {
+    height: 131px;
   }
 `;
 
 const ExternalLinksWrapper = styled.div`
-  margin-top: 10px;
+  margin-top: 25px;
 `;
 
 const ExternalLinksNote = styled.p`
-  font-weight: ${props => props.theme.fontWeight.bold};
+  font-weight: ${props => props.theme.fontWeight.semiBold};
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: ${props => props.theme.colors.medGray};
+  font-family: ${props => props.theme.fontFamily.muli};
 `;
 
 const ExternalLink = styled.a`
   display: block;
   cursor: pointer;
-  font-weight: ${props => props.theme.fontWeight.normal};
-
-  &:first-of-type {
-    margin-top: 10px;
-  }
-
-  &:not(:first-of-type) {
-    margin-top: 5px;
-  }
+  margin-top: 11px;
 `;
 
 const LinkTitle = styled.p`
   text-decoration: underline;
   cursor: pointer;
-  line-height: ${props => props.theme.lineHeight.mdLoose};
+  line-height: 1.2;
   color: ${props => props.theme.colors.greenBean};
-  font-size: ${props => props.theme.fontSize.xs};
+  font-size: 16px;
+  font-family: ${props => props.theme.fontFamily.muli};
+  font-weight: ${props => props.theme.fontWeight.light};
 
   @media ${props => props.theme.breakpoints.md} {
     font-size: ${props => props.theme.fontSize.sm};
@@ -203,9 +238,11 @@ const LinkTitle = styled.p`
 
 const LinkSource = styled.p`
   cursor: pointer;
-  line-height: ${props => props.theme.lineHeight.mdLoose};
+  line-height: 1.2;
+  margin-top: 5px;
   color: ${props => props.theme.colors.linkSource};
-  font-size: ${props => props.theme.fontSize.xs};
+  font-weight: ${props => props.theme.fontWeight.normal};
+  font-size: ${props => props.theme.fontSize.xxs};
 `;
 
 const Arrow = styled.div`
@@ -241,11 +278,16 @@ const Arrow = styled.div`
 `;
 
 export const More = styled.p`
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: ${props => props.theme.fontWeight.light};
+  font-family: ${props => props.theme.fontFamily.muli};
   color: ${props => props.theme.colors.white};
   padding: 0 12px 0 12px;
 
   @media ${props => props.theme.breakpoints.md} {
     padding: 0 24px 0 24px;
+    font-size: 20px;
   }
 `;
 

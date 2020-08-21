@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import SiteInfo from './SiteInfo';
+import CollectionInfo from './CollectionInfo';
 import SubMenu from './SubMenu';
-import menuOpen from '../assets/icons/menu--open.svg';
-import menuClose from '../assets/icons/menu--close.svg';
 import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import styled, { ThemeContext } from 'styled-components';
@@ -110,13 +108,19 @@ const header = ({ eventPages }) => {
       <Header>
         <HeaderContainer>
           <Top>
-            <Left>
-              <SiteInfo header="true" />
-            </Left>
-            {(location.pathname === '/timeline' || location.pathname === '/') && (
-              <Right>{timelineDescription}</Right>
-            )}
+            <SiteInfo>
+              <SiteName to={`/`}>The Durham Civil Rights Heritage Project</SiteName>
+              <CollectionInfo header />
+            </SiteInfo>
           </Top>
+          {(location.pathname === '/timeline' || location.pathname === '/') && (
+            <Bottom>
+              <Desc>
+                <p>Introduction</p>
+                <p>{timelineDescription}</p>
+              </Desc>
+            </Bottom>
+          )}
           <FocusLock disabled={!mobileMenuState}>
             <Nav state={mobileMenuState}>
               <NavContainer state={mobileMenuState}>
@@ -124,9 +128,7 @@ const header = ({ eventPages }) => {
                   state={mobileMenuState}
                   onClick={() => setMobileMenuState(!mobileMenuState)}
                 >
-                  <ScreenReaderText>{`${
-                    mobileMenuState ? 'Close' : 'Open'
-                  } Menu`}</ScreenReaderText>
+                  <ScreenReaderText>{`${mobileMenuState ? 'Close' : 'Open'}`}</ScreenReaderText>Menu
                 </MobileMenuToggle>
                 <Menu state={mobileMenuState} subMenu={subMenuState}>
                   {routes.map((route, index) => {
@@ -191,84 +193,181 @@ header.propTypes = {
 
 const Header = styled.header`
   position: relative;
-  background: ${props => props.theme.colors.white};
+  border-top: 10px solid ${props => props.theme.colors.greenBean};
   z-index: 100;
-  padding-top: 74px;
-
-  ::before {
-    content: '';
-    background-color: ${props => props.theme.colors.greenBean};
-    height: 130px;
-    position: absolute;
-    margin-top: 74px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-
-    @media ${props => props.theme.breakpoints.md} {
-      width: 35%;
-      height: 133px;
-    }
-
-    @media ${props => props.theme.breakpoints.lg} {
-      width: 20%;
-      height: 164px;
-    }
-
-    @media ${props => props.theme.breakpoints.max} {
-      width: 30%;
-    }
-  }
 `;
 
 const HeaderContainer = styled.div`
   display: flex;
-  flex-direction: column-reverse;
-  ${props => props.theme.smContainer};
-
-  @media ${props => props.theme.breakpoints.md} {
-    flex-direction: column;
-    ${props => props.theme.lgContainer};
-  }
+  flex-direction: column;
 `;
 
 const Top = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  @media ${props => props.theme.breakpoints.md} {
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 115px;
-  }
+  background: ${props => props.theme.colors.paleGreen};
 `;
 
-const Left = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Right = styled.p`
-  display: flex;
-  letter-spacing: 0.02em;
-  font-size: ${props => props.theme.fontSize.sm};
-  line-height: ${props => props.theme.lineHeight.xLoose};
+const SiteInfo = styled.div`
+  ${props => props.theme.smContainer};
+  padding-top: 47px;
+  position: relative;
 
   @media ${props => props.theme.breakpoints.smMax} {
-    padding-top: 30px;
+    padding-left: 50px;
+    margin-left: 42px;
   }
 
   @media ${props => props.theme.breakpoints.md} {
-    max-width: 425px;
+    ${props => props.theme.mdContainer};
+    padding-top: 238px;
   }
 
   @media ${props => props.theme.breakpoints.lg} {
-    padding-left: 30px;
-    flex: 1;
-    max-width: 735px;
-    font-size: ${props => props.theme.fontSize.md};
-    line-height: ${props => props.theme.lineHeight.loose};
+    ${props => props.theme.lgContainer};
+    padding-top: 238px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    left: 0;
+
+    @media ${props => props.theme.breakpoints.md} {
+      left: 55px;
+    }
+
+    @media ${props => props.theme.breakpoints.lg} {
+      left: 70px;
+    }
+  }
+`;
+
+const SiteNameWrapper = styled.div`
+  ${props => !props.state && `display: none;`}
+  width: 100%;
+  height: 140px;
+  background: ${props => props.theme.colors.greenBean};
+  margin-top: auto;
+`;
+
+const SiteName = styled.p`
+  position: relative;
+  color: ${props => props.theme.colors.greenBean};
+  font-weight: ${props => props.theme.fontWeight.black};
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-family: ${props => props.theme.fontFamily.muli};
+  font-size: ${props => props.theme.fontSize.md};
+  line-height: ${props => props.theme.lineHeight.normal};
+
+  @media ${props => props.theme.breakpoints.md} {
+    font-size: ${props => props.theme.fontSize.xxl};
+    padding-left: 110px;
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    padding-left: 142px;
+    font-size: ${props => props.theme.fontSize.xxxl};
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 61px;
+    height: 61px;
+    left: -78px;
+    border-radius: 50%;
+    background: ${props => props.theme.colors.greenBean};
+
+    @media ${props => props.theme.breakpoints.md} {
+      width: 78px;
+      height: 78px;
+      left: 0px;
+    }
+
+    @media ${props => props.theme.breakpoints.lg} {
+      width: 107.84px;
+      height: 107.84px;
+    }
+  }
+
+  &:after {
+    content: url('../app/assets/icons/stars.svg');
+    position: absolute;
+
+    @media ${props => props.theme.breakpoints.smMax} {
+      transform: scale(0.75);
+      left: -67px;
+      top: -5px;
+    }
+
+    @media ${props => props.theme.breakpoints.md} {
+      left: 25px;
+      top: 0;
+    }
+
+    @media ${props => props.theme.breakpoints.lg} {
+      transform: scale(1.25);
+      left: 50px;
+      top: 10px;
+    }
+  }
+`;
+
+const Bottom = styled.div`
+  background: ${props => props.theme.colors.white};
+`;
+
+const Desc = styled.div`
+  ${props => props.theme.smContainer};
+  padding-top: 21px;
+  padding-bottom: 45px;
+  position: relative;
+
+  @media ${props => props.theme.breakpoints.md} {
+    ${props => props.theme.mdContainer};
+    padding: 39px 20px 52px 20px;
+
+    p {
+      padding-left: 110px;
+      width: 70%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 5px;
+      top: 0;
+      bottom: 0;
+      background: #ededed;
+      left: 55px;
+    }
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    ${props => props.theme.lgContainer};
+    padding: 45px 18px 64px 18px;
+
+    p {
+      padding-left: 142px;
+    }
+
+    &::before {
+      left: 70px;
+    }
+  }
+
+  > p:first-child {
+    text-transform: uppercase;
+    line-height: 1.6;
+    font-size: 18px;
+    padding-bottom: 5px;
+    color: ${props => props.theme.colors.greenBean};
+    font-family: ${props => props.theme.fontFamily.muli};
+    font-weight: ${props => props.theme.fontWeight.extraBold};
   }
 `;
 
@@ -287,7 +386,7 @@ const Nav = styled.nav`
     z-index: 999;
     ${props => props.theme.containerFullWidth};
     background-color: ${props => props.theme.colors.bgGray};
-    box-shadow: ${props => props.theme.boxShadow.med};
+    box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.15);
   }
 `;
 
@@ -299,7 +398,6 @@ const NavContainer = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
@@ -308,6 +406,8 @@ const NavContainer = styled.div`
       `
       align-items: center;
       background: white;
+      height: 100%;
+      border-top: 10px solid #41796F;
     `}
     ${props =>
       props.state ||
@@ -317,26 +417,18 @@ const NavContainer = styled.div`
   }
 `;
 
-const SiteNameWrapper = styled.div`
-  ${props => !props.state && `display: none;`}
-  width: 100%;
-  height: 140px;
-  background: ${props => props.theme.colors.greenBean};
-  margin-top: auto;
-`;
-
-const SiteName = styled.p`
-  color: ${props => props.theme.colors.white};
-  font-size: ${props => props.theme.fontSize.md};
-  line-height: ${props => props.theme.lineHeight.snug};
-  letter-spacing: 0.02em;
-  padding: 34px 18px;
-`;
-
 const MobileMenuToggle = styled.button`
   z-index: 20;
-  margin-top: 30px;
-  background: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.white};
+  background: ${props => props.theme.colors.greenBean};
+  font-weight: ${props => props.theme.fontWeight.bold};
+  line-height: ${props => props.theme.lineHeight.normal};
+  font-family: ${props => props.theme.fontFamily.muli};
+  border-radius: 0 0 6px 6px;
+  padding: 10px 12px;
+  margin-top: -10px;
+  margin-right: 20px;
+  text-transform: uppercase;
 
   /* stylelint-disable-next-line declaration-property-value-blacklist */
   border: none;
@@ -359,11 +451,10 @@ const MobileMenuToggle = styled.button`
     mask-size: cover;
     align-items: center;
     display: inline-block;
-    position: relative;
     width: 20px;
-    height: 20px;
-    right: 10px;
-    background: ${props => props.theme.colors.charcoal};
+    height: 15px;
+    margin-right: 10px;
+    background: ${props => props.theme.colors.white};
   }
 `;
 
@@ -376,6 +467,7 @@ const Menu = styled.ul`
   justify-content: flex-end;
   flex-direction: column;
   z-index: 100;
+  font-family: ${props => props.theme.fontFamily.muli};
   background: ${props => props.theme.colors.white};
   ${props => props.theme.smContainer};
 
@@ -398,6 +490,15 @@ const Menu = styled.ul`
   }
 
   @media ${props => props.theme.breakpoints.md} {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: ${props => props.theme.colors.bgGray};
+    ${props => props.theme.mdContainer};
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
     position: relative;
     display: flex;
     flex-direction: row;

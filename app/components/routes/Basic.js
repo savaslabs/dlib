@@ -274,12 +274,8 @@ const Content = styled.main`
 `;
 
 const FloatWrapper = styled.div`
-  @media ${props => props.theme.breakpoints.md} {
-    margin-right: -20px;
-  }
-
   @media ${props => props.theme.breakpoints.lg} {
-    margin-right: -21px;
+    margin-right: -20px;
   }
 `;
 
@@ -294,7 +290,10 @@ const Main = styled.div`
 
 const H1 = styled.h1`
   font-size: ${props => props.theme.fontSize.md};
+  font-family: ${props => props.theme.fontFamily.muli};
   line-height: ${props => props.theme.lineHeight.xLoose};
+  padding-bottom: 25px;
+  border-bottom: 3px solid ${props => props.theme.colors.cloudySkies};
 
   @media ${props => props.theme.breakpoints.md} {
     font-size: ${props => props.theme.fontSize.mdLg};
@@ -306,7 +305,10 @@ const H1 = styled.h1`
   }
 
   @media ${props => props.theme.breakpoints.lg} {
+    margin: 80px 0 40px 0;
     font-size: ${props => props.theme.fontSize.xxl};
+    font-weight: ${props => props.theme.fontWeight.light};
+    line-height: 1.4;
   }
 `;
 
@@ -410,7 +412,6 @@ const InlineImage = styled.img`
   margin-bottom: 18px;
 
   @media ${props => props.theme.breakpoints.mdMax} {
-    width: calc(100vw - 36px);
     height: calc(100vw - 36px);
   }
 
