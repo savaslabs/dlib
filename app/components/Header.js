@@ -85,14 +85,18 @@ const header = ({ eventPages }) => {
         } else {
           // Mobile event handling for top level nav items.
           switch (eventType) {
-            case 'focus':
+            case 'click':
+              setMouseOverSubMenu(false);
+              setMouseOverSubMenuToggle(false);
               setMobileMenuState(false);
               break;
             case 'keydown':
               if (event.which === 13) {
+                setMouseOverSubMenu(false);
+                setMouseOverSubMenuToggle(false);
                 setMobileMenuState(false);
-                break;
               }
+              break;
           }
         }
         break;
