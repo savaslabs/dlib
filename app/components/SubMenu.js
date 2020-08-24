@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { cleanId, cleanMenuNames } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
@@ -11,6 +11,7 @@ const subMenu = ({
   mouseOverSubMenu,
   mouseOverSubMenuToggle,
   eventPages,
+  skipRef
 }) => {
   const windowSize = useWindowSize();
 
@@ -32,12 +33,13 @@ const subMenu = ({
     }
   };
 
-  // If submenu nav links are clicked/focused, close menus.
+  // If submenu nav links are clicked, close menus.
   const closeMenus = e => {
     if (windowSize.width < 768) {
       setMobileMenuState(false);
       setMouseOverSubMenu(false);
       setMouseOverSubMenuToggle(false);
+      skipRef.current.focus();
     }
   };
 

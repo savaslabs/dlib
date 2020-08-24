@@ -9,7 +9,7 @@ import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
 import PropTypes from 'prop-types';
 
-const header = ({ eventPages }) => {
+const header = ({ eventPages, skipRef }) => {
   const location = useLocation();
   const themeContext = useContext(ThemeContext);
   const windowSize = useWindowSize();
@@ -79,8 +79,9 @@ const header = ({ eventPages }) => {
               if (event.which === 13) {
                 setMouseOverSubMenuToggle(false);
                 setMouseOverSubMenu(false);
-                break;
+                skipRef.current.focus();
               }
+              break;
           }
         } else {
           // Mobile event handling for top level nav items.
@@ -89,12 +90,14 @@ const header = ({ eventPages }) => {
               setMouseOverSubMenu(false);
               setMouseOverSubMenuToggle(false);
               setMobileMenuState(false);
+              skipRef.current.focus();
               break;
             case 'keydown':
               if (event.which === 13) {
                 setMouseOverSubMenu(false);
                 setMouseOverSubMenuToggle(false);
                 setMobileMenuState(false);
+                skipRef.current.focus();
               }
               break;
           }
@@ -158,12 +161,14 @@ const header = ({ eventPages }) => {
                           mouseOverSubMenu={mouseOverSubMenu}
                           mouseOverSubMenuToggle={mouseOverSubMenuToggle}
                           eventPages={eventPages}
+                          skipRef={skipRef}
                         />
                       </SubMenuToggle>
                     ) : (
                       <NavLink
                         to={`/${route.route}`}
                         key={index}
+                        onClick={() => toggleSubMenu('click', false)}
                         onFocus={() => toggleSubMenu('focus', false)}
                         onKeyDown={e => toggleSubMenu('keydown', false, e)}
                         onMouseEnter={() => toggleSubMenu('mouseenter', false)}
@@ -539,6 +544,7 @@ const Menu = styled.ul`
 
     @media ${props => props.theme.breakpoints.md} {
       font-size: ${props => props.theme.fontSize.xs};
+      font-weight: ${props => props.theme.fontWeight.semiBold};
       letter-spacing: 0.02em;
     }
 
