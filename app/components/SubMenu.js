@@ -54,10 +54,13 @@ const subMenu = ({
       {eventPages &&
         eventPages.map((page, i) => {
           return (
-            <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
-              <li onClick={closeMenus} onKeyDown={e => e.which === 13 && closeMenus}>
-                {cleanMenuNames(page)}
-              </li>
+            <NavLink
+              to={`/events/${cleanId(page.name)}`}
+              key={i}
+              onClick={closeMenus}
+              onKeyDown={e => e.which === 13 && closeMenus}
+            >
+              <li>{cleanMenuNames(page)}</li>
             </NavLink>
           );
         })}
