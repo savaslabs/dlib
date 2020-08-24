@@ -202,16 +202,6 @@ const ImageGrid = styled.div`
   margin-top: 25px;
   ${props => props.link && `margin-bottom: 50px;`}
 
-  ${props =>
-    props.openLightbox &&
-    `
-    &:hover,
-    &:focus {
-      cursor: pointer;
-      filter: drop-shadow(5px 5px 30px rgba(0, 0, 0, 0.29));
-    }
-  `}
-
   @media ${props => props.theme.breakpoints.sm} {
     ${props => props.link && `margin-bottom: 45px;`}
   }
@@ -225,6 +215,16 @@ const ImageGrid = styled.div`
 const CardImage = styled.img`
   width: 100%;
   object-fit: cover;
+
+  ${props =>
+    props.openLightbox &&
+      `
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      filter: drop-shadow(5px 5px 30px rgba(0, 0, 0, 0.29));
+    }
+  `}
 
   @media ${props => props.theme.breakpoints.md} {
     height: 131px;

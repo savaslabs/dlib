@@ -403,7 +403,6 @@ const Image = styled.img`
   }
 `;
 
-
 const InlineImage = styled(Image)`
   object-fit: cover;
   margin-bottom: 18px;
