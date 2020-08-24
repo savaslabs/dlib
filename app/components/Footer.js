@@ -41,17 +41,41 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: column;
   ${props => props.theme.smContainer};
+  padding-top: 33px;
+  padding-bottom: 50px;
 
   @media ${props => props.theme.breakpoints.md} {
     ${props => props.theme.mdContainer};
+    padding-top: 44px;
+    padding-bottom: 56px;
   }
 
   @media ${props => props.theme.breakpoints.lg} {
     ${props => props.theme.lgContainer};
+    padding-top: 64px;
+    padding-bottom: 72px;
   }
 `;
 
-const SiteName = styled(NavLink)``;
+const SiteName = styled(NavLink)`
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  color: ${props => props.theme.colors.white};
+  font-family: ${props => props.theme.fontFamily.muli};
+  font-weight: ${props => props.theme.fontWeight.black};
+  line-height: ${props => props.theme.lineHeight.normal};
+
+  @media ${props => props.theme.breakpoints.md} {
+    padding-bottom: 14px;
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    font-size: 28px;
+    padding-bottom: 11px;
+  }
+`;
 
 const AddressInfo = styled.div`
   display: flex;
@@ -59,9 +83,29 @@ const AddressInfo = styled.div`
 
   @media ${props => props.theme.breakpoints.lg} {
     flex-direction: row;
+    align-items: center;
+
+    & > * {
+      margin-right: 20px;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
   }
 `;
 
-const Updated = styled.div``;
+const Updated = styled.div`
+  padding-top: 30px;
+
+  @media ${props => props.theme.breakpoints.md} {
+    padding-top: 26px;
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    padding-top: 72px;
+  }
+`;
 
 export default footer;

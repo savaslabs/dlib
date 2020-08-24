@@ -184,7 +184,7 @@ const ImageGrid = styled.div`
   grid-column-gap: 12px;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 25px;
-  ${props => props.link && `margin-bottom: 45px;`}
+  ${props => props.link && `margin-bottom: 50px;`}
 
   @media ${props => props.theme.breakpoints.lg} {
     grid-column-gap: 16px;
@@ -194,7 +194,6 @@ const ImageGrid = styled.div`
 
 const CardImage = styled.img`
   width: 100%;
-  height: 64px;
   object-fit: cover;
 
   @media ${props => props.theme.breakpoints.md} {
@@ -269,10 +268,10 @@ const Arrow = styled.div`
     background: ${props => props.theme.colors.white};
     width: 15px;
     height: 25px;
-    right: 12px;
+    right: 30px;
 
     @media ${props => props.theme.breakpoints.md} {
-      right: 24px;
+      right: 42px;
     }
   }
 `;
