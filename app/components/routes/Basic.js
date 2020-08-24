@@ -104,7 +104,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         <body style={isLightboxOpen ? themeContext.noScrollBody : null} />
       </Helmet>
       <Content isLightboxOpen={isLightboxOpen}>
-        <FloatWrapper>
+        <FloatWrapper type={type}>
           <Main gallery={type === 'gallery' ? true : false}>
             <H1>{data.name}</H1>
             {data.body &&
@@ -253,12 +253,8 @@ const Content = styled.main`
 `;
 
 const FloatWrapper = styled.div`
-  @media ${props => props.theme.breakpoints.md} {
-    margin-right: -20px;
-  }
-
   @media ${props => props.theme.breakpoints.lg} {
-    margin-right: -21px;
+    ${props => props.type === 'gallery' || `margin-right: -20px;`}
   }
 `;
 
@@ -273,7 +269,10 @@ const Main = styled.div`
 
 const H1 = styled.h1`
   font-size: ${props => props.theme.fontSize.md};
+  font-family: ${props => props.theme.fontFamily.muli};
   line-height: ${props => props.theme.lineHeight.xLoose};
+  padding-bottom: 25px;
+  border-bottom: 3px solid ${props => props.theme.colors.cloudySkies};
 
   @media ${props => props.theme.breakpoints.md} {
     font-size: ${props => props.theme.fontSize.mdLg};
@@ -285,7 +284,10 @@ const H1 = styled.h1`
   }
 
   @media ${props => props.theme.breakpoints.lg} {
+    margin: 80px 0 40px 0;
     font-size: ${props => props.theme.fontSize.xxl};
+    font-weight: ${props => props.theme.fontWeight.light};
+    line-height: 1.4;
   }
 `;
 
@@ -308,7 +310,6 @@ const Figure = styled.figure`
   flex-direction: column;
   font-style: italic;
   font-size: ${props => props.theme.fontSize.sm};
-  line-height: ${props => props.theme.lineHeight.loose};
   margin-bottom: 30px;
 
   @media ${props => props.theme.breakpoints.md} {
@@ -322,7 +323,7 @@ const Figure = styled.figure`
   &:before {
     content: '';
     position: absolute;
-    border-left: 8px solid ${props => props.theme.colors.greenBean};
+    border-left: 5px solid ${props => props.theme.colors.greenBean};
     left: 0;
     height: 100%;
     width: 1px;
@@ -333,14 +334,22 @@ const Blockquote = styled.blockquote`
   margin-inline-end: 0;
   margin-block-start: 0;
   margin-block-end: 0;
+  line-height: 1.4;
 `;
 
 const Figcaption = styled.figcaption`
-  margin-top: 10px;
+  margin-top: 16px;
   align-self: flex-end;
+  line-height: 1.2;
+  font-weight: ${props => props.theme.fontWeight.light};
+  font-family: ${props => props.theme.fontFamily.muli};
   color: ${props => props.theme.colors.greenBean};
   max-width: 60%;
   position: relative;
+
+  @media ${props => props.theme.breakpoints.lg} {
+    margin-top: 33px;
+  }
 
   &:before {
     content: '—';
@@ -356,9 +365,10 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  line-height: ${props => props.theme.lineHeight.xxLoose};
+  line-height: 1.6;
   font-size: ${props => props.theme.fontSize.sm};
   position: relative;
+  margin-bottom: 10px;
 
   p a {
     color: ${props => props.theme.colors.darkGreen};
@@ -374,7 +384,7 @@ const Li = styled.li`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    top: 12px;
+    top: 8px;
   }
 `;
 
@@ -384,12 +394,21 @@ const InlineImageWrapper = styled.div`
   margin-bottom: 30px;
 `;
 
-const InlineImage = styled.img`
+// Shared amongst all images.
+const Image = styled.img`
+  &:hover,
+  &:focus {
+    box-shadow: ${props => props.theme.boxShadow.xDark};
+    cursor: pointer;
+  }
+`;
+
+
+const InlineImage = styled(Image)`
   object-fit: cover;
   margin-bottom: 18px;
 
   @media ${props => props.theme.breakpoints.mdMax} {
-    width: calc(100vw - 36px);
     height: calc(100vw - 36px);
   }
 
@@ -397,17 +416,13 @@ const InlineImage = styled.img`
     margin-right: 30px;
     width: 100%;
   }
-
-  &:hover {
-    box-shadow: ${props => props.theme.boxShadow.xDark};
-  }
 `;
 
 const InlineImageCaption = styled.p`
-  font-weight: ${props => props.theme.fontWeight.bold};
+  line-height: 1.38;
 `;
 
-const SideImage = styled.img`
+const SideImage = styled(Image)`
   object-fit: cover;
   width: calc(100vw - 36px);
   height: calc(100vw - 36px);
@@ -428,11 +443,6 @@ const SideImage = styled.img`
       margin-top: 85px;
     }
   }
-
-  &:hover {
-    box-shadow: ${props => props.theme.boxShadow.xDark};
-    cursor: pointer;
-  }
 `;
 
 const GalleryGrid = styled.div`
@@ -452,7 +462,7 @@ const GalleryGrid = styled.div`
   }
 `;
 
-const GalleryImage = styled.img`
+const GalleryImage = styled(Image)`
   object-fit: cover;
   width: calc(100vw - 36px);
   height: calc(100vw - 36px);

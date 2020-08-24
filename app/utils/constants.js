@@ -1,4 +1,4 @@
-export const cleanId = (name) => {
+export const cleanId = name => {
   return name
     .toLowerCase()
     .replace(/ /g, '_')
@@ -10,8 +10,8 @@ export const cleanId = (name) => {
 };
 
 // Helper function to replace parentheses and spaces in JSON keys.
-export const cleanJSON = (obj) => {
-  Object.keys(obj).forEach((key) => {
+export const cleanJSON = obj => {
+  Object.keys(obj).forEach(key => {
     const replaced = key
       .replace(/\s/g, '_')
       .replace(/["'()]/g, '')
@@ -24,15 +24,14 @@ export const cleanJSON = (obj) => {
   return obj;
 };
 
-export const cleanMenuNames = (page) => {
+export const cleanMenuNames = page => {
   let pageName = page.name.split(',');
-  pageName =
-    pageName.length > 2 ? `${pageName[0]}, ${pageName[1]}` : pageName[0];
+  pageName = pageName.length > 2 ? `${pageName[0]}, ${pageName[1]}` : pageName[0];
   return pageName;
 };
 
 // Helper function to structure photo gallery and event page image captions.
-export const prepareCaptions = (item) => {
+export const prepareCaptions = item => {
   return `${item.caption} ${item.attribution}. ${item.citation}.`;
 };
 
@@ -50,3 +49,12 @@ export const timelineScopes = [
 ];
 
 export const timelineDescription = `The Durham Civil Rights Heritage Project (DCRHP) was founded to document the history of the Civil Rights Movement in Durham, North Carolina. The project began in 2003 and participants from numerous local heritage and professional organizations contributed. Photographs and oral histories were collected from local citizens. In 2020, the online exhibit was updated to reflect the continuing history of civil rights in Durham.`;
+
+export const libraryInfo = [
+  '300 N. Roxboro Street',
+  'Durham, North Carolina 27702',
+  '919.560.0100',
+  { url: '#', text: 'Email the Library Webmaster' },
+];
+
+export const lastUpdated = 'Last Updated August 30, 2020';

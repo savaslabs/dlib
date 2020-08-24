@@ -90,7 +90,7 @@ const SubMenu = styled.ul`
   a {
     li {
       font-size: ${props => props.theme.fontSize.xs};
-      font-weight: ${props => props.theme.fontWeight.normal};
+      font-weight: ${props => props.theme.fontWeight.regular};
       padding: 20px 0;
       margin: 0 18px;
       border-bottom: 0.5px solid;
@@ -102,7 +102,7 @@ const SubMenu = styled.ul`
 
     &:hover li,
     &:focus li {
-      font-weight: ${props => props.theme.fontWeight.bold};
+      font-weight: ${props => props.theme.fontWeight.extraBold};
     }
 
     &:last-child li {

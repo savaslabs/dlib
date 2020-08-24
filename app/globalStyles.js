@@ -4,11 +4,9 @@ import { normalize } from 'styled-normalize';
 const GlobalStyles = createGlobalStyle`
   ${normalize}
 
-  @import url('${(props) => props.theme.fontSource}');
-
   body {
     background-color: ${(props) => props.theme.bgGray};
-    font-family: ${(props) => props.theme.fontFamily};
+    font-family: ${(props) => props.theme.fontFamily.notoSans};
     color: ${(props) => props.theme.colors.darkGreen};
   }
 
@@ -37,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
     margin-block-start: 0;
     margin-block-end: 0;
     font-weight: ${(props) => props.theme.fontWeight.normal};
-    line-height: ${(props) => props.theme.lineHeight.xLoose};
+    line-height: 1.6;
   }
 
   ul,

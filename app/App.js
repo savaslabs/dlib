@@ -142,10 +142,14 @@ const App = () => {
 };
 
 const ContentContainer = styled.div`
-  ${(props) => props.theme.smContainer};
+  ${props => props.theme.smContainer};
+
+  @media ${props => props.theme.breakpoints.md} {
+    ${props => props.theme.mdContainer};
+  }
 
   @media ${props => props.theme.breakpoints.lg} {
-    ${(props) => props.theme.lgContainer};
+    ${props => props.theme.lgContainer};
   }
 `;
 
