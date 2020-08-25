@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '@babel/polyfill';
 import { routes, cleanId, prepareCaptions } from './utils/constants';
 import { Switch, Route } from 'react-router-dom';
@@ -27,6 +27,7 @@ const App = () => {
   const [imageIds, setImageIds] = useState([]);
   const [imageCaptions, setImageCaptions] = useState([]);
   const [imageAltText, setImageAltText] = useState([]);
+  const skipRef = useRef(null);
 
   // Fetch timeline events.
   useEffect(() => {
@@ -88,17 +89,19 @@ const App = () => {
       <GlobalStyles />
       {timeline ? (
         <>
-          <SkipToMainContent href="#main-content">
+          <SkipToMainContent ref={skipRef} href="#main-content">
             <ScreenReaderText>Skip to main content</ScreenReaderText>
           </SkipToMainContent>
-          <Header eventPages={EventPages} />
+          <Header eventPages={EventPages} skipRef={skipRef} />
           <ContentContainer id="main-content">
             <Switch>
               {routes &&
                 routes.map((r, i) => {
                   return r.route === 'timeline' && timeline ? (
                     <Route exact path={['/', '/timeline']} key={i}>
-                      <Timeline timeline={timeline} />
+                      <Timeline
+                        timeline={timeline}
+                      />
                     </Route>
                   ) : r.component === 'Featured Events' && EventPages ? (
                     EventPages.map((event, index) => {
@@ -137,10 +140,14 @@ const App = () => {
 };
 
 const ContentContainer = styled.div`
-  ${(props) => props.theme.smContainer};
+  ${props => props.theme.smContainer};
+
+  @media ${props => props.theme.breakpoints.md} {
+    ${props => props.theme.mdContainer};
+  }
 
   @media ${props => props.theme.breakpoints.lg} {
-    ${(props) => props.theme.lgContainer};
+    ${props => props.theme.lgContainer};
   }
 `;
 

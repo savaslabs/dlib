@@ -26,6 +26,10 @@ const SVG = styled.svg`
   z-index: 20;
   left: -6px;
 
+  @media ${props => props.theme.breakpoints.md} {
+    left: 4px;
+  }
+
   @media ${props => props.theme.breakpoints.lg} {
     left: 47.3%;
   }

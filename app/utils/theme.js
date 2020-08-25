@@ -10,6 +10,7 @@ export const theme = {
     darkGreen: '#202D25',
     greenBean: '#41796F',
     leafy: '#D5CC7F',
+    paleGreen: '#D9E6E3',
     taupe: '#B0A7A6',
     cloudySkies: '#ABBEBC',
     bgGray: '#FBFBFB',
@@ -21,10 +22,12 @@ export const theme = {
     black: '#1B1B1B',
     white: '#FFFFFF',
   },
-  fontSource:
-    'https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap',
-  fontFamily: 'Almarai, sans-serif',
+  fontFamily: {
+    muli: 'muli, sans-serif',
+    notoSans: 'noto-sans, sans-serif',
+  },
   fontSize: {
+    xxs: '14px',
     xs: '16px', // Mobile Body.
     sm: '18px', // Desktop Body, Mobile headers.
     md: '21px', // Desktop.
@@ -32,12 +35,18 @@ export const theme = {
     lg: '24px', // Desktop Menu.
     xl: '31px', // Desktop Header Text.
     xxl: '36px', // Desktop h1.
+    xxxl: '56px',
   },
   fontWeight: {
-    normal: '400',
+    light: '300',
+    regular: '400', // Muli and Noto
+    semiBold: '600',
     bold: '700',
+    extraBold: '800', // Muli and Noto
+    black: '900'
   },
   lineHeight: {
+    normal: '1',
     tight: '1.125',
     snug: '1.14',
     loose: '1.31',
@@ -50,9 +59,12 @@ export const theme = {
     light: '0px 2px 6px rgba(0, 0, 0, 0.15)',
     med: '0px 4px 15px rgba(0, 0, 0, 0.1)',
     dark: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-    xDark: '5px 5px 30px rgba(0, 0, 0, 0.29)',
   },
   smContainer: `padding: 0 18px;
+    margin: 0 auto;
+  `,
+  mdContainer: `padding: 0 20px;
+    max-width: 768px;
     margin: 0 auto;
   `,
   lgContainer: `padding: 0 18px;

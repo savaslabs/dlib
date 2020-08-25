@@ -1,8 +1,9 @@
-import React, { useState, useMemo, useContext } from 'react';
+import React, { useMemo, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { prepareCaptions, timelineDescription, pathToImages } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
+import Image from '../Image';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import Lightbox from '../Lightbox';
@@ -71,18 +72,15 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     ogImageAlt = imageAltText[0];
   }
 
-  // Open lightbox anytime a photo is clicked.
   const openLightbox = e => {
     const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
     setPhotoIndex(photoIndex);
     setIsLightboxOpen(true);
   };
 
-  const closeLightbox = e => {
-    setIsLightboxOpen(false);
-  };
+  const closeLightbox = e => setIsLightboxOpen(false);
 
-  const getImageIds = () => {
+  const getIds = () => {
     let ids;
     if (event) {
       ids = lightBoxImageIds;
@@ -93,12 +91,15 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   };
 
   const nextLightboxImage = e => {
-    setPhotoIndex(photoIndex + 1 < getImageIds().length ? photoIndex + 1 : 0);
+    setPhotoIndex(photoIndex + 1 < getIds().length ? photoIndex + 1 : 0);
   };
 
   const prevLightboxImage = e => {
-    setPhotoIndex(photoIndex - 1 > 0 ? photoIndex - 1 : getImageIds()[getImageIds().length - 1]);
+    setPhotoIndex(
+      photoIndex - 1 > 0 ? photoIndex - 1 : getIds()[getIds().length - 1]
+    );
   };
+
   return (
     <>
       <Helmet>
@@ -134,14 +135,14 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         <body style={isLightboxOpen ? themeContext.noScrollBody : null} />
       </Helmet>
       <Content isLightboxOpen={isLightboxOpen}>
-        <FloatWrapper>
+        <FloatWrapper type={type}>
           <Main gallery={type === 'gallery' ? true : false}>
             <H1>{data.name}</H1>
             {data.body &&
               data.body.map((item, i) => {
                 // Second level heading.
                 if (item.hasOwnProperty('h2')) {
-                  return <h2 key={i}>{item.h2}</h2>;
+                  return <H2 key={i}>{item.h2}</H2>;
                   // Body text.
                 } else if (item.hasOwnProperty('text')) {
                   return (
@@ -179,10 +180,10 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                   });
                   return (
                     <InlineImageWrapper key={i}>
-                      <InlineImage
-                        key={i}
-                        data-photoindex={lightBoxImageIds.indexOf(item.image)}
-                        onClick={openLightbox}
+                      <Image
+                        inline
+                        openLightbox={openLightbox}
+                        dataPhotoIndex={lightBoxImageIds.indexOf(item.image)}
                         src={`${pathToImages}${item.image}/large.jpg`}
                         alt={foundImage[0].alt_text}
                       />
@@ -200,12 +201,13 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                     {imageIds &&
                       imageIds.map((id, i) => {
                         return (
-                          <GalleryImage
-                            src={`${pathToImages}${id}/full.jpg`}
+                          <Image
+                            gallery
+                            src={`${pathToImages}${id}/large.jpg`}
                             alt={imageAltText[i]}
                             key={i}
-                            data-photoindex={i}
-                            onClick={openLightbox}
+                            dataPhotoIndex={i}
+                            openLightbox={openLightbox}
                           />
                         );
                       })}
@@ -230,10 +232,11 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                 return imageInfo.ID === imageId;
               });
               return (
-                <SideImage
+                <Image
                   key={idx}
-                  data-photoindex={lightBoxImageIds.indexOf(imageId)}
-                  onClick={openLightbox}
+                  sideline
+                  dataPhotoIndex={lightBoxImageIds.indexOf(imageId)}
+                  openLightbox={openLightbox}
                   src={`${pathToImages}${imageId}/large.jpg`}
                   alt={foundImage[0].alt_text}
                 />
@@ -282,12 +285,8 @@ const Content = styled.main`
 `;
 
 const FloatWrapper = styled.div`
-  @media ${props => props.theme.breakpoints.md} {
-    margin-right: -20px;
-  }
-
   @media ${props => props.theme.breakpoints.lg} {
-    margin-right: -21px;
+    ${props => props.type === 'gallery' || `margin-right: -20px;`}
   }
 `;
 
@@ -302,7 +301,10 @@ const Main = styled.div`
 
 const H1 = styled.h1`
   font-size: ${props => props.theme.fontSize.md};
+  font-family: ${props => props.theme.fontFamily.muli};
   line-height: ${props => props.theme.lineHeight.xLoose};
+  padding-bottom: 25px;
+  border-bottom: 3px solid ${props => props.theme.colors.cloudySkies};
 
   @media ${props => props.theme.breakpoints.md} {
     font-size: ${props => props.theme.fontSize.mdLg};
@@ -314,9 +316,18 @@ const H1 = styled.h1`
   }
 
   @media ${props => props.theme.breakpoints.lg} {
+    margin: 80px 0 40px 0;
     font-size: ${props => props.theme.fontSize.xxl};
+    font-weight: ${props => props.theme.fontWeight.light};
+    line-height: 1.4;
   }
 `;
+
+const H2 = styled.h2`
+  font-family: ${props => props.theme.fontFamily.muli};
+  font-weight: ${props => props.theme.fontWeight.regular};
+`;
+
 
 const P = styled(Markdown)`
   margin-bottom: 30px;
@@ -337,7 +348,6 @@ const Figure = styled.figure`
   flex-direction: column;
   font-style: italic;
   font-size: ${props => props.theme.fontSize.sm};
-  line-height: ${props => props.theme.lineHeight.loose};
   margin-bottom: 30px;
 
   @media ${props => props.theme.breakpoints.md} {
@@ -351,7 +361,7 @@ const Figure = styled.figure`
   &:before {
     content: '';
     position: absolute;
-    border-left: 8px solid ${props => props.theme.colors.greenBean};
+    border-left: 5px solid ${props => props.theme.colors.greenBean};
     left: 0;
     height: 100%;
     width: 1px;
@@ -362,14 +372,22 @@ const Blockquote = styled.blockquote`
   margin-inline-end: 0;
   margin-block-start: 0;
   margin-block-end: 0;
+  line-height: 1.4;
 `;
 
 const Figcaption = styled.figcaption`
-  margin-top: 10px;
+  margin-top: 16px;
   align-self: flex-end;
+  line-height: 1.2;
+  font-weight: ${props => props.theme.fontWeight.light};
+  font-family: ${props => props.theme.fontFamily.muli};
   color: ${props => props.theme.colors.greenBean};
   max-width: 60%;
   position: relative;
+
+  @media ${props => props.theme.breakpoints.lg} {
+    margin-top: 33px;
+  }
 
   &:before {
     content: '—';
@@ -385,9 +403,10 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  line-height: ${props => props.theme.lineHeight.xxLoose};
+  line-height: 1.6;
   font-size: ${props => props.theme.fontSize.sm};
   position: relative;
+  margin-bottom: 10px;
 
   p a {
     color: ${props => props.theme.colors.darkGreen};
@@ -413,55 +432,8 @@ const InlineImageWrapper = styled.div`
   margin-bottom: 30px;
 `;
 
-const InlineImage = styled.img`
-  object-fit: cover;
-  margin-bottom: 18px;
-
-  @media ${props => props.theme.breakpoints.mdMax} {
-    width: calc(100vw - 36px);
-    height: calc(100vw - 36px);
-  }
-
-  @media ${props => props.theme.breakpoints.lg} {
-    margin-right: 30px;
-    width: 100%;
-  }
-
-  &:hover {
-    box-shadow: ${props => props.theme.boxShadow.xDark};
-  }
-`;
-
 const InlineImageCaption = styled.p`
-  font-weight: ${props => props.theme.fontWeight.bold};
-`;
-
-const SideImage = styled.img`
-  object-fit: cover;
-  width: calc(100vw - 36px);
-  height: calc(100vw - 36px);
-  margin-bottom: 18px;
-
-  @media ${props => props.theme.breakpoints.md} {
-    width: 230px;
-    height: 230px;
-    margin: 0 20px 27px 0;
-  }
-
-  @media ${props => props.theme.breakpoints.lg} {
-    width: 275px;
-    height: 275px;
-    margin: 0 21px 23px 0;
-
-    &:first-of-type {
-      margin-top: 85px;
-    }
-  }
-
-  &:hover {
-    box-shadow: ${props => props.theme.boxShadow.xDark};
-    cursor: pointer;
-  }
+  line-height: 1.38;
 `;
 
 const GalleryGrid = styled.div`
@@ -481,27 +453,5 @@ const GalleryGrid = styled.div`
   }
 `;
 
-const GalleryImage = styled.img`
-  object-fit: cover;
-  width: calc(100vw - 36px);
-  height: calc(100vw - 36px);
-  margin-bottom: 18px;
-
-  @media ${props => props.theme.breakpoints.md} {
-    width: 225px;
-    height: 225px;
-    margin-bottom: 30px;
-  }
-
-  @media ${props => props.theme.breakpoints.lg} {
-    width: 347px;
-    height: 347px;
-    margin-bottom: 50px;
-  }
-
-  @media ${props => props.theme.breakpoints.max} {
-    margin-bottom: 75px;
-  }
-`;
 
 export default basic;

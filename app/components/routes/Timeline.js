@@ -5,6 +5,8 @@ import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
 import BackToTop from '../BackToTop';
+import useWindowSize from '../../utils/hooks/useWindowSize';
+import Lightbox from '../Lightbox';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,8 +17,15 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 const timeline = ({ timeline }) => {
+  const timelineImageIds = [];
+  const timelineImageCaptions = [];
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const windowSize = useWindowSize();
+  const [linePos, setLinePos] = useState(0);
   const [showScroll, setShowScroll] = useState(false);
   const yearRefs = useRef([]);
+  const lineRef = useRef(null);
   yearRefs.current = [];
 
   useEffect(() => {
@@ -56,8 +65,32 @@ const timeline = ({ timeline }) => {
     };
   });
 
+  // Ensure scroll line lines up with timeline line on tablet.
+  useEffect(() => {
+    if (768 <= windowSize.width < 1024) {
+      setLinePos(lineRef.current.getBoundingClientRect().left + 55);
+    }
+  }, [windowSize.width]);
+
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const openLightbox = e => {
+    const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
+    setPhotoIndex(photoIndex);
+    setIsLightboxOpen(true);
+  };
+  const closeLightbox = e => setIsLightboxOpen(false);
+
+  const nextLightboxImage = e => {
+    setPhotoIndex(photoIndex + 1 <= timelineImageIds.length ? photoIndex + 1 : 0);
+  };
+
+  const prevLightboxImage = e => {
+    setPhotoIndex(
+      photoIndex - 1 >= 0 ? photoIndex - 1 : timelineImageIds[timelineImageIds.length - 1]
+    );
   };
 
   return (
@@ -100,69 +133,91 @@ const timeline = ({ timeline }) => {
         <H1>Civil Rights Timeline</H1>
         <BackToTop onClick={scrollTop} showScroll={showScroll} />
         <TimelineKey />
-        <Timeline>
-          <Line />
-          {timeline &&
-            timeline.map((eventsPerYear, i) => {
-              let position;
-              let gap;
-              if (eventsPerYear.events.length < 2) {
-                position =
-                  eventsPerYear.events[0].scope === 'National Event' ? 'sole-left' : 'sole-right';
-              } else {
-                position = 'both';
-              }
+        <TimelineWrapper>
+          <Timeline ref={lineRef}>
+            <Line linePos={linePos} />
+            {timeline &&
+              timeline.map((eventsPerYear, i) => {
+                let position;
+                let gap;
+                if (eventsPerYear.events.length < 2) {
+                  position =
+                    eventsPerYear.events[0].scope === 'National Event' ? 'sole-left' : 'sole-right';
+                } else {
+                  position = 'both';
+                }
 
-              // Add timeline gap if next event year more than one year in the future.
-              if (i < timeline.length - 1) {
-                timeline[i + 1].year - eventsPerYear.year > 1 ? (gap = true) : (gap = false);
-              }
-              return (
-                <YearListItem
-                  value={eventsPerYear.year}
-                  key={i}
-                  className={`${position}`}
-                  ref={addToYearRefs}
-                  position={position}
-                  gap={gap}
-                >
-                  {/* Element that changes fill color */}
-                  <Year />
-                  {/* Element that changes stroke color */}
-                  <Year front />
-                  <Span className="arms" />
-                  {eventsPerYear.events.map((eventsPerScope, index) => {
-                    const level = eventsPerScope.scope === 'National Event' ? 'national' : 'durham';
-                    return (
-                      <Ul key={index} className={level} pos={position} scope={level}>
-                        {eventsPerScope.events.map((event, ind) => {
-                          const cleanedEvent = cleanJSON(event);
-                          return (
-                            <li key={ind} className="event">
-                              {event.event_page ? (
-                                <LinkedEvent to={`/events/${cleanId(event.event_page)}`}>
-                                  <Card event={cleanedEvent} ref={addToYearRefs} feature link />
-                                </LinkedEvent>
-                              ) : (
-                                <Card
-                                  key={i}
-                                  event={event}
-                                  {...(event.type === 'Feature' && {
-                                    feature: true,
-                                  })}
-                                  ref={addToYearRefs}
-                                />
-                              )}
-                            </li>
-                          );
-                        })}
-                      </Ul>
-                    );
-                  })}
-                </YearListItem>
-              );
-            })}
-        </Timeline>
+                // Add timeline gap if next event year more than one year in the future.
+                if (i < timeline.length - 1) {
+                  timeline[i + 1].year - eventsPerYear.year > 1 ? (gap = true) : (gap = false);
+                }
+                return (
+                  <YearListItem
+                    value={eventsPerYear.year}
+                    key={i}
+                    className={`${position}`}
+                    ref={addToYearRefs}
+                    position={position}
+                    gap={gap}
+                  >
+                    {/* Element that changes fill color */}
+                    <Year />
+                    {/* Element that changes stroke color */}
+                    <Year front />
+                    <Span className="arms" />
+                    {eventsPerYear.events.map((eventsPerScope, index) => {
+                      const level =
+                        eventsPerScope.scope === 'National Event' ? 'national' : 'durham';
+                      return (
+                        <Ul key={index} className={level} pos={position} scope={level}>
+                          {eventsPerScope.events.map((event, ind) => {
+                            const cleanedEvent = cleanJSON(event);
+                            // Construct id and caption arrays for lightbox.
+                            event.images &&
+                              event.images.forEach(image => {
+                                timelineImageIds.push(image.ID);
+                                timelineImageCaptions.push(image.caption);
+                              });
+                            return (
+                              <li key={ind} className="event">
+                                {event.event_page ? (
+                                  <LinkedEvent to={`/events/${cleanId(event.event_page)}`}>
+                                    <Card event={cleanedEvent} ref={addToYearRefs} feature link />
+                                  </LinkedEvent>
+                                ) : (
+                                  timelineImageIds && (
+                                    <Card
+                                      key={i}
+                                      event={event}
+                                      imageIds={timelineImageIds}
+                                      {...(event.type === 'Feature' && {
+                                        feature: true,
+                                      })}
+                                      openLightbox={openLightbox}
+                                      ref={addToYearRefs}
+                                    />
+                                  )
+                                )}
+                              </li>
+                            );
+                          })}
+                        </Ul>
+                      );
+                    })}
+                  </YearListItem>
+                );
+              })}
+          </Timeline>
+        </TimelineWrapper>
+        {timelineImageIds && <Lightbox
+          imageIds={timelineImageIds}
+          imageCaptions={timelineImageCaptions}
+          isOpen={isLightboxOpen}
+          photoIndex={photoIndex}
+          closeLightbox={closeLightbox}
+          prevLightboxImage={prevLightboxImage}
+          nextLightboxImage={nextLightboxImage}
+        />}
       </main>
     </>
   );
@@ -175,48 +230,61 @@ timeline.propTypes = {
 const H1 = styled.h1`
   position: relative;
   z-index: 50;
-  font-size: ${props => props.theme.fontSize.lg};
+  font-weight: ${props => props.theme.fontWeight.bold};
   line-height: ${props => props.theme.lineHeight.snug};
-  background: ${props => props.theme.colors.white};
-  color: ${props => props.theme.colors.greenBean};
-  padding: 50px 18px 12px 18px;
+  font-family: ${props => props.theme.fontFamily.muli};
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 13px 18px 13px 18px;
   ${props => props.theme.containerFullWidth};
   line-height: 1.73;
+  background: ${props => props.theme.colors.greenBean};
+  color: ${props => props.theme.colors.white};
+  font-size: ${props => props.theme.fontSize.md};
+  text-align: center;
 
-  @media ${props => props.theme.breakpoints.smMax} {
-    box-shadow: ${props => props.theme.boxShadow.dark};
-  }
-
-  @media ${props => props.theme.breakpoints.md} {
-    padding: 40px 0 20px 0;
-    text-align: center;
-    line-height: ${props => props.theme.lineHeight.xLoose};
-    font-size: ${props => props.theme.fontSize.mdlg};
-    background: ${props => props.theme.colors.greenBean};
-    color: ${props => props.theme.colors.white};
+  @media ${props => props.theme.breakpoints.mdMax} {
+    line-height: 1.98;
   }
 
   @media ${props => props.theme.breakpoints.lg} {
-    padding: 80px 0 30px 0;
+    padding: 26px 0 29px 0;
     font-size: ${props => props.theme.fontSize.xxl};
     line-height: ${props => props.theme.lineHeight.snug};
+    box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.15);
   }
 `;
 
-const Timeline = styled.ol`
+const TimelineWrapper = styled.div`
+  ${props => props.theme.containerFullWidth};
   padding-top: 80px;
-  width: 100%;
+  background: url('../app/assets/images/timeline-pattern.png') 102px 102px repeat;
+`;
+
+const Timeline = styled.ol`
   position: relative;
-  margin: 0;
+  ${props => props.theme.smContainer};
+
+  @media ${props => props.theme.breakpoints.md} {
+    ${props => props.theme.mdContainer};
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    ${props => props.theme.lgContainer};
+  }
 
   /* Timeline line */
   &:after {
     content: '';
     position: absolute;
-    top: 0;
+    top: -80px;
     bottom: 0;
     border: 3px solid ${props => props.theme.colors.lightGray};
-    left: 25px;
+    left: 44px;
+
+    @media ${props => props.theme.breakpoints.md} {
+      left: 55px;
+    }
 
     @media ${props => props.theme.breakpoints.lg} {
       left: 49.95%;
@@ -230,12 +298,16 @@ const Line = styled.span`
   height: 50vh;
   position: fixed;
   top: 0;
-  left: 43px;
+  left: 44px;
   z-index: 1;
   background-color: ${props => props.theme.colors.darkGreen};
 
+  @media ${props => props.theme.breakpoints.md} {
+    left: ${props => props.linePos}px;
+  }
+
   @media ${props => props.theme.breakpoints.lg} {
-    left: calc(50% - 1px);
+    left: 49.95%;
   }
 `;
 
@@ -249,24 +321,35 @@ const YearListItem = styled.li`
     props.gap &&
     `
     padding-bottom: 130px;
+
     &:after {
-      position: absolute;
-      bottom: 20px;
       content: '';
-      left: 25px;
-      height: 130px;
-      width: 0;
-      border-right: dashed 12px #FFFFFF;
+      background: url('../app/assets/images/timeline-gap-mask.png');
+      background-size: contain;
+      position: absolute;
+      bottom: 30px;
+      left: 26px;
+      width: 7px;
+      height: 144px;
       z-index: 3;
     }
   `}
 
-  @media ${props => props.theme.breakpoints.lg} {
-    flex-direction: row;
-    justify-content: space-between;
+  @media ${props => props.theme.breakpoints.md} {
+    ${props =>
+      props.gap &&
+      `
+
+    &:after {
+      left: 34px;
+    }
+  `}
   }
 
   @media ${props => props.theme.breakpoints.lg} {
+    flex-direction: row;
+    justify-content: space-between;
+
     ${props =>
       props.position === 'sole-left' &&
       `justify-content: flex-start;
@@ -306,7 +389,7 @@ const YearListItem = styled.li`
     ${props =>
       props.gap &&
       ` &:after {
-      left: 49.7%;
+      left: 49.95%;
     }`}
   }
 
@@ -315,7 +398,8 @@ const YearListItem = styled.li`
     content: attr(value);
     position: absolute;
     color: ${props => props.theme.colors.greenBean};
-    font-weight: ${props => props.theme.fontWeight.bold};
+    font-family: ${props => props.theme.fontFamily.muli};
+    font-weight: ${props => props.theme.fontWeight.semiBold};
     letter-spacing: 0.02em;
     line-height: ${props => props.theme.lineHeight.tight};
     top: -8px;
@@ -323,8 +407,12 @@ const YearListItem = styled.li`
     transition: color 0.3s 0.3s;
     left: 10px;
 
+    @media ${props => props.theme.breakpoints.md} {
+      left: 17px;
+    }
+
     @media ${props => props.theme.breakpoints.lg} {
-      left: 48.75%;
+      left: 48.6%;
     }
   }
 `;
@@ -337,6 +425,10 @@ const Span = styled.span`
   top: 0;
   transition-delay: 0.5s;
   transition: all linear 0.5s;
+
+  @media ${props => props.theme.breakpoints.md} {
+    width: 35px;
+  }
 
   @media ${props => props.theme.breakpoints.lg} {
     left: 44%;
@@ -372,6 +464,10 @@ const Span = styled.span`
     border-radius: 50%;
     background: ${props => props.theme.colors.lightGray};
 
+    @media ${props => props.theme.breakpoints.md} {
+      left: 35px;
+    }
+
     @media ${props => props.theme.breakpoints.lg} {
       width: 15px;
       height: 15px;
@@ -404,9 +500,6 @@ const LinkedEvent = styled(Link)`
   position: relative;
   display: block;
   border-radius: 4px;
-  color: ${props => props.theme.colors.greenBean};
-  font-weight: ${props => props.theme.fontWeight.bold};
-  line-height: ${props => props.theme.lineHeight.snug};
 
   &:hover,
   &:focus {

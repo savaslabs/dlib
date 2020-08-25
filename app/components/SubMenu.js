@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { cleanId, cleanMenuNames } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
@@ -11,6 +11,7 @@ const subMenu = ({
   mouseOverSubMenu,
   mouseOverSubMenuToggle,
   eventPages,
+  skipRef
 }) => {
   const windowSize = useWindowSize();
 
@@ -32,12 +33,13 @@ const subMenu = ({
     }
   };
 
-  // If submenu nav links are clicked/focused, close menus.
+  // If submenu nav links are clicked, close menus.
   const closeMenus = e => {
     if (windowSize.width < 768) {
       setMobileMenuState(false);
       setMouseOverSubMenu(false);
       setMouseOverSubMenuToggle(false);
+      skipRef.current.focus();
     }
   };
 
@@ -52,10 +54,13 @@ const subMenu = ({
       {eventPages &&
         eventPages.map((page, i) => {
           return (
-            <NavLink to={`/events/${cleanId(page.name)}`} key={i}>
-              <li onClick={closeMenus} onKeyDown={e => e.which === 13 && closeMenus}>
-                {cleanMenuNames(page)}
-              </li>
+            <NavLink
+              to={`/events/${cleanId(page.name)}`}
+              key={i}
+              onClick={closeMenus}
+              onKeyDown={e => e.which === 13 && closeMenus}
+            >
+              <li>{cleanMenuNames(page)}</li>
             </NavLink>
           );
         })}
@@ -90,7 +95,7 @@ const SubMenu = styled.ul`
   a {
     li {
       font-size: ${props => props.theme.fontSize.xs};
-      font-weight: ${props => props.theme.fontWeight.normal};
+      font-weight: ${props => props.theme.fontWeight.regular};
       padding: 20px 0;
       margin: 0 18px;
       border-bottom: 0.5px solid;
@@ -102,7 +107,7 @@ const SubMenu = styled.ul`
 
     &:hover li,
     &:focus li {
-      font-weight: ${props => props.theme.fontWeight.bold};
+      font-weight: ${props => props.theme.fontWeight.extraBold};
     }
 
     &:last-child li {

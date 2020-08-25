@@ -30,6 +30,7 @@ const Sticky = styled.div`
     z-index: 50;
     ${props => props.theme.containerFullWidth};
     background: ${props => props.theme.colors.white};
+    box-shadow: ${props => props.theme.boxShadow.dark};
   }
 `;
 
@@ -39,7 +40,8 @@ const TimelineHeaderGroup = styled.ul`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    box-shadow: ${props => props.theme.boxShadow.dark};
+    ${props => props.theme.lgContainer};
+
     background: ${props => props.theme.colors.white};
   }
 `;
@@ -54,11 +56,12 @@ const Keys = styled.div`
 const TimelineHeader = styled.li`
   @media ${props => props.theme.breakpoints.lg} {
     position: relative;
+    font-family: ${props => props.theme.fontFamily.muli};
     padding: 20px 0 14px 0;
     letter-spacing: 0.02em;
-    font-size: ${props => props.theme.fontSize.mdlg};
-    line-height: ${props => props.theme.lineHeight.xLoose};
-    font-weight: ${props => props.theme.fontWeight.normal};
+    font-size: ${props => props.theme.fontSize.lg};
+    line-height: 1.73;
+    font-weight: ${props => props.theme.fontWeight.semiBold};
   }
 `;
 

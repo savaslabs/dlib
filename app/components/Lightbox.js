@@ -14,7 +14,7 @@ const lightbox = ({
 }) => {
   return (
     <>
-      {isOpen && (
+      {isOpen && imageIds && (
         <Lightbox
           mainSrc={`${pathToImages}${imageIds[photoIndex]}/full.jpg`}
           nextSrc={`${pathToImages}${
