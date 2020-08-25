@@ -111,7 +111,7 @@ const timeline = ({ timeline }) => {
         <meta property="og:image" content={`${pathToImages}ogImage.svg`} data-react-helmet="true" />
         <meta property="og:image:alt" content="Placeholder" />
         <meta property="og:description" content={timelineDescription} data-react-helmet="true" />
-        <meta property="description" content={timelineDescription} data-react-helmet="true" />
+        <meta name="description" content={timelineDescription} data-react-helmet="true" />
         <meta
           property="twitter:url"
           content="https://dlib.netlify.app/timeline"

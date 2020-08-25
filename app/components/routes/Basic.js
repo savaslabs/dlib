@@ -109,7 +109,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
           content={`${data.name} | Durham Civil Rights Heritage Project`}
           data-react-helmet="true"
         />
-        <meta property="description" content={ogDescription} data-react-helmet="true" />
+        <meta name="description" content={ogDescription} data-react-helmet="true" />
         <meta property="og:description" content={ogDescription} data-react-helmet="true" />
         <link
           rel="logo"
