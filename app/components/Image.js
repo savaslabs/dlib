@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 import styled from 'styled-components';
 
 const image = ({ src, dataPhotoIndex, openLightbox, inline, sideline, gallery, card, link }) => {
@@ -17,7 +18,9 @@ const image = ({ src, dataPhotoIndex, openLightbox, inline, sideline, gallery, c
     <SideImage sideline={sideline} {...sharedAttributes} />
   ) : gallery ? (
     // Photo gallery.
-    <GalleryImage gallery={gallery} {...sharedAttributes} />
+    <LazyLoad>
+      <GalleryImage gallery={gallery} {...sharedAttributes} />
+    </LazyLoad>
   ) : card ? (
     // Timeline.
     <CardImage
