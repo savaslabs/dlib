@@ -2,9 +2,10 @@ import React from 'react';
 import LazyLoad from 'react-lazy-load';
 import styled from 'styled-components';
 
-const image = ({ src, dataPhotoIndex, openLightbox, inline, sideline, gallery, card, link }) => {
+const image = ({ src, alt, dataPhotoIndex, openLightbox, inline, sideline, gallery, card, link }) => {
   const sharedAttributes = {
     ['src']: src,
+    ['alt']: alt,
     ['data-photoindex']: dataPhotoIndex,
     ['tabIndex']: 0,
     ['onClick']: openLightbox,
@@ -27,6 +28,7 @@ const image = ({ src, dataPhotoIndex, openLightbox, inline, sideline, gallery, c
       card={card}
       link={link ? link : false}
       src={src}
+      alt={alt}
       data-photoindex={dataPhotoIndex}
       {...(link || {
         onClick: openLightbox,
