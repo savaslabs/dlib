@@ -134,7 +134,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
               data.body.map((item, i) => {
                 // Second level heading.
                 if (item.hasOwnProperty('h2')) {
-                  return <h2 key={i}>{item.h2}</h2>;
+                  return <H2 key={i}>{item.h2}</H2>;
                   // Body text.
                 } else if (item.hasOwnProperty('text')) {
                   return (
@@ -316,6 +316,12 @@ const H1 = styled.h1`
   }
 `;
 
+const H2 = styled.h2`
+  font-family: ${props => props.theme.fontFamily.muli};
+  font-weight: ${props => props.theme.fontWeight.regular};
+`;
+
+
 const P = styled(Markdown)`
   margin-bottom: 30px;
   font-size: ${props => props.theme.fontSize.sm};
@@ -409,7 +415,7 @@ const Li = styled.li`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    top: 8px;
+    top: 12px;
   }
 `;
 
