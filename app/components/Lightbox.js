@@ -20,7 +20,7 @@ const lightbox = ({
   }
   return (
     <>
-      {isOpen && (
+      {isOpen && imageIds && (
         <Lightbox
           mainSrc={`${location}/assets/images/${imageIds[photoIndex]}/full.jpg`}
           nextSrc={`${location}/assets/images/${
@@ -30,8 +30,8 @@ const lightbox = ({
             imageIds[photoIndex - 1 > 0 ? photoIndex - 1 : imageIds[imageIds.length - 1]]
           }/full.jpg`}
           onCloseRequest={() => closeLightbox()}
-          onMovePrevRequest={() => prevLightboxImage(imageIds)}
-          onMoveNextRequest={() => nextLightboxImage(imageIds)}
+          onMovePrevRequest={() => prevLightboxImage()}
+          onMoveNextRequest={() => nextLightboxImage()}
           imageCaption={imageCaptions[photoIndex]}
         />
       )}

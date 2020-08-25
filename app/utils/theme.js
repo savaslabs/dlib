@@ -59,7 +59,6 @@ export const theme = {
     light: '0px 2px 6px rgba(0, 0, 0, 0.15)',
     med: '0px 4px 15px rgba(0, 0, 0, 0.1)',
     dark: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-    xDark: '5px 5px 30px rgba(0, 0, 0, 0.29)',
   },
   smContainer: `padding: 0 18px;
     margin: 0 auto;

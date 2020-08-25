@@ -1,11 +1,12 @@
 import React from 'react';
 import { cleanJSON } from '../utils/constants';
+import Image from './Image';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
 import arrow from '../assets/icons/arrow.svg';
 
-const card = React.forwardRef(({ event, feature, link, imageIds, openLightbox }, ref) => {
+const card = React.forwardRef(({ event, feature, link, openLightbox, imageIds }, ref) => {
   const { scope, headline, text, images, external_resource_links } = event;
   const designation = scope === 'National Event' ? 'National' : 'Durham';
   return (
@@ -13,24 +14,21 @@ const card = React.forwardRef(({ event, feature, link, imageIds, openLightbox },
       <Card ref={ref} scope={designation.toLowerCase()} link={link}>
         {/* Mobile scope pill. */}
         <Level scope={designation.toLowerCase()}>{designation}</Level>
+        {/* Featured event card title. */}
         {feature && <Title scope={designation.toLowerCase()}>{headline}</Title>}
         <Body source={text}>{text}</Body>
         {images && (
           <ImageGrid link={link}>
             {images.slice(0, 3).map((p, i) => {
               return (
-                <CardImage
+                <Image
                   src={`./app/assets/images/${p.ID}/large.jpg`}
                   alt={p.alt_text}
                   link={link}
                   key={i}
-                  data-photoindex={imageIds && imageIds.indexOf(p.ID)}
+                  card
+                  dataPhotoIndex={imageIds && imageIds.indexOf(p.ID)}
                   openLightbox={openLightbox}
-                  {...(openLightbox && {
-                    onClick: openLightbox,
-                    onKeyDown: e => e.which === 13 && openLightbox(e),
-                    tabIndex: 0,
-                  })}
                 />
               );
             })}
@@ -209,25 +207,6 @@ const ImageGrid = styled.div`
   @media ${props => props.theme.breakpoints.lg} {
     grid-column-gap: 16px;
     ${props => props.link && `margin-bottom: 40px;`}
-  }
-`;
-
-const CardImage = styled.img`
-  width: 100%;
-  object-fit: cover;
-
-  ${props =>
-    props.openLightbox &&
-      `
-    &:hover,
-    &:focus {
-      cursor: pointer;
-      filter: drop-shadow(5px 5px 30px rgba(0, 0, 0, 0.29));
-    }
-  `}
-
-  @media ${props => props.theme.breakpoints.md} {
-    height: 131px;
   }
 `;
 

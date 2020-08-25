@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { cleanId, cleanJSON, timelineDescription } from '../../utils/constants';
-import useWindowSize from '../../utils/hooks/useWindowSize';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
 import BackToTop from '../BackToTop';
-import useLightbox from '../../utils/hooks/useLightbox';
+import useWindowSize from '../../utils/hooks/useWindowSize';
 import Lightbox from '../Lightbox';
 import styled from 'styled-components';
 import gsap from 'gsap';
@@ -17,15 +16,11 @@ import PropTypes from 'prop-types';
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
-const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
-  const {
-    photoIndex,
-    isLightboxOpen,
-    openLightbox,
-    closeLightbox,
-    prevLightboxImage,
-    nextLightboxImage,
-  } = useLightbox();
+const timeline = ({ timeline }) => {
+  const timelineImageIds = [];
+  const timelineImageCaptions = [];
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const windowSize = useWindowSize();
   const [linePos, setLinePos] = useState(0);
   const [showScroll, setShowScroll] = useState(false);
@@ -79,6 +74,23 @@ const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const openLightbox = e => {
+    const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
+    setPhotoIndex(photoIndex);
+    setIsLightboxOpen(true);
+  };
+  const closeLightbox = e => setIsLightboxOpen(false);
+
+  const nextLightboxImage = e => {
+    setPhotoIndex(photoIndex + 1 <= timelineImageIds.length ? photoIndex + 1 : 0);
+  };
+
+  const prevLightboxImage = e => {
+    setPhotoIndex(
+      photoIndex - 1 >= 0 ? photoIndex - 1 : timelineImageIds[timelineImageIds.length - 1]
+    );
   };
 
   return (
@@ -164,6 +176,12 @@ const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
                         <Ul key={index} className={level} pos={position} scope={level}>
                           {eventsPerScope.events.map((event, ind) => {
                             const cleanedEvent = cleanJSON(event);
+                            // Construct id and caption arrays for lightbox.
+                            event.images &&
+                              event.images.forEach(image => {
+                                timelineImageIds.push(image.ID);
+                                timelineImageCaptions.push(image.caption);
+                              });
                             return (
                               <li key={ind} className="event">
                                 {event.event_page ? (
@@ -171,16 +189,18 @@ const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
                                     <Card event={cleanedEvent} ref={addToYearRefs} feature link />
                                   </LinkedEvent>
                                 ) : (
-                                  <Card
-                                  key={i}
-                                  event={event}
-                                  imageIds={imageIds}
-                                  {...(event.type === 'Feature' && {
-                                    feature: true,
-                                  })}
-                                  openLightbox={openLightbox}
-                                  ref={addToYearRefs}
-                                />
+                                  timelineImageIds && (
+                                    <Card
+                                      key={i}
+                                      event={event}
+                                      imageIds={timelineImageIds}
+                                      {...(event.type === 'Feature' && {
+                                        feature: true,
+                                      })}
+                                      openLightbox={openLightbox}
+                                      ref={addToYearRefs}
+                                    />
+                                  )
                                 )}
                               </li>
                             );
@@ -193,15 +213,15 @@ const timeline = ({ timeline, imageIds, imageCaptions, imageAltText }) => {
               })}
           </Timeline>
         </TimelineWrapper>
-        <Lightbox
-          imageIds={imageIds}
-          imageCaptions={imageCaptions}
+        {timelineImageIds && <Lightbox
+          imageIds={timelineImageIds}
+          imageCaptions={timelineImageCaptions}
           isOpen={isLightboxOpen}
           photoIndex={photoIndex}
           closeLightbox={closeLightbox}
           prevLightboxImage={prevLightboxImage}
           nextLightboxImage={nextLightboxImage}
-        />
+        />}
       </main>
     </>
   );

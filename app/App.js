@@ -101,9 +101,6 @@ const App = () => {
                     <Route exact path={['/', '/timeline']} key={i}>
                       <Timeline
                         timeline={timeline}
-                        imageIds={imageIds}
-                        imageCaptions={imageCaptions}
-                        imageAltText={imageAltText}
                       />
                     </Route>
                   ) : r.component === 'Featured Events' && EventPages ? (

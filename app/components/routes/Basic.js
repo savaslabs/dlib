@@ -1,9 +1,10 @@
-import React, { useState, useMemo, useContext } from 'react';
+import React, { useMemo, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { prepareCaptions, timelineDescription } from '../../utils/constants';
 import useLightbox from '../../utils/hooks/useLightbox';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
+import Image from '../Image';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import Lightbox from '../Lightbox';
@@ -12,15 +13,9 @@ import { Helmet } from 'react-helmet';
 
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const location = useLocation();
-  const {
-    photoIndex,
-    isLightboxOpen,
-    openLightbox,
-    closeLightbox,
-    prevLightboxImage,
-    nextLightboxImage
-  } = useLightbox();
   const themeContext = useContext(ThemeContext);
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   let data;
   let ogDescription;
   let ogImage;
@@ -77,6 +72,34 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     ogImage = `https://dlib.netlify.app/app/assets/images/${imageIds[0]}/large.jpg`;
     ogImageAlt = imageAltText[0];
   }
+
+  const openLightbox = e => {
+    const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
+    setPhotoIndex(photoIndex);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = e => setIsLightboxOpen(false);
+
+  const getIds = () => {
+    let ids;
+    if (event) {
+      ids = lightBoxImageIds;
+    } else {
+      ids = imageIds;
+    }
+    return ids;
+  };
+
+  const nextLightboxImage = e => {
+    setPhotoIndex(photoIndex + 1 < getIds().length ? photoIndex + 1 : 0);
+  };
+
+  const prevLightboxImage = e => {
+    setPhotoIndex(
+      photoIndex - 1 > 0 ? photoIndex - 1 : getIds()[getIds().length - 1]
+    );
+  };
 
   return (
     <>
@@ -149,10 +172,10 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                   });
                   return (
                     <InlineImageWrapper key={i}>
-                      <InlineImage
-                        key={i}
-                        data-photoindex={lightBoxImageIds.indexOf(item.image)}
-                        onClick={openLightbox}
+                      <Image
+                        inline
+                        openLightbox={openLightbox}
+                        dataPhotoIndex={lightBoxImageIds.indexOf(item.image)}
                         src={`../app/assets/images/${item.image}/large.jpg`}
                         alt={foundImage[0].alt_text}
                       />
@@ -170,12 +193,13 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                     {imageIds &&
                       imageIds.map((id, i) => {
                         return (
-                          <GalleryImage
-                            src={`../app/assets/images/${id}/full.jpg`}
+                          <Image
+                            gallery
+                            src={`../app/assets/images/${id}/large.jpg`}
                             alt={imageAltText[i]}
                             key={i}
-                            data-photoindex={i}
-                            onClick={openLightbox}
+                            dataPhotoIndex={i}
+                            openLightbox={openLightbox}
                           />
                         );
                       })}
@@ -201,10 +225,11 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                 return imageInfo.ID === imageId;
               });
               return (
-                <SideImage
+                <Image
                   key={idx}
-                  data-photoindex={lightBoxImageIds.indexOf(imageId)}
-                  onClick={openLightbox}
+                  sideline
+                  dataPhotoIndex={lightBoxImageIds.indexOf(imageId)}
+                  openLightbox={openLightbox}
                   src={`../app/assets/images/${imageId}/large.jpg`}
                   alt={foundImage[0].alt_text}
                 />
@@ -394,54 +419,8 @@ const InlineImageWrapper = styled.div`
   margin-bottom: 30px;
 `;
 
-// Shared amongst all images.
-const Image = styled.img`
-  &:hover,
-  &:focus {
-    box-shadow: ${props => props.theme.boxShadow.xDark};
-    cursor: pointer;
-  }
-`;
-
-const InlineImage = styled(Image)`
-  object-fit: cover;
-  margin-bottom: 18px;
-
-  @media ${props => props.theme.breakpoints.mdMax} {
-    height: calc(100vw - 36px);
-  }
-
-  @media ${props => props.theme.breakpoints.lg} {
-    margin-right: 30px;
-    width: 100%;
-  }
-`;
-
 const InlineImageCaption = styled.p`
   line-height: 1.38;
-`;
-
-const SideImage = styled(Image)`
-  object-fit: cover;
-  width: calc(100vw - 36px);
-  height: calc(100vw - 36px);
-  margin-bottom: 18px;
-
-  @media ${props => props.theme.breakpoints.md} {
-    width: 230px;
-    height: 230px;
-    margin: 0 20px 27px 0;
-  }
-
-  @media ${props => props.theme.breakpoints.lg} {
-    width: 275px;
-    height: 275px;
-    margin: 0 21px 23px 0;
-
-    &:first-of-type {
-      margin-top: 85px;
-    }
-  }
 `;
 
 const GalleryGrid = styled.div`
@@ -461,27 +440,5 @@ const GalleryGrid = styled.div`
   }
 `;
 
-const GalleryImage = styled(Image)`
-  object-fit: cover;
-  width: calc(100vw - 36px);
-  height: calc(100vw - 36px);
-  margin-bottom: 18px;
-
-  @media ${props => props.theme.breakpoints.md} {
-    width: 225px;
-    height: 225px;
-    margin-bottom: 30px;
-  }
-
-  @media ${props => props.theme.breakpoints.lg} {
-    width: 347px;
-    height: 347px;
-    margin-bottom: 50px;
-  }
-
-  @media ${props => props.theme.breakpoints.max} {
-    margin-bottom: 75px;
-  }
-`;
 
 export default basic;
