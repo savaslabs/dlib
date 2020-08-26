@@ -20,7 +20,6 @@ const card = React.forwardRef(({ event, feature, link, openLightbox, imageIds },
         {images && (
           <ImageGrid link={link}>
             {images.slice(0, 3).map((p, i) => {
-              console.log('p', p);
               return (
                 <Image
                   src={`${pathToImages}${p.ID}/large.jpg`}
