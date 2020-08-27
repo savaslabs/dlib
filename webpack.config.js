@@ -12,18 +12,21 @@ module.exports = (env, arg) => {
   const isProduction = arg.mode === 'production' ? true : false;
   return {
     mode: isProduction ? 'production' : 'development',
-    optimization: {
-      minimizer: [
-        new TerserPlugin(),
-      ],
-    },
-    entry: './app/index.js',
+    entry: path.resolve(__dirname, 'app/index.js'),
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].js',
+      chunkFilename: 'js/[name].bundle.js',
+      filename: 'js/[name].js',
       publicPath: '/',
     },
-    resolve: { extensions: ['.js'] },
+    optimization: {
+      runtimeChunk: 'single',
+      splitChunks: {
+        chunks: 'all',
+      },
+      minimize: true,
+      minimizer: [new TerserPlugin({ parallel: true })],
+    },
     devServer: {
       historyApiFallback: true,
     },
@@ -44,7 +47,7 @@ module.exports = (env, arg) => {
                     },
                   ],
                 ],
-                plugins: ['babel-plugin-styled-components'],
+                plugins: [['babel-plugin-styled-components', { pure: true }]],
               },
             },
             {
