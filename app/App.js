@@ -4,6 +4,7 @@ import { routes, cleanId, prepareCaptions } from './utils/constants';
 import { Switch, Route } from 'react-router-dom';
 
 // Components.
+import ScrollTop from './components/TopOfPage';
 import Header from './components/Header';
 import Timeline from './components/routes/Timeline';
 import Basic from './components/routes/Basic';
@@ -92,6 +93,7 @@ const App = () => {
           <SkipToMainContent ref={skipRef} href="#main-content">
             <ScreenReaderText>Skip to main content</ScreenReaderText>
           </SkipToMainContent>
+          <ScrollTop />
           <Header eventPages={EventPages} skipRef={skipRef} />
           <ContentContainer id="main-content">
             <Switch>
