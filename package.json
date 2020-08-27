@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
     "prebuild": "rm -R dist/* && cp ./_redirects ./dist && mkdir ./dist/app && cp -R ./app/assets ./dist/app",
-    "build": "webpack --config ./webpack.config.js",
+    "build": "webpack --config ./webpack.config.js --mode production",
     "postbuild": "react-snap"
   },
   "reactSnap": {
@@ -32,7 +32,8 @@
     "react-router-dom": "^5.2.0",
     "react-snap": "^1.23.0",
     "styled-components": "^5.1.1",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "terser-webpack-plugin": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",

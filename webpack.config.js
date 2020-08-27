@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 // Import dependencies.
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
@@ -11,6 +12,11 @@ module.exports = (env, arg) => {
   const isProduction = arg.mode === 'production' ? true : false;
   return {
     mode: isProduction ? 'production' : 'development',
+    optimization: {
+      minimizer: [
+        new TerserPlugin(),
+      ],
+    },
     entry: './app/index.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
