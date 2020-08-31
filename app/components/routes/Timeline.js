@@ -130,11 +130,11 @@ const timeline = ({ timeline }) => {
         />
       </Helmet>
       <main>
-        <H1>Civil Rights Timeline</H1>
+        <H1 id="civil_rights_timeline">Civil Rights Timeline</H1>
         <BackToTop onClick={scrollTop} showScroll={showScroll} />
         <TimelineKey />
         <TimelineWrapper>
-          <Timeline ref={lineRef}>
+          <Timeline ref={lineRef} aria-labelledby="civil_rights_timeline">
             <Line linePos={linePos} />
             {timeline &&
               timeline.map((eventsPerYear, i) => {
@@ -169,7 +169,15 @@ const timeline = ({ timeline }) => {
                       const level =
                         eventsPerScope.scope === 'National Event' ? 'national' : 'durham';
                       return (
-                        <Ul key={index} className={level} pos={position} scope={level}>
+                        <Ul
+                          key={index}
+                          aria-labelledby={
+                            level === 'national' ? 'national_events' : 'durham_events'
+                          }
+                          className={level}
+                          pos={position}
+                          scope={level}
+                        >
                           {eventsPerScope.events.map((event, ind) => {
                             const cleanedEvent = cleanJSON(event);
                             // Construct id and caption arrays for lightbox.
@@ -209,15 +217,17 @@ const timeline = ({ timeline }) => {
               })}
           </Timeline>
         </TimelineWrapper>
-        {timelineImageIds && <Lightbox
-          imageIds={timelineImageIds}
-          imageCaptions={timelineImageCaptions}
-          isOpen={isLightboxOpen}
-          photoIndex={photoIndex}
-          closeLightbox={closeLightbox}
-          prevLightboxImage={prevLightboxImage}
-          nextLightboxImage={nextLightboxImage}
-        />}
+        {timelineImageIds && (
+          <Lightbox
+            imageIds={timelineImageIds}
+            imageCaptions={timelineImageCaptions}
+            isOpen={isLightboxOpen}
+            photoIndex={photoIndex}
+            closeLightbox={closeLightbox}
+            prevLightboxImage={prevLightboxImage}
+            nextLightboxImage={nextLightboxImage}
+          />
+        )}
       </main>
     </>
   );
