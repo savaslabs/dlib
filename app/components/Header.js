@@ -8,6 +8,7 @@ import styled, { ThemeContext } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
 import PropTypes from 'prop-types';
+import { siteURL } from '../utils/constants';
 
 const header = ({ eventPages, skipRef }) => {
   const location = useLocation();
@@ -304,7 +305,7 @@ const SiteName = styled.p`
   }
 
   &:after {
-    content: url('../app/assets/icons/stars.svg');
+    content: url(${siteURL}/app/assets/icons/stars.svg);
     position: absolute;
 
     @media ${props => props.theme.breakpoints.smMax} {
