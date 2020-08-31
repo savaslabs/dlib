@@ -4,18 +4,10 @@ import { cleanId, cleanMenuNames } from '../utils/constants';
 import styled from 'styled-components';
 
 const subMenu = ({
-  setMobileMenuState,
-  setSubMenuState,
   subMenuState,
+  closeMenus,
   eventPages,
-  skipRef
 }) => {
-  // If submenu nav links are clicked, close menus.
-  const closeMenus = e => {
-    setMobileMenuState(false);
-    setSubMenuState(false);
-    skipRef.current.focus();
-  };
 
   return (
     <SubMenu
@@ -29,7 +21,7 @@ const subMenu = ({
               to={`/events/${cleanId(page.name)}`}
               key={i}
               onClick={closeMenus}
-              onKeyDown={e => e.which === 13 && closeMenus}
+              onKeyDown={e => e.which === 13 && closeMenus(e)}
             >
               <li>{cleanMenuNames(page)}</li>
             </NavLink>

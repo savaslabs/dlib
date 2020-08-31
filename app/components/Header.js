@@ -24,9 +24,15 @@ const header = ({ eventPages, skipRef }) => {
   }, [windowSize.width]);
 
   const toggleSubMenu = e => {
-    e.preventDefault();
     setSubMenuState(!subMenuState);
-  }
+  };
+
+  // If submenu nav links are clicked, close menus.
+  const closeMenus = e => {
+    setMobileMenuState(false);
+    setSubMenuState(false);
+    skipRef.current.focus();
+  };
 
   return (
     <>
@@ -68,25 +74,23 @@ const header = ({ eventPages, skipRef }) => {
                         state={mobileMenuState}
                         subMenu={subMenuState}
                         onClick={toggleSubMenu}
-                        onKeyDown={e => e.which === 13 && toggleSubMenu}
+                        onKeyDown={e => e.which === 13 && toggleSubMenu(e)}
                         aria-controls="menu-subMenu"
                         aria-expanded={subMenuState}
                       >
                         {route.component}
                         <SubMenu
-                          setMobileMenuState={setMobileMenuState}
-                          setSubMenuState={setSubMenuState}
                           subMenuState={subMenuState}
+                          closeMenus={closeMenus}
                           eventPages={eventPages}
-                          skipRef={skipRef}
                         />
                       </SubMenuToggle>
                     ) : (
                       <NavLink
                         to={route.route === 'timeline' ? `/` : `/${route.route}`}
                         key={index}
-                        onClick={toggleSubMenu}
-                        onKeyDown={e => e.which === 13 && toggleSubMenu}
+                        onClick={closeMenus}
+                        onKeyDown={e => e.which === 13 && closeMenus}
                       >
                         <li>{route.component}</li>
                       </NavLink>
