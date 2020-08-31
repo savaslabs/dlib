@@ -17,7 +17,7 @@ const card = React.forwardRef(({ event, feature, link, openLightbox, imageIds },
         {/* Featured event card title. */}
         {feature && <Title scope={designation.toLowerCase()}>{headline}</Title>}
         <Body source={text}>{text}</Body>
-        {images && (
+        {images && imageIds && (
           <ImageGrid link={link}>
             {images.slice(0, 3).map((p, i) => {
               return (
