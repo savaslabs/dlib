@@ -24,7 +24,6 @@ const CollectionInfo = styled.div`
   `
       : `padding: 8px 0 30px 0;`}
 
-
   @media ${props => props.theme.breakpoints.md} {
     ${props =>
       props.header
@@ -32,17 +31,15 @@ const CollectionInfo = styled.div`
     padding: 10px 0 54px 110px;
   `
         : `padding: 14px 0 27px 0;`}
-
-
   }
 
   @media ${props => props.theme.breakpoints.lg} {
     ${props =>
       props.header
         ? `
-    padding: 10px 0 15px 142px;
+    padding: 10px 0 30px 142px;
   `
-        : `padding: 10px 0 24px 0;`}
+        : `padding: 10px 0 30px 0;`}
   }
 
   p {

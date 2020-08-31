@@ -224,6 +224,7 @@ const SiteInfo = styled.div`
   @media ${props => props.theme.breakpoints.smMax} {
     padding-left: 50px;
     margin-left: 42px;
+    max-width: 300px;
   }
 
   @media ${props => props.theme.breakpoints.md} {
