@@ -209,15 +209,17 @@ const timeline = ({ timeline }) => {
               })}
           </Timeline>
         </TimelineWrapper>
-        {timelineImageIds && <Lightbox
-          imageIds={timelineImageIds}
-          imageCaptions={timelineImageCaptions}
-          isOpen={isLightboxOpen}
-          photoIndex={photoIndex}
-          closeLightbox={closeLightbox}
-          prevLightboxImage={prevLightboxImage}
-          nextLightboxImage={nextLightboxImage}
-        />}
+        {timelineImageIds && (
+          <Lightbox
+            imageIds={timelineImageIds}
+            imageCaptions={timelineImageCaptions}
+            isOpen={isLightboxOpen}
+            photoIndex={photoIndex}
+            closeLightbox={closeLightbox}
+            prevLightboxImage={prevLightboxImage}
+            nextLightboxImage={nextLightboxImage}
+          />
+        )}
       </main>
     </>
   );
@@ -320,7 +322,7 @@ const YearListItem = styled.li`
   ${props =>
     props.gap &&
     `
-    padding-bottom: 130px;
+    padding-bottom: 65px;
 
     &:after {
       content: '';
@@ -330,7 +332,7 @@ const YearListItem = styled.li`
       bottom: 30px;
       left: 26px;
       width: 7px;
-      height: 144px;
+      height: 72px;
       z-index: 3;
     }
   `}
