@@ -406,7 +406,7 @@ const NavContainer = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
