@@ -434,6 +434,7 @@ const InlineImageWrapper = styled.div`
 
 const InlineImageCaption = styled.p`
   line-height: 1.38;
+  margin-top: 15px;
 `;
 
 const GalleryGrid = styled.div`
