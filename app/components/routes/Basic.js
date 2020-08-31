@@ -95,9 +95,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   };
 
   const prevLightboxImage = e => {
-    setPhotoIndex(
-      photoIndex - 1 > 0 ? photoIndex - 1 : getIds()[getIds().length - 1]
-    );
+    setPhotoIndex(photoIndex - 1 >= 0 ? photoIndex - 1 : getIds().length - 1);
   };
 
   return (
@@ -328,7 +326,6 @@ const H2 = styled.h2`
   font-weight: ${props => props.theme.fontWeight.regular};
 `;
 
-
 const P = styled(Markdown)`
   margin-bottom: 30px;
   font-size: ${props => props.theme.fontSize.sm};
@@ -453,6 +450,5 @@ const GalleryGrid = styled.div`
     grid-template-columns: 347px 347px 347px;
   }
 `;
-
 
 export default basic;

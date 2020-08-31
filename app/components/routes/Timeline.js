@@ -88,9 +88,7 @@ const timeline = ({ timeline }) => {
   };
 
   const prevLightboxImage = e => {
-    setPhotoIndex(
-      photoIndex - 1 >= 0 ? photoIndex - 1 : timelineImageIds[timelineImageIds.length - 1]
-    );
+    setPhotoIndex(photoIndex - 1 >= 0 ? photoIndex - 1 : timelineImageIds.length - 1);
   };
 
   return (
