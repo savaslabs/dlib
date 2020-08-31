@@ -135,82 +135,89 @@ const timeline = ({ timeline }) => {
         <TimelineKey />
         <TimelineWrapper>
           {timeline && (
-            <Timeline ref={lineRef}>
+            <>
               <Line linePos={linePos} />
-              {timeline &&
-                timeline.map((eventsPerYear, i) => {
-                  let position;
-                  let gap;
-                  if (eventsPerYear.events.length < 2) {
-                    position =
-                      eventsPerYear.events[0].scope === 'National Event'
-                        ? 'sole-left'
-                        : 'sole-right';
-                  } else {
-                    position = 'both';
-                  }
+              <Timeline ref={lineRef}>
+                {timeline &&
+                  timeline.map((eventsPerYear, i) => {
+                    let position;
+                    let gap;
+                    if (eventsPerYear.events.length < 2) {
+                      position =
+                        eventsPerYear.events[0].scope === 'National Event'
+                          ? 'sole-left'
+                          : 'sole-right';
+                    } else {
+                      position = 'both';
+                    }
 
-                  // Add timeline gap if next event year more than one year in the future.
-                  if (i < timeline.length - 1) {
-                    timeline[i + 1].year - eventsPerYear.year > 1 ? (gap = true) : (gap = false);
-                  }
-                  return (
-                    <YearListItem
-                      value={eventsPerYear.year}
-                      key={i}
-                      className={`${position}`}
-                      ref={addToYearRefs}
-                      position={position}
-                      gap={gap}
-                    >
-                      {/* Element that changes fill color */}
-                      <Year />
-                      {/* Element that changes stroke color */}
-                      <Year front />
-                      <Span className="arms" />
-                      {eventsPerYear.events.map((eventsPerScope, index) => {
-                        const level =
-                          eventsPerScope.scope === 'National Event' ? 'national' : 'durham';
-                        return (
-                          <Ul key={index} className={level} pos={position} scope={level}>
-                            {eventsPerScope.events.map((event, ind) => {
-                              const cleanedEvent = cleanJSON(event);
-                              // Construct id and caption arrays for lightbox.
-                              event.images &&
-                                event.images.forEach(image => {
-                                  timelineImageIds.push(image.ID);
-                                  timelineImageCaptions.push(image.caption);
-                                });
-                              return (
-                                <li key={ind} className="event">
-                                  {event.event_page ? (
-                                    <LinkedEvent to={`/events/${cleanId(event.event_page)}`}>
-                                      <Card event={cleanedEvent} ref={addToYearRefs} feature link />
-                                    </LinkedEvent>
-                                  ) : (
-                                    timelineImageIds && (
-                                      <Card
-                                        key={i}
-                                        event={event}
-                                        imageIds={timelineImageIds}
-                                        {...(event.type === 'Feature' && {
-                                          feature: true,
-                                        })}
-                                        openLightbox={openLightbox}
-                                        ref={addToYearRefs}
-                                      />
-                                    )
-                                  )}
-                                </li>
-                              );
-                            })}
-                          </Ul>
-                        );
-                      })}
-                    </YearListItem>
-                  );
-                })}
-            </Timeline>
+                    // Add timeline gap if next event year more than one year in the future.
+                    if (i < timeline.length - 1) {
+                      timeline[i + 1].year - eventsPerYear.year > 1 ? (gap = true) : (gap = false);
+                    }
+                    return (
+                      <YearListItem
+                        value={eventsPerYear.year}
+                        key={i}
+                        className={`${position}`}
+                        ref={addToYearRefs}
+                        position={position}
+                        gap={gap}
+                      >
+                        {/* Element that changes fill color */}
+                        <Year />
+                        {/* Element that changes stroke color */}
+                        <Year front />
+                        <Span className="arms" />
+                        {eventsPerYear.events.map((eventsPerScope, index) => {
+                          const level =
+                            eventsPerScope.scope === 'National Event' ? 'national' : 'durham';
+                          return (
+                            <Ul key={index} className={level} pos={position} scope={level}>
+                              {eventsPerScope.events.map((event, ind) => {
+                                const cleanedEvent = cleanJSON(event);
+                                // Construct id and caption arrays for lightbox.
+                                event.images &&
+                                  event.images.forEach(image => {
+                                    timelineImageIds.push(image.ID);
+                                    timelineImageCaptions.push(image.caption);
+                                  });
+                                return (
+                                  <li key={ind} className="event">
+                                    {event.event_page ? (
+                                      <LinkedEvent to={`/events/${cleanId(event.event_page)}`}>
+                                        <Card
+                                          event={cleanedEvent}
+                                          ref={addToYearRefs}
+                                          feature
+                                          link
+                                        />
+                                      </LinkedEvent>
+                                    ) : (
+                                      timelineImageIds && (
+                                        <Card
+                                          key={i}
+                                          event={event}
+                                          imageIds={timelineImageIds}
+                                          {...(event.type === 'Feature' && {
+                                            feature: true,
+                                          })}
+                                          openLightbox={openLightbox}
+                                          ref={addToYearRefs}
+                                        />
+                                      )
+                                    )}
+                                  </li>
+                                );
+                              })}
+                            </Ul>
+                          );
+                        })}
+                      </YearListItem>
+                    );
+                  })}
+              </Timeline>
+            </>
           )}
         </TimelineWrapper>
         {timelineImageIds && (
