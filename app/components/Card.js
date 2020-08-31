@@ -147,7 +147,7 @@ const Card = styled.article`
 const Title = styled.h1`
   font-size: 18px;
   margin: 0 0 15px 0;
-  line-height: 1.1;
+  line-height: 1.2;
   font-weight: ${props => props.theme.fontWeight.extraBold};
   font-family: ${props => props.theme.fontFamily.muli};
   color: ${props =>
@@ -155,7 +155,6 @@ const Title = styled.h1`
 
   @media ${props => props.theme.breakpoints.md} {
     font-size: 20px;
-    line-break: 1.2;
   }
 `;
 
@@ -170,7 +169,7 @@ const Body = styled(Markdown)`
   }
 
   > p {
-    line-height: 1.2;
+    line-height: 1.4;
   }
 `;
 
