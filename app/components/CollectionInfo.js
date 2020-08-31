@@ -6,8 +6,10 @@ const collectionInfo = ({ header, footer }) => {
     <CollectionInfo header={header} footer={footer}>
       <p>
         Part of the{' '}
-        <a href="https://durhamcountylibrary.org/contact/ncc/">North Carolina Collection</a> of the{' '}
-        <a href="https://durhamcountylibrary.org/">Durham County Library</a>
+        <a href="https://durhamcountylibrary.org/the-north-carolina-collection/">
+          North Carolina Collection
+        </a>{' '}
+        of the <a href="https://durhamcountylibrary.org/">Durham County Library</a>
       </p>
     </CollectionInfo>
   );
