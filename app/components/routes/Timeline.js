@@ -185,7 +185,7 @@ const timeline = ({ timeline }) => {
                                 return (
                                   <li key={ind} className="event">
                                     {event.event_page ? (
-                                      <LinkedEvent to={`/events/${cleanId(event.event_page)}`}>
+                                      <LinkedEvent to={`/events/${cleanId(event.event_page)}`} name={event.event_page}>
                                         <Card
                                           event={cleanedEvent}
                                           ref={addToYearRefs}
