@@ -44,8 +44,8 @@ export const routes = [
 ];
 
 export const timelineScopes = [
-  { title: 'National Civil Rights', scope: 'national' },
-  { title: 'Durham Civil Rights', scope: 'durham' },
+  { title: 'National Events', scope: 'national' },
+  { title: 'Durham Events', scope: 'durham' },
 ];
 
 export const siteURL = "https://dlib.netlify.app";
