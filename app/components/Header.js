@@ -17,94 +17,16 @@ const header = ({ eventPages, skipRef }) => {
   const [mobileMenuState, setMobileMenuState] = useState(false);
   // Whether or not submenu is open.
   const [subMenuState, setSubMenuState] = useState(false);
-  // Whether or not user is hovering over submenu toggle.
-  const [mouseOverSubMenuToggle, setMouseOverSubMenuToggle] = useState(false);
-  // Whether or not user is hovering over submenu.
-  const [mouseOverSubMenu, setMouseOverSubMenu] = useState(false);
-
-  useEffect(() => {
-    mouseOverSubMenuToggle || mouseOverSubMenu ? setSubMenuState(true) : setSubMenuState(false);
-  }, [mouseOverSubMenuToggle, mouseOverSubMenu]);
 
   // Ensure focus lock only is occuring on mobile screenwidths.
   useEffect(() => {
     windowSize.width >= 768 && setMobileMenuState(false);
   }, [windowSize.width]);
 
-  // Handle user interaction with nav items, submenu toggle, and submenu.
-  const toggleSubMenu = (eventType, isToggle, event) => {
-    switch (isToggle) {
-      case true:
-        // Event handling shared by all screen sizes for subMenu toggle.
-        switch (eventType) {
-          case 'keydown':
-            if (event.which === 13) {
-              setMouseOverSubMenuToggle(!subMenuState);
-            }
-            break;
-        }
-
-        // Tablet/desktop event handling for subMenu toggle.
-        if (windowSize.width >= 768) {
-          switch (eventType) {
-            case 'mouseenter':
-              setMouseOverSubMenuToggle(true);
-              break;
-            case 'mouseleave':
-              setMouseOverSubMenuToggle(false);
-              break;
-            case 'focus':
-              setMouseOverSubMenuToggle(true);
-              break;
-          }
-        } else {
-          // Mobile event handling for subMenu toggle.
-          switch (eventType) {
-            case 'click':
-              setMouseOverSubMenuToggle(!subMenuState);
-              break;
-          }
-        }
-        break;
-      case false:
-        // Tablet/desktop event handling for top level nav items.
-        if (windowSize.width >= 768) {
-          switch (eventType) {
-            case 'focus':
-            case 'mouseenter':
-              setMouseOverSubMenuToggle(false);
-              setMouseOverSubMenu(false);
-              break;
-            case 'keydown':
-              if (event.which === 13) {
-                setMouseOverSubMenuToggle(false);
-                setMouseOverSubMenu(false);
-                skipRef.current.focus();
-              }
-              break;
-          }
-        } else {
-          // Mobile event handling for top level nav items.
-          switch (eventType) {
-            case 'click':
-              setMouseOverSubMenu(false);
-              setMouseOverSubMenuToggle(false);
-              setMobileMenuState(false);
-              skipRef.current.focus();
-              break;
-            case 'keydown':
-              if (event.which === 13) {
-                setMouseOverSubMenu(false);
-                setMouseOverSubMenuToggle(false);
-                setMobileMenuState(false);
-                skipRef.current.focus();
-              }
-              break;
-          }
-        }
-        break;
-    }
-  };
+  const toggleSubMenu = e => {
+    e.preventDefault();
+    setSubMenuState(!subMenuState);
+  }
 
   return (
     <>
@@ -142,24 +64,19 @@ const header = ({ eventPages, skipRef }) => {
                     return route.component === 'Featured Events' ? (
                       <SubMenuToggle
                         key={index}
+                        tabIndex="0"
                         state={mobileMenuState}
                         subMenu={subMenuState}
-                        onFocus={() => toggleSubMenu('focus', true)}
-                        onClick={() => toggleSubMenu('click', true)}
-                        onKeyDown={e => toggleSubMenu('keydown', true, e)}
-                        onMouseEnter={() => toggleSubMenu('mouseenter', true)}
-                        onMouseLeave={() => toggleSubMenu('mouseleave', true)}
-                        tabIndex="0"
+                        onClick={toggleSubMenu}
+                        onKeyDown={e => e.which === 13 && toggleSubMenu}
                         aria-controls="menu-subMenu"
                         aria-expanded={subMenuState}
                       >
                         {route.component}
                         <SubMenu
                           setMobileMenuState={setMobileMenuState}
-                          setMouseOverSubMenu={setMouseOverSubMenu}
-                          setMouseOverSubMenuToggle={setMouseOverSubMenuToggle}
-                          mouseOverSubMenu={mouseOverSubMenu}
-                          mouseOverSubMenuToggle={mouseOverSubMenuToggle}
+                          setSubMenuState={setSubMenuState}
+                          subMenuState={subMenuState}
                           eventPages={eventPages}
                           skipRef={skipRef}
                         />
@@ -168,10 +85,8 @@ const header = ({ eventPages, skipRef }) => {
                       <NavLink
                         to={route.route === 'timeline' ? `/` : `/${route.route}`}
                         key={index}
-                        onClick={() => toggleSubMenu('click', false)}
-                        onFocus={() => toggleSubMenu('focus', false)}
-                        onKeyDown={e => toggleSubMenu('keydown', false, e)}
-                        onMouseEnter={() => toggleSubMenu('mouseenter', false)}
+                        onClick={toggleSubMenu}
+                        onKeyDown={e => e.which === 13 && toggleSubMenu}
                       >
                         <li>{route.component}</li>
                       </NavLink>
@@ -598,6 +513,7 @@ const SubMenuToggle = styled.li`
 
   &:hover {
     font-weight: ${props => props.theme.fontWeight.bold};
+    cursor: pointer;
   }
 `;
 
