@@ -5,12 +5,13 @@ li.active::before {
 
 /* Year circle fill on ScrollTrigger */
 li.active svg circle.primary {
-  fill: #202D25;
+  fill: #202d25;
+  stroke: #202d25;
 }
 /* Year circle stroke on ScrollTrigger */
 li.active svg circle.secondary {
   stroke-dashoffset: 0;
-  stroke: #202D25;
+  stroke: #202d25;
 }
 
 /* Timeline color animation on scroll */
@@ -28,9 +29,9 @@ li.active.sole-left span.arms::after,
 li.active.both span.arms::before,
 li.active.sole-right span.arms::after,
 li.active.both span.arms::after {
-  background: #202D25;
+  background: #202d25;
 }
 
 li.active span.arms {
-  border-color: #202D25;
+  border-color: #202d25;
 }
