@@ -98,7 +98,7 @@ const App = () => {
               {routes &&
                 routes.map((r, i) => {
                   return r.route === 'timeline' && timeline ? (
-                    <Route exact path={['/', '/timeline']} key={i}>
+                    <Route exact path={'/'} key={i}>
                       <Timeline
                         timeline={timeline}
                       />

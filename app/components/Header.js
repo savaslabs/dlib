@@ -120,7 +120,7 @@ const header = ({ eventPages, skipRef }) => {
               <CollectionInfo header />
             </SiteInfo>
           </Top>
-          {(location.pathname === '/timeline' || location.pathname === '/') && (
+          {location.pathname === '/' && (
             <Bottom>
               <Desc>
                 <p>Introduction</p>
@@ -166,7 +166,7 @@ const header = ({ eventPages, skipRef }) => {
                       </SubMenuToggle>
                     ) : (
                       <NavLink
-                        to={`/${route.route}`}
+                        to={route.route === 'timeline' ? `/` : `/${route.route}`}
                         key={index}
                         onClick={() => toggleSubMenu('click', false)}
                         onFocus={() => toggleSubMenu('focus', false)}
