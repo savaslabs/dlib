@@ -70,7 +70,11 @@ const SubMenu = styled.ul`
 
     &:hover li,
     &:focus li {
-      font-weight: ${props => props.theme.fontWeight.extraBold};
+      font-weight: ${props => props.theme.fontWeight.bold};
+
+      @media ${props => props.theme.breakpoints.md} {
+        font-weight: ${props => props.theme.fontWeight.semiBold};
+      }
     }
 
     &:last-child li {

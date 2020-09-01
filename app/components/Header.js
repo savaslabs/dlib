@@ -439,7 +439,7 @@ const Menu = styled.ul`
 
   a:hover li,
   a:focus li {
-    font-weight: ${props => props.theme.fontWeight.bold};
+    text-shadow: 0 0 0.4px #333, 0 0 0.4px #333;
   }
 
   a li {
@@ -515,10 +515,26 @@ const SubMenuToggle = styled.li`
         margin-left: 100px;
       }
     `}
+
+    &:hover,
+    &:focus {
+      font-weight: ${props => props.theme.fontWeight.bold};
+    }
   }
 
-  &:hover {
-    font-weight: ${props => props.theme.fontWeight.bold};
+  @media ${props => props.theme.breakpoints.md} {
+    &:hover,
+    &:focus {
+      text-shadow: 0 0 0.4px #333, 0 0 0.4px #333;
+
+      a {
+        text-shadow: none;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
     cursor: pointer;
   }
 `;
