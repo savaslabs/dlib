@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const backToTop = ({ showScroll, onClick }) => {
+const backToTop = ({ showBackToTop, onClick }) => {
   return (
-    <BackToTop showScroll={showScroll} onClick={onClick}>
+    <BackToTop showBackToTop={showBackToTop} onClick={onClick}>
       <ScreenReaderText>Back to top</ScreenReaderText>
     </BackToTop>
   );
@@ -39,7 +39,7 @@ const BackToTop = styled.button`
   background: ${props => props.theme.colors.white};
 
   @media ${props => props.theme.breakpoints.md} {
-    display: ${props => (props.showScroll ? 'flex' : 'none')};
+    display: ${props => (props.showBackToTop ? 'flex' : 'none')};
   }
 
   @media ${props => props.theme.breakpoints.mdMax} {
