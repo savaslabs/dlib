@@ -90,9 +90,11 @@ const App = () => {
       <GlobalStyles />
       {timeline ? (
         <>
-          <SkipToMainContent ref={skipRef} href="#main-content">
-            <ScreenReaderText>Skip to main content</ScreenReaderText>
-          </SkipToMainContent>
+          <SkipToMainContentWrapper>
+            <SkipToMainContent ref={skipRef} href="#main-content">
+              <ScreenReaderText>Skip to main content</ScreenReaderText>
+            </SkipToMainContent>
+          </SkipToMainContentWrapper>
           <TopOfPage />
           <Header eventPages={EventPages} skipRef={skipRef} />
           <ContentContainer id="main-content">
@@ -101,9 +103,7 @@ const App = () => {
                 routes.map((r, i) => {
                   return r.route === 'timeline' && timeline ? (
                     <Route exact path={'/'} key={i}>
-                      <Timeline
-                        timeline={timeline}
-                      />
+                      <Timeline timeline={timeline} />
                     </Route>
                   ) : r.component === 'Featured Events' && EventPages ? (
                     EventPages.map((event, index) => {
@@ -154,13 +154,23 @@ const ContentContainer = styled.div`
 `;
 
 const ScreenReaderText = styled.span`
-  ${(props) => props.theme.srOnly};
+  ${props => props.theme.srOnly};
+`;
+
+const SkipToMainContentWrapper = styled.div`
+  background: ${props => props.theme.colors.greenBean};
+  z-index: 20;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 `;
 
 const SkipToMainContent = styled.a`
+  color: ${props => props.theme.colors.white};
+
   &:focus {
     ${ScreenReaderText} {
-      ${(props) => props.theme.notSrOnly};
+      ${props => props.theme.notSrOnly};
     }
   }
 `;
