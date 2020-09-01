@@ -17,25 +17,27 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 const timeline = ({ timeline }) => {
+  const timelineImageIds = [];
+  const timelineImageCaptions = [];
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const windowSize = useWindowSize();
+  const [linePos, setLinePos] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const [yearListItems, setYearListItems] = useState([]);
   const [showing, setShowing] = useState(0);
   const [isFetching, setIsFetching] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [linePos, setLinePos] = useState(0);
-  const [showBackToTop, setShowBackToTop] = useState(false);
-  const lineRef = useRef(null);
-  const windowSize = useWindowSize();
-  const timelineImageIds = [];
-  const timelineImageCaptions = [];
   const yearRefs = useRef([]);
+  const lineRef = useRef(null);
   yearRefs.current = [];
 
   useEffect(() => {
     // Only display 5 years on page load.
     setYearListItems(Array.from(timeline.slice(0, 5)));
     setShowing(5);
+  }, [timeline]);
 
+  useEffect(() => {
     // Year and card animation.
     yearRefs.current.forEach(el => {
       gsap.from(el, {
@@ -48,7 +50,7 @@ const timeline = ({ timeline }) => {
         },
       });
     });
-  }, [timeline]);
+  }, [yearListItems]);
 
   useEffect(() => {
     if (!isFetching) return;
