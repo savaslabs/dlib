@@ -44,8 +44,8 @@ export const routes = [
 ];
 
 export const timelineScopes = [
-  { title: 'National Civil Rights', scope: 'national' },
-  { title: 'Durham Civil Rights', scope: 'durham' },
+  { title: 'National Events', scope: 'national' },
+  { title: 'Durham Events', scope: 'durham' },
 ];
 
 export const siteURL = "https://dlib.netlify.app";
@@ -54,9 +54,9 @@ export const timelineDescription = `The Durham Civil Rights Heritage Project (DC
 
 export const libraryInfo = [
   '300 N. Roxboro Street',
-  'Durham, North Carolina 27702',
-  '919.560.0100',
-  { url: '#', text: 'Email the Library Webmaster' },
+  'Durham, North Carolina 27701',
+  '919.506.0171',
+  { url: 'mailto:ncc@dconc.gov', text: 'Email the North Carolina Collection' },
 ];
 
-export const lastUpdated = 'Last Updated August 30, 2020';
+export const lastUpdated = 'Last Updated September 1, 2020';

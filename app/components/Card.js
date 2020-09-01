@@ -40,10 +40,11 @@ const card = React.forwardRef(({ event, feature, link, openLightbox, imageIds },
             {external_resource_links.map((ext, i) => {
               cleanJSON(ext);
               return (
-                <ExternalLink key={i} href={ext.url}>
-                  <LinkTitle>{ext.resource_title}</LinkTitle>
+                <li key={i}>
+                  <ExternalLink href={ext.url}>{ext.resource_title}</ExternalLink>
+                  <ScreenReaderText>on</ScreenReaderText>
                   <LinkSource>{ext.source_shortform}</LinkSource>
-                </ExternalLink>
+                </li>
               );
             })}
           </ExternalLinksWrapper>
@@ -146,7 +147,7 @@ const Card = styled.article`
 const Title = styled.h1`
   font-size: 18px;
   margin: 0 0 15px 0;
-  line-height: 1.1;
+  line-height: 1.2;
   font-weight: ${props => props.theme.fontWeight.extraBold};
   font-family: ${props => props.theme.fontFamily.muli};
   color: ${props =>
@@ -154,7 +155,6 @@ const Title = styled.h1`
 
   @media ${props => props.theme.breakpoints.md} {
     font-size: 20px;
-    line-break: 1.2;
   }
 `;
 
@@ -169,7 +169,7 @@ const Body = styled(Markdown)`
   }
 
   > p {
-    line-height: 1.2;
+    line-height: 1.4;
   }
 `;
 
@@ -214,25 +214,21 @@ const ExternalLinksWrapper = styled.div`
   margin-top: 25px;
 `;
 
-const ExternalLinksNote = styled.p`
+const ExternalLinksNote = styled.h2`
   font-weight: ${props => props.theme.fontWeight.semiBold};
   font-size: 16px;
   line-height: 1.2;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin-bottom: 0;
   color: ${props => props.theme.colors.medGray};
   font-family: ${props => props.theme.fontFamily.muli};
 `;
 
 const ExternalLink = styled.a`
   display: block;
-  cursor: pointer;
-  margin-top: 11px;
-`;
-
-const LinkTitle = styled.p`
   text-decoration: underline;
-  cursor: pointer;
+  margin-top: 11px;
   line-height: 1.2;
   color: ${props => props.theme.colors.greenBean};
   font-size: 16px;
@@ -244,10 +240,14 @@ const LinkTitle = styled.p`
   }
 `;
 
-const LinkSource = styled.p`
-  cursor: pointer;
+const ScreenReaderText = styled.span`
+  ${props => props.theme.srOnly};
+`;
+
+const LinkSource = styled.cite`
   line-height: 1.2;
   margin-top: 5px;
+  font-style: normal;
   color: ${props => props.theme.colors.linkSource};
   font-weight: ${props => props.theme.fontWeight.normal};
   font-size: ${props => props.theme.fontSize.xxs};

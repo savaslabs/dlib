@@ -1,55 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { cleanId, cleanMenuNames } from '../utils/constants';
-import useWindowSize from '../utils/hooks/useWindowSize';
 import styled from 'styled-components';
 
 const subMenu = ({
-  setMobileMenuState,
-  setMouseOverSubMenu,
-  setMouseOverSubMenuToggle,
-  mouseOverSubMenu,
-  mouseOverSubMenuToggle,
+  subMenuState,
+  closeMenus,
   eventPages,
-  skipRef
 }) => {
-  const windowSize = useWindowSize();
-
-  const toggleSubMenu = (eventType, e) => {
-    if (windowSize.width >= 768) {
-      // Tablet and desktop event handling.
-      switch (eventType) {
-        case 'focus':
-          setMouseOverSubMenuToggle(true);
-          break;
-        case 'mouseenter':
-          setMouseOverSubMenu(true);
-        case 'mouseout':
-          setMouseOverSubMenu(false);
-          break;
-        default:
-          setMouseOverSubMenu(false);
-      }
-    }
-  };
-
-  // If submenu nav links are clicked, close menus.
-  const closeMenus = e => {
-    if (windowSize.width < 768) {
-      setMobileMenuState(false);
-      setMouseOverSubMenu(false);
-      setMouseOverSubMenuToggle(false);
-      skipRef.current.focus();
-    }
-  };
 
   return (
     <SubMenu
       id="menu-subMenu"
-      onFocus={() => toggleSubMenu('focus')}
-      onMouseEnter={() => toggleSubMenu('mouseenter')}
-      onMouseLeave={() => toggleSubMenu('mouseleave')}
-      hidden={mouseOverSubMenu || mouseOverSubMenuToggle ? false : true}
+      hidden={!subMenuState}
     >
       {eventPages &&
         eventPages.map((page, i) => {
@@ -58,7 +21,7 @@ const subMenu = ({
               to={`/events/${cleanId(page.name)}`}
               key={i}
               onClick={closeMenus}
-              onKeyDown={e => e.which === 13 && closeMenus}
+              onKeyDown={e => e.which === 13 && closeMenus(e)}
             >
               <li>{cleanMenuNames(page)}</li>
             </NavLink>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { timelineScopes } from '../utils/constants';
+import { timelineScopes, cleanId } from '../utils/constants';
 import styled from 'styled-components';
 
 const timelineKey = () => {
@@ -10,7 +10,7 @@ const timelineKey = () => {
           timelineScopes.map((header, i) => {
             return (
               <Keys key={i}>
-                <TimelineHeader>{header.title}</TimelineHeader>
+                <TimelineHeader id={`${cleanId(header.title)}`}>{header.title}</TimelineHeader>
               </Keys>
             );
           })}
