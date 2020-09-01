@@ -17,18 +17,25 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 const timeline = ({ timeline }) => {
-  const timelineImageIds = [];
-  const timelineImageCaptions = [];
+  const [yearListItems, setYearListItems] = useState([]);
+  const [showing, setShowing] = useState(0);
+  const [isFetching, setIsFetching] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const windowSize = useWindowSize();
   const [linePos, setLinePos] = useState(0);
-  const [showScroll, setShowScroll] = useState(false);
-  const yearRefs = useRef([]);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const lineRef = useRef(null);
+  const windowSize = useWindowSize();
+  const timelineImageIds = [];
+  const timelineImageCaptions = [];
+  const yearRefs = useRef([]);
   yearRefs.current = [];
 
   useEffect(() => {
+    // Only display 5 years on page load.
+    setYearListItems(Array.from(timeline.slice(0, 5)));
+    setShowing(5);
+
     // Year and card animation.
     yearRefs.current.forEach(el => {
       gsap.from(el, {
@@ -43,27 +50,70 @@ const timeline = ({ timeline }) => {
     });
   }, [timeline]);
 
+  useEffect(() => {
+    if (!isFetching) return;
+    showMoreListItems();
+  }, [isFetching]);
+
   const addToYearRefs = el => {
     if (el && !yearRefs.current.includes(el)) {
       yearRefs.current.push(el);
     }
   };
 
-  useEffect(function setupListener() {
-    const checkScrollTop = () => {
-      if (!showScroll && window.pageYOffset > 700) {
-        setShowScroll(true);
-      } else if (showScroll && window.pageYOffset <= 700) {
-        setShowScroll(false);
+  // Mimick infinite scroll with timeline years.
+  const showMoreListItems = () => {
+    let start;
+    let end;
+
+    if (showing === timeline.length) {
+      return;
+    } else {
+      if (timeline.length - showing < 5) {
+        start = showing;
+        end = showing + (timeline.length - showing);
+      } else {
+        start = showing;
+        end = showing + 5;
       }
-    };
 
-    window.addEventListener('scroll', checkScrollTop);
+      setTimeout(() => {
+        setYearListItems(prevState => [
+          ...prevState,
+          ...Array.from(timeline.slice(start, end)),
+        ]);
+        setShowing(end);
+        setIsFetching(false);
+      }, 1000);
+    }
+  }
 
-    return function cleanupListener() {
-      window.removeEventListener('scroll', checkScrollTop);
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Handle back to top button visibility and display of years on scroll.
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    ) {
+      setIsFetching(true);
+    } else if (!showBackToTop && window.pageYOffset > 700) {
+      setShowBackToTop(true);
+    } else if (showBackToTop && window.pageYOffset <= 700) {
+      setShowBackToTop(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
-  });
+  }, []);
 
   // Ensure scroll line lines up with timeline line on tablet.
   useEffect(() => {
@@ -71,10 +121,6 @@ const timeline = ({ timeline }) => {
       setLinePos(lineRef.current.getBoundingClientRect().left + 55);
     }
   }, [windowSize.width]);
-
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const openLightbox = e => {
     const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
@@ -131,15 +177,15 @@ const timeline = ({ timeline }) => {
       </Helmet>
       <main>
         <H1>Civil Rights Timeline</H1>
-        <BackToTop onClick={scrollTop} showScroll={showScroll} />
+        <BackToTop onClick={scrollTop} showBackToTop={showBackToTop} />
         <TimelineKey />
         <TimelineWrapper>
-          {timeline && (
+          {yearListItems && (
             <>
               <Line linePos={linePos} />
               <Timeline ref={lineRef}>
-                {timeline &&
-                  timeline.map((eventsPerYear, i) => {
+                {yearListItems &&
+                  yearListItems.map((eventsPerYear, i) => {
                     let position;
                     let gap;
                     if (eventsPerYear.events.length < 2) {
