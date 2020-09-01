@@ -492,7 +492,7 @@ const SubMenuToggle = styled.li`
           mask-size: cover;
           align-items: center;
           display: inline-block;
-          position: relative;
+          position: absolute;
           width: 13px;
           height: 5px;
           background: ${props.theme.colors.greenBean};
@@ -505,14 +505,14 @@ const SubMenuToggle = styled.li`
         ? `
       &:after {
         transform: rotate(180deg);
-        left: 10px;
-        top: -2px;
+        top: 50%;
+        margin-left: 9px;
       }
     `
         : `
       &:after {
-        left: 110px;
-        top: -718px;
+        top: 30px;
+        margin-left: 100px;
       }
     `}
   }
