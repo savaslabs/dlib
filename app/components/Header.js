@@ -4,6 +4,7 @@ import CollectionInfo from './CollectionInfo';
 import SubMenu from './SubMenu';
 import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
+import useLightbox from '../utils/hooks/useLightbox';
 import styled, { ThemeContext } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
@@ -14,10 +15,12 @@ const header = ({ eventPages, skipRef }) => {
   const location = useLocation();
   const themeContext = useContext(ThemeContext);
   const windowSize = useWindowSize();
+  const { isLightboxOpen } = useLightbox();
   // Whether or not mobile menu is open.
   const [mobileMenuState, setMobileMenuState] = useState(false);
   // Whether or not submenu is open.
   const [subMenuState, setSubMenuState] = useState(false);
+  const [preventScroll, setPreventScroll] = useState(false);
 
   // Ensure focus lock only is occuring on mobile screenwidths.
   useEffect(() => {
@@ -35,11 +38,15 @@ const header = ({ eventPages, skipRef }) => {
     skipRef.current.focus();
   };
 
+  useEffect(() => {
+    isLightboxOpen || mobileMenuState ? setPreventScroll(true) : setPreventScroll(false);
+  }, [isLightboxOpen, mobileMenuState]);
+
   return (
     <>
       <Helmet>
-        <html style={mobileMenuState ? 'overflow: hidden;' : null} />
-        <body style={mobileMenuState ? themeContext.noScrollBody : null} />
+        <html style={preventScroll ? 'overflow: hidden;' : null} />
+        <body style={preventScroll ? themeContext.noScrollBody : null} />
       </Helmet>
       <Header>
         <HeaderContainer>

@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
+import useLightbox from '../../utils/hooks/useLightbox';
 import { prepareCaptions, timelineDescription, pathToImages } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
@@ -13,8 +14,8 @@ import { Helmet } from 'react-helmet';
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const location = useLocation();
   const themeContext = useContext(ThemeContext);
+  const { isLightboxOpen, setIsLightboxOpen } = useLightbox();
   const [photoIndex, setPhotoIndex] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   let data;
   let ogDescription;
   let ogImage;
@@ -129,8 +130,6 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         />
         <meta name="twitter:description" content={ogDescription} data-react-helmet="true" />
         <meta name="twitter:image" content={`${pathToImages}${ogImage}`} data-react-helmet="true" />
-        <html style={isLightboxOpen ? 'overflow: hidden;' : null} />
-        <body style={isLightboxOpen ? themeContext.noScrollBody : null} />
       </Helmet>
       <Content isLightboxOpen={isLightboxOpen}>
         <FloatWrapper type={type}>
