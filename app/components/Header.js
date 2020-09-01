@@ -8,6 +8,7 @@ import styled, { ThemeContext } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
 import PropTypes from 'prop-types';
+import { siteURL } from '../utils/constants';
 
 const header = ({ eventPages, skipRef }) => {
   const location = useLocation();
@@ -223,6 +224,7 @@ const SiteInfo = styled.div`
   @media ${props => props.theme.breakpoints.smMax} {
     padding-left: 50px;
     margin-left: 42px;
+    max-width: 300px;
   }
 
   @media ${props => props.theme.breakpoints.md} {
@@ -304,7 +306,7 @@ const SiteName = styled.p`
   }
 
   &:after {
-    content: url('../app/assets/icons/stars.svg');
+    content: url(${siteURL}/app/assets/icons/stars.svg);
     position: absolute;
 
     @media ${props => props.theme.breakpoints.smMax} {
@@ -406,7 +408,7 @@ const NavContainer = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 

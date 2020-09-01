@@ -132,9 +132,7 @@ const timeline = ({ timeline }) => {
   };
 
   const prevLightboxImage = e => {
-    setPhotoIndex(
-      photoIndex - 1 >= 0 ? photoIndex - 1 : timelineImageIds[timelineImageIds.length - 1]
-    );
+    setPhotoIndex(photoIndex - 1 >= 0 ? photoIndex - 1 : timelineImageIds.length - 1);
   };
 
   return (
@@ -377,7 +375,7 @@ const YearListItem = styled.li`
   ${props =>
     props.gap &&
     `
-    padding-bottom: 130px;
+    padding-bottom: 65px;
 
     &:after {
       content: '';
@@ -387,7 +385,7 @@ const YearListItem = styled.li`
       bottom: 30px;
       left: 26px;
       width: 7px;
-      height: 144px;
+      height: 72px;
       z-index: 3;
     }
   `}

@@ -72,7 +72,7 @@ const Card = styled.article`
   background: ${props => props.theme.colors.white};
   border-top-style: solid;
   border-color: ${props => props.theme.colors.lightGray};
-  margin-bottom: 45px;
+  margin-bottom: 22px;
 
   ${props =>
     props.link &&

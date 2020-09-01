@@ -10,7 +10,7 @@ const lightbox = ({
   isOpen,
   closeLightbox,
   prevLightboxImage,
-  nextLightboxImage
+  nextLightboxImage,
 }) => {
   return (
     <>

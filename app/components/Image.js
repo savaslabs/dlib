@@ -2,7 +2,17 @@ import React from 'react';
 import LazyLoad from 'react-lazy-load';
 import styled from 'styled-components';
 
-const image = ({ src, alt, dataPhotoIndex, openLightbox, inline, sideline, gallery, card, link }) => {
+const image = ({
+  src,
+  alt,
+  dataPhotoIndex,
+  openLightbox,
+  inline,
+  sideline,
+  gallery,
+  card,
+  link,
+}) => {
   const sharedAttributes = {
     ['src']: src,
     ['alt']: alt,
@@ -54,7 +64,11 @@ const Image = styled.img`
   `}
 
   /* Mobile bottom margin for basic page images */
-  ${props => props.inline || props.sideline || (props.gallery && ` margin-bottom: 18px; `)}
+  ${props =>
+    props.inline ||
+    props.sideline ||
+    (props.gallery &&
+      ` margin-bottom: 18px; `)}
 
   /* Mobile dimensions for sideline and gallery images */
   ${props =>
@@ -111,7 +125,7 @@ const GalleryImage = styled(Image)`
   }
 `;
 
-const CardImage = styled.img`
+const CardImage = styled(Image)`
   width: 100%;
 
   @media ${props => props.theme.breakpoints.md} {
