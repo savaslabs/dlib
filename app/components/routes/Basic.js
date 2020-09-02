@@ -1,20 +1,19 @@
 import React, { useMemo, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import useLightbox from '../../utils/hooks/useLightbox';
+import { LightboxContext } from '../../utils/lightboxContext';
 import { prepareCaptions, timelineDescription, pathToImages } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import Image from '../Image';
 import PropTypes from 'prop-types';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
 import { Helmet } from 'react-helmet';
 
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const location = useLocation();
-  const themeContext = useContext(ThemeContext);
-  const { isLightboxOpen, setIsLightboxOpen } = useLightbox();
+  const { isLightboxOpen, setIsLightboxOpen } = useContext(LightboxContext);
   const [photoIndex, setPhotoIndex] = useState(0);
   let data;
   let ogDescription;

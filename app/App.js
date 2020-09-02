@@ -10,6 +10,7 @@ import Timeline from './components/routes/Timeline';
 import Basic from './components/routes/Basic';
 import Footer from './components/Footer';
 import NoMatch from './components/routes/NoMatch';
+import { LightboxProvider } from './utils/lightboxContext';
 
 // Data.
 import EventPages from './assets/pages/event-pages.json';
@@ -55,56 +56,58 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      {timeline ? (
-        <>
-          <SkipToMainContentWrapper>
-            <SkipToMainContent ref={skipRef} href="#main-content">
-              <ScreenReaderText>Skip to main content</ScreenReaderText>
-            </SkipToMainContent>
-          </SkipToMainContentWrapper>
-          <TopOfPage />
-          <Header eventPages={EventPages} skipRef={skipRef} />
-          <ContentContainer id="main-content">
-            <Switch>
-              {routes &&
-                routes.map((r, i) => {
-                  return r.route === 'timeline' && timeline ? (
-                    <Route exact path={'/'} key={i}>
-                      <Timeline timeline={timeline} />
-                    </Route>
-                  ) : r.component === 'Featured Events' && EventPages ? (
-                    EventPages.map((event, index) => {
-                      return (
-                        <Route path={`/events/${cleanId(event.name)}`} key={index}>
-                          <Basic event={event} imageData={Images} />
-                        </Route>
-                      );
-                    })
-                  ) : (
-                    <Route path={`/${r.route}`} key={i}>
-                      <Basic
-                        type={r.route}
-                        {...(r.route === 'gallery' && {
-                          imageIds: imageIds,
-                          imageCaptions: imageCaptions,
-                          imageAltText: imageAltText,
-                        })}
-                      />
-                    </Route>
-                  );
-                })}
-              {/* No Match routes */}
-              <Route path="*">
-                <NoMatch />
-              </Route>
-            </Switch>
-          </ContentContainer>
-          <Footer />
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+      <LightboxProvider>
+        <GlobalStyles />
+        {timeline ? (
+          <>
+            <SkipToMainContentWrapper>
+              <SkipToMainContent ref={skipRef} href="#main-content">
+                <ScreenReaderText>Skip to main content</ScreenReaderText>
+              </SkipToMainContent>
+            </SkipToMainContentWrapper>
+            <TopOfPage />
+            <Header eventPages={EventPages} skipRef={skipRef} />
+            <ContentContainer id="main-content">
+              <Switch>
+                {routes &&
+                  routes.map((r, i) => {
+                    return r.route === 'timeline' && timeline ? (
+                      <Route exact path={'/'} key={i}>
+                        <Timeline timeline={timeline} />
+                      </Route>
+                    ) : r.component === 'Featured Events' && EventPages ? (
+                      EventPages.map((event, index) => {
+                        return (
+                          <Route path={`/events/${cleanId(event.name)}`} key={index}>
+                            <Basic event={event} imageData={Images} />
+                          </Route>
+                        );
+                      })
+                    ) : (
+                      <Route path={`/${r.route}`} key={i}>
+                        <Basic
+                          type={r.route}
+                          {...(r.route === 'gallery' && {
+                            imageIds: imageIds,
+                            imageCaptions: imageCaptions,
+                            imageAltText: imageAltText,
+                          })}
+                        />
+                      </Route>
+                    );
+                  })}
+                {/* No Match routes */}
+                <Route path="*">
+                  <NoMatch />
+                </Route>
+              </Switch>
+            </ContentContainer>
+            <Footer />
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </LightboxProvider>
     </ThemeProvider>
   );
 };

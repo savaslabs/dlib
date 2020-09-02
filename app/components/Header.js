@@ -4,7 +4,7 @@ import CollectionInfo from './CollectionInfo';
 import SubMenu from './SubMenu';
 import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
-import useLightbox from '../utils/hooks/useLightbox';
+import { LightboxContext } from '../utils/lightboxContext';
 import styled, { ThemeContext } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
@@ -15,7 +15,7 @@ const header = ({ eventPages, skipRef }) => {
   const location = useLocation();
   const themeContext = useContext(ThemeContext);
   const windowSize = useWindowSize();
-  const { isLightboxOpen } = useLightbox();
+  const { isLightboxOpen } = useContext(LightboxContext);
   // Whether or not mobile menu is open.
   const [mobileMenuState, setMobileMenuState] = useState(false);
   // Whether or not submenu is open.
