@@ -446,8 +446,8 @@ const Menu = styled.ul`
 
   a:hover li,
   a:focus li {
-    text-shadow: 0 0 0.4px ${props => props.theme.colors.darkGreen},
-      0 0 0.4px ${props => props.theme.colors.darkGreen};
+    text-shadow: 0 0 0.4px ${props => props.theme.colors.greenBean},
+      0 0 0.4px ${props => props.theme.colors.greenBean};
   }
 
   a li {
