@@ -32,39 +32,7 @@ const App = () => {
 
   // Fetch timeline events.
   useEffect(() => {
-    // Sort chronologically and restructure timeline based on event year.
-    const sortedByYear =
-      Events &&
-      Events.sort((a, b) => (a.Year > b.Year ? 1 : -1)).reduce(
-        (acc, currentValue) => {
-          const found = acc.find((a) => a.year === currentValue.Year);
-          if (!found) {
-            // Nest events of the same year.
-            acc.push({ year: currentValue.Year, events: [currentValue] });
-          } else {
-            found.events.push(currentValue);
-          }
-          return acc;
-        },
-        []
-      );
-
-    // Restructure timeline based on event scope.
-    const sortedByScope = sortedByYear.map((d, i) => {
-      const newEvents = d.events.reduce((acc, currentValue) => {
-        const found = acc.find((a) => a.scope === currentValue.Scope);
-        if (!found) {
-          // Nest events of the same scope.
-          acc.push({ scope: currentValue.Scope, events: [currentValue] });
-        } else {
-          found.events.push(currentValue);
-        }
-        return acc;
-      }, []);
-      return { ...d, events: newEvents };
-    });
-
-    setTimeline(sortedByScope);
+    setTimeline(Events);
   }, [Events]);
 
   useEffect(() => {
