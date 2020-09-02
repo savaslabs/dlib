@@ -63,6 +63,13 @@ const Image = styled.img`
       }
   `}
 
+  ${props =>
+    props.card &&
+    `
+    width: 100%;
+    height: 120px;
+  `}
+
   /* Mobile bottom margin for basic page images */
   ${props =>
     props.inline ||
@@ -126,8 +133,6 @@ const GalleryImage = styled(Image)`
 `;
 
 const CardImage = styled(Image)`
-  width: 100% !important;
-
   @media ${props => props.theme.breakpoints.md} {
     height: 131px;
   }
