@@ -10,6 +10,7 @@ import Timeline from './components/routes/Timeline';
 import Basic from './components/routes/Basic';
 import Footer from './components/Footer';
 import NoMatch from './components/routes/NoMatch';
+import { LightboxProvider } from './utils/lightboxContext';
 
 // Data.
 import EventPages from './assets/pages/event-pages.json';
@@ -32,39 +33,7 @@ const App = () => {
 
   // Fetch timeline events.
   useEffect(() => {
-    // Sort chronologically and restructure timeline based on event year.
-    const sortedByYear =
-      Events &&
-      Events.sort((a, b) => (a.Year > b.Year ? 1 : -1)).reduce(
-        (acc, currentValue) => {
-          const found = acc.find((a) => a.year === currentValue.Year);
-          if (!found) {
-            // Nest events of the same year.
-            acc.push({ year: currentValue.Year, events: [currentValue] });
-          } else {
-            found.events.push(currentValue);
-          }
-          return acc;
-        },
-        []
-      );
-
-    // Restructure timeline based on event scope.
-    const sortedByScope = sortedByYear.map((d, i) => {
-      const newEvents = d.events.reduce((acc, currentValue) => {
-        const found = acc.find((a) => a.scope === currentValue.Scope);
-        if (!found) {
-          // Nest events of the same scope.
-          acc.push({ scope: currentValue.Scope, events: [currentValue] });
-        } else {
-          found.events.push(currentValue);
-        }
-        return acc;
-      }, []);
-      return { ...d, events: newEvents };
-    });
-
-    setTimeline(sortedByScope);
+    setTimeline(Events);
   }, [Events]);
 
   useEffect(() => {
@@ -87,56 +56,58 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      {timeline ? (
-        <>
-          <SkipToMainContent ref={skipRef} href="#main-content">
-            <ScreenReaderText>Skip to main content</ScreenReaderText>
-          </SkipToMainContent>
-          <TopOfPage />
-          <Header eventPages={EventPages} skipRef={skipRef} />
-          <ContentContainer id="main-content">
-            <Switch>
-              {routes &&
-                routes.map((r, i) => {
-                  return r.route === 'timeline' && timeline ? (
-                    <Route exact path={'/'} key={i}>
-                      <Timeline
-                        timeline={timeline}
-                      />
-                    </Route>
-                  ) : r.component === 'Featured Events' && EventPages ? (
-                    EventPages.map((event, index) => {
-                      return (
-                        <Route path={`/events/${cleanId(event.name)}`} key={index}>
-                          <Basic event={event} imageData={Images} />
-                        </Route>
-                      );
-                    })
-                  ) : (
-                    <Route path={`/${r.route}`} key={i}>
-                      <Basic
-                        type={r.route}
-                        {...(r.route === 'gallery' && {
-                          imageIds: imageIds,
-                          imageCaptions: imageCaptions,
-                          imageAltText: imageAltText,
-                        })}
-                      />
-                    </Route>
-                  );
-                })}
-              {/* No Match routes */}
-              <Route path="*">
-                <NoMatch />
-              </Route>
-            </Switch>
-          </ContentContainer>
-          <Footer />
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+      <LightboxProvider>
+        <GlobalStyles />
+        {timeline ? (
+          <>
+            <SkipToMainContentWrapper>
+              <SkipToMainContent ref={skipRef} href="#main-content">
+                <ScreenReaderText>Skip to main content</ScreenReaderText>
+              </SkipToMainContent>
+            </SkipToMainContentWrapper>
+            <TopOfPage />
+            <Header eventPages={EventPages} skipRef={skipRef} />
+            <ContentContainer id="main-content">
+              <Switch>
+                {routes &&
+                  routes.map((r, i) => {
+                    return r.route === 'timeline' && timeline ? (
+                      <Route exact path={'/'} key={i}>
+                        <Timeline timeline={timeline} />
+                      </Route>
+                    ) : r.component === 'Featured Events' && EventPages ? (
+                      EventPages.map((event, index) => {
+                        return (
+                          <Route path={`/events/${cleanId(event.name)}`} key={index}>
+                            <Basic event={event} imageData={Images} />
+                          </Route>
+                        );
+                      })
+                    ) : (
+                      <Route path={`/${r.route}`} key={i}>
+                        <Basic
+                          type={r.route}
+                          {...(r.route === 'gallery' && {
+                            imageIds: imageIds,
+                            imageCaptions: imageCaptions,
+                            imageAltText: imageAltText,
+                          })}
+                        />
+                      </Route>
+                    );
+                  })}
+                {/* No Match routes */}
+                <Route path="*">
+                  <NoMatch />
+                </Route>
+              </Switch>
+            </ContentContainer>
+            <Footer />
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </LightboxProvider>
     </ThemeProvider>
   );
 };
@@ -154,13 +125,23 @@ const ContentContainer = styled.div`
 `;
 
 const ScreenReaderText = styled.span`
-  ${(props) => props.theme.srOnly};
+  ${props => props.theme.srOnly};
+`;
+
+const SkipToMainContentWrapper = styled.div`
+  background: ${props => props.theme.colors.greenBean};
+  z-index: 20;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 `;
 
 const SkipToMainContent = styled.a`
+  color: ${props => props.theme.colors.white};
+
   &:focus {
     ${ScreenReaderText} {
-      ${(props) => props.theme.notSrOnly};
+      ${props => props.theme.notSrOnly};
     }
   }
 `;

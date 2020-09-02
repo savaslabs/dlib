@@ -63,6 +63,13 @@ const Image = styled.img`
       }
   `}
 
+  ${props =>
+    props.card &&
+    `
+    width: 100%;
+    height: 120px;
+  `}
+
   /* Mobile bottom margin for basic page images */
   ${props =>
     props.inline ||

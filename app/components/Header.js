@@ -4,6 +4,7 @@ import CollectionInfo from './CollectionInfo';
 import SubMenu from './SubMenu';
 import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
+import { LightboxContext } from '../utils/lightboxContext';
 import styled, { ThemeContext } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
@@ -14,10 +15,12 @@ const header = ({ eventPages, skipRef }) => {
   const location = useLocation();
   const themeContext = useContext(ThemeContext);
   const windowSize = useWindowSize();
+  const { isLightboxOpen } = useContext(LightboxContext);
   // Whether or not mobile menu is open.
   const [mobileMenuState, setMobileMenuState] = useState(false);
   // Whether or not submenu is open.
   const [subMenuState, setSubMenuState] = useState(false);
+  const [preventScroll, setPreventScroll] = useState(false);
 
   // Ensure focus lock only is occuring on mobile screenwidths.
   useEffect(() => {
@@ -35,11 +38,15 @@ const header = ({ eventPages, skipRef }) => {
     skipRef.current.focus();
   };
 
+  useEffect(() => {
+    isLightboxOpen || mobileMenuState ? setPreventScroll(true) : setPreventScroll(false);
+  }, [isLightboxOpen, mobileMenuState]);
+
   return (
     <>
       <Helmet>
-        <html style={mobileMenuState ? 'overflow: hidden;' : null} />
-        <body style={mobileMenuState ? themeContext.noScrollBody : null} />
+        <html style={preventScroll ? 'overflow: hidden;' : null} />
+        <body style={preventScroll ? themeContext.noScrollBody : null} />
       </Helmet>
       <Header>
         <HeaderContainer>
@@ -439,7 +446,8 @@ const Menu = styled.ul`
 
   a:hover li,
   a:focus li {
-    font-weight: ${props => props.theme.fontWeight.bold};
+    text-shadow: 0 0 0.4px ${props => props.theme.colors.greenBean},
+      0 0 0.4px ${props => props.theme.colors.greenBean};
   }
 
   a li {
@@ -492,7 +500,7 @@ const SubMenuToggle = styled.li`
           mask-size: cover;
           align-items: center;
           display: inline-block;
-          position: relative;
+          position: absolute;
           width: 13px;
           height: 5px;
           background: ${props.theme.colors.greenBean};
@@ -505,20 +513,37 @@ const SubMenuToggle = styled.li`
         ? `
       &:after {
         transform: rotate(180deg);
-        left: 10px;
-        top: -2px;
+        top: 50%;
+        margin-left: 9px;
       }
     `
         : `
       &:after {
-        left: 110px;
-        top: -718px;
+        top: 30px;
+        margin-left: 100px;
       }
     `}
+
+    &:hover,
+    &:focus {
+      font-weight: ${props => props.theme.fontWeight.bold};
+    }
   }
 
-  &:hover {
-    font-weight: ${props => props.theme.fontWeight.bold};
+  @media ${props => props.theme.breakpoints.md} {
+    &:hover,
+    &:focus {
+      text-shadow: 0 0 0.4px ${props => props.theme.colors.greenBean},
+        0 0 0.4px ${props => props.theme.colors.greenBean};
+
+      a {
+        text-shadow: none;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
     cursor: pointer;
   }
 `;

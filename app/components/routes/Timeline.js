@@ -183,6 +183,7 @@ const timeline = ({ timeline }) => {
                 {yearListItems &&
                   yearListItems.map((eventsPerYear, i) => {
                     let position;
+                    let reverse;
                     let gap;
                     if (eventsPerYear.events.length < 2) {
                       position =
@@ -191,6 +192,7 @@ const timeline = ({ timeline }) => {
                           : 'sole-right';
                     } else {
                       position = 'both';
+                      reverse = eventsPerYear.events[0].scope === 'National Event' ? false : true;
                     }
 
                     // Add timeline gap if next event year more than one year in the future.
@@ -204,6 +206,7 @@ const timeline = ({ timeline }) => {
                         className={`${position}`}
                         ref={addToYearRefs}
                         position={position}
+                        reverse={reverse}
                         gap={gap}
                       >
                         {/* Element that changes fill color */}
@@ -445,7 +448,7 @@ const YearListItem = styled.li`
         }
       }
     `}
-    ${props => props.position === 'both' && `flex-direction: row-reverse;`}
+    ${props => props.position === 'both' && props.reverse && `flex-direction: row-reverse;`}
   }
 
   @media ${props => props.theme.breakpoints.lg} {

@@ -1,20 +1,20 @@
 import React, { useMemo, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
+import { LightboxContext } from '../../utils/lightboxContext';
 import { prepareCaptions, timelineDescription, pathToImages } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import Image from '../Image';
 import PropTypes from 'prop-types';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
 import { Helmet } from 'react-helmet';
 
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const location = useLocation();
-  const themeContext = useContext(ThemeContext);
+  const { isLightboxOpen, setIsLightboxOpen } = useContext(LightboxContext);
   const [photoIndex, setPhotoIndex] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   let data;
   let ogDescription;
   let ogImage;
@@ -129,8 +129,6 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         />
         <meta name="twitter:description" content={ogDescription} data-react-helmet="true" />
         <meta name="twitter:image" content={`${pathToImages}${ogImage}`} data-react-helmet="true" />
-        <html style={isLightboxOpen ? 'overflow: hidden;' : null} />
-        <body style={isLightboxOpen ? themeContext.noScrollBody : null} />
       </Helmet>
       <Content isLightboxOpen={isLightboxOpen}>
         <FloatWrapper type={type}>

@@ -12,6 +12,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "fetch-content": "node ./scripts/airtable.js",
     "start": "webpack-dev-server --open",
     "prebuild": "rm -R dist/* && cp ./_redirects ./robots.txt ./dist && mkdir ./dist/app && cp -R ./app/assets ./dist/app",
     "build": "webpack --config ./webpack.config.js --mode production",

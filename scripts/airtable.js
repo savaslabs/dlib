@@ -72,15 +72,41 @@ const airtable = async () => {
     ],
   });
 
+  // Sort chronologically and restructure timeline based on event year.
+  events = events
+    .sort((a, b) => (a.Year > b.Year ? 1 : -1))
+    .reduce((acc, currentValue) => {
+      const found = acc.find(a => a.year === currentValue.Year);
+      if (!found) {
+        // Nest events of the same year.
+        acc.push({ year: currentValue.Year, events: [currentValue] });
+      } else {
+        found.events.push(currentValue);
+      }
+      return acc;
+    }, []);
+
+  // Restructure timeline based on event scope.
+  events = events.map((d, i) => {
+    const newEvents = d.events.reduce((acc, currentValue) => {
+      const found = acc.find(a => a.scope === currentValue.Scope);
+      if (!found) {
+        // Nest events of the same scope.
+        acc.push({ scope: currentValue.Scope, events: [currentValue] });
+      } else {
+        found.events.push(currentValue);
+      }
+      return acc;
+    }, []);
+    return { ...d, events: newEvents };
+  });
+
   // create events destination folder if none exists
   const EVENTS = path.join(dest.events.path);
   if (!fs.existsSync(EVENTS)) fs.mkdirSync(EVENTS);
 
   // write events JSON
-  fs.writeFileSync(
-    path.join(dest.events.path, dest.events.file),
-    JSON.stringify(events, null, 2)
-  );
+  fs.writeFileSync(path.join(dest.events.path, dest.events.file), JSON.stringify(events, null, 2));
 
   // pull images JSON
   let images = await airtableJson({
@@ -101,7 +127,7 @@ const airtable = async () => {
   if (!fs.existsSync(IMAGES)) fs.mkdirSync(IMAGES);
 
   // prepare images JSON for downloader
-  let imagesNew = images.map((val) => {
+  let imagesNew = images.map(val => {
     let folder = path.join(IMAGES, val.ID);
     if (!fs.existsSync(folder)) fs.mkdirSync(folder);
     return [
