@@ -37,16 +37,18 @@ const card = React.forwardRef(({ event, feature, link, openLightbox, imageIds },
         {!link && external_resource_links && (
           <ExternalLinksWrapper>
             <ExternalLinksNote>For Further Reading:</ExternalLinksNote>
-            {external_resource_links.map((ext, i) => {
-              cleanJSON(ext);
-              return (
-                <li key={i}>
-                  <ExternalLink href={ext.url}>{ext.resource_title}</ExternalLink>
-                  <ScreenReaderText>on</ScreenReaderText>
-                  <LinkSource>{ext.source_shortform}</LinkSource>
-                </li>
-              );
-            })}
+            <ul>
+              {external_resource_links.map((ext, i) => {
+                cleanJSON(ext);
+                return (
+                  <li key={i}>
+                    <ExternalLink href={ext.url}>{ext.resource_title}</ExternalLink>
+                    <ScreenReaderText>on</ScreenReaderText>
+                    <LinkSource>{ext.source_shortform}</LinkSource>
+                  </li>
+                );
+              })}
+            </ul>
           </ExternalLinksWrapper>
         )}
         {link && (
