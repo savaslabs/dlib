@@ -133,6 +133,8 @@ const GalleryImage = styled(Image)`
 `;
 
 const CardImage = styled(Image)`
+  width: 100%;
+
   @media ${props => props.theme.breakpoints.md} {
     height: 131px;
   }
