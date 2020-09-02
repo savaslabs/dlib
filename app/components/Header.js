@@ -533,8 +533,8 @@ const SubMenuToggle = styled.li`
   @media ${props => props.theme.breakpoints.md} {
     &:hover,
     &:focus {
-      text-shadow: 0 0 0.4px ${props => props.theme.colors.darkGreen},
-        0 0 0.4px ${props => props.theme.colors.darkGreen};
+      text-shadow: 0 0 0.4px ${props => props.theme.colors.greenBean},
+        0 0 0.4px ${props => props.theme.colors.greenBean};
 
       a {
         text-shadow: none;
