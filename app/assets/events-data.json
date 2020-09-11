@@ -308,10 +308,10 @@
             ],
             "Year": 1927,
             "Scope": "Durham Event",
-            "Text": "Louis Austin buys _Standard Advertiser_ newspaper, changes name to _Carolina Times._ With the motto \"The Truth Unbridled,\" Austin used the _Carolina Times_ reenergize black activism in Durham.\n",
+            "Text": "Louis Austin buys _Standard Advertiser_ newspaper, changes name to _Carolina Times._ With the motto \"The Truth Unbridled,\" Austin used the _Carolina Times_ to re-energize black activism in Durham.\n",
             "Type": "Regular",
             "Links": 1,
-            "Name": "1927: Louis Austin buys Standard Advertiser newspaper, changes name to Carolina Times. With the motto \"The Truth Unbridled,\" Austin used the Carolina Times reenergize black activism in Durham.",
+            "Name": "1927: Louis Austin buys Standard Advertiser newspaper, changes name to Carolina Times. With the motto \"The Truth Unbridled,\" Austin used the Carolina Times to re-energize black activism in Durham.",
             "__id": "recAGBxfdGBbkXjCc"
           }
         ]
@@ -338,10 +338,10 @@
             ],
             "Year": 1933,
             "Scope": "Durham Event",
-            "Text": "Thomas Hocutt, with the support of the NAACP, challenges white-only admissions at University of North Carolina pharmacy school.  Because James Shepard would not release Hocutt's transcripts, the case was dismissed for lack of standing.  However, it served as a test case to challenging the \"separate but equal\" doctrine in education and laid the groundwork for _Brown v. Board of Education_.  \n",
+            "Text": "Thomas Hocutt, with the support of the NAACP, challenges white-only admissions at the University of North Carolina pharmacy school.  Because James Shepard would not release Hocutt's transcripts, the case was dismissed for lack of standing.  However, it served as a test case to challenging the \"separate but equal\" doctrine in education and laid the groundwork for _Brown v. Board of Education_.  \n",
             "Type": "Regular",
             "Links": 1,
-            "Name": "1933: Thomas Hocutt, with the support of the NAACP, challenges white-only admissions at University of North Carolina pharmacy school.  Because James Shepard would not release Hocutt's transcripts, the case was dismissed for lack of standing.  However, it served as a test case to challenging the \"separate but equal\" doctrine in education and laid the groundwork for Brown v. Board of Education.  ",
+            "Name": "1933: Thomas Hocutt, with the support of the NAACP, challenges white-only admissions at the University of North Carolina pharmacy school.  Because James Shepard would not release Hocutt's transcripts, the case was dismissed for lack of standing.  However, it served as a test case to challenging the \"separate but equal\" doctrine in education and laid the groundwork for Brown v. Board of Education.  ",
             "__id": "reckh368HGCikHN2O"
           }
         ]
@@ -377,10 +377,10 @@
             ],
             "Year": 1935,
             "Scope": "Durham Event",
-            "Text": "Durham Committee on Negro Affairs formed, beginning modern efforts for civil rights in Durham.  In its early years, the Committee focused on registering voters, running black candidates for local office for the first time in 1938, and getting blacks elected and appointed into position typically reserved for whites.\n",
+            "Text": "Durham Committee on Negro Affairs formed, beginning modern efforts for civil rights in Durham.  In its early years, the Committee focused on registering voters, running black candidates for local office for the first time in 1938, and getting blacks elected and appointed into positions typically reserved for whites.\n",
             "Type": "Regular",
             "Links": 2,
-            "Name": "1935: Durham Committee on Negro Affairs formed, beginning modern efforts for civil rights in Durham.  In its early years, the Committee focused on registering voters, running black candidates for local office for the first time in 1938, and getting blacks elected and appointed into position typically reserved for whites.",
+            "Name": "1935: Durham Committee on Negro Affairs formed, beginning modern efforts for civil rights in Durham.  In its early years, the Committee focused on registering voters, running black candidates for local office for the first time in 1938, and getting blacks elected and appointed into positions typically reserved for whites.",
             "__id": "recgmX4Saqcae815r"
           }
         ]
@@ -527,15 +527,6 @@
         "scope": "Durham Event",
         "events": [
           {
-            "Year": 1944,
-            "Scope": "Durham Event",
-            "Text": "Biracial ministers' committee formed to improve \"racial cooperation.\"\n",
-            "Type": "Regular",
-            "Links": 0,
-            "Name": "1944: Biracial ministers' committee formed to improve \"racial cooperation.\"",
-            "__id": "recJXSY5ZZsPM84Da"
-          },
-          {
             "External Resource Links": [
               {
                 "Resource Title": "JIM CROW LOSES; The Secret Game",
@@ -665,11 +656,20 @@
             ],
             "Year": 1944,
             "Scope": "Durham Event",
-            "Text": "Private Booker T. Spicely, a black GI stationed at Camp Butner is killed by white bus driver Herman Lee Council.  Council ordered Spicely to move to the back of the bus to make room for some white GIs getting on the bus.  When Spicely got off the bus after arguing with Council, Council followed him off the bus and shot him twice before continuing his route.  Council was acquitted of second degree murder by an all-white jury.\n",
+            "Text": "Private Booker T. Spicely, a black GI stationed at Camp Butner, is killed by a white bus driver Herman Lee Council.  Council ordered Spicely to move to the back of the bus to make room for some white GIs getting on the bus.  When Spicely got off the bus after arguing with Council, Council followed him off the bus and shot him twice before continuing his route.  Council was acquitted of second degree murder by an all-white jury.\n",
             "Type": "Regular",
             "Links": 1,
-            "Name": "1944: Private Booker T. Spicely, a black GI stationed at Camp Butner is killed by white bus driver Herman Lee Council.  Council ordered Spicely to move to the back of the bus to make room for some white GIs getting on the bus.  When Spicely got off the bus after arguing with Council, Council followed him off the bus and shot him twice before continuing his route.  Council was acquitted of second degree murder by an all-white jury.",
+            "Name": "1944: Private Booker T. Spicely, a black GI stationed at Camp Butner, is killed by a white bus driver Herman Lee Council.  Council ordered Spicely to move to the back of the bus to make room for some white GIs getting on the bus.  When Spicely got off the bus after arguing with Council, Council followed him off the bus and shot him twice before continuing his route.  Council was acquitted of second degree murder by an all-white jury.",
             "__id": "rec03oqYFzs41tP6d"
+          },
+          {
+            "Year": 1944,
+            "Scope": "Durham Event",
+            "Text": "Biracial ministers' committee formed to improve \"racial cooperation.\"\n",
+            "Type": "Regular",
+            "Links": 0,
+            "Name": "1944: Biracial ministers' committee formed to improve \"racial cooperation.\"",
+            "__id": "recJXSY5ZZsPM84Da"
           }
         ]
       }
@@ -698,31 +698,6 @@
     "year": 1948,
     "events": [
       {
-        "scope": "National Event",
-        "events": [
-          {
-            "External Resource Links": [
-              {
-                "Resource Title": "Executive Order 9981",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/Executive_Order_9981",
-                "Timeline Events": [
-                  "rec81eMWR3v9N1uzJ"
-                ],
-                "__id": "recrHh6XI8Slr944m"
-              }
-            ],
-            "Year": 1948,
-            "Scope": "National Event",
-            "Text": "Executive Order 9981 issued by President Harry Truman desegregated the US military.\n",
-            "Type": "Regular",
-            "Links": 1,
-            "Name": "1948: Executive Order 9981 issued by President Harry Truman desegregated the US military.",
-            "__id": "rec81eMWR3v9N1uzJ"
-          }
-        ]
-      },
-      {
         "scope": "Durham Event",
         "events": [
           {
@@ -744,6 +719,31 @@
             "Links": 1,
             "Name": "1948: Motion picture Negro Durham Marches On produced.",
             "__id": "recZDKAqfsLgupX7a"
+          }
+        ]
+      },
+      {
+        "scope": "National Event",
+        "events": [
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "Executive Order 9981",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/Executive_Order_9981",
+                "Timeline Events": [
+                  "rec81eMWR3v9N1uzJ"
+                ],
+                "__id": "recrHh6XI8Slr944m"
+              }
+            ],
+            "Year": 1948,
+            "Scope": "National Event",
+            "Text": "Executive Order 9981 issued by President Harry Truman desegregates the US military.\n",
+            "Type": "Regular",
+            "Links": 1,
+            "Name": "1948: Executive Order 9981 issued by President Harry Truman desegregates the US military.",
+            "__id": "rec81eMWR3v9N1uzJ"
           }
         ]
       }
@@ -887,26 +887,6 @@
           {
             "External Resource Links": [
               {
-                "Resource Title": "Emmett Till",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/Emmett_Till",
-                "Timeline Events": [
-                  "reciadXiTCLB6Q3Io"
-                ],
-                "__id": "recXgHOHNJ8hVacba"
-              }
-            ],
-            "Year": 1955,
-            "Scope": "National Event",
-            "Text": "14-year-old Emmett Till murdered in Mississippi for whistling at a white woman.\n",
-            "Type": "Regular",
-            "Links": 1,
-            "Name": "1955: 14-year-old Emmett Till murdered in Mississippi for whistling at a white woman.",
-            "__id": "reciadXiTCLB6Q3Io"
-          },
-          {
-            "External Resource Links": [
-              {
                 "Resource Title": "Montgomery Bus Boycott",
                 "Source (Shortform)": "Wikipedia",
                 "URL": "https://en.wikipedia.org/wiki/Montgomery_bus_boycott",
@@ -936,12 +916,32 @@
             ],
             "Year": 1955,
             "Scope": "National Event",
-            "Text": "Montgomery Bus Boycott brings Martin Luther King, Jr., to prominence.  The campaign lasted from December 5, 1955, the Monday after Rosa Parks was arrested for refusing to give up her seat to a white person, to December 20, 1956 when Browder v. Gayle went into effect.  Browder v. Gayle declared that bus segregation was unconstitutional.\n",
+            "Text": "The Montgomery Bus Boycott brings Martin Luther King, Jr., to prominence.  The campaign lasted from December 5, 1955, the Monday after Rosa Parks was arrested for refusing to give up her seat to a white person, to December 20, 1956 when Browder v. Gayle went into effect.  Browder v. Gayle declared that bus segregation was unconstitutional.\n",
             "Headline": "Montgomery Bus Boycott",
             "Type": "Feature",
             "Links": 3,
             "Name": "1955: Montgomery Bus Boycott",
             "__id": "recQKzPIv27sM960I"
+          },
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "Emmett Till",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/Emmett_Till",
+                "Timeline Events": [
+                  "reciadXiTCLB6Q3Io"
+                ],
+                "__id": "recXgHOHNJ8hVacba"
+              }
+            ],
+            "Year": 1955,
+            "Scope": "National Event",
+            "Text": "14-year-old Emmett Till murdered in Mississippi for whistling at a white woman.\n",
+            "Type": "Regular",
+            "Links": 1,
+            "Name": "1955: 14-year-old Emmett Till murdered in Mississippi for whistling at a white woman.",
+            "__id": "reciadXiTCLB6Q3Io"
           }
         ]
       }
@@ -1013,70 +1013,6 @@
     "year": 1957,
     "events": [
       {
-        "scope": "National Event",
-        "events": [
-          {
-            "External Resource Links": [
-              {
-                "Resource Title": "Little Rock Nine",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/Little_Rock_Nine",
-                "Timeline Events": [
-                  "recSscBJKE8fSDMUN"
-                ],
-                "__id": "recBsGvEiHYkvfjKQ"
-              },
-              {
-                "Resource Title": "Executive Order 10730",
-                "Source (Shortform)": "National Archives and Records Administration",
-                "URL": "https://www.archives.gov/historical-docs/todays-doc/?dod-date=923",
-                "Timeline Events": [
-                  "recSscBJKE8fSDMUN"
-                ],
-                "__id": "recmARF9hg0chlL5H"
-              }
-            ],
-            "Year": 1957,
-            "Scope": "National Event",
-            "Text": "The Little Rock Nine were a group of African-American high school students enrolled in Little Rock Central High School.  The decision to integrate the school was opposed by Arkansas Governor Orval Faubus who deployed the National Guard to prevent the Little Rock Nine from attending the segregated school.  President Eisenhower issued Executive Order 10730 which ordered U.S. Army troops and federalized the Arkansas National Guard to enforce school desegregation in Little Rock, Arkansas.\n",
-            "Headline": "National Guard called in to help the Little Rock Nine integrate Little Rock Central High School",
-            "Type": "Feature",
-            "Links": 2,
-            "Name": "1957: National Guard called in to help the Little Rock Nine integrate Little Rock Central High School",
-            "__id": "recSscBJKE8fSDMUN"
-          },
-          {
-            "External Resource Links": [
-              {
-                "Resource Title": "Southern Christian Leadership Conference",
-                "Source (Shortform)": "SCLC",
-                "URL": "https://nationalsclc.org/",
-                "Timeline Events": [
-                  "rect4Pe1jasEnhuMQ"
-                ],
-                "__id": "recBdEBH2yG2iWNOf"
-              },
-              {
-                "Resource Title": "Southern Christian Leadership Conference",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/Southern_Christian_Leadership_Conference",
-                "Timeline Events": [
-                  "rect4Pe1jasEnhuMQ"
-                ],
-                "__id": "recHkypZujg6KUbsk"
-              }
-            ],
-            "Year": 1957,
-            "Scope": "National Event",
-            "Text": "Southern Christian Leadership Conference (SCLC) founded with Martin Luther King, Jr. as president. The concepts of nonviolent mass action, affiliation with local community organization, and being a movement open to all were cornerstones of the group's strategy.\n",
-            "Type": "Regular",
-            "Links": 2,
-            "Name": "1957: Southern Christian Leadership Conference (SCLC) founded with Martin Luther King, Jr. as president. The concepts of nonviolent mass action, affiliation with local community organization, and being a movement open to all were cornerstones of the group's strategy.",
-            "__id": "rect4Pe1jasEnhuMQ"
-          }
-        ]
-      },
-      {
         "scope": "Durham Event",
         "events": [
           {
@@ -1087,71 +1023,6 @@
             "Links": 0,
             "Name": "1957: Durham Interdenominational Ministers Alliance passes a resolution for \"a community free of discrimination and segregation\"",
             "__id": "recKpenMtv56jNqX6"
-          },
-          {
-            "Year": 1957,
-            "Scope": "Durham Event",
-            "Text": "Black teachers admitted to summer institute at Duke University.\n",
-            "Type": "Regular",
-            "Links": 0,
-            "Name": "1957: Black teachers admitted to summer institute at Duke University.",
-            "__id": "recgyLd9csOgQDxUh"
-          },
-          {
-            "Year": 1957,
-            "Scope": "Durham Event",
-            "Text": "Mayor E. J. (Mutt) Evans forms Committee on Human Relations to address strained race relations.\n",
-            "Type": "Regular",
-            "Links": 0,
-            "Name": "1957: Mayor E. J. (Mutt) Evans forms Committee on Human Relations to address strained race relations.",
-            "__id": "recKtiNi1EzZ9n039"
-          },
-          {
-            "Year": 1957,
-            "Scope": "Durham Event",
-            "Text": "City tennis courts integrated.\n",
-            "Type": "Regular",
-            "Links": 0,
-            "Name": "1957: City tennis courts integrated.",
-            "__id": "recNRkslz8vfwtBpx"
-          },
-          {
-            "External Resource Links": [
-              {
-                "Resource Title": "Desegregating the Durham Athletic Park",
-                "Source (Shortform)": "Durham Civil and Human Rights Map",
-                "URL": "https://www.durhamcivilrightsmap.org/places/3-desegregating-durham-athletic-park#:~:text=The%20black%20community%20began%20protesting,were%20added%20to%20the%20roster.",
-                "Timeline Events": [
-                  "recQb8DIKskFqdCY8"
-                ],
-                "__id": "recHXuV0A2HVnGhMt"
-              },
-              {
-                "Resource Title": "Bubba Morton",
-                "Source (Shortform)": "Baseball Reference",
-                "URL": "https://www.baseball-reference.com/register/player.fcgi?id=morton001wyc",
-                "Timeline Events": [
-                  "recQb8DIKskFqdCY8"
-                ],
-                "__id": "recsV9LYYbRialhvt"
-              },
-              {
-                "Resource Title": "Ted Richardson",
-                "Source (Shortform)": "Baseball Reference",
-                "URL": "https://www.baseball-reference.com/register/player.fcgi?id=richar001the",
-                "Timeline Events": [
-                  "recQb8DIKskFqdCY8"
-                ],
-                "__id": "recclfVY7Didm4L77"
-              }
-            ],
-            "Year": 1957,
-            "Scope": "Durham Event",
-            "Text": "Durham Bulls have first black players, Bubba Morton and Ted Richardson.  Demonstrators attempt to integrate Durham Athletic Park seating on opening night by flooding the white-only entrance.  The demonstrators were denied entry through the entrance and were offered segregated seating and were eventually escorted off the premises.\n",
-            "Type": "Regular",
-            "Links": 3,
-            "Name": "1957: Durham Bulls have first black players, Bubba Morton and Ted Richardson.  Demonstrators attempt to integrate Durham Athletic Park seating on opening night by flooding the white-only entrance.  The demonstrators were denied entry through the entrance and were offered segregated seating and were eventually escorted off the premises.",
-            "__id": "recQb8DIKskFqdCY8"
           },
           {
             "External Resource Links": [
@@ -1221,11 +1092,140 @@
           {
             "Year": 1957,
             "Scope": "Durham Event",
+            "Text": "Black teachers admitted to summer institute at Duke University.\n",
+            "Type": "Regular",
+            "Links": 0,
+            "Name": "1957: Black teachers admitted to summer institute at Duke University.",
+            "__id": "recgyLd9csOgQDxUh"
+          },
+          {
+            "Year": 1957,
+            "Scope": "Durham Event",
             "Text": "Parents of Joycelyn McKissick and Elaine Richardson sue for their daughters' reassignment to Durham High School.\n",
             "Type": "Regular",
             "Links": 0,
             "Name": "1957: Parents of Joycelyn McKissick and Elaine Richardson sue for their daughters' reassignment to Durham High School.",
             "__id": "recINFlHnCY7QRDsG"
+          },
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "Desegregating the Durham Athletic Park",
+                "Source (Shortform)": "Durham Civil and Human Rights Map",
+                "URL": "https://www.durhamcivilrightsmap.org/places/3-desegregating-durham-athletic-park#:~:text=The%20black%20community%20began%20protesting,were%20added%20to%20the%20roster.",
+                "Timeline Events": [
+                  "recQb8DIKskFqdCY8"
+                ],
+                "__id": "recHXuV0A2HVnGhMt"
+              },
+              {
+                "Resource Title": "Bubba Morton",
+                "Source (Shortform)": "Baseball Reference",
+                "URL": "https://www.baseball-reference.com/register/player.fcgi?id=morton001wyc",
+                "Timeline Events": [
+                  "recQb8DIKskFqdCY8"
+                ],
+                "__id": "recsV9LYYbRialhvt"
+              },
+              {
+                "Resource Title": "Ted Richardson",
+                "Source (Shortform)": "Baseball Reference",
+                "URL": "https://www.baseball-reference.com/register/player.fcgi?id=richar001the",
+                "Timeline Events": [
+                  "recQb8DIKskFqdCY8"
+                ],
+                "__id": "recclfVY7Didm4L77"
+              }
+            ],
+            "Year": 1957,
+            "Scope": "Durham Event",
+            "Text": "Durham Bulls have first black players, Bubba Morton and Ted Richardson.  Demonstrators attempt to integrate Durham Athletic Park seating on opening night by flooding the white-only entrance.  The demonstrators were denied entry through the entrance and were offered segregated seating and were eventually escorted off the premises.\n",
+            "Type": "Regular",
+            "Links": 3,
+            "Name": "1957: Durham Bulls have first black players, Bubba Morton and Ted Richardson.  Demonstrators attempt to integrate Durham Athletic Park seating on opening night by flooding the white-only entrance.  The demonstrators were denied entry through the entrance and were offered segregated seating and were eventually escorted off the premises.",
+            "__id": "recQb8DIKskFqdCY8"
+          },
+          {
+            "Year": 1957,
+            "Scope": "Durham Event",
+            "Text": "City tennis courts integrated.\n",
+            "Type": "Regular",
+            "Links": 0,
+            "Name": "1957: City tennis courts integrated.",
+            "__id": "recNRkslz8vfwtBpx"
+          },
+          {
+            "Year": 1957,
+            "Scope": "Durham Event",
+            "Text": "Mayor E. J. (Mutt) Evans forms Committee on Human Relations to address strained race relations.\n",
+            "Type": "Regular",
+            "Links": 0,
+            "Name": "1957: Mayor E. J. (Mutt) Evans forms Committee on Human Relations to address strained race relations.",
+            "__id": "recKtiNi1EzZ9n039"
+          }
+        ]
+      },
+      {
+        "scope": "National Event",
+        "events": [
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "Little Rock Nine",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/Little_Rock_Nine",
+                "Timeline Events": [
+                  "recSscBJKE8fSDMUN"
+                ],
+                "__id": "recBsGvEiHYkvfjKQ"
+              },
+              {
+                "Resource Title": "Executive Order 10730",
+                "Source (Shortform)": "National Archives and Records Administration",
+                "URL": "https://www.archives.gov/historical-docs/todays-doc/?dod-date=923",
+                "Timeline Events": [
+                  "recSscBJKE8fSDMUN"
+                ],
+                "__id": "recmARF9hg0chlL5H"
+              }
+            ],
+            "Year": 1957,
+            "Scope": "National Event",
+            "Text": "The Little Rock Nine were a group of African-American high school students enrolled in Little Rock Central High School.  The decision to integrate the school was opposed by Arkansas Governor Orval Faubus who deployed the National Guard to prevent the Little Rock Nine from attending the segregated school.  President Eisenhower issued Executive Order 10730 which ordered U.S. Army troops and federalized the Arkansas National Guard to enforce school desegregation in Little Rock, Arkansas.\n",
+            "Headline": "National Guard called in to help the Little Rock Nine integrate Little Rock Central High School",
+            "Type": "Feature",
+            "Links": 2,
+            "Name": "1957: National Guard called in to help the Little Rock Nine integrate Little Rock Central High School",
+            "__id": "recSscBJKE8fSDMUN"
+          },
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "Southern Christian Leadership Conference",
+                "Source (Shortform)": "SCLC",
+                "URL": "https://nationalsclc.org/",
+                "Timeline Events": [
+                  "rect4Pe1jasEnhuMQ"
+                ],
+                "__id": "recBdEBH2yG2iWNOf"
+              },
+              {
+                "Resource Title": "Southern Christian Leadership Conference",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/Southern_Christian_Leadership_Conference",
+                "Timeline Events": [
+                  "rect4Pe1jasEnhuMQ"
+                ],
+                "__id": "recHkypZujg6KUbsk"
+              }
+            ],
+            "Year": 1957,
+            "Scope": "National Event",
+            "Text": "Southern Christian Leadership Conference (SCLC) founded with Martin Luther King, Jr. as president. The concepts of nonviolent mass action, affiliation with local community organization, and being a movement open to all were cornerstones of the group's strategy.\n",
+            "Type": "Regular",
+            "Links": 2,
+            "Name": "1957: Southern Christian Leadership Conference (SCLC) founded with Martin Luther King, Jr. as president. The concepts of nonviolent mass action, affiliation with local community organization, and being a movement open to all were cornerstones of the group's strategy.",
+            "__id": "rect4Pe1jasEnhuMQ"
           }
         ]
       }
@@ -1237,6 +1237,15 @@
       {
         "scope": "Durham Event",
         "events": [
+          {
+            "Year": 1958,
+            "Scope": "Durham Event",
+            "Text": "Rencher N. Harris becomes the first black man on Durham city Board of Education.\n",
+            "Type": "Regular",
+            "Links": 0,
+            "Name": "1958: Rencher N. Harris becomes the first black man on Durham city Board of Education.",
+            "__id": "recqVkSmgwx8pzBeS"
+          },
           {
             "External Resource Links": [
               {
@@ -1256,15 +1265,6 @@
             "Links": 1,
             "Name": "1958: Durham Fire Station No. 4 opens in Hayti.  It was the first Durham fire station to have an all African-American crew salaried by the city.",
             "__id": "recl0t8XXzhiU5BM8"
-          },
-          {
-            "Year": 1958,
-            "Scope": "Durham Event",
-            "Text": "Rencher N. Harris becomes first black on Durham city Board of Education.\n",
-            "Type": "Regular",
-            "Links": 0,
-            "Name": "1958: Rencher N. Harris becomes first black on Durham city Board of Education.",
-            "__id": "recqVkSmgwx8pzBeS"
           }
         ]
       }
@@ -1345,28 +1345,54 @@
     "year": 1960,
     "events": [
       {
-        "scope": "Durham Event",
+        "scope": "National Event",
         "events": [
           {
             "External Resource Links": [
               {
-                "Resource Title": "Lunch Counter Sit In at Woolworth Five & Dime",
-                "Source (Shortform)": "Durham Civil and Human Rights Map",
-                "URL": "https://www.durhamcivilrightsmap.org/places/22-lunch-counter-sit-at-woolworth-five-dime",
+                "Resource Title": "Student Nonviolent Coordinating Committee",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/Student_Nonviolent_Coordinating_Committee",
                 "Timeline Events": [
-                  "recdEhR3roZDY68uK"
+                  "reczpEfV15MNd8Py2"
                 ],
-                "__id": "rec2n6412uX6nejjE"
+                "__id": "recmEBhrGx14qt38M"
               }
             ],
             "Year": 1960,
-            "Scope": "Durham Event",
-            "Text": "Four days after the Greensboro sit-ins began, seventeen students from North Carolina College staged sit-ins at lunch counters at Woolworth, Kress, and Walgreen's.  They were accompanied by several white students from Duke University who pledged to occupy seats until the blacks were served.  The sit-ins led to the lunch counters being \"closed temporarily in the interest of public safety.”\n",
+            "Scope": "National Event",
+            "Text": "Student Nonviolent Coordinating Committee (SNCC) founded at Shaw University, Raleigh, North Carolina.\n",
             "Type": "Regular",
             "Links": 1,
-            "Name": "1960: Four days after the Greensboro sit-ins began, seventeen students from North Carolina College staged sit-ins at lunch counters at Woolworth, Kress, and Walgreen's.  They were accompanied by several white students from Duke University who pledged to occupy seats until the blacks were served.  The sit-ins led to the lunch counters being \"closed temporarily in the interest of public safety.”",
-            "__id": "recdEhR3roZDY68uK"
+            "Name": "1960: Student Nonviolent Coordinating Committee (SNCC) founded at Shaw University, Raleigh, North Carolina.",
+            "__id": "reczpEfV15MNd8Py2"
           },
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "Greensboro sit-ins",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/Greensboro_sit-ins",
+                "Timeline Events": [
+                  "recRHpMVE31RUZQMd"
+                ],
+                "__id": "recCFA7545FvOSTzp"
+              }
+            ],
+            "Year": 1960,
+            "Scope": "National Event",
+            "Text": "The Greensboro Four, students at North Carolina A&T State University conducted a sit-in at the \"whites only\" Woolworth lunch counter in Greensboro, North Carolina.  Their actions inspired a sit-in movement across the United States to desegregate Woolworth.\n",
+            "Headline": "The Greensboro Four conduct a sit-in at the \"whites only\" lunch counter at Woolworth",
+            "Type": "Feature",
+            "Links": 1,
+            "Name": "1960: The Greensboro Four conduct a sit-in at the \"whites only\" lunch counter at Woolworth",
+            "__id": "recRHpMVE31RUZQMd"
+          }
+        ]
+      },
+      {
+        "scope": "Durham Event",
+        "events": [
           {
             "External Resource Links": [
               {
@@ -1562,52 +1588,26 @@
             "Links": 0,
             "Name": "1960: Martin Luther King Jr. visits Durham and speaks at White Rock Baptist Church",
             "__id": "recgypggyFl8lnDr3"
-          }
-        ]
-      },
-      {
-        "scope": "National Event",
-        "events": [
-          {
-            "External Resource Links": [
-              {
-                "Resource Title": "Student Nonviolent Coordinating Committee",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/Student_Nonviolent_Coordinating_Committee",
-                "Timeline Events": [
-                  "reczpEfV15MNd8Py2"
-                ],
-                "__id": "recmEBhrGx14qt38M"
-              }
-            ],
-            "Year": 1960,
-            "Scope": "National Event",
-            "Text": "Student Nonviolent Coordinating Committee (SNCC) founded at Shaw University, Raleigh, North Carolina.\n",
-            "Type": "Regular",
-            "Links": 1,
-            "Name": "1960: Student Nonviolent Coordinating Committee (SNCC) founded at Shaw University, Raleigh, North Carolina.",
-            "__id": "reczpEfV15MNd8Py2"
           },
           {
             "External Resource Links": [
               {
-                "Resource Title": "Greensboro sit-ins",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/Greensboro_sit-ins",
+                "Resource Title": "Lunch Counter Sit In at Woolworth Five & Dime",
+                "Source (Shortform)": "Durham Civil and Human Rights Map",
+                "URL": "https://www.durhamcivilrightsmap.org/places/22-lunch-counter-sit-at-woolworth-five-dime",
                 "Timeline Events": [
-                  "recRHpMVE31RUZQMd"
+                  "recdEhR3roZDY68uK"
                 ],
-                "__id": "recCFA7545FvOSTzp"
+                "__id": "rec2n6412uX6nejjE"
               }
             ],
             "Year": 1960,
-            "Scope": "National Event",
-            "Text": "The Greensboro Four, students at North Carolina A&T State University conducted a sit-in at the \"whites only\" Woolworth lunch counter in Greensboro, North Carolina.  Their actions inspired a sit-in movement across the United States to desegregate Woolworth.\n",
-            "Headline": "The Greensboro Four conduct a sit-in at the \"whites only\" lunch counter at Woolworth",
-            "Type": "Feature",
+            "Scope": "Durham Event",
+            "Text": "Four days after the Greensboro sit-ins began, seventeen students from North Carolina College staged sit-ins at lunch counters at Woolworth, Kress, and Walgreen's.  They were accompanied by several white students from Duke University who pledged to occupy seats until the blacks were served.  The sit-ins led to the lunch counters being \"closed temporarily in the interest of public safety.”\n",
+            "Type": "Regular",
             "Links": 1,
-            "Name": "1960: The Greensboro Four conduct a sit-in at the \"whites only\" lunch counter at Woolworth",
-            "__id": "recRHpMVE31RUZQMd"
+            "Name": "1960: Four days after the Greensboro sit-ins began, seventeen students from North Carolina College staged sit-ins at lunch counters at Woolworth, Kress, and Walgreen's.  They were accompanied by several white students from Duke University who pledged to occupy seats until the blacks were served.  The sit-ins led to the lunch counters being \"closed temporarily in the interest of public safety.”",
+            "__id": "recdEhR3roZDY68uK"
           }
         ]
       }
@@ -1644,6 +1644,15 @@
       {
         "scope": "Durham Event",
         "events": [
+          {
+            "Year": 1961,
+            "Scope": "Durham Event",
+            "Text": "Duke University desegregates graduate and professional schools.\n",
+            "Type": "Regular",
+            "Links": 0,
+            "Name": "1961: Duke University desegregates graduate and professional schools.",
+            "__id": "recGkHhP2yvZLnMDA"
+          },
           {
             "External Resource Links": [
               {
@@ -1790,15 +1799,6 @@
             "Links": 1,
             "Name": "1961: Rolling line protests to desegregate theaters in Durham",
             "__id": "recy1qeziTf3KXpzZ"
-          },
-          {
-            "Year": 1961,
-            "Scope": "Durham Event",
-            "Text": "Duke University desegregates graduate and professional schools.\n",
-            "Type": "Regular",
-            "Links": 0,
-            "Name": "1961: Duke University desegregates graduate and professional schools.",
-            "__id": "recGkHhP2yvZLnMDA"
           }
         ]
       }
@@ -1807,40 +1807,6 @@
   {
     "year": 1962,
     "events": [
-      {
-        "scope": "National Event",
-        "events": [
-          {
-            "External Resource Links": [
-              {
-                "Resource Title": "Ole Miss Riot of 1962",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/Ole_Miss_riot_of_1962",
-                "Timeline Events": [
-                  "recPHWZyV8ChWazss"
-                ],
-                "__id": "recP5hYKRlHUYG8ae"
-              },
-              {
-                "Resource Title": "James Meredith",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/James_Meredith",
-                "Timeline Events": [
-                  "recPHWZyV8ChWazss"
-                ],
-                "__id": "recFTVFax0eJSr5Ti"
-              }
-            ],
-            "Year": 1962,
-            "Scope": "National Event",
-            "Text": "U.S. troops deployed to Oxford, Mississippi, after rioting follows James Meredith's matriculation at University of Mississippi law school.\n",
-            "Type": "Regular",
-            "Links": 2,
-            "Name": "1962: U.S. troops deployed to Oxford, Mississippi, after rioting follows James Meredith's matriculation at University of Mississippi law school.",
-            "__id": "recPHWZyV8ChWazss"
-          }
-        ]
-      },
       {
         "scope": "Durham Event",
         "events": [
@@ -1980,6 +1946,40 @@
             "__id": "recJem0878ZDwsWOd"
           }
         ]
+      },
+      {
+        "scope": "National Event",
+        "events": [
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "Ole Miss Riot of 1962",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/Ole_Miss_riot_of_1962",
+                "Timeline Events": [
+                  "recPHWZyV8ChWazss"
+                ],
+                "__id": "recP5hYKRlHUYG8ae"
+              },
+              {
+                "Resource Title": "James Meredith",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/James_Meredith",
+                "Timeline Events": [
+                  "recPHWZyV8ChWazss"
+                ],
+                "__id": "recFTVFax0eJSr5Ti"
+              }
+            ],
+            "Year": 1962,
+            "Scope": "National Event",
+            "Text": "U.S. troops deployed to Oxford, Mississippi, after rioting follows James Meredith's matriculation at University of Mississippi law school.\n",
+            "Type": "Regular",
+            "Links": 2,
+            "Name": "1962: U.S. troops deployed to Oxford, Mississippi, after rioting follows James Meredith's matriculation at University of Mississippi law school.",
+            "__id": "recPHWZyV8ChWazss"
+          }
+        ]
       }
     ]
   },
@@ -1987,17 +1987,93 @@
     "year": 1963,
     "events": [
       {
-        "scope": "Durham Event",
+        "scope": "National Event",
         "events": [
           {
+            "External Resource Links": [
+              {
+                "Resource Title": "Medgar Evers",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/Medgar_Evers",
+                "Timeline Events": [
+                  "rectwHegmfod6APP3"
+                ],
+                "__id": "rec1hb2HepJebwVeU"
+              }
+            ],
             "Year": 1963,
-            "Scope": "Durham Event",
-            "Text": "Durham movie theaters agree to integration.\n",
+            "Scope": "National Event",
+            "Text": "NAACP Mississippi field secretary Medgar Evers murdered in Jackson, Mississippi.\n",
             "Type": "Regular",
-            "Links": 0,
-            "Name": "1963: Durham movie theaters agree to integration.",
-            "__id": "recfPZRQa1xOuWkwB"
+            "Links": 1,
+            "Name": "1963: NAACP Mississippi field secretary Medgar Evers murdered in Jackson, Mississippi.",
+            "__id": "rectwHegmfod6APP3"
           },
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "Birmingham Campaign",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/Birmingham_campaign",
+                "Timeline Events": [
+                  "recIicEoVFCnJweJH"
+                ],
+                "__id": "recfktXjeSK1vraIC"
+              }
+            ],
+            "Year": 1963,
+            "Scope": "National Event",
+            "Text": "The Birmingham Movement was organized by SCLC to bring attention integration efforts in Birmingham, Alabama.  Nonviolent civil rights protesters were met with police dogs and fire hoses.  These nonviolent protests brought the fight for integration into the national spotlight. \n",
+            "Type": "Regular",
+            "Links": 1,
+            "Name": "1963: The Birmingham Movement was organized by SCLC to bring attention integration efforts in Birmingham, Alabama.  Nonviolent civil rights protesters were met with police dogs and fire hoses.  These nonviolent protests brought the fight for integration into the national spotlight. ",
+            "__id": "recIicEoVFCnJweJH"
+          },
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "16th Street Baptist Church Bombing",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/16th_Street_Baptist_Church_bombing",
+                "Timeline Events": [
+                  "recK4Sx1RB8jjBDPi"
+                ],
+                "__id": "recOV9PdvSNWzE4gM"
+              }
+            ],
+            "Year": 1963,
+            "Scope": "National Event",
+            "Text": "Four girls were killed by a bomb planted by the Ku Klux Klan at the 16th Street Baptist Church in Birmingham, Alabama.\n",
+            "Type": "Regular",
+            "Links": 1,
+            "Name": "1963: Four girls were killed by a bomb planted by the Ku Klux Klan at the 16th Street Baptist Church in Birmingham, Alabama.",
+            "__id": "recK4Sx1RB8jjBDPi"
+          },
+          {
+            "External Resource Links": [
+              {
+                "Resource Title": "March on Washington for Jobs and Freedom",
+                "Source (Shortform)": "Wikipedia",
+                "URL": "https://en.wikipedia.org/wiki/March_on_Washington_for_Jobs_and_Freedom",
+                "Timeline Events": [
+                  "reca3yoZTtt3Gpb3c"
+                ],
+                "__id": "recI5L2BStX4moE8N"
+              }
+            ],
+            "Year": 1963,
+            "Scope": "National Event",
+            "Text": "Around 250,000 people gathered in Washington, D.C. to march to advocate for civil and economic right for African-Americans.  During the march, Martin Luther King, Jr. delivered his \"I Have a Dream\" speech in front of the Lincoln Memorial.\n",
+            "Type": "Regular",
+            "Links": 1,
+            "Name": "1963: Around 250,000 people gathered in Washington, D.C. to march to advocate for civil and economic right for African-Americans.  During the march, Martin Luther King, Jr. delivered his \"I Have a Dream\" speech in front of the Lincoln Memorial.",
+            "__id": "reca3yoZTtt3Gpb3c"
+          }
+        ]
+      },
+      {
+        "scope": "Durham Event",
+        "events": [
           {
             "Images": [
               {
@@ -2070,20 +2146,20 @@
           {
             "Year": 1963,
             "Scope": "Durham Event",
-            "Text": "Most Durham hotels and restaurants integrate.\n",
+            "Text": "Durham movie theaters agree to integration.\n",
             "Type": "Regular",
             "Links": 0,
-            "Name": "1963: Most Durham hotels and restaurants integrate.",
-            "__id": "recnYaom9UlFCTRsi"
+            "Name": "1963: Durham movie theaters agree to integration.",
+            "__id": "recfPZRQa1xOuWkwB"
           },
           {
             "Year": 1963,
             "Scope": "Durham Event",
-            "Text": "Industrial Education Center integrates programs in retail distribution and marketing.\n\n",
+            "Text": "Public swimming pools and libraries integrate.\n",
             "Type": "Regular",
             "Links": 0,
-            "Name": "1963: Industrial Education Center integrates programs in retail distribution and marketing.\n",
-            "__id": "reccg57dqMiUgyr2P"
+            "Name": "1963: Public swimming pools and libraries integrate.",
+            "__id": "rec5kK3x7gyyoaUCp"
           },
           {
             "Year": 1963,
@@ -2106,20 +2182,11 @@
           {
             "Year": 1963,
             "Scope": "Durham Event",
-            "Text": "Black leaders petition Durham County schools to accept pupil reassignments.\n",
+            "Text": "Most Durham hotels and restaurants integrate.\n",
             "Type": "Regular",
             "Links": 0,
-            "Name": "1963: Black leaders petition Durham County schools to accept pupil reassignments.",
-            "__id": "rec9yoa3qhbuvPWVj"
-          },
-          {
-            "Year": 1963,
-            "Scope": "Durham Event",
-            "Text": "Duke University desegregates undergraduate schools.\n",
-            "Type": "Regular",
-            "Links": 0,
-            "Name": "1963: Duke University desegregates undergraduate schools.",
-            "__id": "recLeLk2HehrwCh1A"
+            "Name": "1963: Most Durham hotels and restaurants integrate.",
+            "__id": "recnYaom9UlFCTRsi"
           },
           {
             "Year": 1963,
@@ -2129,6 +2196,15 @@
             "Links": 0,
             "Name": "1963: Durham County Citizens Council formed to oppose integration.",
             "__id": "recPQeB1PpSRX6W8s"
+          },
+          {
+            "Year": 1963,
+            "Scope": "Durham Event",
+            "Text": "Duke University desegregates undergraduate schools.\n",
+            "Type": "Regular",
+            "Links": 0,
+            "Name": "1963: Duke University desegregates undergraduate schools.",
+            "__id": "recLeLk2HehrwCh1A"
           },
           {
             "External Resource Links": [
@@ -2194,96 +2270,20 @@
           {
             "Year": 1963,
             "Scope": "Durham Event",
-            "Text": "Public swimming pools and libraries integrate.\n",
+            "Text": "Black leaders petition Durham County schools to accept pupil reassignments.\n",
             "Type": "Regular",
             "Links": 0,
-            "Name": "1963: Public swimming pools and libraries integrate.",
-            "__id": "rec5kK3x7gyyoaUCp"
-          }
-        ]
-      },
-      {
-        "scope": "National Event",
-        "events": [
-          {
-            "External Resource Links": [
-              {
-                "Resource Title": "16th Street Baptist Church Bombing",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/16th_Street_Baptist_Church_bombing",
-                "Timeline Events": [
-                  "recK4Sx1RB8jjBDPi"
-                ],
-                "__id": "recOV9PdvSNWzE4gM"
-              }
-            ],
-            "Year": 1963,
-            "Scope": "National Event",
-            "Text": "Four girls were killed by a bomb planted by the Ku Klux Klan at the 16th Street Baptist Church in Birmingham, Alabama.\n",
-            "Type": "Regular",
-            "Links": 1,
-            "Name": "1963: Four girls were killed by a bomb planted by the Ku Klux Klan at the 16th Street Baptist Church in Birmingham, Alabama.",
-            "__id": "recK4Sx1RB8jjBDPi"
+            "Name": "1963: Black leaders petition Durham County schools to accept pupil reassignments.",
+            "__id": "rec9yoa3qhbuvPWVj"
           },
           {
-            "External Resource Links": [
-              {
-                "Resource Title": "Birmingham Campaign",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/Birmingham_campaign",
-                "Timeline Events": [
-                  "recIicEoVFCnJweJH"
-                ],
-                "__id": "recfktXjeSK1vraIC"
-              }
-            ],
             "Year": 1963,
-            "Scope": "National Event",
-            "Text": "The Birmingham Movement was organized by SCLC to bring attention integration efforts in Birmingham, Alabama.  Nonviolent civil rights protesters were met with police dogs and fire hoses.  These nonviolent protests brought the fight for integration into the national spotlight. \n",
+            "Scope": "Durham Event",
+            "Text": "Industrial Education Center integrates programs in retail distribution and marketing.\n\n",
             "Type": "Regular",
-            "Links": 1,
-            "Name": "1963: The Birmingham Movement was organized by SCLC to bring attention integration efforts in Birmingham, Alabama.  Nonviolent civil rights protesters were met with police dogs and fire hoses.  These nonviolent protests brought the fight for integration into the national spotlight. ",
-            "__id": "recIicEoVFCnJweJH"
-          },
-          {
-            "External Resource Links": [
-              {
-                "Resource Title": "March on Washington for Jobs and Freedom",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/March_on_Washington_for_Jobs_and_Freedom",
-                "Timeline Events": [
-                  "reca3yoZTtt3Gpb3c"
-                ],
-                "__id": "recI5L2BStX4moE8N"
-              }
-            ],
-            "Year": 1963,
-            "Scope": "National Event",
-            "Text": "Around 250,000 people gathered in Washington, D.C. to march to advocate for civil and economic right for African-Americans.  During the march, Martin Luther King, Jr. delivered his \"I Have a Dream\" speech in front of the Lincoln Memorial.\n",
-            "Type": "Regular",
-            "Links": 1,
-            "Name": "1963: Around 250,000 people gathered in Washington, D.C. to march to advocate for civil and economic right for African-Americans.  During the march, Martin Luther King, Jr. delivered his \"I Have a Dream\" speech in front of the Lincoln Memorial.",
-            "__id": "reca3yoZTtt3Gpb3c"
-          },
-          {
-            "External Resource Links": [
-              {
-                "Resource Title": "Medgar Evers",
-                "Source (Shortform)": "Wikipedia",
-                "URL": "https://en.wikipedia.org/wiki/Medgar_Evers",
-                "Timeline Events": [
-                  "rectwHegmfod6APP3"
-                ],
-                "__id": "rec1hb2HepJebwVeU"
-              }
-            ],
-            "Year": 1963,
-            "Scope": "National Event",
-            "Text": "NAACP Mississippi field secretary Medgar Evers murdered in Jackson, Mississippi.\n",
-            "Type": "Regular",
-            "Links": 1,
-            "Name": "1963: NAACP Mississippi field secretary Medgar Evers murdered in Jackson, Mississippi.",
-            "__id": "rectwHegmfod6APP3"
+            "Links": 0,
+            "Name": "1963: Industrial Education Center integrates programs in retail distribution and marketing.\n",
+            "__id": "reccg57dqMiUgyr2P"
           }
         ]
       }
@@ -2390,10 +2390,10 @@
             ],
             "Year": 1964,
             "Scope": "National Event",
-            "Text": "The Mississippi Summer Project also known as Freedom Summer organized a voter registration drive to register African-Americans in Mississippi to vote.\n",
+            "Text": "The Mississippi Summer Project, also known as Freedom Summer, organized a voter registration drive to register African-Americans in Mississippi to vote.\n",
             "Type": "Regular",
             "Links": 1,
-            "Name": "1964: The Mississippi Summer Project also known as Freedom Summer organized a voter registration drive to register African-Americans in Mississippi to vote.",
+            "Name": "1964: The Mississippi Summer Project, also known as Freedom Summer, organized a voter registration drive to register African-Americans in Mississippi to vote.",
             "__id": "recA384Wbwr2JiszZ"
           }
         ]
@@ -2850,10 +2850,10 @@
             ],
             "Year": 1967,
             "Scope": "National Event",
-            "Text": "The Long, Hot Summer was a series of race riots that erupted across the United States, stemming from racial inequality, poverty, and unemployment.  The largest and most deadly riots occurred in Detroit, Michigan and Newark, New Jersey.\n",
+            "Text": "\"The Long, Hot Summer\" was a series of race riots that erupted across the United States, stemming from racial inequality, poverty, and unemployment.  The largest and most deadly riots occurred in Detroit, Michigan and Newark, New Jersey.\n",
             "Type": "Regular",
             "Links": 1,
-            "Name": "1967: The Long, Hot Summer was a series of race riots that erupted across the United States, stemming from racial inequality, poverty, and unemployment.  The largest and most deadly riots occurred in Detroit, Michigan and Newark, New Jersey.",
+            "Name": "1967: \"The Long, Hot Summer\" was a series of race riots that erupted across the United States, stemming from racial inequality, poverty, and unemployment.  The largest and most deadly riots occurred in Detroit, Michigan and Newark, New Jersey.",
             "__id": "reczUrwJKhvCnm41L"
           },
           {
@@ -2980,10 +2980,10 @@
             ],
             "Year": 1967,
             "Scope": "Durham Event",
-            "Text": "Demonstrations over housing conditions turn violent; Grabarek summons National Guard to enforce order.\n",
+            "Text": "Demonstrations over housing conditions turn violent; Mayor Wense Grabarek summons National Guard to enforce order.\n",
             "Type": "Regular",
             "Links": 2,
-            "Name": "1967: Demonstrations over housing conditions turn violent; Grabarek summons National Guard to enforce order.",
+            "Name": "1967: Demonstrations over housing conditions turn violent; Mayor Wense Grabarek summons National Guard to enforce order.",
             "__id": "recTlvUAZRrjCMtal"
           },
           {
@@ -3000,10 +3000,10 @@
             ],
             "Year": 1967,
             "Scope": "Durham Event",
-            "Text": "Asa Spaulding becomes first black on Durham Board of County Commissioners.\n",
+            "Text": "Asa Spaulding becomes the first black commissioner on the Durham Board of County Commissioners.\n",
             "Type": "Regular",
             "Links": 1,
-            "Name": "1967: Asa Spaulding becomes first black on Durham Board of County Commissioners.",
+            "Name": "1967: Asa Spaulding becomes the first black commissioner on the Durham Board of County Commissioners.",
             "__id": "rec966DgdYzoSueDr"
           }
         ]
@@ -4381,10 +4381,10 @@
             ],
             "Year": 1992,
             "Scope": "National Event",
-            "Text": "Riots break in Los Angeles after four Los Angeles Police officers were acquitted for excessive violence and beating of Rodney King during his arrest.  King's arrested had been videotaped and widely televised.  The riots last 6 days and 63 people were killed.\n",
+            "Text": "Riots break in Los Angeles after four Los Angeles Police officers were acquitted for excessive violence and beating of Rodney King during his arrest.  King's arrest had been videotaped and widely televised.  The riots last 6 days and 63 people were killed.\n",
             "Type": "Regular",
             "Links": 1,
-            "Name": "1992: Riots break in Los Angeles after four Los Angeles Police officers were acquitted for excessive violence and beating of Rodney King during his arrest.  King's arrested had been videotaped and widely televised.  The riots last 6 days and 63 people were killed.",
+            "Name": "1992: Riots break in Los Angeles after four Los Angeles Police officers were acquitted for excessive violence and beating of Rodney King during his arrest.  King's arrest had been videotaped and widely televised.  The riots last 6 days and 63 people were killed.",
             "__id": "recDGVIKSjGghRW43"
           }
         ]
@@ -4441,10 +4441,10 @@
             ],
             "Year": 1998,
             "Scope": "National Event",
-            "Text": "James Byrd Jr. is murdered by white supremacists in Jasper, Texas.  The murder evoked imagery lynchings.  His killers were the first white men sentenced to death for killing a black person in the history of Texas.\n",
+            "Text": "James Byrd Jr. is murdered by white supremacists in Jasper, Texas.  The murder evoked imagery of lynchings.  His killers were the first white men sentenced to death for killing a black person in the history of Texas.\n",
             "Type": "Regular",
             "Links": 1,
-            "Name": "1998: James Byrd Jr. is murdered by white supremacists in Jasper, Texas.  The murder evoked imagery lynchings.  His killers were the first white men sentenced to death for killing a black person in the history of Texas.",
+            "Name": "1998: James Byrd Jr. is murdered by white supremacists in Jasper, Texas.  The murder evoked imagery of lynchings.  His killers were the first white men sentenced to death for killing a black person in the history of Texas.",
             "__id": "recadMfLNnmf4BYL6"
           }
         ]
@@ -4581,10 +4581,10 @@
             ],
             "Year": 2014,
             "Scope": "National Event",
-            "Text": "Michael Brown,a n unarmed 18-year-old, is fatally shot by white police officer Darren Wilson in Ferguson, Missouri.  The incident led to unrest in Ferguson and the creation of the protest slogan \"Hands up, don't shoot\" typically chanted at protests against police violence.  Darren Wilson was later not indicted by a Grand Jury, leading to further protests.\n",
+            "Text": "Michael Brown, a black unarmed 18-year-old, is fatally shot by white police officer Darren Wilson in Ferguson, Missouri.  The incident led to unrest in Ferguson and the creation of the protest slogan \"Hands up, don't shoot\" typically chanted at protests against police violence.  Darren Wilson was later not indicted by a Grand Jury, leading to further protests.\n",
             "Type": "Regular",
             "Links": 2,
-            "Name": "2014: Michael Brown,a n unarmed 18-year-old, is fatally shot by white police officer Darren Wilson in Ferguson, Missouri.  The incident led to unrest in Ferguson and the creation of the protest slogan \"Hands up, don't shoot\" typically chanted at protests against police violence.  Darren Wilson was later not indicted by a Grand Jury, leading to further protests.",
+            "Name": "2014: Michael Brown, a black unarmed 18-year-old, is fatally shot by white police officer Darren Wilson in Ferguson, Missouri.  The incident led to unrest in Ferguson and the creation of the protest slogan \"Hands up, don't shoot\" typically chanted at protests against police violence.  Darren Wilson was later not indicted by a Grand Jury, leading to further protests.",
             "__id": "recaYtUreWOhaf06m"
           }
         ]
@@ -4917,6 +4917,18 @@
             "Links": 0,
             "Name": "2020: Durham Protest Murals",
             "__id": "recXFoHg0VWYxRIRs"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "events": [
+      {
+        "events": [
+          {
+            "Links": 0,
+            "__id": "recV1DU8sWSKV44T0"
           }
         ]
       }
