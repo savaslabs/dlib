@@ -75,7 +75,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     ogImageAlt = imageAltText[0];
   }
 
-  // Mimick infinite scroll with gallery images.
+  // Mimic infinite scroll with gallery images.
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop !==

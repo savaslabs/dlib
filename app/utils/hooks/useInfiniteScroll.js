@@ -18,7 +18,7 @@ function useInfiniteScroll(data, type) {
     showMoreListItems();
   }, [isFetching]);
 
-  // Mimick infinite scroll.
+  // Mimic infinite scroll.
   const showMoreListItems = () => {
     let start;
     let end;
