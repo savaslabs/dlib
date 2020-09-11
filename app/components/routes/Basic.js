@@ -17,7 +17,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   const location = useLocation();
   const { isLightboxOpen, setIsLightboxOpen } = useContext(LightboxContext);
   const [photoIndex, setPhotoIndex] = useState(0);
-  const { listItems, setIsFetching } = useInfiniteScroll(imageIds, 'images');
+  const { listItems, setIsFetching } = type === 'gallery' && useInfiniteScroll(imageIds, 'images');
   let data;
   let ogDescription;
   let ogImage;
@@ -75,7 +75,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     ogImageAlt = imageAltText[0];
   }
 
-  // Handle back to top button visibility and display of years on scroll.
+  // Mimick infinite scroll with gallery images.
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop !==
@@ -86,11 +86,13 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    if (type === 'gallery') {
+      window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
   }, []);
 
   const openLightbox = e => {
