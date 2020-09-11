@@ -1,5 +1,6 @@
-import React, { useMemo, useState, useContext } from 'react';
+import React, { useMemo, useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
+import useInfiniteScroll from '../../utils/hooks/useInfiniteScroll';
 import { LightboxContext } from '../../utils/lightboxContext';
 import { prepareCaptions, timelineDescription, pathToImages } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
@@ -9,12 +10,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
+import LazyLoad from 'react-lazy-load';
 import { Helmet } from 'react-helmet';
 
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const location = useLocation();
   const { isLightboxOpen, setIsLightboxOpen } = useContext(LightboxContext);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const { listItems, setIsFetching } = useInfiniteScroll(imageIds, 'images');
   let data;
   let ogDescription;
   let ogImage;
@@ -71,6 +74,24 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
     ogImage = `${imageIds[0]}/large.jpg`;
     ogImageAlt = imageAltText[0];
   }
+
+  // Handle back to top button visibility and display of years on scroll.
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    ) {
+      setIsFetching(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const openLightbox = e => {
     const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
@@ -194,17 +215,18 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
               useMemo(() => {
                 return (
                   <GalleryGrid>
-                    {imageIds &&
-                      imageIds.map((id, i) => {
+                    {listItems &&
+                      listItems.map((id, i) => {
                         return (
-                          <Image
-                            gallery
-                            src={`${pathToImages}${id}/large.jpg`}
-                            alt={imageAltText[i]}
-                            key={i}
-                            dataPhotoIndex={i}
-                            openLightbox={openLightbox}
-                          />
+                          <LazyLoad once={true} key={i}>
+                            <Image
+                              gallery
+                              src={`${pathToImages}${id}/large.jpg`}
+                              alt={imageAltText[i]}
+                              dataPhotoIndex={i}
+                              openLightbox={openLightbox}
+                            />
+                          </LazyLoad>
                         );
                       })}
                   </GalleryGrid>

@@ -5,6 +5,7 @@ import TimelineKey from '../TimelineKey';
 import Year from '../Year';
 import Card from '../Card';
 import BackToTop from '../BackToTop';
+import useInfiniteScroll from '../../utils/hooks/useInfiniteScroll';
 import useWindowSize from '../../utils/hooks/useWindowSize';
 import Lightbox from '../Lightbox';
 import styled from 'styled-components';
@@ -22,20 +23,12 @@ const timeline = ({ timeline }) => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const windowSize = useWindowSize();
+  const { listItems, setIsFetching } = useInfiniteScroll(timeline, 'years');
   const [linePos, setLinePos] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [yearListItems, setYearListItems] = useState([]);
-  const [showing, setShowing] = useState(0);
-  const [isFetching, setIsFetching] = useState(false);
   const yearRefs = useRef([]);
   const lineRef = useRef(null);
   yearRefs.current = [];
-
-  useEffect(() => {
-    // Only display 5 years on page load.
-    setYearListItems(Array.from(timeline.slice(0, 5)));
-    setShowing(5);
-  }, [timeline]);
 
   useEffect(() => {
     // Year and card animation.
@@ -50,40 +43,12 @@ const timeline = ({ timeline }) => {
         },
       });
     });
-  }, [yearListItems]);
+  }, [listItems]);
 
-  useEffect(() => {
-    if (!isFetching) return;
-    showMoreListItems();
-  }, [isFetching]);
 
   const addToYearRefs = el => {
     if (el && !yearRefs.current.includes(el)) {
       yearRefs.current.push(el);
-    }
-  };
-
-  // Mimick infinite scroll with timeline years.
-  const showMoreListItems = () => {
-    let start;
-    let end;
-
-    if (showing === timeline.length) {
-      return;
-    } else {
-      if (timeline.length - showing < 5) {
-        start = showing;
-        end = showing + (timeline.length - showing);
-      } else {
-        start = showing;
-        end = showing + 5;
-      }
-
-      setTimeout(() => {
-        setYearListItems(prevState => [...prevState, ...Array.from(timeline.slice(start, end))]);
-        setShowing(end);
-        setIsFetching(false);
-      }, 1000);
     }
   };
 
@@ -176,12 +141,12 @@ const timeline = ({ timeline }) => {
         <BackToTop onClick={scrollTop} showBackToTop={showBackToTop} />
         <TimelineKey />
         <TimelineWrapper>
-          {yearListItems && (
+          {listItems && (
             <>
               <Line linePos={linePos} />
               <Timeline ref={lineRef} aria-labelledby="civil_rights_timeline">
-                {yearListItems &&
-                  yearListItems.map((eventsPerYear, i) => {
+                {listItems &&
+                  listItems.map((eventsPerYear, i) => {
                     let position;
                     let reverse;
                     let gap;
