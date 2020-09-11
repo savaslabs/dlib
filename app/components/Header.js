@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import CollectionInfo from './CollectionInfo';
 import SubMenu from './SubMenu';
+import Footer from './Footer';
 import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import { LightboxContext } from '../utils/lightboxContext';
@@ -105,15 +106,7 @@ const header = ({ eventPages, skipRef }) => {
                     );
                   })}
                 </Menu>
-                <SiteNameWrapper state={mobileMenuState}>
-                  <SiteName>
-                    The Durham
-                    <br />
-                    Civil Rights
-                    <br />
-                    Heritage Project
-                  </SiteName>
-                </SiteNameWrapper>
+                <Footer menu={true} mobileMenuState={mobileMenuState} />
               </NavContainer>
             </Nav>
           </FocusLock>
@@ -180,14 +173,6 @@ const SiteInfo = styled.div`
       left: 70px;
     }
   }
-`;
-
-const SiteNameWrapper = styled.div`
-  ${props => !props.state && `display: none;`}
-  width: 100%;
-  height: 140px;
-  background: ${props => props.theme.colors.greenBean};
-  margin-top: auto;
 `;
 
 const SiteName = styled.p`

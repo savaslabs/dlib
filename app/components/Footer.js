@@ -4,33 +4,40 @@ import { libraryInfo, lastUpdated } from '../utils/constants';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const footer = () => {
+const footer = ({ menu, mobileMenuState })=> {
+  console.log(menu);
   return (
-    <Footer id="footer">
-      <FooterContainer>
+    <Footer id="footer" menu={menu} mobileMenuState={mobileMenuState}>
+      <FooterContainer menu={menu}>
         <SiteName to={`/`}>The Durham Civil Rights Heritage Project</SiteName>
         <CollectionInfo footer />
-        <AddressInfo>
-          {libraryInfo.map((info, idx) => {
-            return info.hasOwnProperty('url') ? (
-              <a key={idx} href={info.url}>
-                {info.text}{' '}
-              </a>
-            ) : (
-              <p key={idx}>{info}</p>
-            );
-          })}
-        </AddressInfo>
-        <Updated>{lastUpdated}</Updated>
+        {!menu && (
+          <>
+            <AddressInfo>
+              {libraryInfo.map((info, idx) => {
+                return info.hasOwnProperty('url') ? (
+                  <a key={idx} href={info.url}>
+                    {info.text}{' '}
+                  </a>
+                ) : (
+                  <p key={idx}>{info}</p>
+                );
+              })}
+            </AddressInfo>
+            <Updated>{lastUpdated}</Updated>
+          </>
+        )}
       </FooterContainer>
     </Footer>
   );
 };
 
 const Footer = styled.footer`
+  ${props => props.menu && !props.mobileMenuState && `display: none;`}
+  ${props => props.menu && `margin-top: auto;`}
+  height: ${props => (props.menu ? '140px' : 'fit-content')};
   color: ${props => props.theme.colors.white};
   background-color: ${props => props.theme.colors.greenBean};
-  height: fit-content;
   position: relative;
   width: 100vw;
   z-index: 50;
@@ -42,7 +49,7 @@ const FooterContainer = styled.div`
   flex-direction: column;
   ${props => props.theme.smContainer};
   padding-top: 33px;
-  padding-bottom: 50px;
+  ${props => !props.menu && `padding-bottom: 50px`};
 
   @media ${props => props.theme.breakpoints.md} {
     ${props => props.theme.mdContainer};
