@@ -20,8 +20,8 @@ const subMenu = ({
             <NavLink
               to={`/events/${cleanId(page.name)}`}
               key={i}
-              onClick={closeMenus}
-              onKeyDown={e => e.which === 13 && closeMenus(e)}
+              onClick={e => closeMenus(e, 'click')}
+              onKeyDown={e => e.key === 'Enter' && closeMenus(e, 'keyboard')}
             >
               <li>{cleanMenuNames(page)}</li>
             </NavLink>
@@ -59,7 +59,7 @@ const SubMenu = styled.ul`
     li {
       font-size: ${props => props.theme.fontSize.xs};
       font-weight: ${props => props.theme.fontWeight.regular};
-      padding: 20px 0;
+      padding: 20px 0 !important;
       margin: 0 18px;
       border-bottom: 0.5px solid;
 

@@ -32,10 +32,10 @@ const header = ({ eventPages, skipRef }) => {
   };
 
   // If submenu nav links are clicked, close menus.
-  const closeMenus = e => {
+  const closeMenus = (e, type) => {
     setMobileMenuState(false);
     setSubMenuState(false);
-    skipRef.current.focus();
+    if (type === 'keyboard') skipRef.current.focus();
   };
 
   useEffect(() => {
@@ -97,8 +97,8 @@ const header = ({ eventPages, skipRef }) => {
                       <NavLink
                         to={route.route === 'timeline' ? `/` : `/${route.route}`}
                         key={index}
-                        onClick={closeMenus}
-                        onKeyDown={e => e.which === 13 && closeMenus}
+                        onClick={e => closeMenus(e, 'click')}
+                        onKeyDown={e => e.key === 'Enter' && closeMenus(e, 'keyboard')}
                       >
                         <li>{route.component}</li>
                       </NavLink>
@@ -451,14 +451,26 @@ const Menu = styled.ul`
   }
 
   a li {
-    padding: 20px 0 17px 0;
+    padding: 29px 0 29px 0;
+
+    @media ${props => props.theme.breakpoints.md} {
+      padding: 20px 0 17px 0;
+    }
   }
 
   a + li {
     padding-top: 20px;
 
     @media ${props => props.theme.breakpoints.smMax} {
-      ${props => !props.subMenu && `padding-bottom: 17px;`}
+      padding-top: 29px;
+      ${props => !props.subMenu && `padding-bottom: 29px;`}
+    }
+  }
+
+  a:last-child li {
+    @media ${props => props.theme.breakpoints.smMax} {
+      /* stylelint-disable-next-line declaration-property-value-blacklist */
+      border-bottom: none;
     }
   }
 
@@ -519,7 +531,7 @@ const SubMenuToggle = styled.li`
     `
         : `
       &:after {
-        top: 30px;
+        top: 40px;
         margin-left: 100px;
       }
     `}
