@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import useInfiniteScroll from '../../utils/hooks/useInfiniteScroll';
 import { LightboxContext } from '../../utils/lightboxContext';
-import { prepareCaptions, timelineDescription, pathToImages } from '../../utils/constants';
+import { prepareCaptions, timelineDescription, pathToImages, imageOG, imageAltOG } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import Image from '../Image';
@@ -61,13 +61,13 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   } else if (type === 'about') {
     data = AboutPage;
     ogDescription = timelineDescription;
-    ogImage = 'ogImage.svg';
-    ogImageAlt = 'placeholder';
+    ogImage = imageOG;
+    ogImageAlt = imageAltOG;
   } else if (type === 'oral_histories') {
     data = OralHistoriesPage;
     ogDescription = data.body[0].text;
-    ogImage = 'ogImage.svg';
-    ogImageAlt = 'placeholder';
+    ogImage = imageOG;
+    ogImageAlt = imageAltOG;
   } else if (type === 'gallery') {
     data = { name: 'Photo Gallery' };
     ogDescription = timelineDescription;

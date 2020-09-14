@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { cleanId, cleanJSON, timelineDescription, pathToImages } from '../../utils/constants';
+import {
+  cleanId,
+  cleanJSON,
+  timelineDescription,
+  pathToImages,
+  imageOG,
+  imageAltOG,
+} from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
 import Year from '../Year';
@@ -112,11 +119,11 @@ const timeline = ({ timeline }) => {
         <link
           rel="logo"
           type="image/svg"
-          href={`${pathToImages}ogImage.svg`}
+          href={`${pathToImages}${imageOG}`}
           data-react-helmet="true"
         />
-        <meta property="og:image" content={`${pathToImages}ogImage.svg`} data-react-helmet="true" />
-        <meta property="og:image:alt" content="Placeholder" />
+        <meta property="og:image" content={`${pathToImages}${imageOG}`} data-react-helmet="true" />
+        <meta property="og:image:alt" content={imageAltOG} />
         <meta property="og:description" content={timelineDescription} data-react-helmet="true" />
         <meta name="description" content={timelineDescription} data-react-helmet="true" />
         <meta
@@ -130,11 +137,7 @@ const timeline = ({ timeline }) => {
           data-react-helmet="true"
         />
         <meta name="twitter:description" content={timelineDescription} data-react-helmet="true" />
-        <meta
-          name="twitter:image"
-          content={`${pathToImages}ogImage.svg`}
-          data-react-helmet="true"
-        />
+        <meta name="twitter:image" content={`${pathToImages}${imageOG}`} data-react-helmet="true" />
       </Helmet>
       <main>
         <H1 id="civil_rights_timeline">Civil Rights Timeline</H1>

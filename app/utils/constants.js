@@ -50,6 +50,8 @@ export const timelineScopes = [
 
 export const siteURL = "https://dlib.netlify.app";
 export const pathToImages = `${siteURL}/app/assets/images/`;
+export const imageOG = 'ogImage.png';
+export const imageAltOG = 'Image collage with green circle and white stars element and The Durham Civil Rights Heritage Project as overlay';
 export const timelineDescription = `The Durham Civil Rights Heritage Project (DCRHP) was founded to document the history of the Civil Rights Movement in Durham, North Carolina. The project began in 2003 and participants from numerous local heritage and professional organizations contributed. Photographs and oral histories were collected from local citizens. In 2020, the online exhibit was updated to reflect the continuing history of civil rights in Durham.`;
 
 export const libraryInfo = [
