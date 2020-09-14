@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const footer = ({ menu, mobileMenuState })=> {
-  console.log(menu);
   return (
     <Footer id="footer" menu={menu} mobileMenuState={mobileMenuState}>
       <FooterContainer menu={menu}>

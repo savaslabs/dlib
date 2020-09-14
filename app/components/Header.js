@@ -10,7 +10,7 @@ import styled, { ThemeContext } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
 import PropTypes from 'prop-types';
-import { siteURL } from '../utils/constants';
+import { siteURL, pathToImages } from '../utils/constants';
 
 const header = ({ eventPages, skipRef }) => {
   const location = useLocation();
@@ -132,7 +132,15 @@ const HeaderContainer = styled.div`
 `;
 
 const Top = styled.div`
-  background: ${props => props.theme.colors.paleGreen};
+  background-image: url(${pathToImages}header-hero@1x.png);
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+
+  /* Retina-specific image, Safari */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url(${pathToImages}header-hero@2x.png);
+  }
 `;
 
 const SiteInfo = styled.div`
