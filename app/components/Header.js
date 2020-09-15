@@ -408,9 +408,12 @@ const Menu = styled.ul`
         width: calc(100vw - 36px);
         display: flex;
         padding-top: 40px;
+        position: relative;
+        overflow: hidden;
         flex-direction: column;
         justify-content: start;
         align-items: center;
+        padding-bottom: 420px;
 
         a {
           width: 100%;
