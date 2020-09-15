@@ -38,8 +38,7 @@ const footer = ({ menu, mobileMenuState })=> {
 const Footer = styled.footer`
   ${props => props.menu && !props.mobileMenuState && `display: none;`}
   ${props => props.menu && `margin-top: auto;`}
-  height: ${props =>
-    props.menu ? '140px' : 'fit-content'};
+  height: fit-content;
   color: ${props => props.theme.colors.white};
   background-color: ${props => props.theme.colors.greenBean};
   position: relative;
