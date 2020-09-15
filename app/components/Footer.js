@@ -1,8 +1,9 @@
 import React from 'react';
 import CollectionInfo from './CollectionInfo';
-import { libraryInfo, lastUpdated } from '../utils/constants';
+import { libraryInfo, lastUpdated, siteAttribution } from '../utils/constants';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Markdown from 'react-markdown';
 
 const footer = ({ menu, mobileMenuState })=> {
   return (
@@ -23,7 +24,10 @@ const footer = ({ menu, mobileMenuState })=> {
                 );
               })}
             </AddressInfo>
-            <Updated>{lastUpdated}</Updated>
+            <AdditionalInfo>
+              <p>{lastUpdated}</p>
+              <SiteAttribution source={siteAttribution}>{siteAttribution}</SiteAttribution>
+            </AdditionalInfo>
           </>
         )}
       </FooterContainer>
@@ -34,7 +38,8 @@ const footer = ({ menu, mobileMenuState })=> {
 const Footer = styled.footer`
   ${props => props.menu && !props.mobileMenuState && `display: none;`}
   ${props => props.menu && `margin-top: auto;`}
-  height: ${props => (props.menu ? '140px' : 'fit-content')};
+  height: ${props =>
+    props.menu ? '140px' : 'fit-content'};
   color: ${props => props.theme.colors.white};
   background-color: ${props => props.theme.colors.greenBean};
   position: relative;
@@ -102,16 +107,33 @@ const AddressInfo = styled.div`
   }
 `;
 
-const Updated = styled.div`
+const AdditionalInfo = styled.div`
   padding-top: 30px;
+  display: flex;
+  flex-direction: column;
 
   @media ${props => props.theme.breakpoints.md} {
     padding-top: 26px;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   @media ${props => props.theme.breakpoints.lg} {
     padding-top: 72px;
   }
 `;
+
+const SiteAttribution = styled(Markdown)`
+  @media ${props => props.theme.breakpoints.smMax} {
+    padding-top: 30px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+`;
+
+
 
 export default footer;

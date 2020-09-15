@@ -62,3 +62,5 @@ export const libraryInfo = [
 ];
 
 export const lastUpdated = 'Last Updated September 1, 2020';
+export const siteAttribution =
+  'Site designed and built in Durham,&nbsp;NC by [Savas Labs.](https://www.savaslabs.com/)';
