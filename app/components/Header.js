@@ -183,7 +183,7 @@ const SiteInfo = styled.div`
   }
 `;
 
-const SiteName = styled(NavLink)`
+const SiteName = styled.p`
   position: relative;
   color: ${props => props.theme.colors.greenBean};
   font-weight: ${props => props.theme.fontWeight.black};
