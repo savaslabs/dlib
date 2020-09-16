@@ -407,13 +407,10 @@ const Menu = styled.ul`
       `
         width: calc(100vw - 36px);
         display: flex;
-        padding-top: 40px;
-        position: relative;
-        overflow: hidden;
+        margin-top: 40px;
         flex-direction: column;
         justify-content: start;
         align-items: center;
-        padding-bottom: 420px;
 
         a {
           width: 100%;
@@ -447,26 +444,14 @@ const Menu = styled.ul`
   }
 
   a li {
-    padding: 29px 0 29px 0;
-
-    @media ${props => props.theme.breakpoints.md} {
-      padding: 20px 0 17px 0;
-    }
+    padding: 20px 0 17px 0;
   }
 
   a + li {
     padding-top: 20px;
 
     @media ${props => props.theme.breakpoints.smMax} {
-      padding-top: 29px;
-      ${props => !props.subMenu && `padding-bottom: 29px;`}
-    }
-  }
-
-  a:last-child li {
-    @media ${props => props.theme.breakpoints.smMax} {
-      /* stylelint-disable-next-line declaration-property-value-blacklist */
-      border-bottom: none;
+      ${props => !props.subMenu && `padding-bottom: 17px;`}
     }
   }
 
@@ -527,7 +512,7 @@ const SubMenuToggle = styled.li`
     `
         : `
       &:after {
-        top: 40px;
+        top: 30px;
         margin-left: 100px;
       }
     `}
