@@ -455,6 +455,13 @@ const Menu = styled.ul`
     }
   }
 
+  a:last-child li {
+    @media ${props => props.theme.breakpoints.smMax} {
+      /* stylelint-disable-next-line declaration-property-value-blacklist */
+      border-bottom: none;
+    }
+  }
+
   li {
     color: ${props => props.theme.colors.greenBean};
     line-height: ${props => props.theme.lineHeight.tight};
