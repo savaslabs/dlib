@@ -132,14 +132,14 @@ const HeaderContainer = styled.div`
 `;
 
 const Top = styled.div`
-  background-image: url(${pathToImages}header-hero@1x.png);
+  background: ${props => props.theme.colors.cloudySkies} url(${pathToImages}header-hero@1x.png);
   background-size: auto 100%;
   background-position: center;
   background-repeat: repeat-x;
 
   /* Retina-specific image, Safari */
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    background-image: url(${pathToImages}header-hero@2x.png);
+    background: ${props => props.theme.colors.cloudySkies} url (${pathToImages}header-hero @2x.png);
   }
 `;
 
