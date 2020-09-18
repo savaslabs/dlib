@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import CollectionInfo from './CollectionInfo';
 import SubMenu from './SubMenu';
+import Footer from './Footer';
 import { routes, timelineDescription } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import { LightboxContext } from '../utils/lightboxContext';
@@ -9,7 +10,7 @@ import styled, { ThemeContext } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
 import PropTypes from 'prop-types';
-import { siteURL } from '../utils/constants';
+import { siteURL, pathToImages } from '../utils/constants';
 
 const header = ({ eventPages, skipRef }) => {
   const location = useLocation();
@@ -32,10 +33,10 @@ const header = ({ eventPages, skipRef }) => {
   };
 
   // If submenu nav links are clicked, close menus.
-  const closeMenus = e => {
+  const closeMenus = (e, type) => {
     setMobileMenuState(false);
     setSubMenuState(false);
-    skipRef.current.focus();
+    if (type === 'keyboard') skipRef.current.focus();
   };
 
   useEffect(() => {
@@ -97,23 +98,15 @@ const header = ({ eventPages, skipRef }) => {
                       <NavLink
                         to={route.route === 'timeline' ? `/` : `/${route.route}`}
                         key={index}
-                        onClick={closeMenus}
-                        onKeyDown={e => e.which === 13 && closeMenus}
+                        onClick={e => closeMenus(e, 'click')}
+                        onKeyDown={e => e.key === 'Enter' && closeMenus(e, 'keyboard')}
                       >
                         <li>{route.component}</li>
                       </NavLink>
                     );
                   })}
                 </Menu>
-                <SiteNameWrapper state={mobileMenuState}>
-                  <SiteName>
-                    The Durham
-                    <br />
-                    Civil Rights
-                    <br />
-                    Heritage Project
-                  </SiteName>
-                </SiteNameWrapper>
+                <Footer menu={true} mobileMenuState={mobileMenuState} />
               </NavContainer>
             </Nav>
           </FocusLock>
@@ -139,7 +132,15 @@ const HeaderContainer = styled.div`
 `;
 
 const Top = styled.div`
-  background: ${props => props.theme.colors.paleGreen};
+  background-image: url(${pathToImages}header-hero@1x.png);
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+
+  /* Retina-specific image, Safari */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url(${pathToImages}header-hero@2x.png);
+  }
 `;
 
 const SiteInfo = styled.div`
@@ -180,14 +181,6 @@ const SiteInfo = styled.div`
       left: 70px;
     }
   }
-`;
-
-const SiteNameWrapper = styled.div`
-  ${props => !props.state && `display: none;`}
-  width: 100%;
-  height: 140px;
-  background: ${props => props.theme.colors.greenBean};
-  margin-top: auto;
 `;
 
 const SiteName = styled.p`
@@ -414,7 +407,7 @@ const Menu = styled.ul`
       `
         width: calc(100vw - 36px);
         display: flex;
-        padding-top: 40px;
+        margin-top: 40px;
         flex-direction: column;
         justify-content: start;
         align-items: center;
@@ -459,6 +452,13 @@ const Menu = styled.ul`
 
     @media ${props => props.theme.breakpoints.smMax} {
       ${props => !props.subMenu && `padding-bottom: 17px;`}
+    }
+  }
+
+  a:last-child li {
+    @media ${props => props.theme.breakpoints.smMax} {
+      /* stylelint-disable-next-line declaration-property-value-blacklist */
+      border-bottom: none;
     }
   }
 

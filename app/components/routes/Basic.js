@@ -1,7 +1,8 @@
-import React, { useMemo, useState, useContext } from 'react';
+import React, { useMemo, useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
+import useInfiniteScroll from '../../utils/hooks/useInfiniteScroll';
 import { LightboxContext } from '../../utils/lightboxContext';
-import { prepareCaptions, timelineDescription, pathToImages } from '../../utils/constants';
+import { prepareCaptions, timelineDescription, pathToImages, imageOG, imageAltOG } from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import Image from '../Image';
@@ -9,12 +10,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
+import LazyLoad from 'react-lazy-load';
 import { Helmet } from 'react-helmet';
 
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const location = useLocation();
   const { isLightboxOpen, setIsLightboxOpen } = useContext(LightboxContext);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const { listItems, setIsFetching } = type === 'gallery' && useInfiniteScroll(imageIds, 'images');
   let data;
   let ogDescription;
   let ogImage;
@@ -58,19 +61,39 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
   } else if (type === 'about') {
     data = AboutPage;
     ogDescription = timelineDescription;
-    ogImage = 'ogImage.svg';
-    ogImageAlt = 'placeholder';
+    ogImage = imageOG;
+    ogImageAlt = imageAltOG;
   } else if (type === 'oral_histories') {
     data = OralHistoriesPage;
     ogDescription = data.body[0].text;
-    ogImage = 'ogImage.svg';
-    ogImageAlt = 'placeholder';
+    ogImage = imageOG;
+    ogImageAlt = imageAltOG;
   } else if (type === 'gallery') {
     data = { name: 'Photo Gallery' };
     ogDescription = timelineDescription;
     ogImage = `${imageIds[0]}/large.jpg`;
     ogImageAlt = imageAltText[0];
   }
+
+  // Mimic infinite scroll with gallery images.
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    ) {
+      setIsFetching(true);
+    }
+  };
+
+  useEffect(() => {
+    if (type === 'gallery') {
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, []);
 
   const openLightbox = e => {
     const photoIndex = parseInt(e.target.getAttribute('data-photoindex'), 10);
@@ -194,17 +217,18 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
               useMemo(() => {
                 return (
                   <GalleryGrid>
-                    {imageIds &&
-                      imageIds.map((id, i) => {
+                    {listItems &&
+                      listItems.map((id, i) => {
                         return (
-                          <Image
-                            gallery
-                            src={`${pathToImages}${id}/large.jpg`}
-                            alt={imageAltText[i]}
-                            key={i}
-                            dataPhotoIndex={i}
-                            openLightbox={openLightbox}
-                          />
+                          <LazyLoad once={true} key={i}>
+                            <Image
+                              gallery
+                              src={`${pathToImages}${id}/large.jpg`}
+                              alt={imageAltText[i]}
+                              dataPhotoIndex={i}
+                              openLightbox={openLightbox}
+                            />
+                          </LazyLoad>
                         );
                       })}
                   </GalleryGrid>

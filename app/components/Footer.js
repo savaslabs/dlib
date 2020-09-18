@@ -1,36 +1,46 @@
 import React from 'react';
 import CollectionInfo from './CollectionInfo';
-import { libraryInfo, lastUpdated } from '../utils/constants';
+import { libraryInfo, lastUpdated, siteAttribution } from '../utils/constants';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Markdown from 'react-markdown';
 
-const footer = () => {
+const footer = ({ menu, mobileMenuState })=> {
   return (
-    <Footer id="footer">
-      <FooterContainer>
+    <Footer id="footer" menu={menu} mobileMenuState={mobileMenuState}>
+      <FooterContainer menu={menu}>
         <SiteName to={`/`}>The Durham Civil Rights Heritage Project</SiteName>
         <CollectionInfo footer />
-        <AddressInfo>
-          {libraryInfo.map((info, idx) => {
-            return info.hasOwnProperty('url') ? (
-              <a key={idx} href={info.url}>
-                {info.text}{' '}
-              </a>
-            ) : (
-              <p key={idx}>{info}</p>
-            );
-          })}
-        </AddressInfo>
-        <Updated>{lastUpdated}</Updated>
+        {!menu && (
+          <>
+            <AddressInfo>
+              {libraryInfo.map((info, idx) => {
+                return info.hasOwnProperty('url') ? (
+                  <a key={idx} href={info.url}>
+                    {info.text}{' '}
+                  </a>
+                ) : (
+                  <p key={idx}>{info}</p>
+                );
+              })}
+            </AddressInfo>
+            <AdditionalInfo>
+              <p>{lastUpdated}</p>
+              <SiteAttribution source={siteAttribution}>{siteAttribution}</SiteAttribution>
+            </AdditionalInfo>
+          </>
+        )}
       </FooterContainer>
     </Footer>
   );
 };
 
 const Footer = styled.footer`
+  ${props => props.menu && !props.mobileMenuState && `display: none;`}
+  ${props => props.menu && `margin-top: auto;`}
+  height: fit-content;
   color: ${props => props.theme.colors.white};
   background-color: ${props => props.theme.colors.greenBean};
-  height: fit-content;
   position: relative;
   width: 100vw;
   z-index: 50;
@@ -42,7 +52,7 @@ const FooterContainer = styled.div`
   flex-direction: column;
   ${props => props.theme.smContainer};
   padding-top: 33px;
-  padding-bottom: 50px;
+  ${props => !props.menu && `padding-bottom: 50px`};
 
   @media ${props => props.theme.breakpoints.md} {
     ${props => props.theme.mdContainer};
@@ -96,16 +106,33 @@ const AddressInfo = styled.div`
   }
 `;
 
-const Updated = styled.div`
+const AdditionalInfo = styled.div`
   padding-top: 30px;
+  display: flex;
+  flex-direction: column;
 
   @media ${props => props.theme.breakpoints.md} {
     padding-top: 26px;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   @media ${props => props.theme.breakpoints.lg} {
     padding-top: 72px;
   }
 `;
+
+const SiteAttribution = styled(Markdown)`
+  @media ${props => props.theme.breakpoints.smMax} {
+    padding-top: 30px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+`;
+
+
 
 export default footer;

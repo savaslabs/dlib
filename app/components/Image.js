@@ -1,5 +1,4 @@
 import React from 'react';
-import LazyLoad from 'react-lazy-load';
 import styled from 'styled-components';
 
 const image = ({
@@ -29,9 +28,7 @@ const image = ({
     <SideImage sideline={sideline} {...sharedAttributes} />
   ) : gallery ? (
     // Photo gallery.
-    <LazyLoad>
-      <GalleryImage gallery={gallery} {...sharedAttributes} />
-    </LazyLoad>
+    <GalleryImage gallery={gallery} {...sharedAttributes} />
   ) : card ? (
     // Timeline.
     <CardImage
@@ -70,6 +67,8 @@ const Image = styled.img`
     height: 120px;
   `}
 
+  ${props => props.sideline && `width: 100%;`}
+
   /* Mobile bottom margin for basic page images */
   ${props =>
     props.inline ||
@@ -97,6 +96,8 @@ const InlineImage = styled(Image)`
 `;
 
 const SideImage = styled(Image)`
+  width: 100%;
+
   @media ${props => props.theme.breakpoints.md} {
     width: 230px;
     height: 230px;

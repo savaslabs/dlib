@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import '@babel/polyfill';
 import { routes, cleanId, prepareCaptions } from './utils/constants';
 import { Switch, Route } from 'react-router-dom';
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-27917794-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 // Components.
 import TopOfPage from './components/TopOfPage';
