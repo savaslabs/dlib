@@ -6,14 +6,14 @@ import App from './App';
 const rootElement = document.getElementById('app');
 if (rootElement.hasChildNodes()) {
   hydrate(
-    <BrowserRouter>
+    <BrowserRouter basename={'/exhibits/dcrhp'}>
       <App />
     </BrowserRouter>,
     rootElement
   );
 } else {
   render(
-    <BrowserRouter>
+    <BrowserRouter basename={'/exhibits/dcrhp'}>
       <App />
     </BrowserRouter>,
     rootElement
