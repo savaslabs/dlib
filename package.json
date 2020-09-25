@@ -16,7 +16,7 @@
     "start": "webpack-dev-server --open",
     "prebuild": "rm -R dist/* && cp favicon.ico ./_redirects ./robots.txt ./dist && mkdir ./dist/app && cp -R ./app/assets ./dist/app",
     "build": "webpack --config ./webpack.config.js --mode production",
-    "postbuild": "react-snap"
+    "postbuild": "react-snap && cp -R ./dist/exhibits/dcrhp/* ./dist && rm -R ./dist/exhibits"
   },
   "reactSnap": {
     "source": "./dist"
