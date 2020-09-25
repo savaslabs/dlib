@@ -292,7 +292,7 @@ const H1 = styled.h1`
 const TimelineWrapper = styled.div`
   ${props => props.theme.containerFullWidth};
   padding-top: 80px;
-  background: url('../app/assets/images/timeline-pattern.png') 102px 102px repeat;
+  background: url(${pathToImages}timeline-pattern.png) 102px 102px repeat;
 `;
 
 const Timeline = styled.ol`
@@ -358,7 +358,7 @@ const YearListItem = styled.li`
 
     &:after {
       content: '';
-      background: url('../app/assets/images/timeline-gap-mask.png');
+      background: url(${pathToImages}timeline-gap-mask.png);
       background-size: contain;
       position: absolute;
       bottom: 30px;

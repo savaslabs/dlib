@@ -15,8 +15,8 @@ module.exports = (env, arg) => {
     entry: path.resolve(__dirname, 'app/index.js'),
     output: {
       path: path.resolve(__dirname, 'dist'),
-      chunkFilename: 'js/[name].bundle.js',
-      filename: 'js/[name].js',
+      chunkFilename: 'exhibits/dcrhp/js/[name].bundle.js',
+      filename: 'exhibits/dcrhp/js/[name].js',
       publicPath: '/',
     },
     optimization: {
@@ -99,7 +99,7 @@ module.exports = (env, arg) => {
         template: 'app/index.html',
       }),
       new MiniCssExtractPlugin({
-        filename: 'index.css',
+        filename: 'exhibits/dcrhp/index.css',
         path: path.resolve(__dirname, 'dist'),
       }),
       new webpack.NoEmitOnErrorsPlugin(),

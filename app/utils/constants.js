@@ -48,7 +48,7 @@ export const timelineScopes = [
   { title: 'Durham Events', scope: 'durham' },
 ];
 
-export const siteURL = "http://www.durhamcountylibrary.org/exhibits/dcrhp";
+export const siteURL = "/exhibits/dcrhp";
 export const pathToImages = `${siteURL}/app/assets/images/`;
 export const imageOG = 'ogImage.png';
 export const imageAltOG = 'Image collage with green circle and white stars element and The Durham Civil Rights Heritage Project as overlay';
