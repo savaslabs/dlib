@@ -71,9 +71,11 @@ const timeline = ({ timeline }) => {
       document.documentElement.offsetHeight
     ) {
       setIsFetching(true);
-    } else if (!showBackToTop && window.pageYOffset > 700) {
+    }
+
+    if (window.pageYOffset > 700) {
       setShowBackToTop(true);
-    } else if (showBackToTop && window.pageYOffset <= 700) {
+    } else if (window.pageYOffset <= 700) {
       setShowBackToTop(false);
     }
   };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { siteURL } from '../utils/constants';
 import styled, { keyframes } from 'styled-components';
 
 const backToTop = ({ showBackToTop, onClick }) => {
@@ -52,7 +53,7 @@ const BackToTop = styled.button`
 
   &:before {
     content: '';
-    mask: url('/app/assets/icons/arrow.svg') no-repeat 50% 50%;
+    mask: url(${siteURL}/app/assets/icons/arrow.svg) no-repeat 50% 50%;
     mask-size: cover;
     width: 20px;
     height: 20px;
