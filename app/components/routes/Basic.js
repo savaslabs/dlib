@@ -2,7 +2,14 @@ import React, { useMemo, useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import useInfiniteScroll from '../../utils/hooks/useInfiniteScroll';
 import { LightboxContext } from '../../utils/lightboxContext';
-import { prepareCaptions, timelineDescription, pathToImages, imageOG, imageAltOG } from '../../utils/constants';
+import {
+  prepareCaptions,
+  timelineDescription,
+  pathToImages,
+  imageOG,
+  imageAltOG,
+  siteURL,
+} from '../../utils/constants';
 import AboutPage from '../../assets/pages/about.json';
 import OralHistoriesPage from '../../assets/pages/oral-histories.json';
 import Image from '../Image';
@@ -135,14 +142,18 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         <link
           rel="logo"
           type="image/svg"
-          content={`${pathToImages}${ogImage}`}
+          content={`http://www.durhamcountylibrary.org${pathToImages}${ogImage}`}
           data-react-helmet="true"
         />
-        <meta property="og:image" content={`${pathToImages}${ogImage}`} data-react-helmet="true" />
+        <meta
+          property="og:image"
+          content={`http://www.durhamcountylibrary.org${pathToImages}${ogImage}`}
+          data-react-helmet="true"
+        />
         <meta property="og:image:alt" content={ogImageAlt} />
         <meta
           property="twitter:url"
-          content={`https://dlib.netlify.app${location.pathname}`}
+          content={`http://www.durhamcountylibrary.org${siteURL}/${location.pathname}`}
           data-react-helmet="true"
         />
         <meta
@@ -151,7 +162,11 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
           data-react-helmet="true"
         />
         <meta name="twitter:description" content={ogDescription} data-react-helmet="true" />
-        <meta name="twitter:image" content={`${pathToImages}${ogImage}`} data-react-helmet="true" />
+        <meta
+          name="twitter:image"
+          content={`http://www.durhamcountylibrary.org/${pathToImages}${ogImage}`}
+          data-react-helmet="true"
+        />
       </Helmet>
       <Content isLightboxOpen={isLightboxOpen}>
         <FloatWrapper type={type}>
