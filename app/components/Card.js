@@ -1,10 +1,9 @@
 import React from 'react';
-import { cleanJSON, pathToImages } from '../utils/constants';
+import { cleanJSON, pathToImages, siteURL } from '../utils/constants';
 import Image from './Image';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Markdown from 'react-markdown';
-import arrow from '../assets/icons/arrow.svg';
 
 const card = React.forwardRef(({ event, feature, link, openLightbox, imageIds }, ref) => {
   const { scope, headline, text, images, external_resource_links } = event;
@@ -272,7 +271,7 @@ const Arrow = styled.div`
 
   &:after {
     content: '';
-    mask: url(${arrow}) no-repeat 50% 50%;
+    mask: url(${siteURL}/app/assets/icons/arrow.svg) no-repeat 50% 50%;
     mask-size: cover;
     position: absolute;
     transform: rotate(90deg) translateY(-50%);
