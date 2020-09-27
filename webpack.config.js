@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = (env, arg) => {
   const isProduction = arg.mode === 'production' ? true : false;
@@ -15,8 +16,8 @@ module.exports = (env, arg) => {
     entry: path.resolve(__dirname, 'app/index.js'),
     output: {
       path: path.resolve(__dirname, 'dist'),
-      chunkFilename: 'js/[name].bundle.js',
-      filename: 'js/[name].js',
+      chunkFilename: 'js/[name].[contenthash].bundle.js',
+      filename: 'js/[name].[contenthash].js',
       publicPath: '/',
     },
     optimization: {
