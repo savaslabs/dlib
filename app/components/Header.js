@@ -3,14 +3,13 @@ import { NavLink, useLocation } from 'react-router-dom';
 import CollectionInfo from './CollectionInfo';
 import SubMenu from './SubMenu';
 import Footer from './Footer';
-import { routes, timelineDescription } from '../utils/constants';
+import { routes, timelineDescription, siteURL, pathToImages } from '../utils/constants';
 import useWindowSize from '../utils/hooks/useWindowSize';
 import { LightboxContext } from '../utils/lightboxContext';
 import styled, { ThemeContext } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import FocusLock from 'react-focus-lock';
 import PropTypes from 'prop-types';
-import { siteURL, pathToImages } from '../utils/constants';
 
 const header = ({ eventPages, skipRef }) => {
   const location = useLocation();
@@ -140,7 +139,7 @@ const Top = styled.div`
 
   /* Retina-specific image, Safari */
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    background: ${props => props.theme.colors.cloudySkies} url (${pathToImages}header-hero @2x.png);
+    background: ${props => props.theme.colors.cloudySkies} url (${pathToImages}header-hero@2x.png);
   }
 `;
 
