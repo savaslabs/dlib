@@ -17,14 +17,15 @@ const subMenu = ({
       {eventPages &&
         eventPages.map((page, i) => {
           return (
-            <NavLink
-              to={`/events/${cleanId(page.name)}`}
-              key={i}
-              onClick={e => closeMenus(e, 'click')}
-              onKeyDown={e => e.key === 'Enter' && closeMenus(e, 'keyboard')}
-            >
-              <li>{cleanMenuNames(page)}</li>
-            </NavLink>
+            <SubmenuItem key={i}>
+              <NavLink
+                to={`/events/${cleanId(page.name)}`}
+                onClick={e => closeMenus(e, 'click')}
+                onKeyDown={e => e.key === 'Enter' && closeMenus(e, 'keyboard')}
+              >
+                {cleanMenuNames(page)}
+              </NavLink>
+            </SubmenuItem>
           );
         })}
     </SubMenu>
@@ -54,44 +55,47 @@ const SubMenu = styled.ul`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
+`;
+
+const SubmenuItem = styled.li`
+  font-size: ${props => props.theme.fontSize.xs};
+  font-weight: ${props => props.theme.fontWeight.regular};
+  padding: 20px 0;
+  margin: 0 18px;
+  border-bottom: 0.5px solid ${props => props.theme.colors.white};
+
+  @media ${props => props.theme.breakpoints.md} {
+    border-bottom-color: ${props => props.theme.colors.greenBean};
+  }
 
   a {
-    li {
-      font-size: ${props => props.theme.fontSize.xs};
-      font-weight: ${props => props.theme.fontWeight.regular};
-      padding: 20px 0 !important;
-      margin: 0 18px;
-      border-bottom: 0.5px solid;
-
-      @media ${props => props.theme.breakpoints.smMax} {
-        color: ${props => props.theme.colors.white};
-      }
+    @media ${props => props.theme.breakpoints.smMax} {
+      color: ${props => props.theme.colors.white} !important;
     }
+  }
 
-    &:hover li,
-    &:focus li {
-      font-weight: ${props => props.theme.fontWeight.bold};
+  &:hover a,
+  &:focus a {
+    font-weight: ${props => props.theme.fontWeight.bold};
 
-      @media ${props => props.theme.breakpoints.md} {
-        font-weight: ${props => props.theme.fontWeight.semiBold};
-      }
+    @media ${props => props.theme.breakpoints.md} {
+      font-weight: ${props => props.theme.fontWeight.semiBold};
     }
+  }
 
-    &:last-child li {
-      @media ${props => props.theme.breakpoints.mdMax} {
-        /* stylelint-disable-next-line declaration-property-value-blacklist */
-        border-bottom: none;
-      }
-    }
+  &:last-child {
+    /* stylelint-disable-next-line declaration-property-value-blacklist */
+    border-bottom: none;
+  }
 
-    &:last-child li,
-    &:nth-last-child(2) li {
-      @media ${props => props.theme.breakpoints.lg} {
-        /* stylelint-disable-next-line declaration-property-value-blacklist */
-        border-bottom: none;
-      }
+  &:last-child,
+  &:nth-last-child(2) {
+    @media ${props => props.theme.breakpoints.lg} {
+      /* stylelint-disable-next-line declaration-property-value-blacklist */
+      border-bottom: none;
     }
   }
 `;
+
 
 export default subMenu;
