@@ -95,14 +95,15 @@ const header = ({ eventPages, skipRef }) => {
                         />
                       </SubMenuToggle>
                     ) : (
-                      <NavLink
-                        to={route.route === 'timeline' ? `/` : `/${route.route}`}
-                        key={index}
-                        onClick={e => closeMenus(e, 'click')}
-                        onKeyDown={e => e.key === 'Enter' && closeMenus(e, 'keyboard')}
-                      >
-                        <li>{route.component}</li>
-                      </NavLink>
+                      <MenuItem key={index}>
+                        <NavLink
+                          to={route.route === 'timeline' ? `/` : `/${route.route}`}
+                          onClick={e => closeMenus(e, 'click')}
+                          onKeyDown={e => e.key === 'Enter' && closeMenus(e, 'keyboard')}
+                        >
+                          {route.component}
+                        </NavLink>
+                      </MenuItem>
                     );
                   })}
                 </Menu>
@@ -392,102 +393,51 @@ const ScreenReaderText = styled.span`
   ${props => props.theme.srOnly};
 `;
 
-const Menu = styled.ul`
-  display: ${props => (props.state ? 'flex' : 'none')};
-  justify-content: flex-end;
-  flex-direction: column;
-  z-index: 100;
-  font-family: ${props => props.theme.fontFamily.muli};
-  background: ${props => props.theme.colors.white};
-  ${props => props.theme.smContainer};
+const MenuItem = styled.li`
+  color: ${props => props.theme.colors.greenBean};
+  line-height: ${props => props.theme.lineHeight.tight};
+  font-size: ${props => props.theme.fontSize.lg};
 
   @media ${props => props.theme.breakpoints.smMax} {
-    ${props =>
-      props.state &&
-      `
-        width: calc(100vw - 36px);
-        display: flex;
-        margin-top: 40px;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-
-        a {
-          width: 100%;
-          text-align: center;
-        }
-    `}
-  }
-
-  @media ${props => props.theme.breakpoints.md} {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: ${props => props.theme.colors.bgGray};
-    ${props => props.theme.mdContainer};
-  }
-
-  @media ${props => props.theme.breakpoints.lg} {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: ${props => props.theme.colors.bgGray};
-    ${props => props.theme.lgContainer};
-  }
-
-  a:hover li,
-  a:focus li {
-    text-shadow: 0 0 0.4px ${props => props.theme.colors.greenBean},
-      0 0 0.4px ${props => props.theme.colors.greenBean};
-  }
-
-  a li {
+    border-bottom: 1px solid ${props => props.theme.colors.greenBean};
     padding: 20px 0 17px 0;
-  }
+    width: 100%;
+    text-align: center;
 
-  a + li {
-    padding-top: 20px;
-
-    @media ${props => props.theme.breakpoints.smMax} {
-      ${props => !props.subMenu && `padding-bottom: 17px;`}
-    }
-  }
-
-  a:last-child li {
-    @media ${props => props.theme.breakpoints.smMax} {
+    &:last-child {
       /* stylelint-disable-next-line declaration-property-value-blacklist */
       border-bottom: none;
     }
   }
 
-  li {
-    color: ${props => props.theme.colors.greenBean};
-    line-height: ${props => props.theme.lineHeight.tight};
+  @media ${props => props.theme.breakpoints.md} {
+    font-size: ${props => props.theme.fontSize.xs};
+    font-weight: ${props => props.theme.fontWeight.semiBold};
+    letter-spacing: 0.02em;
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
     font-size: ${props => props.theme.fontSize.lg};
+    padding: 20px 0;
+  }
 
-    @media ${props => props.theme.breakpoints.smMax} {
-      border-bottom: 1px solid ${props => props.theme.colors.greenBean};
-    }
+  a {
+    color: ${props => props.theme.colors.greenBean};
 
-    @media ${props => props.theme.breakpoints.md} {
-      font-size: ${props => props.theme.fontSize.xs};
-      font-weight: ${props => props.theme.fontWeight.semiBold};
-      letter-spacing: 0.02em;
-    }
-
-    @media ${props => props.theme.breakpoints.lg} {
-      font-size: ${props => props.theme.fontSize.lg};
-      padding: 20px 0;
+    &:hover,
+    &:focus {
+      text-shadow: 0 0 0.4px ${props => props.theme.colors.greenBean},
+        0 0 0.4px ${props => props.theme.colors.greenBean};
     }
   }
 `;
 
-const SubMenuToggle = styled.li`
+const SubMenuToggle = styled(MenuItem)`
   position: relative;
+  padding-top: 20px;
 
   @media ${props => props.theme.breakpoints.smMax} {
+    ${props => !props.subMenu && `padding-bottom: 17px;`}
     ${props =>
       props.state &&
       `
@@ -545,6 +495,47 @@ const SubMenuToggle = styled.li`
   &:hover,
   &:focus {
     cursor: pointer;
+  }
+`;
+
+const Menu = styled.ul`
+  display: ${props => (props.state ? 'flex' : 'none')};
+  justify-content: flex-end;
+  flex-direction: column;
+  z-index: 100;
+  font-family: ${props => props.theme.fontFamily.muli};
+  background: ${props => props.theme.colors.white};
+  ${props => props.theme.smContainer};
+
+  @media ${props => props.theme.breakpoints.smMax} {
+    ${props =>
+      props.state &&
+      `
+        width: calc(100vw - 36px);
+        display: flex;
+        margin-top: 40px;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    `}
+  }
+
+  @media ${props => props.theme.breakpoints.md} {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: ${props => props.theme.colors.bgGray};
+    ${props => props.theme.mdContainer};
+  }
+
+  @media ${props => props.theme.breakpoints.lg} {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: ${props => props.theme.colors.bgGray};
+    ${props => props.theme.lgContainer};
   }
 `;
 
