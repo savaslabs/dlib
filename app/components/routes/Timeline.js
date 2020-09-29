@@ -135,7 +135,7 @@ const timeline = ({ timeline }) => {
         <meta name="description" content={timelineDescription} data-react-helmet="true" />
         <meta
           property="twitter:url"
-          content={`http://www.durhamcountylibrary.org${siteURL}/${location.pathname}`}
+          content={`http://www.durhamcountylibrary.org${siteURL}`}
           data-react-helmet="true"
         />
         <meta
@@ -146,7 +146,7 @@ const timeline = ({ timeline }) => {
         <meta name="twitter:description" content={timelineDescription} data-react-helmet="true" />
         <meta
           name="twitter:image"
-          content={`http://www.durhamcountylibrary.org/${pathToImages}${imageOG}`}
+          content={`http://www.durhamcountylibrary.org${pathToImages}${imageOG}`}
           data-react-helmet="true"
         />
       </Helmet>

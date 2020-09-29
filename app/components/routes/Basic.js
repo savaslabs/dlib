@@ -153,7 +153,7 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
         <meta property="og:image:alt" content={ogImageAlt} />
         <meta
           property="twitter:url"
-          content={`http://www.durhamcountylibrary.org${siteURL}/${location.pathname}`}
+          content={`http://www.durhamcountylibrary.org${siteURL}${location.pathname}`}
           data-react-helmet="true"
         />
         <meta
