@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fetch-content": "node ./scripts/airtable.js",
     "start": "webpack-dev-server --open",
-    "prebuild": "rm -R dist/* && cp favicon.ico ./_redirects ./robots.txt ./dist && mkdir ./dist/app && cp -R ./app/assets ./dist/app",
+    "prebuild": "rm -R dist/* && cp favicon.ico ./_redirects ./robots.txt ./dist && mkdir ./dist/app && cp -R ./app/assets ./dist/app && mkdir ./dist/interviews && cp -R ./interviews ./dist/interviews",
     "build": "webpack --config ./webpack.config.js --mode production",
     "postbuild": "react-snap && cp -R ./dist/exhibits/dcrhp/* ./dist && rm -R ./dist/exhibits"
   },
