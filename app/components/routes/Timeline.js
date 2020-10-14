@@ -6,7 +6,8 @@ import {
   pathToImages,
   imageOG,
   imageAltOG,
-  siteURL
+  siteURL,
+  prepareCaptions
 } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import TimelineKey from '../TimelineKey';
@@ -212,7 +213,7 @@ const timeline = ({ timeline }) => {
                                 event.images &&
                                   event.images.forEach(image => {
                                     timelineImageIds.push(image.ID);
-                                    timelineImageCaptions.push(image.caption);
+                                    timelineImageCaptions.push(prepareCaptions(image));
                                   });
                                 return (
                                   <li key={ind} className="event">

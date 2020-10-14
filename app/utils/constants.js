@@ -32,7 +32,7 @@ export const cleanMenuNames = page => {
 
 // Helper function to structure photo gallery and event page image captions.
 export const prepareCaptions = item => {
-  return `${item.caption} ${item.attribution}. ${item.citation}.`;
+  return `${item.caption} ${item.attribution}. ${item.citation}. Photo ID: ${item.ID}`;
 };
 
 export const routes = [
