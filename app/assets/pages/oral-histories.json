@@ -1,27 +1,311 @@
 {
   "name": "Oral Histories",
   "body": [
-    { "text": "Oral histories of Durham residents were collected to document their experiences related to local civil rights history. PDFs of the transcripts of those histories are available for download here."
+    {
+      "text": "Oral histories of Durham residents were collected to document their experiences related to local civil rights history. PDFs of the transcripts of those histories are available for download here."
     },
     {
-      "ul": [
-        "[Naomi Goldston](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptgoldston.pdf)",
-        "[Kristin Herzog](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptherzog.pdf)",
-        "[Luther M. Holman](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptholman.pdf)",
-        "[Peter Klopfer](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptklopfer.pdf)",
-        "[Charles Leslie](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptleslie.pdf)",
-        "[Oren Marsh](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptmarsh.pdf)",
-        "[Beulah Mason](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptmason.pdf)",
-        "[Faye Bryant Mayo](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptmayo.pdf)",
-        "[Evelyn McKissick](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptmckissick.pdf)",
-        "[Phyllis Nuchurch](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptnuchurch.pdf)",
-        "[Milo Pyne](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptpyne.pdf)",
-        "[Jane T. Ryan](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptryan.pdf)",
-        "[Annie C. Smith](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptsmith.pdf)",
-        "[Jennifer Smith-Wyatt](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptsmith-wyatt.pdf)",
-        "[Nathan L. Thomas](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptthomas.pdf)",
-        "[Virginia Williams](http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptwilliams.pdf)"
-      ]
+      "oralHistory": {
+        "title": "Howard Fuller",
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/fuller_1A.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/fuller_1B.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/fuller_2A.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Naomi Goldston",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptgoldston.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/goldston.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Kristin Herzog",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptherzog.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/herzog.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Luther M. Holman",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptholman.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/holman.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Peter Klopfer",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptklopfer.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/klopfer_1A.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/klopfer_1B.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Charles Leslie",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptleslie.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/leslie.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Oren Marsh",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptmarsh.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/marsh.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/music_oren_marsh_jr.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Beulah Mason",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptmason.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/mason.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Faye Bryant Mayo",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptmayo.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/mayo_1A.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/mayo_1B.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Evelyn McKissick and Charmain McKissick-Melton",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptmckissick.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/mackissick.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Phyllis Nuchurch",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptnuchurch.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/nuchurch.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Milo Pyne",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptpyne.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Royal Ice Cream Sit-down Strike Panel Discussion",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptroyalicecream.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/royal_1A.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/royal_1B.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/royal_2A.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Jane T. Ryan",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptryan.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/ryan.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Annie C. Smith",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptsmith.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/smith.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Jennifer Smith-Wyatt",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptsmith-wyatt.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/smith-wyatt.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Ben Speller",
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/speller_1A.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/speller_1b.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/speller_2A.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/speller_2B.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Nathan L. Thomas",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptthomas.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/thomas_1A.mp3"
+          },
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/thomas_1B.mp3"
+          }
+        ]
+      }
+    },
+    {
+      "oralHistory": {
+        "title": "Virginia Williams",
+        "transcript": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/interviewtranscriptwilliams.pdf"
+          }
+        ],
+        "audio": [
+          {
+            "src": "http://www.durhamcountylibrary.org/exhibits/dcrhp/interviews/williams.mp3"
+          }
+        ]
+      }
     }
   ]
 }
