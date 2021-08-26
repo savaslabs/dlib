@@ -12,6 +12,7 @@ import Lightbox from '../Lightbox';
 import Markdown from 'react-markdown';
 import LazyLoad from 'react-lazy-load';
 import { Helmet } from 'react-helmet';
+import OralHistory from '../OralHistory';
 
 const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }) => {
   const location = useLocation();
@@ -191,6 +192,16 @@ const basic = ({ event, type, imageData, imageIds, imageAltText, imageCaptions }
                         );
                       })}
                     </Ul>
+                  );
+                  // Oral History
+                } else if (item.hasOwnProperty('oralHistory')) {
+                  return (
+                    <OralHistory
+                      key={i}
+                      title={item.oralHistory.title}
+                      transcript={item.oralHistory.transcript}
+                      audio={item.oralHistory.audio}
+                    />
                   );
                   // Inline image with caption.
                 } else if (item.hasOwnProperty('image')) {
