@@ -57,7 +57,7 @@ export const timelineDescription = `The Durham Civil Rights Heritage Project (DC
 export const libraryInfo = [
   '300 N. Roxboro Street',
   'Durham, North Carolina 27701',
-  '919.506.0171',
+  '919.560.0171',
   { url: 'mailto:ncc@dconc.gov', text: 'Email the North Carolina Collection' },
 ];
 

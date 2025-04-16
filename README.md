@@ -2,7 +2,7 @@
 
 ## Local Development
 
-1. You'll need node v13.5.0. Use NVM to use this version.
+1. You'll need node v13.7.0. Use NVM to use this version.
 1. Install theme dependencies: `yarn`
 1. Run `yarn add airtable-json --dev --ignore-engines`
 1. Run `yarn add image-downloader --dev --ignore-engines`
