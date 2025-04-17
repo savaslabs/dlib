@@ -60,17 +60,16 @@ const SubMenu = styled.ul`
 const SubmenuItem = styled.li`
   font-size: ${props => props.theme.fontSize.xs};
   font-weight: ${props => props.theme.fontWeight.regular};
-  padding: 20px 0;
   margin: 0 18px;
   border-bottom: 0.5px solid ${props => props.theme.colors.white};
-  cursor: default;
 
   @media ${props => props.theme.breakpoints.md} {
     border-bottom-color: ${props => props.theme.colors.greenBean};
   }
 
   a {
-    cursor: pointer;
+    display: block;
+    padding: 20px 0;
     
     @media ${props => props.theme.breakpoints.smMax} {
       color: ${props => props.theme.colors.white} !important;
