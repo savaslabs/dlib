@@ -60,7 +60,6 @@ const SubMenu = styled.ul`
 const SubmenuItem = styled.li`
   font-size: ${props => props.theme.fontSize.xs};
   font-weight: ${props => props.theme.fontWeight.regular};
-  padding: 20px 0;
   margin: 0 18px;
   border-bottom: 0.5px solid ${props => props.theme.colors.white};
 
@@ -69,17 +68,20 @@ const SubmenuItem = styled.li`
   }
 
   a {
+    display: block;
+    padding: 20px 0;
+    
     @media ${props => props.theme.breakpoints.smMax} {
       color: ${props => props.theme.colors.white} !important;
     }
-  }
+    
+    &:hover,
+    &:focus {
+      font-weight: ${props => props.theme.fontWeight.bold};
 
-  &:hover a,
-  &:focus a {
-    font-weight: ${props => props.theme.fontWeight.bold};
-
-    @media ${props => props.theme.breakpoints.md} {
-      font-weight: ${props => props.theme.fontWeight.semiBold};
+      @media ${props => props.theme.breakpoints.md} {
+        font-weight: ${props => props.theme.fontWeight.semiBold};
+      }
     }
   }
 
